@@ -2,27 +2,47 @@
 
 Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
+## Kühlschrank
+
+
+### Tür
+
 - Eier
+
 - Tomatenmark
+- Senf, mittelscharf
+- Bamboo Garden Rote Curry Paste
+- Bamboo Garden Gelbe Curry Paste
+
+- Ketchup (Hein Zero)
+- Sojasauce
+- Tabasco Red Pepper Sauce
 - Limettensaft
 - Zitronensaft
-- Sojasauce
-- Ketchup (Hein Zero)
-- Senf, mittelscharf
-- Tabasco Red Pepper Sauce
+
 - Coke Zero
+
+### Hauptfach
+
 - Cherry Romatomaten
 - Räuchertofu 175 g (nur als ganze Packung verwenden)
 - Joghurt 1,5% (nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
+
+### Gemüsefach
+
 - Rote Zwiebeln
 - Knoblauch
 - Karotten
+
+## Tiefkühlfach
 
 - Kaisergemüse tiefgekühlt
 - REWE Beste Wahl Wok-Mix
 - ja! Brechbohnen
 - Blaubeeren tiefgekühlt
 - ja! Beeren-Mischung
+
+## Küchenschrank
 
 - Erythrit
 - Süßstoff flüssig
@@ -47,6 +67,8 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 - Passierte Tomaten 500 g (nur als ganze oder halbe Packung verwenden; wenn du die halbe Packung nutzt, sollten es entweder zwei Portionen werden oder der nächste Tag muss den Rest aufbrauchen)
 - MaisBonduelle Goldmais (Dose) 140g (nur als ganze Dose verwenden)
 
+## Gewürzregal
+
 - Zimtstangen
 - Nelken
 - Basilikum
@@ -61,6 +83,8 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 - Kräuter der Provence
 - Thymian
 - Zimt
+
+## Sonstiges
 
 - Pfefferminztee
 - Fencheltee
