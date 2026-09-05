@@ -9,6 +9,7 @@ Quellen (alle geprüft am 5. September 2026):
 - Masterarbeit Lemmerbrock (FH Münster/DGE 2024), aus der diese Speisepläne stammen: https://www.dge.de/fileadmin/dok/gesunde-ernaehrung/ernaehrungsempfehlung/Masterarbeit-Lemmerbrock.pdf
 - DGE-Referenzwerte für die Nährstoffzufuhr: https://www.dge.de/wissenschaft/referenzwerte/
 - „Umrechnungsfaktoren in Milchäquivalente", DGEwissen 3/2024
+- „Gemeinsam gegen den Rest", DGE Sektion Schleswig-Holstein: https://www.dge-sh.de/gemeinsam-gegen-den-rest
 
 Diese Datei enthält nur DGE-Wortlaut und DGE-Zahlen. Was aus den DGE-Wochenplänen nur abgelesen ist (keine ausdrückliche Vorgabe), steht unter „Beobachtung". Packungen und Nährwerte stehen in `zutaten.md`, die Arbeitsregeln in der Skill selbst. Ein DGE-Orientierungswert ist meist ein Durchschnitts- oder Zielwert und keine Obergrenze; wo er eine Obergrenze ist, steht es dabei.
 
@@ -22,6 +23,7 @@ Diese Datei enthält nur DGE-Wortlaut und DGE-Zahlen. Was aus den DGE-Wochenplä
 - „Nutzen Sie die Lebensmittelvielfalt innerhalb der einzelnen Gruppen."
 - Variationen: „Die Lebensmittelgruppen im DGE-Ernährungskreis haben keine starren Grenzen – es gilt das Mengenverhältnis der Gruppen zueinander zu berücksichtigen. Beispielsweise kann die Menge der Getreideprodukte oder Kartoffeln bei einer konsequenten Wahl von Vollkornprodukten verringert werden. Stattdessen können z. B. mehr pflanzliche Lebensmittel wie Hülsenfrüchte oder Gemüse auf dem Speiseplan stehen."
 - Vegetarisch: „Auch eine vegetarische Ernährung – mit Milch, Milchprodukten und Eiern – kann umgesetzt werden. Statt Fleisch, Wurst und Fisch können mehr Vollkornprodukte, Hülsenfrüchte, grünes Blattgemüse sowie Nüsse und Ölsaaten ausgewählt werden." Und: „Hülsenfrüchte und Nüsse kombiniert mit Getreide, Gemüse, Kartoffeln, Milch oder Ei sind eine sehr hochwertige und gleichzeitig preiswerte Eiweißquelle. Sie können damit die geringeren Mengen an tierischem Eiweiß in einer nachhaltigen Ernährung gut ausgleichen."
+- Lebensmittelverschwendung: kein Orientierungswert und kein Teil der Empfehlungen „Gut essen und trinken". Die DGE unterstützt die Vermeidung von Resten aber als Ziel; die Sektion Schleswig-Holstein betreibt dafür das Projekt „Gemeinsam gegen den Rest" für die Gemeinschaftsverpflegung: „Die Vermeidung von Resten entlastet Ihr Budget und schützt Umwelt und Klima." Und: „Oft lassen sich schon durch kleine Veränderungen große positive Effekte erzielen!"
 - Extras: Süßes, Knabbereien und zuckergesüßte Getränke sind nicht im Kreis. „Solange die Kalorien- und Nährstoffbilanzen stimmen, ist nichts dagegen einzuwenden, diese Lebensmittel gelegentlich in kleinen Mengen zu genießen." Alkohol: „Die DGE empfiehlt daher, auf alkoholische Getränke zu verzichten."
 
 ## Tagesmengen (DGE-Orientierungswerte bei ca. 2000 kcal)

@@ -30,7 +30,7 @@ Alles in diesem Abschnitt steht mit Quelle in der Referenz. Die Mengen gelten f�
 
 **Referenzwerte:** mindestens 30 g Ballaststoffe am Tag; rund 30 % der Energie aus Fett; höchstens 6 g Salz, jodiert und fluoridiert; freie Zucker unter 10 % der Energie, Säfte eingerechnet. Diskretorisches (Süßes, Knabbereien) ist erlaubt, „gelegentlich in kleinen Mengen".
 
-**Grundsätze:** Entscheidend ist die Wochenbilanz, nicht der einzelne Tag. Die Orientierungswerte sind nicht aufs Gramm zu treffen. Vielfalt innerhalb der Gruppen. Vollkorn so oft wie möglich, Reis nur gelegentlich. Lebensmittelverschwendung vermeiden (vom Nutzer als DGE-Ziel benannt; in der Referenz noch ohne Zitat).
+**Grundsätze:** Entscheidend ist die Wochenbilanz, nicht der einzelne Tag. Die Orientierungswerte sind nicht aufs Gramm zu treffen. Vielfalt innerhalb der Gruppen. Vollkorn so oft wie möglich, Reis nur gelegentlich. Lebensmittelverschwendung vermeiden – kein Orientierungswert, aber ein Ziel, das die DGE unterstützt.
 
 # Entscheidungen dieser Skill
 
