@@ -9,7 +9,19 @@ Die Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, 
 | Kalorienziel | 1800 kcal am Tag, als Wochendurchschnitt |
 | Proteinziel | 7 g je 100 kcal (bei 1800 kcal: 126 g am Tag) |
 | Personen | 1 |
+
+## Struktur
+
+Wie die Woche gebaut wird. Das sind Entscheidungen, keine DGE-Vorgaben; die DGE gibt nur Mengen vor.
+
+| Einstellung | Wert |
+|---|---|
+| Mahlzeiten am Tag | 5: Frühstück, Zwischenmahlzeit, warmes Gericht, Zwischenmahlzeit, kalte Mahlzeit |
 | Warme Mahlzeit | mittags |
+| Doppelgerichte (ein Gericht für zwei Tage) | höchstens 2 je Woche |
+| Warme Gerichte der Vorwoche | nicht wiederholen |
+| Frühstück | 2–3 Varianten im Wechsel, keine an mehr als 4 Tagen |
+| Zwischenmahlzeiten | mindestens 3 verschiedene je Woche, dieselbe an höchstens 3 Tagen |
 
 ## Nicht verwenden
 
@@ -23,6 +35,3 @@ Zutaten oder Gruppen, die in keinem Plan vorkommen sollen. Je Zeile: was genau, 
 ## Hinweise
 
 Freitext, den die Skill beachten soll (etwa: Räuchertofu lieber als Naturtofu; kein Frühstücksei unter der Woche).
-
-- 2026-09-05: Warme Gerichte der Vorwoche in der neuen Woche nicht wiederholen.
-- 2026-09-05: Höchstens zwei Doppelgerichte (ein Gericht für zwei Tage) je Woche.
