@@ -25,8 +25,6 @@ Lies die Datei `vorratskammer.md` – sie listet meine verfügbaren Zutaten samt
 
 Plane standardmäßig eine einzelne Portion. Wenn eine Ganzpackungs-Regel dabei mehr Menge erzwingt (z. B. die 500 g passierten Tomaten), plane stattdessen direkt zwei Portionen oder sage im Rezept, wie der Rest verwendet wird.
 
-Wenn ein Wochenplan gemeint ist ("Rezept für Dienstag Abend", "das Linsen-Dal aus dem Plan"), lies die passende Zeile in `wochenplan.md`: Gericht, Zutaten, kcal, Protein und Hinweis von dort ersetzen die Standardwerte oben. Die Zutaten mit ihren Mengen sind gesetzt, der Hinweis zur Packung (angebrochen, Portion 2 von 2) auch; du lieferst die Zubereitung dazu.
-
 Falls eine essenzielle Zutat fehlt (z. B. frisches Gemüse), deklariere sie deutlich als "Einkaufstipp" und schlage zusätzlich eine Alternative aus dem Vorrat vor – ich habe nicht immer Zeit und Lust einzukaufen.
 
 # Format der Antwort
