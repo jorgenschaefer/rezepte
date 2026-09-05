@@ -4,7 +4,9 @@ Diese Datei ist die Langfassung zu Priorität 3 der Prioritäten-Hierarchie. Sie
 
 Nicht übernommen wurden Einkaufs-, Nachhaltigkeits- und Risikobegründungen (Transportwege, Tierwohllabel, Krankheitsrisiken), soweit sie keine Kochentscheidung verändern.
 
-Quellen: https://www.dge.de/gesunde-ernaehrung/gut-essen-und-trinken/dge-empfehlungen/ und die dort verlinkten Detailseiten; Mengengerüst aus dem DGE-Ernährungskreis.
+**Zwei Ebenen, sauber getrennt:** Zitate und Zahlen der DGE auf der einen Seite, meine daraus abgeleiteten Arbeitsregeln auf der anderen (dritte Tabellenspalte, „Für Rezepte"-Listen). Wo eine Zahl nicht von der DGE stammt, steht das dabei. Der Unterschied ist wichtig, weil ein DGE-Orientierungswert oft ein **Durchschnitts- oder Zielwert** ist und keine Obergrenze – der Eier-Wert weiter unten ist der Musterfall.
+
+Quellen: https://www.dge.de/gesunde-ernaehrung/gut-essen-und-trinken/dge-empfehlungen/ und die dort verlinkten Detailseiten; Mengengerüst aus dem DGE-Ernährungskreis. Zur Einordnung des Eier-Orientierungswerts: https://www.dge.de/gesunde-ernaehrung/faq/lebensmittelbezogene-ernaehrungsempfehlungen-dge/ (Frage 6.9) und https://www.dge.de/presse/meldungen/2024/auch-zu-ostern-eier-geniessen/. Der Ballaststoff-Richtwert (30 g/Tag bzw. 14,6 g je 1000 kcal) stammt nicht aus dem Ernährungskreis, sondern aus den DGE-Referenzwerten: https://www.dge.de/wissenschaft/referenzwerte/ballaststoffe/
 
 ---
 
@@ -24,7 +26,7 @@ Drei Vorbehalte der DGE, die für die Rezeptplanung wichtig sind:
 | Lebensmittelgruppe | DGE-Orientierungswert | Pro Mahlzeit (bei 3 Mahlzeiten/Tag) |
 |---|---|---|
 | Gemüse & Obst | 5 Portionen à 110 g täglich (550 g) | **ca. 180 g**, Schwerpunkt Gemüse |
-| Getreide, Brot, Nudeln, Reis | 5 Portionen à 60 g täglich (300 g), **davon mind. ⅓ Vollkorn** | **ca. 100 g** |
+| Getreide, Brot, Nudeln, Reis | 5 Portionen à 60 g täglich (300 g) | **ca. 100 g**, davon möglichst alles Vollkorn |
 | Nüsse & Samen | 1 Portion à 25 g täglich | ca. 8 g, oder 25 g in einem Rezept am Tag |
 | Pflanzliche Öle | 1 EL à 10 g täglich | ca. 1 TL |
 | Butter & Margarine | 1 EL à 10 g täglich | nur wenn das Rezept es braucht |
@@ -40,21 +42,27 @@ Drei Vorbehalte der DGE, die für die Rezeptplanung wichtig sind:
 
 Wochenmengen lassen sich nicht auf eine einzelne Mahlzeit umrechnen – sie steuern, **wie häufig** eine Zutat überhaupt in Rezepten vorkommen darf.
 
-| Lebensmittelgruppe | DGE-Orientierungswert pro Woche | Konsequenz für die Rezeptauswahl |
+| Lebensmittelgruppe | DGE-Orientierungswert pro Woche | Arbeitsregel (abgeleitet, nicht DGE-Wortlaut) |
 |---|---|---|
 | Hülsenfrüchte | mind. 1 Portion à 125 g verzehrfertig | gern häufiger – deckt Protein und Ballaststoffe |
 | Kartoffeln | 1 Portion à 250 g | ca. 1 Rezept pro Woche |
-| Fisch | 1–2 Portionen à 120 g | siehe gemeinsames Budget unten |
-| Fleisch (Rind, Schwein, Geflügel) | 1–2 Portionen à 120 g | siehe gemeinsames Budget unten |
+| Fisch | 1–2 Portionen à 120 g | 1–2 Rezepte pro Woche, à ca. 120 g |
+| Fleisch (Rind, Schwein, Geflügel) | 1–2 Portionen à 120 g; mit Wurst zusammen max. 300 g | 1–2 Rezepte pro Woche, à ca. 120 g |
 | Wurst | 2 Scheiben à 30 g (60 g) | selten, in kleinen Mengen |
-| Eier | 1 Stück à 60 g | sparsam als Hauptzutat |
+| Eier | 1 Stück à 60 g | deskriptiver Durchschnittswert, **keine Obergrenze** – siehe unten |
 | Säfte | 2 Gläser à 200 ml | keine Zutat für Hauptgerichte |
 
-**Fisch und Fleisch teilen sich ein gemeinsames Budget.** Die Angabe „1 bis 2 Portionen" bezieht die jeweils andere Gruppe mit ein: wer 2 Portionen Fisch pro Woche isst, kann noch 1 Portion Fleisch essen – und umgekehrt. Zusammen also **höchstens 3 Portionen à 120 g pro Woche**. Auf die Rezeptplanung übersetzt: Fisch und Fleisch zusammen in höchstens etwa jedem 5.–7. Rezept, und dann als Portion von ca. 120 g.
+**Fisch und Fleisch sind zwei unabhängige Vorgaben**, kein gemeinsames Budget – die DGE verrechnet sie nicht gegeneinander. Es gilt jeweils für sich:
+- **Fisch:** „Pro Woche können 1 bis 2 Portionen Fisch auf den Tisch kommen." Also 1–2 Rezepte pro Woche à ca. 120 g.
+- **Fleisch und Wurst:** „nicht mehr als 300 g Fleisch und Wurst pro Woche" – das sind ca. 2 Fleischportionen à 120 g plus etwas Wurst.
 
-Zusätzlich gilt die Obergrenze aus Empfehlung 8: **Fleisch und Wurst zusammen max. 300 g pro Woche.**
+Zusammen ergibt das bis zu ca. 4 Rezepte pro Woche mit Fisch oder Fleisch. Das ist eine Obergrenze, kein Soll: Wenn die Woche rein pflanzlich läuft, fehlt nichts.
 
-**Getrocknete Hülsenfrüchte in verzehrfertige umrechnen: Faktor 1,8.** 125 g verzehrfertig entsprechen also ca. 70 g getrocknet.
+**Eier sind nicht begrenzt.** Der Orientierungswert von 1 Ei pro Woche stammt aus der mathematischen Optimierung der DGE und entspricht exakt dem deutschen Durchschnittsverzehr – das Modell hatte schlicht keinen Grund, die Menge zu verändern. Er beruht ausdrücklich weder auf einer gesundheitlichen Begrenzung (z. B. Cholesterin) noch auf Nachhaltigkeitskriterien. Mehrere Eier pro Woche haben laut DGE keinen Einfluss auf das Herz-Kreislauf-Risiko, solange die Ernährung insgesamt stimmt.
+
+**Unverbrauchtes Fisch- und Fleischbudget darf in Eier oder Milchprodukte fließen.** Das sagt die DGE ausdrücklich für alle, die weniger Fisch und Fleisch essen als empfohlen. Da die Rezepte hier fast durchgehend pflanzlich sind und das Fisch- und Fleischkontingent meist ungenutzt bleibt, ist das der Normalfall: **Eier sind eine reguläre Proteinquelle für ein Hauptgericht**, nicht nur eine Beigabe. Mit ca. 8,8 g Protein je 100 kcal sind sie nach Räuchertofu die dichteste tierische Quelle im Vorrat. Das ¾-Pflanzenverhältnis gilt weiter und begrenzt die Menge in der einzelnen Portion.
+
+**Getrocknete Hülsenfrüchte in verzehrfertige umrechnen: Faktor 1,8** (Küchen-Faustwert, keine DGE-Angabe). 125 g verzehrfertig entsprechen also ca. 70 g getrocknet.
 
 **Verarbeitete Eier zählen mit** – Eier in Nudeln, Kuchen und ähnlichem kommen zur Wochenmenge hinzu.
 
@@ -81,11 +89,11 @@ Für Rezepte:
 > Obst und Gemüse liefern reichlich Vitamine, Mineralstoffe, Ballaststoffe sowie sekundäre Pflanzenstoffe. Sie sind gut für die Gesundheit und tragen zur Sättigung bei. Genießen Sie mindestens 5 Portionen Obst und Gemüse pro Tag, am besten in ihrer jeweiligen Erntesaison.
 
 Für Rezepte:
-- **Garen erhöht die Bioverfügbarkeit** bestimmter Nährstoffe – β-Carotin aus Karotten, Lycopin aus Tomaten. Diese Zutaten also garen, sinnvollerweise mit etwas Fett.
+- **Garen erhöht die Bioverfügbarkeit** bestimmter Nährstoffe – β-Carotin aus Karotten, Lycopin aus Tomaten. Diese Zutaten also garen; der Zusatz „mit etwas Fett" ist meine Arbeitsregel, die DGE nennt ihn hier nicht.
 - Über den Tag **gegart und roh** kombinieren; ein Rohkost- oder Salatanteil im Rezept ist ein Plus.
 - **Farbvielfalt ist ein Auswahlkriterium**: je bunter, desto breiter das Nährstoffprofil.
 - Gemüse hat eine **geringere Energiedichte als Obst** – bei knappem Kalorienbudget zuerst Gemüse einsetzen. Beide sättigen über Volumen bei wenig Kalorien.
-- **Tiefkühl-, Dosen- und Konservenware ist ausdrücklich gleichwertig** und für die schnelle Küche vorgesehen. Kein Grund, sie zu relativieren oder durch frische Ware zu ersetzen.
+- **Tiefkühl-, Dosen- und Konservenware nennt die DGE ausdrücklich** für Vorratshaltung und schnelle Zubereitung. Sie als vollwertige Rezeptzutat einsetzen, ohne sie zu relativieren; eine Aussage zur Gleichwertigkeit mit frischer Ware trifft die DGE dort allerdings nicht.
 - Trockenfrüchte können eine Obstportion am Tag ersetzen, wegen konzentriertem Zucker aber in kleinerer Menge.
 - Optisch unperfektes Gemüse eignet sich gut für Suppen und Saucen.
 - Smoothies sind kein Ersatz für ganzes Obst: weniger Wasser, mehr Zucker, höhere Energiedichte, weniger Ballaststoffe, schlechtere Sättigung.
@@ -98,14 +106,14 @@ Für Rezepte:
 - Blähwirkung reduzieren: **Einweichwasser wegschütten**, bei Dosenware die Lake abgießen und **die Hülsenfrüchte abspülen**.
 - **Hülsenfrüchte ergänzen sich in der Proteinqualität besonders gut mit Getreide** (klassisch: Linsen mit Brot) und mit Fleisch. Diese Kombination gezielt für das Proteinziel nutzen.
 - Hülsenfrüchte liefern Eiweiß, B1, B6, Folat, Eisen, Magnesium, Zink und Ballaststoffe bei niedriger Energiedichte – die effizienteste Zutat für Priorität 1 und 2 gleichzeitig.
-- Umrechnung getrocknet → verzehrfertig: **Faktor 1,8**. Die Wochenportion von 125 g verzehrfertig sind ca. 70 g getrocknet.
+- Umrechnung getrocknet → verzehrfertig: **Faktor 1,8** (Küchen-Faustwert, keine DGE-Angabe). Die Wochenportion von 125 g verzehrfertig sind ca. 70 g getrocknet.
 - Nüsse: ungesättigte Fettsäuren, pflanzliches Eiweiß, B-Vitamine, Vitamin E, Magnesium, Calcium, Eisen. Erst kurz vor dem Verzehr mahlen; von Paranüssen nur 1–2 pro Tag.
 
 ### 4. Vollkorn ist die beste Wahl
 > Bei Getreideprodukten wie Brot, Nudeln, Reis und Mehl ist die Vollkornvariante die beste Wahl für die Gesundheit. Lebensmittel aus Vollkorn sättigen länger und enthalten mehr Vitamine und Mineralstoffe als Weißmehlprodukte. Insbesondere die Ballaststoffe im Vollkorn senken das Risiko für viele Krankheiten.
 
 Für Rezepte:
-- Zielmarke: **mindestens ⅓ der Getreideprodukte als Vollkornvariante**.
+- Die DGE nennt **keine Quote**, sondern Vollkorn schlicht als „die beste Wahl". Arbeitsregel: **Vollkorn als Standard**, Weißmehl nur, wenn der Vorrat nichts anderes hergibt – und dann im Rezept benannt.
 - Die DGE-Portion von 60 g ist **ungegart** gerechnet (eine Scheibe Brot, ungekochte Nudeln, ungegarter Reis); 120 g ungegarte Nudeln sind bereits 2 Portionen.
 - Referenzbeispiel für die halbe Tagesmenge Ballaststoffe: 2 Scheiben Vollkornbrot + 100 g gekochte Vollkornnudeln + 4 gehäufte EL Haferflocken.
 - Nur wo „Vollkorn" auf der Verpackung steht, ist Vollkorn drin (mind. 90 % Vollkornmehl); die Farbe sagt nichts aus.
@@ -136,7 +144,7 @@ Für Rezepte:
 Für Rezepte:
 - **Fettreicher Fisch für Omega-3 (EPA und DHA)**: Lachs, Makrele, Hering, Forelle, Karpfen.
 - **Seefisch für Jod**: Kabeljau, Seelachs, Hering, Makrele.
-- **Fisch und Fleisch teilen sich ein Wochenbudget** (siehe Teil 1): zusammen höchstens 3 Portionen à 120 g.
+- **Fisch hat sein eigenes Kontingent** (siehe Teil 1): 1–2 Portionen à 120 g pro Woche, unabhängig von der 300-g-Grenze für Fleisch und Wurst.
 - Vegane Fischalternativen liefern kein vergleichbares Nährstoffprofil; Omega-3 aus Mikroalgen ist die pflanzliche Option.
 
 ### 8. Fleisch und Wurst – weniger ist mehr
@@ -144,8 +152,8 @@ Für Rezepte:
 
 Für Rezepte:
 - **Max. 300 g Fleisch und Wurst pro Woche zusammen.** Der Ernährungskreis konkretisiert das auf 1–2 Portionen Fleisch à 120 g und 2 Scheiben Wurst à 30 g pro Woche.
-- **Das Portionsbudget teilt sich mit Fisch** (siehe Teil 1): 2 Portionen Fisch lassen noch 1 Portion Fleisch zu, 1 Portion Fisch noch 2 Portionen Fleisch.
-- **Geflügel ist günstiger zu bewerten als rotes Fleisch** (Rind, Schwein, Lamm, Ziege); für Geflügel besteht nach aktueller Evidenz kein belegter Zusammenhang mit Krebsrisiko. Rot und weiß abwechseln.
+- **Fisch wird nicht gegengerechnet** (siehe Teil 1): die 300 g gelten für Fleisch und Wurst allein.
+- **Rotes und weißes Fleisch abwechseln.** Die DGE nennt in Empfehlung 8 ausdrücklich Rind, Schwein, Lamm und Ziege als das Problem, Geflügel nicht – die 300-g-Grenze gilt aber für beides zusammen.
 - **Bei knappem Kalorienbudget magere Teilstücke** wählen: Schulter, Filet, Hüfte; Geflügelwurst, Schinken ohne Fettrand.
 - Fleisch liefert gut verfügbares Eisen, Selen und Zink; B12 kommt praktisch nur aus tierischen Lebensmitteln. Bei rein pflanzlichen Rezepten über die Woche daran denken.
 
