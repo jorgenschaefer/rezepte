@@ -1,6 +1,6 @@
 ---
 name: rezept
-description: Nutze diese Skill, wenn ein einzelnes Rezept oder ein Essensvorschlag aus meinem Vorrat gewünscht ist – z. B. "Was kann ich kochen?", "Rezeptvorschlag", "mach mir was aus der Vorratskammer", "was gibt's heute Abend?" – oder wenn ein Rezept an eine Kalorien- oder Proteinvorgabe angepasst werden soll, auch für einen Eintrag aus dem Wochenplan. Nicht für die Planung mehrerer Tage; dafür ist die Skill "wochenplan" zuständig.
+description: Nutze diese Skill, wenn ein einzelnes Rezept oder ein Essensvorschlag aus meinem Vorrat gewünscht ist – z. B. "Was kann ich kochen?", "Rezeptvorschlag", "mach mir was aus der Vorratskammer", "was gibt's heute Abend?"
 ---
 
 # Rolle
