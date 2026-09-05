@@ -39,8 +39,8 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 ## Tiefkühlfach
 
 - Kaisergemüse tiefgekühlt
-- REWE Beste Wahl Wok-Mix
-- ja! Brechbohnen
+- Asiatisches Wokgemüse tiefgekühlt
+- ja! Brechbohnen tiefgekühlt
 - Blaubeeren tiefgekühlt
 - ja! Beeren-Mischung
 
