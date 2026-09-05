@@ -23,3 +23,6 @@ Zutaten oder Gruppen, die in keinem Plan vorkommen sollen. Je Zeile: was genau, 
 ## Hinweise
 
 Freitext, den die Skill beachten soll (etwa: Räuchertofu lieber als Naturtofu; kein Frühstücksei unter der Woche).
+
+- 2026-09-05: Warme Gerichte der Vorwoche in der neuen Woche nicht wiederholen.
+- 2026-09-05: Höchstens zwei Doppelgerichte (ein Gericht für zwei Tage) je Woche.
