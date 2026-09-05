@@ -27,6 +27,7 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 - Cherry Romatomaten
 - Räuchertofu 175 g (nur als ganze Packung verwenden)
 - Joghurt 1,5% (nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
+- Magerquark
 
 ### Gemüsefach
 
@@ -72,10 +73,14 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
 - Zimtstangen
 - Nelken
+- Chiliflocken
+
 - Basilikum
 - Curry
 - Italienische Kräuter
 - Knoblauch
+- Koriandersamen, gemahlen
+- Kreuzkümmel
 - Kurkuma
 - Oregano
 - Paprika Rosenscharf
