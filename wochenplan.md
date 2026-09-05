@@ -7,7 +7,7 @@
 | Warme Mahlzeit | mittags |
 | Ausschlüsse | Thunfisch; Sauermilch- und Geruchskäse (Harzer, Handkäse, Limburger, Romadur) |
 
-Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g Haferflocken, 200 g Magerquark, 125 g Naturjoghurt 1,5 %, 80 g TK-Beeren, 25 g Mandeln (522 kcal, 40 g Protein); **Brot mit Kräuterquark** (Di, Do) – 2 Scheiben Roggenvollkornbrot, 10 g Butter, 200 g Magerquark mit Kräutern, 100 g Gurke (420 kcal, 31 g); **Rührei** am Sonntag. Die Brotmahlzeit hat immer 2 Scheiben Roggenvollkornbrot (100 g), 10 g Butter und als Rohkost 100 g Gurke und 60 g Möhre. **Kräuterquark** ist Magerquark mit getrockneten Kräutern, Pfeffer und einem Spritzer Wasser.
+Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g Haferflocken, 200 g Magerquark, 125 g Naturjoghurt 1,5 %, 80 g TK-Beeren, 25 g Mandeln (522 kcal, 40 g Protein); **Brot mit Kräuterquark** (Di, Do) – 2 Scheiben Roggenvollkornbrot, 10 g Butter, 200 g Magerquark mit Kräutern, 100 g Gurke (420 kcal, 31 g); **Rührei** am Sonntag. Die kalte Mahlzeit hat immer 2 Scheiben Roggenvollkornbrot (100 g), 10 g Butter und als Rohkost 100 g Gurke und 60 g Möhre. **Kräuterquark** ist Magerquark mit getrockneten Kräutern, Pfeffer und einem Spritzer Wasser.
 
 ## Montag
 
@@ -17,7 +17,7 @@ Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g H
 | Zwischenmahlzeit | Apfel | 1 Apfel (ca. 165 g) | 91 | 1 g | |
 | Warm | Rote-Linsen-Dal mit Spinat und Naturreis | Für 2 Portionen: 180 g rote Linsen, 300 g TK-Blattspinat, 1 Zwiebel (80 g), 20 g Rapsöl, 1 Dose stückige Tomaten (400 g), 2 EL Currypaste, 1 TL Gemüsebrühe, 400 ml Wasser – Zwiebel in Öl anschwitzen, Currypaste, Linsen, Tomaten und Wasser 15 min köcheln, Spinat zuletzt einrühren. Dazu 40 g Naturreis | 628 | 31 g | Portion 1 von 2; Hälfte für Dienstag kühl stellen |
 | Zwischenmahlzeit | Skyr | 150 g Skyr, Zimt | 94 | 17 g | Skyr 1 von 3 Portionen |
-| Brotmahlzeit | Brot mit Hüttenkäse und Kräuterquark | 100 g Roggenvollkornbrot, 10 g Butter, 150 g Hüttenkäse, 50 g Magerquark als Kräuterquark, 100 g Gurke, 60 g Möhre | 490 | 31 g | Brot Scheibe 1–2 von 10; Hüttenkäse Packung 1 (300 g) angebrochen |
+| Kalte Mahlzeit | Brot mit Hüttenkäse und Kräuterquark | 100 g Roggenvollkornbrot, 10 g Butter, 150 g Hüttenkäse, 50 g Magerquark als Kräuterquark, 100 g Gurke, 60 g Möhre | 490 | 31 g | Brot Scheibe 1–2 von 10; Hüttenkäse Packung 1 (300 g) angebrochen |
 
 **Tagessumme: 1825 kcal, 120 g Protein, 41 g Ballaststoffe**
 
@@ -29,7 +29,7 @@ Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g H
 | Zwischenmahlzeit | Mandeln | 25 g Mandeln | 145 | 5 g | |
 | Warm | Rote-Linsen-Dal mit Spinat und Naturreis | Rest vom Montag aufwärmen; 40 g Naturreis frisch kochen | 628 | 31 g | Portion 2 von 2 |
 | Zwischenmahlzeit | Griechischer Joghurt mit Beeren | 150 g Joghurt griechischer Art 0,2 %, 60 g TK-Beeren | 110 | 16 g | Joghurt 1 von 3 Portionen |
-| Brotmahlzeit | Brot mit Räucherlachs, Hüttenkäse und Kräuterquark | 100 g Roggenvollkornbrot, 10 g Butter, 50 g Räucherlachs, 100 g Hüttenkäse, 50 g Magerquark als Kräuterquark, Pfeffer, 100 g Gurke, 60 g Möhre | 530 | 36 g | Brot Scheibe 5–6 von 10; Räucherlachs Rest 50 g → Samstag; Hüttenkäse Packung 1: Rest 50 g; Magerquark Packung 2 angebrochen |
+| Kalte Mahlzeit | Brot mit Räucherlachs, Hüttenkäse und Kräuterquark | 100 g Roggenvollkornbrot, 10 g Butter, 50 g Räucherlachs, 100 g Hüttenkäse, 50 g Magerquark als Kräuterquark, Pfeffer, 100 g Gurke, 60 g Möhre | 530 | 36 g | Brot Scheibe 5–6 von 10; Räucherlachs Rest 50 g → Samstag; Hüttenkäse Packung 1: Rest 50 g; Magerquark Packung 2 angebrochen |
 
 **Tagessumme: 1833 kcal, 119 g Protein, 42 g Ballaststoffe**
 
@@ -41,7 +41,7 @@ Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g H
 | Zwischenmahlzeit | Apfel | 1 Apfel (ca. 165 g) | 91 | 1 g | |
 | Warm | Lachsfilet mit Kartoffeln und Brokkoli | 125 g TK-Lachsfilet (über Nacht im Kühlschrank auftauen), 300 g Kartoffeln, 200 g TK-Brokkoli, 10 g Rapsöl, Pfeffer, 1 TL Senf – Kartoffeln als Pellkartoffeln kochen, Lachs in Öl braten, Brokkoli dämpfen | 610 | 37 g | Lachs: 125 g bleiben im Tiefkühler; Kartoffeln 300 von 650 g |
 | Zwischenmahlzeit | Skyr | 150 g Skyr, Zimt | 94 | 17 g | Skyr 2 von 3 |
-| Brotmahlzeit | Brot mit Ei und Hüttenkäse | 1 Ei hart gekocht, 100 g Roggenvollkornbrot, 10 g Butter, 100 g Hüttenkäse, 100 g Gurke, 60 g Möhre | 497 | 27 g | Brot Scheibe 7–8 von 10; Eier 1 von 6; Hüttenkäse Packung 1 leer, Packung 2 angebrochen |
+| Kalte Mahlzeit | Brot mit Ei und Hüttenkäse | 1 Ei hart gekocht, 100 g Roggenvollkornbrot, 10 g Butter, 100 g Hüttenkäse, 100 g Gurke, 60 g Möhre | 497 | 27 g | Brot Scheibe 7–8 von 10; Eier 1 von 6; Hüttenkäse Packung 1 leer, Packung 2 angebrochen |
 
 **Tagessumme: 1814 kcal, 121 g Protein, 36 g Ballaststoffe**
 
@@ -53,7 +53,7 @@ Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g H
 | Zwischenmahlzeit | Apfel mit Mandeln | 1 Apfel (ca. 165 g), 25 g Mandeln | 236 | 6 g | |
 | Warm | Hähnchen-Asia-Nudelpfanne | 120 g Hähnchenbrustfilet in Streifen, 250 g TK-Asia-Pfannengemüse, 1 Zwiebel (80 g), 1 Zehe Knoblauch, 10 g Rapsöl, 2 EL Sojasauce, 60 g Vollkornnudeln – Hähnchen scharf anbraten, Gemüse und Zwiebel zugeben, mit den gekochten Nudeln und Sojasauce schwenken | 538 | 41 g | Hähnchen: Rest der Packung (ca. 200–280 g) einfrieren |
 | Zwischenmahlzeit | Griechischer Joghurt mit Beeren | 150 g Joghurt griechischer Art 0,2 %, 60 g TK-Beeren | 110 | 16 g | Joghurt 2 von 3 |
-| Brotmahlzeit | Brot mit Kräuterquark und Ei | 100 g Roggenvollkornbrot, 10 g Butter, 150 g Magerquark als Kräuterquark, 1 Ei hart gekocht, 100 g Gurke, 60 g Möhre | 497 | 33 g | Brot Packung 2, Scheibe 1–2; Eier 2 von 6; Magerquark Packung 2 leer, Packung 3 angebrochen |
+| Kalte Mahlzeit | Brot mit Kräuterquark und Ei | 100 g Roggenvollkornbrot, 10 g Butter, 150 g Magerquark als Kräuterquark, 1 Ei hart gekocht, 100 g Gurke, 60 g Möhre | 497 | 33 g | Brot Packung 2, Scheibe 1–2; Eier 2 von 6; Magerquark Packung 2 leer, Packung 3 angebrochen |
 
 **Tagessumme: 1800 kcal, 126 g Protein, 41 g Ballaststoffe**
 
@@ -65,7 +65,7 @@ Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g H
 | Zwischenmahlzeit | Banane | 1 Banane (ca. 200 g) | 180 | 2 g | |
 | Warm | Pellkartoffeln mit Kräuterquark und Möhrenrohkost | 350 g Kartoffeln, 250 g Magerquark, 2 EL Wasser, 10 g Rapsöl, 1 TL Senf, getrocknete Kräuter, Pfeffer, 150 g Möhren geraspelt – Quark mit Wasser, Öl, Senf und Kräutern glatt rühren | 555 | 39 g | Kartoffeln-Packung leer; Magerquark 250-g-Packung ganz |
 | Zwischenmahlzeit | Griechischer Joghurt mit Beeren | 150 g Joghurt griechischer Art 0,2 %, 60 g TK-Beeren | 110 | 16 g | Joghurt leer |
-| Brotmahlzeit | Brot mit Hüttenkäse | 100 g Roggenvollkornbrot, 10 g Butter, 150 g Hüttenkäse, Pfeffer, 100 g Gurke, 60 g Möhre | 457 | 25 g | Brot Packung 2, Scheibe 3–4; Hüttenkäse Packung 2: Rest 50 g |
+| Kalte Mahlzeit | Brot mit Hüttenkäse | 100 g Roggenvollkornbrot, 10 g Butter, 150 g Hüttenkäse, Pfeffer, 100 g Gurke, 60 g Möhre | 457 | 25 g | Brot Packung 2, Scheibe 3–4; Hüttenkäse Packung 2: Rest 50 g |
 
 **Tagessumme: 1823 kcal, 122 g Protein, 38 g Ballaststoffe**
 
@@ -77,7 +77,7 @@ Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g H
 | Zwischenmahlzeit | Apfel | 1 Apfel (ca. 165 g) | 91 | 1 g | letzter Apfel |
 | Warm | Kichererbsen-Spinat-Curry mit Naturreis | 1 Dose Kichererbsen (215 g abgetropft), 200 g TK-Blattspinat, 150 g Zucchini gewürfelt, ½ Zwiebel (40 g), 10 g Rapsöl, 250 g passierte Tomaten, 1 EL Currypaste, 30 g Naturreis – Zwiebel und Currypaste in Öl anrösten, Zucchini, Tomaten und Kichererbsen 10 min köcheln, Spinat zuletzt | 610 | 28 g | Spinat-Packung leer; passierte Tomaten Rest 250 g → Sonntag; Zucchini Rest 150 g → Sonntag |
 | Zwischenmahlzeit | Skyr | 150 g Skyr, Zimt | 94 | 17 g | Skyr leer |
-| Brotmahlzeit | Brot mit Räucherlachs und Kräuterquark | 100 g Roggenvollkornbrot, 10 g Butter, 50 g Räucherlachs, 150 g Magerquark als Kräuterquark, Pfeffer, 100 g Gurke, 60 g Möhre | 498 | 36 g | Brot Packung 2, Scheibe 5–6; Räucherlachs leer |
+| Kalte Mahlzeit | Brot mit Räucherlachs und Kräuterquark | 100 g Roggenvollkornbrot, 10 g Butter, 50 g Räucherlachs, 150 g Magerquark als Kräuterquark, Pfeffer, 100 g Gurke, 60 g Möhre | 498 | 36 g | Brot Packung 2, Scheibe 5–6; Räucherlachs leer |
 
 **Tagessumme: 1814 kcal, 122 g Protein, 46 g Ballaststoffe**
 
@@ -87,9 +87,9 @@ Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g H
 |---|---|---|---|---|---|
 | Frühstück | Brot mit Rührei und Hüttenkäse | 2 Eier als Rührei in 5 g Butter, 100 g Roggenvollkornbrot, 100 g Hüttenkäse, 100 g Gurke | 529 | 34 g | Brot Packung 2, Scheibe 7–8; Eier 4 von 6; Hüttenkäse leer |
 | Zwischenmahlzeit | Mandeln | 25 g Mandeln | 145 | 5 g | |
-| Warm | Vollkornnudeln mit Räuchertofu-Champignon-Sugo | 40 g Vollkornnudeln, 100 g Räuchertofu gewürfelt, 250 g Champignons, 150 g Zucchini, 1 Zwiebel (80 g), 10 g Rapsöl, 250 g passierte Tomaten, Oregano, Pfeffer – Tofu und Champignons in Öl anbraten, Zwiebel und Zucchini zugeben, mit Tomaten 10 min einkochen | 574 | 36 g | passierte Tomaten leer; Zucchini leer; Räuchertofu Rest 100 g → Abendbrot |
+| Warm | Vollkornnudeln mit Räuchertofu-Champignon-Sugo | 40 g Vollkornnudeln, 100 g Räuchertofu gewürfelt, 250 g Champignons, 150 g Zucchini, 1 Zwiebel (80 g), 10 g Rapsöl, 250 g passierte Tomaten, Oregano, Pfeffer – Tofu und Champignons in Öl anbraten, Zwiebel und Zucchini zugeben, mit Tomaten 10 min einkochen | 574 | 36 g | passierte Tomaten leer; Zucchini leer; Räuchertofu Rest 100 g → kalte Mahlzeit |
 | Zwischenmahlzeit | Quark mit Zimt | 150 g Magerquark, Zimt | 100 | 18 g | |
-| Brotmahlzeit | Brot mit Räuchertofu und Kräuterquark | 100 g Roggenvollkornbrot, 10 g Butter, 100 g Räuchertofu in Scheiben, 50 g Magerquark als Kräuterquark, 100 g Gurke, 60 g Möhre | 506 | 30 g | Brot Packung 2, Scheibe 9–10, Packung leer; Räuchertofu leer; Magerquark Packung 4: Rest 200 g |
+| Kalte Mahlzeit | Brot mit Räuchertofu und Kräuterquark | 100 g Roggenvollkornbrot, 10 g Butter, 100 g Räuchertofu in Scheiben, 50 g Magerquark als Kräuterquark, 100 g Gurke, 60 g Möhre | 506 | 30 g | Brot Packung 2, Scheibe 9–10, Packung leer; Räuchertofu leer; Magerquark Packung 4: Rest 200 g |
 
 **Tagessumme: 1854 kcal, 123 g Protein, 39 g Ballaststoffe**
 
