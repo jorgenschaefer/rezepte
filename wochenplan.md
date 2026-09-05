@@ -106,6 +106,7 @@ Drei Frühstücke im Wechsel: **Hafer-Quark-Müsli** (Mo, Mi, Fr, Sa) – 40 g H
 | Pflanzliches Öl | 70 g je Woche | 70 g Rapsöl, 10 g täglich im warmen Gericht | ✓ |
 | Butter oder Margarine | 10 g täglich | 10 g Butter täglich; Di, Do 20 g (Brot-Frühstück), So 15 g | ✓ |
 | Ballaststoffe | ≥ 30 g am Tag | 36–49 g, Schnitt 41 g | ✓ |
+| Milch und Milchprodukte | 2 Portionen ≈ 360 g Milchäquivalente am Tag | ≈ 3000 g (Quark und Hüttenkäse × 7,2, Joghurt und Skyr × 1,4); Calcium damit gedeckt | ✓ |
 | Hülsenfrüchte | ≥ 1 × je Woche | 4 × (rote Linsen Di/Mi, Räuchertofu Do, Kichererbsen Fr) | ✓ |
 | Kartoffeln | 225 g je Woche | 650 g (Sa, So) | ✓ Zielwert überschritten, Packung aufgebraucht |
 | Fisch | 1–2 × 120 g, Zielwert | 225 g (100 g Räucherlachs Di/Fr, 125 g Lachs So) | ✓ |
