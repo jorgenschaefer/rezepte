@@ -60,7 +60,7 @@ Zusätzlich gilt die Obergrenze aus Empfehlung 8: **Fleisch und Wurst zusammen m
 
 **Bei konsequenter Vollkornwahl** darf die Menge an Getreideprodukten oder Kartoffeln reduziert und stattdessen mehr Gemüse oder Hülsenfrüchte eingeplant werden.
 
-**Priorisierung bei Zielkonflikten:** Kalorien-, Protein- und Ballaststoffziel (Prioritäten 1–3) schlagen die DGE-Mengen. Wenn ein Proteinziel mehr tierische Zutaten nahelegt, halte trotzdem das Pflanzenverhältnis so hoch wie möglich und nutze Hülsenfrüchte, bevor du Fleisch erhöhst.
+**Priorisierung bei Zielkonflikten:** Kalorien- und Proteinziel (Prioritäten 1–2) schlagen die DGE-Mengen. Wenn ein Proteinziel mehr tierische Zutaten nahelegt, halte trotzdem das Pflanzenverhältnis so hoch wie möglich und nutze Hülsenfrüchte, bevor du Fleisch erhöhst.
 
 ---
 
@@ -154,7 +154,7 @@ Für Rezepte:
 
 Für Rezepte:
 - **Salz: max. 6 g pro Tag** (der Durchschnitt liegt bei 10 g). Bei drei Mahlzeiten also ca. 2 g pro Portion.
-- **Erst mit Kräutern und Gewürzen abschmecken, dann sparsam salzen** – das ist der zentrale Hebel und deckt sich mit Priorität 4.
+- **Erst mit Kräutern und Gewürzen abschmecken, dann sparsam salzen** – das ist der zentrale Hebel und deckt sich mit Priorität 3.
 - Wenn gesalzen wird, dann **Speisesalz mit Jod und Fluorid**.
 - **Fett sparen ohne Geschmacksverlust**: keine Panade (saugt Fett), keine Sahnesaucen, keine Käsefüllungen, kein Speckmantel.
 - Versteckte Quellen für Zucker, Salz und Fett: Wurst, Käse, Brot, Fertiggerichte, Fast Food, Fruchtjoghurt, Nektare, **Ketchup, Grillsaucen, Dressings**, TK-Pizza, Gebäck, Süßwaren. Bei solchen Zutaten die Menge im Rezept klein halten.
