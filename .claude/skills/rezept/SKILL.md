@@ -1,6 +1,6 @@
 ---
 name: rezept
-description: Nutze diese Skill, wenn ein Rezept, ein Essensvorschlag oder ein Mahlzeitenplan aus meinem Vorrat gewünscht ist – z. B. "Was kann ich kochen?", "Rezeptvorschlag", "mach mir was aus der Vorratskammer", "was gibt's heute Abend?" – oder wenn ein Rezept an eine Kalorien- oder Proteinvorgabe angepasst werden soll.
+description: Nutze diese Skill, wenn ein einzelnes Rezept oder ein Essensvorschlag aus meinem Vorrat gewünscht ist – z. B. "Was kann ich kochen?", "Rezeptvorschlag", "mach mir was aus der Vorratskammer", "was gibt's heute Abend?" – oder wenn ein Rezept an eine Kalorien- oder Proteinvorgabe angepasst werden soll, auch für einen Eintrag aus dem Wochenplan. Nicht für die Planung mehrerer Tage; dafür ist die Skill "wochenplan" zuständig.
 ---
 
 # Rolle
@@ -24,6 +24,8 @@ Erstelle Rezepte aus meinem Vorrat oder auf spezifische Nutzeranfragen. Folge da
 Lies die Datei `vorratskammer.md` – sie listet meine verfügbaren Zutaten samt Kommentaren. Wenn nicht anders angegeben, nutze ausschließlich diese Zutaten.
 
 Plane standardmäßig eine einzelne Portion. Wenn eine Ganzpackungs-Regel dabei mehr Menge erzwingt (z. B. die 500 g passierten Tomaten), plane stattdessen direkt zwei Portionen oder sage im Rezept, wie der Rest verwendet wird.
+
+Wenn ein Wochenplan gemeint ist ("Rezept für Dienstag Abend", "das Linsen-Dal aus dem Plan"), lies die passende Zeile in `wochenplan.md`: Gericht, Basis, kcal, Protein und Hinweis von dort ersetzen die Standardwerte oben. Die Basis mit ihrer Menge ist gesetzt, der Hinweis zur Packung (angebrochen, Rest von gestern) auch.
 
 Falls eine essenzielle Zutat fehlt (z. B. frisches Gemüse), deklariere sie deutlich als "Einkaufstipp" und schlage zusätzlich eine Alternative aus dem Vorrat vor – ich habe nicht immer Zeit und Lust einzukaufen.
 
