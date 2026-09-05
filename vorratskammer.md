@@ -47,7 +47,8 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 - Erythrit
 - Süßstoff flüssig
 - Proteinpulver
-- Leinsamen
+- Leinsamen, geschrotet
+- Walnusskerne
 - Flohsamenschalen
 - Haferflocken
 - Gemüsebrühe
