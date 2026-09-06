@@ -168,6 +168,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Skyr natur | 450 g (Arla), 400 g (REWE Bio) | frisch | 63 | 11 g | 0 | 0,2 g | 0,1 g | |
 | Magerquark | 500 g (Milram, Hansano), 250 g | frisch | 67 | 12 g | 0 | 0,3 g | 0,1 g | offen 5–7 Tage |
 | Speisequark 20 % | 250 g | frisch | 110 | 12 g | 0 | 5 g | 0,1 g | |
+| High Protein Quarkcreme (Vanille, Erdbeere, Pfirsich-Maracuja) | 200 g (REWE Beste Wahl) | frisch | 68 | 12,4 g | 0 | 0,5 g | 0,14 g | Packung = 136 kcal, 25 g Protein; Etikett; Zutatenliste auf Verdickungsmittel und Süßstoffe prüfen |
 | Hüttenkäse (körniger Frischkäse) | 200 g (Gervais, REWE Bio), 300 g | frisch | 100 | 12 g | 0 | 3 g | 0,9 g | |
 | Frischkäse Doppelrahmstufe | 175–200 g (REWE Bio, Philadelphia) | frisch | 340 | 6 g | 0 | 21 g | 0,8 g | 30 g je Scheibe Brot |
 | Frischkäse leicht | 175–200 g (Philadelphia so leicht, Exquisa Fitline) | frisch | 150 | 9 g | 0 | 2,5 g (Fitline 0,2 g) | 0,7–0,9 g | |
@@ -202,8 +203,8 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Fett | Salz | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|
 | Lachsfilet, frisch | 250 g, 2 Portionen (Deutsche See, REWE Bio) | frisch (1–2 Tage) | 200 | 20 g | 0 | 13 g | 0,1 g | Portion 120 g; Rest einfrieren |
-| Lachsfilet, TK | 250 g (REWE Bio), 300 g (REWE Beste Wahl) | lang | 200 | 20 g | 0 | 13 g | 0,1 g | |
-| Wildlachsfilet, TK | 250 g (REWE Beste Wahl), 200 g (Followfish) | lang | 140 | 21 g | 0 | 6 g | 0,1 g | |
+| Lachsfilet, TK (Zucht, Salmo salar, Norwegen) | 250 g, 2 Stück à 125 g (ja!) | lang | 244 | 20 g | 0 | 18 g | 0,2 g | Portion 125 g = 305 kcal, 25 g Protein, 22,5 g Fett; fettreicher Fisch, ≈ 3 g EPA + DHA je Portion (geschätzt); Etikett REWE Online, 6. September 2026 |
+| Wildlachsfilet, TK (Oncorhynchus gorbuscha oder keta, Nordost-Pazifik) | 2 × 125 g (ja!) | lang | 100 | 19,7 g | 0 | 2,3 g | 0,13 g | Portion 125 g = 124 kcal, 25 g Protein, 2,9 g Fett; magerer Proteinträger, ≈ 0,4 g EPA + DHA je Portion (geschätzt), kein Omega-3-Lieferant; Etikett REWE Online, 6. September 2026 |
 | Alaska-Seelachsfilet, TK | 400 g (REWE Beste Wahl) | lang | 80 | 17 g | 0 | 1 g | 0,2 g | 3 Portionen |
 | Kabeljaufilet, TK | 320 g (Followfood) | lang | 80 | 18 g | 0 | 0,7 g | 0,2 g | |
 | Forelle, ganz | 2 Stück 500 g (REWE Beste Wahl) | frisch | 105 | 19 g | 0 | 3 g | 0,1 g | |
