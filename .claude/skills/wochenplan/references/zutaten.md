@@ -113,7 +113,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Blattspinat, TK | 500 g (Iglo), 600 g (REWE Bio) | lang | 20 | 2,5 g | 2,5 g | 0,4 g | 0,2 g | portionierbar |
 | Rosenkohl, TK | 300 g (REWE Bio) | lang | 40 | 4,5 g | 4 g | 0,3 g | 0 | |
 | Grüne Bohnen, Brechbohnen, TK | 750 g (ja!; im Lieferservice nicht gelistet) | lang | 30 | 2 g | 3 g | 0,2 g | 0 | Gemüse, keine Hülsenfrucht-Portion |
-| Asia-Pfannengemüse, TK | 500 g (REWE Beste Wahl) | lang | 35 | 2 g | 3 g | 5 g | 0,8 g | |
+| Wok-Mix, TK, ungewürzt | 750 g (REWE Beste Wahl) | lang | 43 | 3,1 g | 3 g | 0,4 g | 0 | 10 Sorten: Mungobohnenkeime, Kaiserschoten, Porree, Möhren, Erbsen, Bambus, Wirsing, Pastinake, Paprika; ohne Öl und Sauce; Ballaststoffe geschätzt, Etikett nennt keine |
 | Gemüsemix ohne Sauce, TK | 600 g (Frosta Lieblings Gemüse Mix) | lang | 40 | 2,5 g | 3 g | 0,4 g | 0,1 g | |
 
 ## Obst
