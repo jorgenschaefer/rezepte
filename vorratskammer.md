@@ -4,7 +4,6 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
 ## Kühlschrank
 
-
 ### Tür
 
 - Eier
@@ -39,7 +38,7 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 ## Tiefkühlfach
 
 - Kaisergemüse tiefgekühlt
-- Asiatisches Wokgemüse tiefgekühlt
+- REWE Beste Wahl Wok-Mix, tiefgekühlt
 - ja! Brechbohnen tiefgekühlt
 - Blaubeeren tiefgekühlt
 - ja! Beeren-Mischung
@@ -51,6 +50,7 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 - Proteinpulver
 - Leinsamen, geschrotet
 - Walnusskerne
+- Mandeln
 - Flohsamenschalen
 - Haferflocken
 - Gemüsebrühe
