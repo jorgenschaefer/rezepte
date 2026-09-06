@@ -22,6 +22,12 @@ Wie die Woche gebaut wird. Das sind Entscheidungen, keine DGE-Vorgaben; die DGE 
 | Warme Gerichte der Vorwoche | nicht wiederholen |
 | Frühstück | 2–3 Varianten im Wechsel, keine an mehr als 4 Tagen |
 | Zwischenmahlzeiten | mindestens 3 verschiedene je Woche, dieselbe an höchstens 3 Tagen |
+| Brotsorten | höchstens 2 |
+| Obstsorten | 3–4, davon mindestens 2 aus der Saison |
+| Käsesorten | höchstens 3 |
+| Nusssorten | höchstens 3 |
+| Saftsorten | 1 |
+| Öle | 2 |
 
 ## Nicht verwenden
 
