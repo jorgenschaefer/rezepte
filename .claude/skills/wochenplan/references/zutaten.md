@@ -112,7 +112,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Blumenkohl, TK | 1 kg (ja!) | lang | 25 | 2,5 g | 3 g | 0,3 g | 0 | |
 | Blattspinat, TK | 500 g (Iglo), 600 g (REWE Bio) | lang | 20 | 2,5 g | 2,5 g | 0,4 g | 0,2 g | portionierbar |
 | Rosenkohl, TK | 300 g (REWE Bio) | lang | 40 | 4,5 g | 4 g | 0,3 g | 0 | |
-| Grüne Bohnen, TK | 750 g (ja!; im Lieferservice nicht gelistet) | lang | 30 | 2 g | 3 g | 0,2 g | 0 | Gemüse, keine Hülsenfrucht-Portion |
+| Grüne Bohnen, Brechbohnen, TK | 750 g (ja!; im Lieferservice nicht gelistet) | lang | 30 | 2 g | 3 g | 0,2 g | 0 | Gemüse, keine Hülsenfrucht-Portion |
 | Asia-Pfannengemüse, TK | 500 g (REWE Beste Wahl) | lang | 35 | 2 g | 3 g | 5 g | 0,8 g | |
 | Gemüsemix ohne Sauce, TK | 600 g (Frosta Lieblings Gemüse Mix) | lang | 40 | 2,5 g | 3 g | 0,4 g | 0,1 g | |
 
@@ -133,7 +133,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Nektarinen, Pfirsiche | 350 g (REWE Bio), lose | frisch (3–5 Tage) | 45 | 0,9 g | 2 g | 0,1 g | 0 | Jun–Sep (Europa) | Stück ca. 130 g |
 | Pflaumen, Zwetschgen | 500 g (REWE Bio) | frisch (4–6 Tage) | 50 | 0,6 g | 1,7 g | 0,2 g | 0 | Jul–Okt | |
 | Wassermelone | Mini ca. 2 kg | Wochen (angeschnitten 3 Tage) | 30 | 0,6 g | 0,3 g | 0,2 g | 0 | Jun–Sep (Europa) | Portion 250 g |
-| Beeren, TK (Himbeeren, Erdbeeren, Heidelbeeren) | 500 g (REWE Beste Wahl); Brombeeren 300 g (REWE Bio) | lang | 40 | 1 g | 4 g | 0,5 g | 0 | ganzjährig | Portion 100 g; Himbeeren 5 g Ballaststoffe |
+| Beeren, TK (Himbeeren, Erdbeeren, Heidelbeeren) | 500 g (REWE Beste Wahl, ja! Beeren-Mischung); Heidelbeeren 300 g; Brombeeren 300 g (REWE Bio) | lang | 40 | 1 g | 4 g | 0,5 g | 0 | ganzjährig | Portion 100 g; Himbeeren 5 g Ballaststoffe |
 | Mango, TK, gewürfelt | 500 g (REWE Beste Wahl), 300 g (REWE Bio) | lang | 60 | 0,6 g | 1,7 g | 0,4 g | 0 | ganzjährig | |
 | Datteln, entsteint | 200 g, 500 g (Seeberger) | lang | 290 | 2 g | 8 g | 0,5 g | 0 | ganzjährig | 25 g = 1 Portion Trockenobst |
 | Sultaninen | 200 g (REWE Bio), 500 g (Seeberger) | lang | 300 | 2,5 g | 5 g | 0,5 g | 0 | ganzjährig | 25 g = 1 Portion Trockenobst |
@@ -263,6 +263,16 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Tahin (Sesammus) | 300 ml (Biozentrale), 250 g (REWE Bio) | lang | 695 | 24 g | 8 g | 62 g | 0,4 g | 1 EL = 15 g; Hummus, Dressing; zählt zu Nüssen und Samen |
 | Pesto Genovese | 190 g (Barilla), 130 g (REWE Bio) | lang (offen 1 Woche) | 490 | 4,7 g | 3 g | 47 g | 3,2 g | 1 EL = 20 g; fett- und salzreiches Fertigprodukt |
 | Konfitüre, Fruchtaufstrich | 370 g (Bonne Maman), 250 g (REWE Bio Fruchtaufstrich) | lang (offen Wochen) | 240 | 0,4 g | 1 g | 0 | 0 | 1 TL = 10 g; zählt zu den freien Zuckern; DGE-Speisepläne 25 g zum Frühstück |
+| Ketchup ohne Zuckerzusatz | 400 ml (Heinz Zero) | lang (offen Wochen) | 45 | 1,6 g | 1 g | 0,1 g | 0,1 g | 1 EL = 15 g; normaler Ketchup hat 100 kcal, 22 g Zucker und 1,8 g Salz je 100 g |
+| Zitronen-, Limettensaft, Flasche | 200 ml | lang (offen Wochen) | 25 | 0,3 g | 0 | 0 | 0 | 1 EL = 10 g; Dressing; Vitamin C verbessert die Eisenaufnahme (DGE) |
+| Salz, jodiert und fluoridiert | 500 g | lang | 0 | 0 | 0 | 0 | 100 g | 1 TL = 5 g; in der Rechnung 1 g je warmem Gericht |
+| Gewürze und Scharfes (Pfeffer, Paprika, Curry, Kreuzkümmel, Kurkuma, Zimt, Oregano, Thymian, Chiliflocken, Tabasco, getrocknete Kräuter) | Grundvorrat | lang | – | – | – | – | – | Würzmenge; DGE: „Runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab" |
+| Süßstoff flüssig, Erythrit, FlavDrops | 300 ml (ja!), 400 g (Borchers) | lang | 0 | 0 | 0 | 0 | 0 | Süßen ohne freie Zucker; nicht rechnen |
+| Zucker | 1 kg | lang | 400 | 0 | 0 | 0 | 0 | 1 TL = 4 g; zählt zu den freien Zuckern |
+| Weizenmehl Type 405 oder 550 | 1 kg (REWE Beste Wahl) | lang | 340 | 12 g | 4 g | 1 g | 0 | Pfannkuchen, Binden; kein Vollkorn |
+| Speisestärke | 400 g (Mondamin) | lang | 355 | 0,5 g | 1 g | 0,5 g | 0 | 1 EL = 10 g; Binden |
+| Backpulver, Natron | Päckchen 15 g; 150 g | lang | – | – | – | – | – | Würzmenge; Pfannkuchen, Bratlinge |
+| Flohsamenschalen | 175 g (Biozentrale), 250 g (REWE Bio) | lang | 205 | 3 g | 85 g | 1 g | 0,3 g | 1 TL = 5 g ≈ 4 g Ballaststoffe; in Quark oder Porridge, dazu viel trinken |
 | Honig | 250 g, 500 g | lang | 310 | 0 | 0 | 0 | 0 | 1 TL = 8 g |
 | Proteinpulver, Whey | 300 g (ESN, More) | lang | 380 | 75 g | 0 | 5 g | 1,1 g | 30 g = 115 kcal, 22 g Protein; kein DGE-Lebensmittel, nur auf Wunsch |
 
@@ -275,6 +285,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Tomatensaft | 1 l | lang (offen 5 Tage) | 20 | 1 g | 1 g | 0,5 g | 0,6 g | zählt bei der DGE als Gemüseportion |
 | Mineralwasser, calciumreich (> 150 mg/l) | 6 × 1,5 l (Gerolsteiner Medium, 348 mg Calcium/l) | lang | 0 | 0 | 0 | 0 | 0 | DGE: calciumreiches Mineralwasser zählt als Calciumquelle; DGE-Speisepläne 300 ml/Tag |
 | Kaffee, Tee, ungesüßt | – | lang | 0 | 0 | 0 | 0 | 0 | zählen zu den 1,5 l; laut DGE 3–4 Tassen |
+| Light-Getränke (Cola Zero) | 1 l; 6 × 0,5 l | lang | 0 | 0 | 0 | 0 | 0 | zählen zu den 1,5 l; DGE: „weniger empfehlenswert" wegen Süß-, Farb- und Aromastoffen |
 
 ## Diskretorisches
 
