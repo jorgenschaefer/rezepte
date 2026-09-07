@@ -43,7 +43,7 @@ Ziel; eine Summe, die das Ziel exakt trifft, ist ein Warnsignal.
 
 - `praeferenzen.md` – Ziele, Struktur, Ausschlüsse. Einzige Quelle für Geschmackssachen.
 - `vorratskammer.md` – was im Haus ist; Grundlage der Skill `rezept`.
-- `wochenplan.md`, `frühstück.md` – letzter Plan, Frühstücksvarianten.
+- `wochenplan.md` – der letzte Plan; wird bei jeder Planung überschrieben.
 - `zutaten.md` – Warenkatalog (REWE-Packungen, Haltbarkeit, Nährwerte). Neue Zutaten hierhin, nicht in die Skill.
 - `dge-wochenbilanz.md` – DGE-Mengen und Referenzwerte; Grundlage der Skill `wochenplan`.
 
