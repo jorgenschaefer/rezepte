@@ -37,11 +37,12 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
 ## Tiefkühlfach
 
-- Kaisergemüse tiefgekühlt
+- Kaisergemüse, tiefgekühlt
 - REWE Beste Wahl Wok-Mix, tiefgekühlt
-- ja! Brechbohnen tiefgekühlt
-- Blaubeeren tiefgekühlt
-- ja! Beeren-Mischung
+- ja! Brechbohnen, tiefgekühlt
+- Blaubeeren, tiefgekühlt
+- ja! Beeren-Mischung, tiefgekühlt
+- Frosta Gemüse-Mix Italienische Küche, tiefgekühlt
 
 ## Küchenschrank
 
