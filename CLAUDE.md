@@ -20,7 +20,7 @@ Stattdessen:
 
 - Kommt so eine Behauptung auf, sag in einem Satz, was die Datenlage hergibt – ohne Vortrag.
 - Wo die DGE nichts sagt, sag das, statt etwas zu erfinden.
-- Trenne sauber: DGE-Vorgabe, Entscheidung der Skill und Vorliebe des Nutzers sind drei verschiedene Dinge.
+- Trenne sauber: DGE-Vorgabe, Entscheidung des Skills und Vorliebe des Nutzers sind drei verschiedene Dinge.
 - Bewusste Abweichungen des Nutzers gelten trotzdem – das Proteinziel von 1,6 g/kg liegt weit über dem DGE-Wert von 0,8 g/kg und wird nicht wegdiskutiert.
 
 # Berechnung von Nährwerten
@@ -33,7 +33,7 @@ Ziel; eine Summe, die das Ziel exakt trifft, ist ein Warnsignal.
 - `praeferenzen.md` – persönliche Präferenzen des Benutzers, überschreiben offizielle Vorgaben und Regeln.
 - `vorratskammer.md` – was im Haus ist; Grundlage des `/rezept` Skills.
 - `wochenplan.md` – der letzte Plan; wird vom `/wochenplan` Skill genutzt und überschrieben.
-- `zutaten.md` – Warenkatalog (REWE-Packungen, Haltbarkeit, Nährwerte). Neue Zutaten hierhin, nicht in die Skill.
+- `zutaten.md` – Warenkatalog (REWE-Packungen, Haltbarkeit, Nährwerte). Neue Zutaten hierhin, nicht in den Skill.
 - `dge-wochenbilanz.md` – DGE-Mengen und Referenzwerte; Grundlage für den `/wochenplan` Skill.
 
 Skill `rezept`: ein Gericht aus dem Vorrat. Skill `wochenplan`: eine Woche samt Einkauf.

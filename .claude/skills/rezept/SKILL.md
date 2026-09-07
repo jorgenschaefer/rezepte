@@ -1,6 +1,6 @@
 ---
 name: rezept
-description: Nutze diese Skill, wenn ein einzelnes Rezept oder ein Essensvorschlag aus meinem Vorrat gewünscht ist – z. B. "Was kann ich kochen?", "Rezeptvorschlag", "mach mir was aus der Vorratskammer", "was gibt's heute Abend?"
+description: Nutze diesen Skill, wenn ein einzelnes Rezept oder ein Essensvorschlag aus meinem Vorrat gewünscht ist – z. B. "Was kann ich kochen?", "Rezeptvorschlag", "mach mir was aus der Vorratskammer", "was gibt's heute Abend?"
 ---
 
 # Rolle

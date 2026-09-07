@@ -1,6 +1,6 @@
 # Präferenzen für den Wochenplan
 
-Die Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Werte lassen sich auch von Hand ändern.
+Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Werte lassen sich auch von Hand ändern.
 
 ## Ziele
 
@@ -40,4 +40,4 @@ Zutaten oder Gruppen, die in keinem Plan vorkommen sollen. Je Zeile: was genau, 
 
 ## Hinweise
 
-Freitext, den die Skill beachten soll (etwa: Räuchertofu lieber als Naturtofu; kein Frühstücksei unter der Woche).
+Freitext, den der Skill beachten soll (etwa: Räuchertofu lieber als Naturtofu; kein Frühstücksei unter der Woche).

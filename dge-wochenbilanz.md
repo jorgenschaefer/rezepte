@@ -12,7 +12,7 @@ Quellen (alle geprüft am 5. September 2026):
 - „Umrechnungsfaktoren in Milchäquivalente", DGEwissen 3/2024: https://www.dge.de/fileadmin/dok/wissenschaft/dgewissen/Umrechnungsfaktoren-Milchaequivalente-DGEWissen-3.2024-S43-44.pdf
 - „Gemeinsam gegen den Rest", DGE Sektion Schleswig-Holstein: https://www.dge-sh.de/gemeinsam-gegen-den-rest
 
-Diese Datei enthält nur DGE-Wortlaut und DGE-Zahlen. Was aus den DGE-Wochenplänen nur abgelesen ist (keine ausdrückliche Vorgabe), steht unter „Beobachtung". Packungen und Nährwerte stehen in `zutaten.md`, die Arbeitsregeln in der Skill selbst. Ein DGE-Orientierungswert ist meist ein Durchschnitts- oder Zielwert und keine Obergrenze; wo er eine Obergrenze ist, steht es dabei.
+Diese Datei enthält nur DGE-Wortlaut und DGE-Zahlen. Was aus den DGE-Wochenplänen nur abgelesen ist (keine ausdrückliche Vorgabe), steht unter „Beobachtung". Packungen und Nährwerte stehen in `zutaten.md`, die Arbeitsregeln im Skill selbst. Ein DGE-Orientierungswert ist meist ein Durchschnitts- oder Zielwert und keine Obergrenze; wo er eine Obergrenze ist, steht es dabei.
 
 ## Geltungsbereich und Grundsätze (DGE)
 

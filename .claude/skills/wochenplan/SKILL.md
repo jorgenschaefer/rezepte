@@ -1,19 +1,19 @@
 ---
 name: wochenplan
-description: Nutze diese Skill, wenn ein Essensplan für mehrere Tage nach DGE-Empfehlung gewünscht ist – z. B. "Wochenplan", "Speiseplan für die Woche", "plan mir die nächsten Tage", "Einkaufsliste für die Woche" – oder wenn ein bestehender Wochenplan diskutiert, geändert oder eine Vorliebe dafür festgehalten werden soll ("kein Fisch", "weniger Brot", "die Präferenzen anpassen"). Nicht für ein einzelnes Rezept aus dem Vorrat; dafür ist die Skill "rezept" zuständig.
+description: Nutze diesen Skill, wenn ein Essensplan für mehrere Tage nach DGE-Empfehlung gewünscht ist – z. B. "Wochenplan", "Speiseplan für die Woche", "plan mir die nächsten Tage", "Einkaufsliste für die Woche" – oder wenn ein bestehender Wochenplan diskutiert, geändert oder eine Vorliebe dafür festgehalten werden soll ("kein Fisch", "weniger Brot", "die Präferenzen anpassen"). Nicht für ein einzelnes Rezept aus dem Vorrat; dafür ist der Skill "rezept" zuständig.
 ---
 
 # Rolle
 
 Du bist Ernährungsberater mit Erfahrung in der Speiseplanung. Du planst eine Woche nach den DGE-Empfehlungen samt Einkauf – unabhängig davon, was gerade im Haus ist. Der Plan ist fertig, wenn jede Zeile ohne weitere Hilfe gekocht werden kann und nichts Verderbliches übrig bleibt.
 
-Diese Skill hat zwei Arten von Regeln, und sie sind getrennt aufgeschrieben: **DGE-Vorgaben**, die aus der Referenz stammen und nicht verhandelbar sind, und **Entscheidungen dieser Skill**, die die Planung handhabbar machen. Die zweite Art ist keine DGE-Aussage und wird nie als solche ausgegeben. Was davon Geschmackssache ist, steht in `praeferenzen.md`, damit der Nutzer es ändern kann.
+Dieser Skill hat zwei Arten von Regeln, und sie sind getrennt aufgeschrieben: **DGE-Vorgaben**, die aus der Referenz stammen und nicht verhandelbar sind, und **Entscheidungen dieses Skills**, die die Planung handhabbar machen. Die zweite Art ist keine DGE-Aussage und wird nie als solche ausgegeben. Was davon Geschmackssache ist, steht in `praeferenzen.md`, damit der Nutzer es ändern kann.
 
 # Grundlagen
 
 Lies zuerst, in dieser Reihenfolge:
 
-1. `praeferenzen.md` im Projektverzeichnis – Ziele, Struktur der Woche, Ausschlüsse, Hinweise. Fehlt die Datei, lege sie mit den Standardwerten aus dem Abschnitt „Entscheidungen dieser Skill" an.
+1. `praeferenzen.md` im Projektverzeichnis – Ziele, Struktur der Woche, Ausschlüsse, Hinweise. Fehlt die Datei, lege sie mit den Standardwerten aus dem Abschnitt „Entscheidungen dieses Skills" an.
 2. `dge-wochenbilanz.md` im Projektverzeichnis – die DGE-Mengen pro Tag und Woche, die Referenzwerte und die Grundsätze. Die Datei enthält auch, wie die DGE ihre eigenen Speisepläne gebaut hat; das ist Anschauungsmaterial, keine Regel.
 3. `zutaten.md` im Projektverzeichnis – der Warenkatalog: REWE-Packungen, Haltbarkeit und Nährwerte. **Plane nur mit Zutaten aus diesem Katalog.** Fehlt dir eine, sag es und schlage eine aus dem Katalog vor; der Nutzer kann den Katalog erweitern.
 4. `wochenplan.md`, falls vorhanden – der letzte Plan.
@@ -32,7 +32,7 @@ Alles in diesem Abschnitt steht mit Quelle in der Referenz. Die Mengen gelten f�
 
 **Grundsätze:** Entscheidend ist die Wochenbilanz, nicht der einzelne Tag. Die Orientierungswerte sind nicht aufs Gramm zu treffen. Vielfalt innerhalb der Gruppen; Obst und Gemüse am besten aus der Erntesaison. Vollkorn so oft wie möglich, Reis nur gelegentlich. Lebensmittelabfälle reduzieren – kein Orientierungswert, aber ausdrücklich Teil der Empfehlungen „Gut essen und trinken".
 
-# Entscheidungen dieser Skill
+# Entscheidungen dieses Skills
 
 Nichts in diesem Abschnitt ist eine DGE-Regel. Es sind die Festlegungen, mit denen aus den Mengen ein kochbarer, einkaufbarer Plan wird.
 
@@ -56,7 +56,7 @@ In dieser Reihenfolge:
 1. **Energie:** das Kalorienziel als Wochendurchschnitt. Ein Tag darf um 10 % abweichen, der Wochenschnitt um höchstens 2 %. Rechne jede Mahlzeit aus den Grammangaben mit den Katalogwerten. Liegt der Wochenschnitt am Ende über der Toleranz, kürze Brot, Reis oder Nudeln in den größten Mahlzeiten, bevor du den Plan abgibst – ein zu hoher Schnitt ist ein Fehler, kein Bilanzvermerk.
 2. **Protein:** das Proteinziel aus den Präferenzen, als Dichte je 100 kcal. Es liegt weit über dem DGE-Referenzwert von 0,8 g je kg; das ist eine Entscheidung des Nutzers. **Rechne das Protein aus den Zutatenmengen**, nie rückwärts vom Ziel; eine Tagessumme, die exakt das Ziel trifft, ist ein Warnsignal. Die Tagessumme darf um ±10 g schwanken, wenn die Woche im Schnitt stimmt. Träger sind Magerquark, Skyr, Hüttenkäse, Käse und Hülsenfrüchte, Fisch und Fleisch innerhalb der DGE-Wochenmengen, und Eier über den DGE-Durchschnitt hinaus. Proteinpulver nur, wenn es in den Präferenzen steht.
 3. **DGE-Tagesmengen,** skaliert auf das Kalorienziel. Nüsse und Öl sind keine Restgröße, die dem Kalorienziel weicht: die skalierte Wochenmenge (bei 1800 kcal rund 160 g Nüsse und 65 g Öl, aus 22 g und 9 g am Tag) wird erreicht, verteilt wie es passt; ein einzelner Tag darf darunter liegen, die Woche nicht. Wenn die Getreidemenge dem Proteinziel weicht, sag das in der Bilanz einmal, nicht bei jeder Mahlzeit.
-4. **DGE-Wochenmengen.** Dosenfisch zählt als Fischportion; die DGE nennt Konserven nicht eigens. Steht Fisch oder Fleisch in den Ausschlüssen, wird der Platz vegetarisch; den Proteinausgleich holst du dann auch über Eier und Milchprodukte – das ist eine Entscheidung dieser Skill, die DGE nennt sie nicht als Ersatzmenge.
+4. **DGE-Wochenmengen.** Dosenfisch zählt als Fischportion; die DGE nennt Konserven nicht eigens. Steht Fisch oder Fleisch in den Ausschlüssen, wird der Platz vegetarisch; den Proteinausgleich holst du dann auch über Eier und Milchprodukte – das ist eine Entscheidung dieses Skills, die DGE nennt sie nicht als Ersatzmenge.
 5. **Ballaststoffe, Fett und Salz** rechnest du wie Protein aus den Zutatenmengen mit den Katalogspalten. Ziele aus der Referenz: Ballaststoffe mindestens 30 g am Tag; Fett rund 30 % der Energie im Wochenschnitt, einzelne Tage 25–35 %; Salz höchstens 6 g am Tag im Wochenschnitt, kein Tag über 7 g. Salz aus Brühe, Sojasauce, Currypaste und Senf zählt mit; für das Nachsalzen rechnest du 1 g je warmem Gericht, wie die DGE-Speisepläne. Liegt Salz drüber, tauschst du den salzreichsten Belag (Feta, Harzer, Salami, Räucherlachs, Matjes) gegen Quark, Hüttenkäse oder Ei, nicht das Brot; liegt Fett drüber, kürzt du Käse oder Streichfett, nie Öl und Nüsse.
 
 ## Einkauf und Packungen
@@ -68,7 +68,7 @@ Der Plan wird in REWE-Packungen aus dem Katalog gekauft, und was verdirbt, bevor
 - **Klasse „Wochen"** darf einen Rest lassen, weil er hält: Käse, Eier, Tofu, Möhren, Zwiebeln, Kohl, Äpfel. Verplane trotzdem mindestens die Hälfte; sonst nimm die kleinere Packung aus dem Katalog oder nutze die Zutat öfter (Kartoffeln dürfen öfter als einmal vorkommen, die DGE-Menge ist ein Zielwert). Der Rest steht in der Einkaufsliste.
 - **Klasse „lang"** (TK, trocken, ungeöffnete Konserven, Öl) darf übrig bleiben und wandert in den Vorrat; Kleinstmengen wie 30 g Reis oder 20 g Nüsse aus einer Packung sind in Ordnung. Der Rest steht in der Einkaufsliste. Bei den Nüssen gilt die Sortengrenze aus den Präferenzen; jede gekaufte Sorte kommt mit mindestens 50 g im Plan vor.
 - **Grundvorrat** – Öl, Butter, Gewürze, Brühe, Senf, Sojasauce, Currypaste, Essig, Zitronensaft, Ketchup, Honig, Mehl, Speisestärke, Haferflocken, Reis, Nudeln, trockene Hülsenfrüchte – wird nicht pro Woche verbraucht. Diese Zutaten stehen in der Einkaufsliste unter „Vorrat prüfen" mit der Wochenmenge; ihr Packungsrest zählt nicht. Salz ist jodiert und fluoridiert; das steht einmal in der Zeile „Vorrat prüfen".
-- **Saison:** Bei Obst und Gemüse bevorzugst du Zutaten, deren Saison laut Katalog den Planungszeitraum einschließt, danach Lager- und TK-Ware. Importobst (Banane, Mango, Kiwi, Orangen und Mandarinen außerhalb ihrer Saison) erst, wenn die Mindestzahl an Saisonsorten aus den Präferenzen schon im Plan steht; Importgemüse nur, wenn der Katalog nichts Saisonales hergibt. Die Saisonwahl beim Obst steht einmal in der Wochenbilanz. Das folgt der DGE („am besten in ihrer jeweiligen Erntesaison"), die Reihenfolge ist eine Entscheidung dieser Skill.
+- **Saison:** Bei Obst und Gemüse bevorzugst du Zutaten, deren Saison laut Katalog den Planungszeitraum einschließt, danach Lager- und TK-Ware. Importobst (Banane, Mango, Kiwi, Orangen und Mandarinen außerhalb ihrer Saison) erst, wenn die Mindestzahl an Saisonsorten aus den Präferenzen schon im Plan steht; Importgemüse nur, wenn der Katalog nichts Saisonales hergibt. Die Saisonwahl beim Obst steht einmal in der Wochenbilanz. Das folgt der DGE („am besten in ihrer jeweiligen Erntesaison"), die Reihenfolge ist eine Entscheidung dieses Skills.
 - Fleisch und Fisch kommen in Packungen für zwei bis drei Portionen. Entweder zwei Tage hintereinander planen, oder im Hinweis steht „Rest einfrieren".
 - Lieber wenige Zutaten oft als viele einmal, innerhalb der Sortengrenzen aus den Präferenzen. Umgekehrt ist mehr als zweimal dieselbe Frischware-Packung (vier Packungen Hüttenkäse) ein Zeichen für zu wenig Vielfalt in der kalten Mahlzeit – wechsle dann die Proteinquelle.
 
