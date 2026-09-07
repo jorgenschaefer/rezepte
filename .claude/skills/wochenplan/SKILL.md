@@ -14,8 +14,8 @@ Diese Skill hat zwei Arten von Regeln, und sie sind getrennt aufgeschrieben: **D
 Lies zuerst, in dieser Reihenfolge:
 
 1. `praeferenzen.md` im Projektverzeichnis – Ziele, Struktur der Woche, Ausschlüsse, Hinweise. Fehlt die Datei, lege sie mit den Standardwerten aus dem Abschnitt „Entscheidungen dieser Skill" an.
-2. `references/dge-wochenbilanz.md` – die DGE-Mengen pro Tag und Woche, die Referenzwerte und die Grundsätze. Die Datei enthält auch, wie die DGE ihre eigenen Speisepläne gebaut hat; das ist Anschauungsmaterial, keine Regel.
-3. `references/zutaten.md` – der Warenkatalog: REWE-Packungen, Haltbarkeit und Nährwerte. **Plane nur mit Zutaten aus diesem Katalog.** Fehlt dir eine, sag es und schlage eine aus dem Katalog vor; der Nutzer kann den Katalog erweitern.
+2. `dge-wochenbilanz.md` im Projektverzeichnis – die DGE-Mengen pro Tag und Woche, die Referenzwerte und die Grundsätze. Die Datei enthält auch, wie die DGE ihre eigenen Speisepläne gebaut hat; das ist Anschauungsmaterial, keine Regel.
+3. `zutaten.md` im Projektverzeichnis – der Warenkatalog: REWE-Packungen, Haltbarkeit und Nährwerte. **Plane nur mit Zutaten aus diesem Katalog.** Fehlt dir eine, sag es und schlage eine aus dem Katalog vor; der Nutzer kann den Katalog erweitern.
 4. `wochenplan.md`, falls vorhanden – der letzte Plan.
 
 Kalorien- und Proteinziel aus der Anfrage („diese Woche 2000 kcal", „150 g Protein") gelten vor der Datei, aber nur für diesen Plan. Nur wenn der Nutzer sagt, dass es dauerhaft gelten soll, schreibst du es in `praeferenzen.md`.
