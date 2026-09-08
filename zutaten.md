@@ -62,6 +62,8 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Tofu natur | 2 × 200 g (REWE Bio, Berief), 200 g (Taifun) | Wochen | 125 | 13 g | 1 g | 6,5 g | 0,1 g | Packung 200 g = 1 Portion |
 | Räuchertofu | 200 g (Taifun), 2 × 175 g (REWE Bio) | Wochen | 165 | 17 g | 2 g | 9 g | 1,7 g | Packung = 1 Portion |
 | Tempeh | 200 g (REWE Bio) | Wochen | 170 | 19 g | 6 g | 9 g | 0 | Packung = 1 Portion |
+| Soja-Granulat, trocken (TVP) | 300 g (Vantastic foods) | lang | 322 | 49 g | 8,8 g | 1,2 g | 0,01 g | Etikett 8.9.2026; Portion 30–40 g trocken, in der 2,5-fachen Menge Brühe 10 min quellen |
+| Soja-Schnetzel, trocken (TVP) | 250 g (Vantastic foods) | lang | 322 | 49 g | 8,8 g | 1,2 g | 0,01 g | Etikett 8.9.2026; identische Werte wie das Granulat, nur gröbere Stücke |
 | Edamame, TK, ohne Schote | 300 g (REWE Bio), 500 g | lang | 120 | 11 g | 5 g | 4,7 g | 0 | |
 | Erbsen, TK | 450 g (REWE Bio), 1 kg (ja!) | lang | 80 | 5,5 g | 5 g | 0,5 g | 0 | zählen als Gemüse und als Hülsenfrucht |
 | Hummus natur | 175 g (Noa), 200 g (REWE Bio) | frisch (offen 3 Tage) | 330 | 6,4 g | 4 g | 29 g | 1,5 g | 30 g je Scheibe Brot; Hülsenfrucht-Aufstrich im Sinn der DGE; 60 g ≈ ⅓ Portion Hülsenfrüchte |
@@ -113,8 +115,9 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Blattspinat, TK | 500 g (Iglo), 600 g (REWE Bio) | lang | 20 | 2,5 g | 2,5 g | 0,4 g | 0,2 g | portionierbar |
 | Rosenkohl, TK | 300 g (REWE Bio) | lang | 40 | 4,5 g | 4 g | 0,3 g | 0 | |
 | Grüne Bohnen, Brechbohnen, TK | 750 g (ja!; im Lieferservice nicht gelistet) | lang | 30 | 2 g | 3 g | 0,2 g | 0 | Gemüse, keine Hülsenfrucht-Portion |
-| Wok-Mix, TK, ungewürzt | 750 g (REWE Beste Wahl) | lang | 43 | 3,1 g | 3 g | 0,4 g | 0 | 10 Sorten: Mungobohnenkeime, Kaiserschoten, Porree, Möhren, Erbsen, Bambus, Wirsing, Pastinake, Paprika; ohne Öl und Sauce; Ballaststoffe geschätzt, Etikett nennt keine |
+| Wok-Mix, TK, ungewürzt | 750 g (REWE Beste Wahl) | lang | 42 | 3,1 g | 2,5 g | 0,4 g | 0,03 g | Etikett 8.9.2026; 10 Sorten: Mungobohnenkeime 26 %, Kaiserschoten, Porree, Möhren, Erbsen, Bambus, Black Fungus, Wirsing, Pastinake, Paprika; ohne Öl und Sauce |
 | Gemüsemix ohne Sauce, TK | 600 g (Frosta Lieblings Gemüse Mix) | lang | 40 | 2,5 g | 3 g | 0,4 g | 0,1 g | |
+| Gemüse-Mix Italienische Küche, TK | 600 g (Frosta) | lang | 30 | 1,5 g | 2,3 g | 0,3 g | 0,04 g | Etikett 8.9.2026; mit 0,04 g Salz je 100 g ungewürzt |
 
 ## Obst
 
@@ -133,7 +136,8 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Nektarinen, Pfirsiche | 350 g (REWE Bio), lose | frisch (3–5 Tage) | 45 | 0,9 g | 2 g | 0,1 g | 0 | Jun–Sep (Europa) | Stück ca. 130 g |
 | Pflaumen, Zwetschgen | 500 g (REWE Bio) | frisch (4–6 Tage) | 50 | 0,6 g | 1,7 g | 0,2 g | 0 | Jul–Okt | |
 | Wassermelone | Mini ca. 2 kg | Wochen (angeschnitten 3 Tage) | 30 | 0,6 g | 0,3 g | 0,2 g | 0 | Jun–Sep (Europa) | Portion 250 g |
-| Beeren, TK (Himbeeren, Erdbeeren, Heidelbeeren) | 500 g (REWE Beste Wahl, ja! Beeren-Mischung); Heidelbeeren 300 g; Brombeeren 300 g (REWE Bio) | lang | 40 | 1 g | 4 g | 0,5 g | 0 | ganzjährig | Portion 100 g; Himbeeren 5 g Ballaststoffe |
+| Beeren, TK (Himbeeren, Erdbeeren, Heidelbeeren) | 500 g (REWE Beste Wahl, ja! Beeren-Mischung); Brombeeren 300 g (REWE Bio) | lang | 40 | 1 g | 4 g | 0,5 g | 0 | ganzjährig | Portion 100 g; Himbeeren 5 g Ballaststoffe; reine Heidelbeeren siehe eigene Zeile |
+| Heidelbeeren, TK | 500 g (REWE Beste Wahl Kulturheidelbeeren) | lang | 52 | 0,7 g | 2,4 g | 0 | 0 | ganzjährig | Etikett 8.9.2026; Portion 125 g; weniger Ballaststoffe als die Beeren-Mischung |
 | Mango, TK, gewürfelt | 500 g (REWE Beste Wahl), 300 g (REWE Bio) | lang | 60 | 0,6 g | 1,7 g | 0,4 g | 0 | ganzjährig | |
 | Datteln, entsteint | 200 g, 500 g (Seeberger) | lang | 290 | 2 g | 8 g | 0,5 g | 0 | ganzjährig | 25 g = 1 Portion Trockenobst |
 | Sultaninen | 200 g (REWE Bio), 500 g (Seeberger) | lang | 300 | 2,5 g | 5 g | 0,5 g | 0 | ganzjährig | 25 g = 1 Portion Trockenobst |
