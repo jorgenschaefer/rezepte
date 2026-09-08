@@ -11,6 +11,14 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Kokosmilch 400 ml
 - Walnusskerne
 
+## Neu
+
+Neue Produkte, die kürzlich hinzugefügt wurden.
+
+- Harry Vollkorn Urtyp
+- Grünländer Leicht
+- REWE Bio Blattspinat
+
 ## Kühlschrank
 
 ### Tür
@@ -50,6 +58,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - REWE Beste Wahl Wok-Mix, tiefgekühlt
 - REWE Beste Wahl Kulturheidelbeeren, tiefgekühlt
 - ja! Beeren-Mischung, tiefgekühlt
+- ja! Lachsfilet 250g (nur als Portion von 125 g verwenden)
 
 ## Küchenschrank
 
@@ -99,6 +108,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Pfeffer, schwarz
 - Pfeffer, weiß
 - Kräuter der Provence
+- Rosmarin
 - Thymian
 - Zimt
 
