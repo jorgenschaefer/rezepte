@@ -2,6 +2,15 @@
 
 Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
+## Mustgo
+
+Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie aufzufüllen. Sie müssen aber nicht in jedem Rezept vorkommen.
+
+- ja! Brechbohnen, tiefgekühlt
+- Frosta Gemüse-Mix Italienische Küche, tiefgekühlt
+- Kokosmilch 400 ml
+- Walnusskerne
+
 ## Kühlschrank
 
 ### Tür
@@ -39,8 +48,6 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
 - Kaisergemüse, tiefgekühlt
 - REWE Beste Wahl Wok-Mix, tiefgekühlt
-- ja! Brechbohnen, tiefgekühlt
-- Frosta Gemüse-Mix Italienische Küche, tiefgekühlt
 - REWE Beste Wahl Kulturheidelbeeren, tiefgekühlt
 - ja! Beeren-Mischung, tiefgekühlt
 
@@ -50,7 +57,6 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 - Kidneybohnen (Dose) 265 g (nur als ganze Dose verwenden)
 - Schwarze Bohnen (Dose) 240 g (nur als ganze Dose verwenden)
 - Passierte Tomaten 500 g (nur als ganze oder halbe Packung verwenden; wenn du die halbe Packung nutzt, sollten es entweder zwei Portionen werden oder der nächste Tag muss den Rest aufbrauchen)
-- Kokosmilch 400 ml (verbrauchen, auch in Teilen)
 
 - Vantastic foods Soja-Granulat vegan
 - Vantastic foods Soja Schnetzel vegan
@@ -66,7 +72,6 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 - Honig
 - Proteinpulver
 - Leinsamen, geschrotet
-- Walnusskerne
 - Mandeln
 - Flohsamenschalen
 - Haferflocken
