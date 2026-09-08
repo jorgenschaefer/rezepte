@@ -15,6 +15,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Fett | Salz | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|
 | Roggenvollkornbrot, abgepackt | 500 g (ja!, Harry) | frisch | 200 | 6 g | 8 g | 1,8 g | 1,0 g | Scheibe 50 g; angebrochen 5–7 Tage |
+| Roggenvollkornbrot, ballaststoffreich | 500 g (Harry Vollkorn Urtyp) | frisch | 194 | 5,4 g | 9,3 g | 1,1 g | 1,0 g | Etikett 8.9.2026; Scheibe 50 g; 4,8 g Ballaststoffe je 100 kcal – bestes Verhältnis im Sortiment; Roggenvollkorn zuerst, ohne Zuckerzusatz |
 | Vollkornbrot mit Saaten (Sonnenkern, Korn-an-Korn) | 500 g (Harry 1688) | frisch | 230 | 8 g | 8 g | 7 g | 1,0 g | Scheibe 50 g |
 | Dinkelvollkornbrot | 300 g (Harry Vital+) | frisch | 210 | 8 g | 8 g | 5,5 g | 1,0 g | Scheibe 40 g |
 | Dinkelbrot mit Sonnenblumenkernen | 400 g (Harry) | frisch | 275 | 11 g | 6,5 g | 8 g | 1,0 g | Scheibe 40 g; kein Vollkorn |
@@ -112,7 +113,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Kaisergemüse (Brokkoli, Blumenkohl, Möhren) | 1 kg (ja!) | lang | 35 | 2,5 g | 3 g | 0,3 g | 0 | Portion 200 g |
 | Brokkoli, TK | 300 g (REWE Bio) | lang | 30 | 3 g | 3 g | 0,3 g | 0 | |
 | Blumenkohl, TK | 1 kg (ja!) | lang | 25 | 2,5 g | 3 g | 0,3 g | 0 | |
-| Blattspinat, TK | 500 g (Iglo), 600 g (REWE Bio) | lang | 20 | 2,5 g | 2,5 g | 0,4 g | 0,2 g | portionierbar |
+| Blattspinat, TK | 600 g (REWE Bio), 500 g (Iglo) | lang | 17 | 2,5 g | 2 g | 0,1 g | 0,05 g | Etikett 8.9.2026 (REWE Bio); Iglo 22 kcal, 3 g Protein, 0,5 g Fett und deklariert 603 µg Vitamin A und 52 µg Folat je 100 g; portionierbar; nicht mit Rahm- oder Würzspinat verwechseln |
 | Rosenkohl, TK | 300 g (REWE Bio) | lang | 40 | 4,5 g | 4 g | 0,3 g | 0 | |
 | Grüne Bohnen, Brechbohnen, TK | 750 g (ja!; im Lieferservice nicht gelistet) | lang | 30 | 2 g | 3 g | 0,2 g | 0 | Gemüse, keine Hülsenfrucht-Portion |
 | Wok-Mix, TK, ungewürzt | 750 g (REWE Beste Wahl) | lang | 42 | 3,1 g | 2,5 g | 0,4 g | 0,03 g | Etikett 8.9.2026; 10 Sorten: Mungobohnenkeime 26 %, Kaiserschoten, Porree, Möhren, Erbsen, Bambus, Black Fungus, Wirsing, Pastinake, Paprika; ohne Öl und Sauce |
@@ -180,6 +181,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Kefir | 500 g (REWE Bio) | frisch | 55 | 3,4 g | 0 | 1,5 g | 0,1 g | |
 | Gouda, Stück | 250 g (REWE Bio), 325–375 g (Frico) | Wochen | 350 | 24 g | 0 | 31 g | 1,6 g | Portion 30 g |
 | Gouda, Emmentaler, Bergkäse in Scheiben | 150–200 g | Wochen | 370 | 26 g | 0 | 29 g | 1,5 g (Emmentaler 1,0 g) | Scheibe 25–30 g |
+| Schnittkäse leicht in Scheiben | 140 g (Grünländer Leicht) | Wochen | 280 | 31 g | 0 | 17 g | 0,8 g | Etikett 8.9.2026; Scheibe 25–30 g; Calcium 1000 mg je 100 g deklariert, 30 g = 300 mg; salzärmster Schnittkäse im Sortiment |
 | Cheddar in Scheiben | 130–200 g | Wochen | 400 | 25 g | 0 | 35 g | 1,8 g | |
 | Parmesan, Grana Padano | 150–200 g Stück; 60 g gerieben | Wochen | 390 | 33 g | 0 | 29 g | 1,6 g | 10 g je Portion Nudeln |
 | Mozzarella | 125 g (Galbani) | Wochen (offen 2 Tage) | 250 | 18 g | 0 | 17 g | 0,7 g | Kugel = 1 Portion |
