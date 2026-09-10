@@ -54,10 +54,16 @@ nächsten Vorratswechsel überdauern; der aktuelle Vorrat liefert nur die Beispi
   eigentliche Obergrenze am gesättigten Anteil festmachen. Solange das nicht entschieden
   ist, lässt sich Fett nicht einsortieren.
 - Konfliktregeln nach Art formulieren, mit dem konkreten Fall als Beispiel. Skizzen:
-  - „Sprengt eine Ganzpackungs-Regel eine Grenze, plane zwei Portionen." (Die vorhandene
-    Regel dabei mit den Grenzen verknüpfen, statt sie neu zu erfinden.)
-  - „Verderbdruck weicht der Nährwertgrenze; strecke die Zutat – innerhalb ihrer
-    Haltbarkeit."
+  - ~~„Sprengt eine Ganzpackungs-Regel eine Grenze, plane zwei Portionen."~~ **Überholt
+    durch die Entscheidung vom 10. September 2026** (`praeferenzen.md`, „Der Vorrat darf
+    eine Grenze reißen – aber bewusst und ausgesprochen"): Die Vorratszutat wird verwendet
+    und die Grenze gerissen; dafür entfällt das regelbare Salz, und die Abweichung wird im
+    Rezept mit Zahl, Soll und Grund genannt. Das ist damit die allgemeine Konfliktregel
+    zwischen Vorrat und Grenze – nicht nur ein Packungsfall –, und der Abweichungsvermerk
+    aus dem Prüfschritt trägt sie bereits. Die vorhandene Regel im Skill ist umzuschreiben,
+    nicht nur zu verknüpfen.
+  - ~~„Verderbdruck weicht der Nährwertgrenze; strecke die Zutat – innerhalb ihrer
+    Haltbarkeit."~~ Entfällt: A11 ist verworfen, der Skill kennt keinen Mustgo-Vorrang.
   - Für den Fall, dass eine DGE-Menge dem Proteinziel weicht: einmal benennen. **Nicht** die
     Formulierung aus dem `wochenplan`-Skill übernehmen – „sag das in der Bilanz" setzt eine
     Wochenbilanz voraus, die `rezept` nicht hat, und eine Getreide-Untergrenze, die es im

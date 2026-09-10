@@ -57,8 +57,13 @@ Quelle rechenbar statt geschätzt, und ihr Verhältnis zur Mustgo-Priorität ist
   strecken. Beachten: offen hält sie laut Katalog nur 3 Tage (siehe A11).
 - **Abhängigkeit A03:** ohne Katalogspalte ist die Regel nicht ausrechenbar, nur eine
   Faustregel über die genannten Zutaten.
-- **Offene Frage:** Die Kokosmilch steht auf Mustgo, wird also nicht nachgekauft. Trägt die
-  Regel danach überhaupt noch für `rezept`, oder ist sie vor allem für Einkauf und
-  `wochenplan` relevant? Der `wochenplan`-Skill hat ebenfalls keine SAFA-Zeile.
+- ~~**Offene Frage:** Die Kokosmilch steht auf Mustgo …~~ **Entschieden am 10. September
+  2026.** Die Grenze trägt weiter: `zutaten.md` führt Butter-Rapsöl-Mischung mit 34 g,
+  Schnittkäse mit 11 g und Walnusskerne mit 6,5 g je 100 g, und `rezept` wird auch
+  außerhalb des Vorrats gefragt. Die Kokosmilch selbst ist kein Sonderfall mehr: Sie darf
+  verwendet werden und die Grenze reißen, wenn das Rezept die Abweichung mit Zahl, Soll und
+  Grund nennt (`praeferenzen.md`, „Der Vorrat darf eine Grenze reißen"). Der SAFA-Wert ist
+  inzwischen belegt – Etikett 16 g je 100 g, die Schätzung von rund 90 % war richtig. Dass
+  `wochenplan` keine SAFA-Zeile hat, bleibt offen und gehört zu A12.
 - Transfette: im Vorrat keine relevante Quelle. Vor dem Weglassen einmal gegenprüfen, damit
   es eine Entscheidung ist und kein Vergessen.

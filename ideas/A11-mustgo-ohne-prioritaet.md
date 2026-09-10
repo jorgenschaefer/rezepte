@@ -1,5 +1,14 @@
 # A11 – Mustgo wird weder priorisiert noch gegen die Nährwertgrenzen abgewogen
 
+**Stand: verworfen** (Entscheidung des Nutzers vom 10. September 2026). Mustgo ist eine
+Erfindung von `vorratskammer.md` und bleibt dort; der Skill bekommt dazu keine Regel –
+weder einen Vorrang noch eine Rangfolge gegen die Nährwertgrenzen. Damit entfällt auch der
+„Neu"-Teil dieser Idee. Begründung: `rezept` wählt ein Gericht aus dem, was da ist;
+Verderb ist eine Frage der Woche und des Einkaufs und damit Sache von `wochenplan`. Der
+Skill liest `vorratskammer.md` weiterhin samt Kommentaren, macht daraus aber keine
+Priorität. Der Text unten bleibt als Befund stehen, ist aber nicht mehr umzusetzen; die
+Kokosmilch-Rechnung darin gehört jetzt zu A02.
+
 **Betroffene Datei:** `.claude/skills/rezept/SKILL.md`, Abschnitt „Arbeitsweise mit dem
 Vorrat". (Denkbar wäre auch, die Regel in `vorratskammer.md` selbst zu schreiben – offen.)
 
