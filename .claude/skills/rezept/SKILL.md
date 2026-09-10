@@ -17,7 +17,7 @@ Erstelle Rezepte aus meinem Vorrat oder auf spezifische Nutzeranfragen. Folge da
 4. **Fettgehalt:** Ziel sind 30 % der Kalorien aus Fetten. Das sind ca. **3,3 g Fett je 100 kcal** der Portion. Bei 540 - 660 kcal also 18 g bis 22 g Fett. Bevorzuge ungesättigte Fettsäuren.
 5. **Kohlenhydrate:** Die restliche Kalorien werden durch Kohlenhydrate aufgefüllt.
 6. **5 am Tag:** Ziel sind mindestens 5 Portionen je 110 g Obst und Gemüse pro Tag, also ca. 550 g Gemüse und Obst insgesamt. Bei einer Diät mit 1800 kcal sind das ca. **31 g Gemüse oder Obst pro 100 kcal** der Portion.
-7. **Salzgehalt:** Ziel sind ca. **1 g bis maximal 2 g Salz** pro Portion.
+7. **Salzgehalt:** Ziel sind maximal 6 g am Tag. Bei einer Diät mit 1800 kcal sind das **0,3 g pro 100 kcal** der Portion. Bei 540 - 660 kcal also 1,7 g bis 2,1 g Salz.
 
 # Arbeitsweise mit dem Vorrat
 
