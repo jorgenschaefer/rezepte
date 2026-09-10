@@ -264,7 +264,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Kokosmilch | 400 ml; fettreduziert 400 ml | lang (offen 3 Tage) | 180 (fettreduziert 100) | 1,5 g | 0 | 3 g | 18 g (fettreduziert 12 g) | 16 g (fettreduziert 11) | 0,1 g | |
 | Oliven, ohne Stein | 135–180 g | lang (offen Wochen) | 150 | 1 g | 3 g | 1 g | 14 g | 2 g | 3,0 g | |
 | Sauerkraut | 400 g (REWE Beste Wahl), 650 g (REWE Bio) | lang (offen 1 Woche) | 20 | 1,5 g | 3 g | 1,9 g | 0,5 g | 0,1 g | 1,2 g | |
-| Gemüsebrühe, Pulver | 140 g (REWE Bio) | lang | – | – | – | 0,7 g | – | 0,1 g | ≈ 50 g | 1 TL = 5 g ≈ 2,5 g Salz |
+| Gemüsebrühe, Pulver | 140 g (REWE Bio) | lang | – | – | – | – | – | – | ≈ 50 g | 1 TL = 5 g ≈ 2,5 g Salz |
 | Sojasauce | 250 ml | lang | – | – | – | – | 0 | – | 17 g | 1 EL (15 ml) ≈ 2,5 g Salz |
 | Currypaste (rot, gelb) | 110–125 g | lang (offen Wochen) | – | – | – | – | 2 g | – | 4 g | 1 EL = 20 g |
 | Senf | 200 ml | lang | – | – | – | – | 4 g | – | 2,5 g | |
