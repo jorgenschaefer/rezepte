@@ -30,7 +30,7 @@ Ziel; eine Summe, die das Ziel exakt trifft, ist ein Warnsignal.
 
 # Dateien
 
-- `praeferenzen.md` – persönliche Präferenzen des Benutzers, überschreiben offizielle Vorgaben und Regeln.
+- `praeferenzen.md` – persönliche Präferenzen des Benutzers, überschreiben offizielle Vorgaben und Regeln. `wochenplan` liest die ganze Datei und schreibt hinein; `rezept` liest nur „Ziele" und schreibt nichts.
 - `vorratskammer.md` – was im Haus ist; Grundlage des `/rezept` Skills.
 - `wochenplan.md` – der letzte Plan; wird vom `/wochenplan` Skill genutzt und überschrieben.
 - `zutaten.md` – Warenkatalog (REWE-Packungen, Haltbarkeit, Nährwerte). Neue Zutaten hierhin, nicht in den Skill.

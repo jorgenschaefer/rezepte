@@ -1,6 +1,6 @@
-# Präferenzen für den Wochenplan
+# Präferenzen
 
-Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Werte lassen sich auch von Hand ändern.
+Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Der Skill `rezept` liest nur den Abschnitt „Ziele" und schreibt nichts; die übrigen Abschnitte betreffen die Woche, nicht das einzelne Gericht. Werte lassen sich auch von Hand ändern.
 
 ## Ziele
 
