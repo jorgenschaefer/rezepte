@@ -15,11 +15,12 @@ einen abstrakt beschriebenen Zielzustand und Notizen für den späteren Änderun
 was in den Notizen steht, ist Vorüberlegung, keine Festlegung. Offene Entscheidungen sind
 in den Dateien als solche markiert.
 
-**Für A03, A06, A07 und B02 sind sie entschieden:** [spec.md](spec.md) beschreibt die
-Änderung an `zutaten.md`, `praeferenzen.md`, `CLAUDE.md` und
-`.claude/skills/rezept/SKILL.md`. Die Spec erledigt A03 und B03 mit sowie die Salzhälfte
-von A05. Wo eine Entscheidung einen Befund entkräftet, steht das dort mit Begründung – A06
-verliert dadurch seinen Ausschluss-Teil.
+**A03, A06, A07, B02 und B03 sind umgesetzt.** [spec.md](spec.md) hält die Entscheidungen
+fest, die dahinterstehen; gebaut wurde in vier Commits an `zutaten.md`, `praeferenzen.md`,
+`CLAUDE.md` und `.claude/skills/rezept/SKILL.md`. Mit erledigt sind die Salzhälfte von A05
+und die Rechenbarkeit von A02 – dort fehlt jetzt nur noch die Grenze im Skill. Wo eine
+Entscheidung einen Befund entkräftet, steht das in der Spec mit Begründung: A06 hat dadurch
+seinen Ausschluss-Teil verloren.
 
 Geprüft gegen `dge-wochenbilanz.md` im Repository sowie die WHO-Leitlinien (Fact Sheet
 „Healthy diet" und das Leitlinien-Update zu Fetten und Kohlenhydraten vom 17. Juli 2023).
@@ -42,12 +43,12 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | Datei | Kurz | Gewicht | Stand |
 |---|---|---|---|
 | [A01](A01-salz-obergrenze-statt-zielwert.md) | Salz wird als Zielwert verteilt statt als Obergrenze behandelt; Würzsalz zählt nicht mit | hoch | offen |
-| [A02](A02-gesaettigte-fettsaeuren-ohne-grenze.md) | Keine Grenze für gesättigte Fettsäuren | hoch | offen, aber ab [spec.md](spec.md) rechenbar |
-| [A03](A03-zutaten-katalog-ohne-safa-spalte.md) | `zutaten.md` hat keine Spalte dafür – A02 ist ohne sie nicht rechenbar | hoch | in Arbeit, [spec.md](spec.md) |
+| [A02](A02-gesaettigte-fettsaeuren-ohne-grenze.md) | Keine Grenze für gesättigte Fettsäuren | hoch | offen, aber jetzt rechenbar (SAFA-Spalte steht) |
+| [A03](A03-zutaten-katalog-ohne-safa-spalte.md) | `zutaten.md` hat keine Spalte dafür – A02 ist ohne sie nicht rechenbar | hoch | erledigt, [spec.md](spec.md) |
 | [A04](A04-fett-als-enges-zielband.md) | Fettquote ohne Toleranz, erzwingt Öl in magere Gerichte | mittel | offen |
-| [A05](A05-inkonsistente-dichte-arithmetik.md) | Zwei Punkte führen ihre eigene Herleitung nicht sauber aus | mittel | teilweise in [spec.md](spec.md) (Salz) |
-| [A06](A06-praeferenzen-werden-nicht-gelesen.md) | `praeferenzen.md` wird nicht gelesen; Zielgrößen doppelt gepflegt | hoch | in Arbeit, [spec.md](spec.md) |
-| [A07](A07-keine-naehrwertquelle.md) | Keine Nährwertquelle benannt; die Bilanz ist geschätzt | hoch | in Arbeit, [spec.md](spec.md) |
+| [A05](A05-inkonsistente-dichte-arithmetik.md) | Zwei Punkte führen ihre eigene Herleitung nicht sauber aus | mittel | Salzhälfte erledigt, Ballaststoffteil offen |
+| [A06](A06-praeferenzen-werden-nicht-gelesen.md) | `praeferenzen.md` wird nicht gelesen; Zielgrößen doppelt gepflegt | hoch | erledigt, [spec.md](spec.md) |
+| [A07](A07-keine-naehrwertquelle.md) | Keine Nährwertquelle benannt; die Bilanz ist geschätzt | hoch | erledigt, [spec.md](spec.md) |
 | [A08](A08-kohlenhydrate-unter-50-energieprozent.md) | Kohlenhydrate landen unter dem DGE-Richtwert, ohne dass es dasteht | mittel | offen |
 | [A09](A09-huelsenfruechte-zubereitung.md) | Keine Regel zu Hülsenfrüchten (abspülen, durchgaren) | mittel | offen |
 | [A10](A10-jodsalz.md) | Jodsalz wird nicht erwähnt | klein | offen |
@@ -59,8 +60,8 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | Datei | Kurz | Gewicht | Stand |
 |---|---|---|---|
 | [B01](B01-prioritaeten-ohne-konfliktregeln.md) | Die „Prioritäten-Hierarchie" löst keine Konflikte | hoch | offen |
-| [B02](B02-kein-pruefschritt-vor-der-ausgabe.md) | Kein Prüfschritt vor der Ausgabe | hoch | in Arbeit, [spec.md](spec.md) |
-| [B03](B03-format-ohne-soll-ist-abgleich.md) | Das Format erzwingt keinen Soll/Ist-Abgleich | mittel | wird in [spec.md](spec.md) miterledigt |
+| [B02](B02-kein-pruefschritt-vor-der-ausgabe.md) | Kein Prüfschritt vor der Ausgabe | hoch | erledigt, [spec.md](spec.md) |
+| [B03](B03-format-ohne-soll-ist-abgleich.md) | Das Format erzwingt keinen Soll/Ist-Abgleich | mittel | erledigt, in [spec.md](spec.md) miterledigt |
 | [B04](B04-kein-handwerksabschnitt.md) | Nichts darüber, wie das Essen schmecken soll | mittel | offen |
 | [B05](B05-portionsgroesse-hartkodiert.md) | 600 kcal je Portion sind nicht hergeleitet | klein | offen |
 | [B06](B06-keine-abwechslungsregel.md) | Nichts hindert den Skill an ewiger Wiederholung | mittel | offen |
