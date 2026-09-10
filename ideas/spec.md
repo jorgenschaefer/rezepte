@@ -1,7 +1,7 @@
 # Spec – Grundlagen und Prüfschritt für den `rezept`-Skill
 
-**Stand:** 10. September 2026. Entscheidungen im Gespräch mit dem Nutzer getroffen, siehe
-Abschnitt „Entscheidungen".
+**Stand:** 10. September 2026, am selben Tag um die SAFA-Spalte erweitert. Entscheidungen
+im Gespräch mit dem Nutzer getroffen, siehe Abschnitt „Entscheidungen".
 
 Diese Spec löst drei Befunde gemeinsam, weil sie denselben Baufehler an derselben Stelle
 haben: dem `rezept`-Skill fehlt eine Lesereihenfolge, und ohne sie hängt alles Weitere in
@@ -19,6 +19,14 @@ Prüfschritt ohne Quelle prüft Schätzungen gegen Schätzungen.
 
 **Betroffene Dateien:** `.claude/skills/rezept/SKILL.md`, `zutaten.md`, `praeferenzen.md`,
 `CLAUDE.md`.
+
+**Nachtrag zum Umfang.** Die REWE-Nährstoff-JSON, aus der die Kohlenhydrate kommen, enthält
+im selben Aufruf `FASAT` – gesättigte Fettsäuren. Der teure Teil ist der Seitenaufruf, nicht
+das Ablesen; 155 der 216 Katalogzeilen sind Markenware und müssen dafür einzeln
+nachgeschlagen werden. Beide Spalten werden deshalb in einem Lauf geerntet, und
+[A03](A03-zutaten-katalog-ohne-safa-spalte.md) ist damit miterledigt. Die SAFA-*Grenze* im
+Skill bleibt [A02](A02-gesaettigte-fettsaeuren-ohne-grenze.md) vorbehalten: der Katalog
+bekommt die Spalte, der Skill bekommt keine Regel und die Prüfliste keinen achten Posten.
 
 ## Entscheidungen
 
@@ -50,9 +58,10 @@ muss.
    ausdrückliche Bitte – ein Rezeptwunsch soll nicht nebenbei den Warenkatalog umbauen.
    **Das ist eine bewusste Einschränkung gegenüber `CLAUDE.md`**, wo das Nachschlagen ohne
    Vorbehalt steht.
-5. **`zutaten.md` bekommt eine Spalte „Kohlenhydrate".** Damit wird auch dieser Wert
-   vorwärts gerechnet statt als Rest. Quellenregel wie bei Fett und Salz: Markenware und
-   Konserven vom REWE-Etikett, Rohware aus Tabellenwerten.
+5. **`zutaten.md` bekommt die Spalten „Kohlenhydrate" und „ges. FS".** Kohlenhydrate,
+   damit auch dieser Wert vorwärts gerechnet wird statt als Rest; gesättigte Fettsäuren,
+   weil derselbe Seitenaufruf sie mitliefert. Quellenregel wie bei Fett und Salz:
+   Markenware und Konserven vom REWE-Etikett, Rohware aus Tabellenwerten.
 6. **Zielgrößen bekommen eine Form.** Nicht jede Zielgröße ist ein Band. Energie ist ein
    Band, Protein, Ballaststoffe sowie Obst und Gemüse sind Mindestwerte, Fett und Salz sind
    Obergrenzen. 1,0 g Salz ist damit keine zu behebende Abweichung mehr. Das nimmt A01 und
@@ -64,6 +73,12 @@ muss.
 9. **Absolute Grammzahlen verschwinden aus dem Skill, die Herleitungen bleiben.** Zu jeder
    abgeleiteten Dichte steht die Rechnung, dahinter das Ergebnis für das aktuelle
    Kalorienziel als erkennbares Beispiel.
+10. **Vier bestehende Katalogzeilen werden bei der Ernte mitkorrigiert.** Eine
+    Atwater-Gegenrechnung über den Bestand zeigt bei Gouda, Leinsamen, Cheddar und
+    Räucherlachs rechnerisch negative Kohlenhydrate – dort passen kcal, Protein und Fett
+    heute nicht zusammen. Die Zeilen stehen ohnehin auf der Erntliste; sie bekommen alle
+    Werte vom Etikett und ein eigenes Etikett-Datum, wie die zwölf Zeilen, die schon eines
+    tragen.
 
 ## Nicht abgedeckt
 
@@ -72,8 +87,9 @@ Damit beim Bauen klar ist, was liegen bleibt:
 - **A01** (Salz als Obergrenze statt Zielwert, Würzsalz) – hier wird nur die *Form*
   festgelegt (Obergrenze), nicht die Zahl neu bestimmt und nicht das Nachsalzen
   eingerechnet.
-- **A02/A03** (gesättigte Fettsäuren, SAFA-Spalte) – gesättigtes Fett steht deshalb nicht
-  auf der Prüfliste.
+- **A02** (Grenze für gesättigte Fettsäuren) – der Katalog bekommt die Spalte, der Skill
+  keine Grenze; gesättigtes Fett steht deshalb nicht auf der Prüfliste.
+- **A03** (SAFA-Spalte im Katalog) – **miterledigt**, siehe Nachtrag zum Umfang oben.
 - **A04** (Fett als enges Zielband) – ebenfalls nur die Form (Obergrenze).
 - **A05** (inkonsistente Dichte-Arithmetik) – **teilweise miterledigt**: die Salzdichte
   wird als Herleitung geschrieben und ergibt 0,33 statt der bisher genannten 0,3 g je
@@ -88,7 +104,7 @@ Damit beim Bauen klar ist, was liegen bleibt:
 
 ---
 
-## Änderung 1 – `zutaten.md`: Spalte „Kohlenhydrate"
+## Änderung 1 – `zutaten.md`: Spalten „Kohlenhydrate" und „ges. FS"
 
 **Umfang:** 15 Tabellen, 216 Datenzeilen. Zwei Spaltenlayouts, beide betroffen:
 
@@ -97,13 +113,25 @@ Damit beim Bauen klar ist, was liegen bleibt:
 | Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Fett | Salz | Saison | Einheit / Hinweis |
 ```
 
-**Position:** nach „Ballaststoffe", vor „Fett" – dieselbe Reihenfolge, in der das
-Antwortformat des Skills die Werte nennt (Kalorien, Protein, Ballaststoffe, Kohlenhydrate,
-Fett, Salz), damit Katalog und Antwort sich Spalte für Spalte lesen lassen.
+**Position:** Kohlenhydrate nach „Ballaststoffe", vor „Fett" – dieselbe Reihenfolge, in der
+das Antwortformat des Skills die Werte nennt (Kalorien, Protein, Ballaststoffe,
+Kohlenhydrate, Fett, Salz), damit Katalog und Antwort sich Spalte für Spalte lesen lassen.
+„ges. FS" steht direkt hinter „Fett", weil sie ein Teil davon sind. Beide Layouts werden
+zu:
+
+```
+… | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
+… | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Saison | Einheit / Hinweis |
+```
 
 **Werte:** je 100 g, gerundet, wie die übrigen Spalten. Bei Markenprodukten und Konserven
 vom REWE-Etikett, bei Rohware aus Tabellenwerten. Wo eine Marke stark abweicht, steht die
-Abweichung in Klammern – wie bisher.
+Abweichung in Klammern – wie bisher. `ges. FS ≤ Fett` gilt in jeder Zeile und ist die
+billigste Kontrolle der Ernte.
+
+**kcal, Protein und Ballaststoffe bleiben unangetastet** – außer in den vier Zeilen aus
+Entscheidung 10. Der Katalogkopf führt diese drei als Tabellenwerte; sie beim Ernten still
+gegen Etikettwerte zu tauschen wäre eine zweite, unbeschlossene Änderung.
 
 **Ballaststoffe sind nicht enthalten.** Die EU-Kennzeichnung führt Ballaststoffe getrennt
 von den Kohlenhydraten auf, und der Katalog übernimmt das. Wer die Zeile gegenrechnet, darf
@@ -113,8 +141,8 @@ Pflegedurchgang „korrigiert".
 
 **Katalogkopf anpassen.** Der Satz „kcal, Protein und Ballaststoffe sind übliche
 Tabellenwerte. Fett und Salz stammen bei Markenprodukten und Konserven vom REWE-Etikett
-(Stand 5. September 2026)" muss die Kohlenhydrate der Etikettgruppe zuschlagen und ein
-eigenes Stand-Datum bekommen.
+(Stand 5. September 2026)" muss Kohlenhydrate und gesättigte Fettsäuren der Etikettgruppe
+zuschlagen und ein eigenes Stand-Datum bekommen.
 
 ---
 
@@ -260,7 +288,8 @@ Drei Commits, in dieser Reihenfolge. Die Reihenfolge ist nicht beliebig: Änderu
 verweist auf eine Katalogspalte und auf eine Dateizuständigkeit, die vorher existieren
 müssen.
 
-1. **`zutaten.md`** – KH-Spalte und Katalogkopf. Reiner Datencommit, gut prüfbar, groß.
+1. **`zutaten.md`** – die beiden neuen Spalten und der Katalogkopf. Reiner Datencommit,
+   gut prüfbar, groß; der Erntelauf ist der Löwenanteil des Aufwands.
 2. **`praeferenzen.md` + `CLAUDE.md`** – Titel, Einleitung, Dateizeile. Klein.
 3. **`.claude/skills/rezept/SKILL.md`** – Grundlagen, Zielgrößen, Prüfschritt, Format.
 
@@ -273,7 +302,11 @@ Woran sich das Ergebnis messen lässt:
 - Im Skill steht keine absolute Grammzahl mehr, die aus 1800 kcal folgt. Suche nach „1800",
   „125 g", „38 g", „540" findet im Skill nichts mehr außer dem Portionswert 600 kcal (B05,
   bleibt offen).
-- Jede der 216 Katalogzeilen hat einen KH-Wert.
+- Jede der 216 Katalogzeilen hat einen Wert in beiden neuen Spalten, und in jeder gilt
+  `ges. FS ≤ Fett`.
+- Die Atwater-Gegenrechnung `|kcal − (4·KH + 4·Protein + 9·Fett + 2·Ballaststoffe)|` liegt
+  in jeder Zeile unter 10 % der kcal. Im Bestand scheitern vier Zeilen daran; danach darf
+  keine mehr scheitern.
 - Ein Testrezept aus dem aktuellen Vorrat lässt sich Zutat für Zutat gegen `zutaten.md`
   nachrechnen und trifft die ausgegebene Nährwertzeile.
 - Die ausgegebene Nährwertzeile enthält je Zielgröße ein Soll.
@@ -282,6 +315,6 @@ Woran sich das Ergebnis messen lässt:
 ## Danach
 
 Im `ideas/README.md` bekommen A06, A07 und B02 den Stand „in Arbeit" mit Verweis auf diese
-Spec; B03 bekommt einen Hinweis, dass er hier mit erledigt wird, und A05 einen, dass die
-Salzhälfte erledigt ist. Die Abhängigkeitsliste im README bleibt gültig – A02 → A03 → A07
-ist mit dieser Spec vorbereitet, aber nicht gelöst.
+Spec, A03 ebenfalls; B03 bekommt einen Hinweis, dass er hier mit erledigt wird, und A05
+einen, dass die Salzhälfte erledigt ist. Von der Kette A02 → A03 → A07 bleibt danach nur
+noch A02 offen – und zwar allein die Grenze im Skill, nicht mehr ihre Rechenbarkeit.

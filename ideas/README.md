@@ -15,11 +15,11 @@ einen abstrakt beschriebenen Zielzustand und Notizen für den späteren Änderun
 was in den Notizen steht, ist Vorüberlegung, keine Festlegung. Offene Entscheidungen sind
 in den Dateien als solche markiert.
 
-**Für A06, A07 und B02 sind sie entschieden:** [spec.md](spec.md) beschreibt die Änderung
-an `zutaten.md`, `praeferenzen.md`, `CLAUDE.md` und `.claude/skills/rezept/SKILL.md` in
-drei Commits. Die Spec erledigt B03 mit und die Salzhälfte von A05. Wo eine Entscheidung
-einen Befund entkräftet, steht das dort mit Begründung – A06 verliert dadurch seinen
-Ausschluss-Teil.
+**Für A03, A06, A07 und B02 sind sie entschieden:** [spec.md](spec.md) beschreibt die
+Änderung an `zutaten.md`, `praeferenzen.md`, `CLAUDE.md` und
+`.claude/skills/rezept/SKILL.md`. Die Spec erledigt A03 und B03 mit sowie die Salzhälfte
+von A05. Wo eine Entscheidung einen Befund entkräftet, steht das dort mit Begründung – A06
+verliert dadurch seinen Ausschluss-Teil.
 
 Geprüft gegen `dge-wochenbilanz.md` im Repository sowie die WHO-Leitlinien (Fact Sheet
 „Healthy diet" und das Leitlinien-Update zu Fetten und Kohlenhydraten vom 17. Juli 2023).
@@ -42,8 +42,8 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | Datei | Kurz | Gewicht | Stand |
 |---|---|---|---|
 | [A01](A01-salz-obergrenze-statt-zielwert.md) | Salz wird als Zielwert verteilt statt als Obergrenze behandelt; Würzsalz zählt nicht mit | hoch | offen |
-| [A02](A02-gesaettigte-fettsaeuren-ohne-grenze.md) | Keine Grenze für gesättigte Fettsäuren | hoch | offen |
-| [A03](A03-zutaten-katalog-ohne-safa-spalte.md) | `zutaten.md` hat keine Spalte dafür – A02 ist ohne sie nicht rechenbar | hoch | offen |
+| [A02](A02-gesaettigte-fettsaeuren-ohne-grenze.md) | Keine Grenze für gesättigte Fettsäuren | hoch | offen, aber ab [spec.md](spec.md) rechenbar |
+| [A03](A03-zutaten-katalog-ohne-safa-spalte.md) | `zutaten.md` hat keine Spalte dafür – A02 ist ohne sie nicht rechenbar | hoch | in Arbeit, [spec.md](spec.md) |
 | [A04](A04-fett-als-enges-zielband.md) | Fettquote ohne Toleranz, erzwingt Öl in magere Gerichte | mittel | offen |
 | [A05](A05-inkonsistente-dichte-arithmetik.md) | Zwei Punkte führen ihre eigene Herleitung nicht sauber aus | mittel | teilweise in [spec.md](spec.md) (Salz) |
 | [A06](A06-praeferenzen-werden-nicht-gelesen.md) | `praeferenzen.md` wird nicht gelesen; Zielgrößen doppelt gepflegt | hoch | in Arbeit, [spec.md](spec.md) |
@@ -74,7 +74,9 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 Die wichtigsten Kopplungen – diese Ideen lassen sich nicht einzeln lösen:
 
 - **A02 → A03 → A07**: Die SAFA-Grenze braucht die Katalogspalte, und `rezept` erreicht den
-  Katalog erst über A07.
+  Katalog erst über A07. **Weitgehend aufgelöst:** `spec.md` erntet die SAFA-Werte im selben
+  Lauf wie die Kohlenhydrate, weil dieselbe REWE-Seite beide liefert. Danach fehlt A02 nur
+  noch die Grenze im Skill, nicht mehr die Rechenbarkeit.
 - **A01 ↔ A12**: Die Salzzahl muss in beiden Skills dieselbe werden, sonst wird der
   Widerspruch nur verschoben.
 - **A01 → A05**: Das Salzband wird in A01 ohnehin neu bestimmt.
