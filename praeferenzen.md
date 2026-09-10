@@ -55,3 +55,24 @@ Zutaten oder Gruppen, die in keinem Plan vorkommen sollen. Je Zeile: was genau, 
 ## Hinweise
 
 Freitext, den der Skill beachten soll (etwa: Räuchertofu lieber als Naturtofu; kein Frühstücksei unter der Woche).
+
+**Der Vorrat darf eine Grenze reißen – aber bewusst und ausgesprochen** (seit
+2026-09-10): Erzwingt eine Zutat, die im Haus ist, mehr Salz oder mehr gesättigtes Fett,
+als die Portion tragen darf, wird sie trotzdem verwendet und die Grenze gerissen. Ich will
+lieber den Vorrat aufbrauchen als angebrochene Reste im Kühlschrank haben. Zwei Bedingungen:
+
+- **Im Rezept ansprechen.** Der gerissene Wert steht mit Zahl und Sollwert in der
+  Nährwertzeile, dazu ein Halbsatz, der die Zutat als Grund nennt („175 g Räuchertofu,
+  ganze Packung"). Keine stille Überschreitung, keine Rechnung, die das Ziel schönt.
+- **Nur die Zutat reißt die Grenze, nicht die Würze.** Wo eine Vorratszutat den Deckel
+  sprengt, entfällt das regelbare Salz – Nachsalzen, Brühe, Sojasauce, Currypaste – und
+  gewürzt wird über Säure, Schärfe, Röstaromen und Kräuter. Wer die Grenze wegen einer
+  Packung reißt und dann noch nachsalzt, verschiebt sie zweimal: einmal gezwungen, einmal
+  freiwillig. Gedeckt ist nur der Zwang.
+
+Die Grenzen selbst bleiben, wo sie sind: 6 g Salz am Tag (DGE-Referenzwert) und 10 En%
+gesättigte Fettsäuren (Modellvorgabe der DGE-Speisepläne, kein Referenzwert). Nachgegeben
+wird bei der Verteilung auf die einzelne Portion, nicht am Tageswert.
+
+Beispiel: 175 g Räuchertofu bringen 3,0 g Salz, der Deckel einer 600-kcal-Portion liegt
+bei 2,0 g. Die Packung kommt trotzdem ganz ins Gericht, und die Nährwertzeile sagt es.
