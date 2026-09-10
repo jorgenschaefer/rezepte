@@ -11,8 +11,9 @@ Quellen (alle geprüft am 5. September 2026):
 - DGE/ÖGE-Referenzwerte für die Nährstoffzufuhr mit den Nährstoffseiten: https://www.dge.de/wissenschaft/referenzwerte/
 - „Umrechnungsfaktoren in Milchäquivalente", DGEwissen 3/2024: https://www.dge.de/fileadmin/dok/wissenschaft/dgewissen/Umrechnungsfaktoren-Milchaequivalente-DGEWissen-3.2024-S43-44.pdf
 - „Gemeinsam gegen den Rest", DGE Sektion Schleswig-Holstein: https://www.dge-sh.de/gemeinsam-gegen-den-rest
+- WHO-Fact-Sheet „Healthy diet" (Weltgesundheitsorganisation), herangezogen nur zur Abgrenzung bei der Salzmenge: https://www.who.int/news-room/fact-sheets/detail/healthy-diet
 
-Diese Datei enthält nur DGE-Wortlaut und DGE-Zahlen. Was aus den DGE-Wochenplänen nur abgelesen ist (keine ausdrückliche Vorgabe), steht unter „Beobachtung". Packungen und Nährwerte stehen in `zutaten.md`, die Arbeitsregeln im Skill selbst. Ein DGE-Orientierungswert ist meist ein Durchschnitts- oder Zielwert und keine Obergrenze; wo er eine Obergrenze ist, steht es dabei.
+Diese Datei enthält nur DGE-Wortlaut und DGE-Zahlen und, wo eine Abgrenzung nötig ist, ausdrücklich benannte Fremdquellen. Was aus den DGE-Wochenplänen nur abgelesen ist (keine ausdrückliche Vorgabe), steht unter „Beobachtung". Packungen und Nährwerte stehen in `zutaten.md`, die Arbeitsregeln im Skill selbst. Ein DGE-Orientierungswert ist meist ein Durchschnitts- oder Zielwert und keine Obergrenze; wo er eine Obergrenze ist, steht es dabei.
 
 ## Geltungsbereich und Grundsätze (DGE)
 
@@ -70,7 +71,7 @@ Die 2 Milchportionen sind ein Modellergebnis, das Nährstoffbedarf, Gesundheit u
 | Kohlenhydrate | „mehr als 50 % der Energiezufuhr"; freie Zucker unter 10 En% inklusive Säfte, Honig, Sirupe, Marmelade (DGE-Konsensuspapier Zucker 2018, Modellziel der Speisepläne) |
 | Ballaststoffe | Richtwert mindestens 30 g am Tag bzw. 14,6 g je 1000 kcal (Ballaststoffdichte gilt für Frauen und Männer gleich; die Dichte ist eine Rechengröße, kein eigener Richtwert) |
 | Wasser | Getränke rund 1,4–1,5 l (25–51 Jahre: 1410 ml), Gesamtwasserzufuhr 2,6–2,7 l inklusive fester Nahrung. „Genussmittel wie Kaffee und schwarzer Tee sollten nur in moderaten Mengen von 3–4 Tassen getrunken werden." Erhöhter Bedarf bei Hitze, Sport, reichlich Salz und hoher Proteinzufuhr. |
-| Salz | „Mehr als 6 g am Tag sollten es nicht sein, im Durchschnitt sind es 10 g." „Wenn Sie Salz verwenden, wählen Sie angereichertes Speisesalz mit Jod und Fluorid." Etwa ⅔ des Salzes kommen aus verarbeiteten Lebensmitteln (Brot, Käse, Fleisch, Wurst, Fertigprodukte, Fast Food). „Runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab." Natrium-Schätzwert 1500 mg/Tag |
+| Salz | „Mehr als 6 g am Tag sollten es nicht sein, im Durchschnitt sind es 10 g." „Wenn Sie Salz verwenden, wählen Sie angereichertes Speisesalz mit Jod und Fluorid." Etwa ⅔ des Salzes kommen aus verarbeiteten Lebensmitteln (Brot, Käse, Fleisch, Wurst, Fertigprodukte, Fast Food). „Runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab." Natrium-Schätzwert 1500 mg/Tag. Zur Abgrenzung: Die WHO empfiehlt weniger als 5 g am Tag. Dieses Repository folgt der DGE mit 6 g, weil die DGE-Speisepläne die Grundlage seiner Planung sind und selbst bei 5–6 g liegen |
 | Calcium | 1000 mg; beste Quellen Milch und Milchprodukte, außerdem Brokkoli, Grünkohl, Rucola, Samen und Nüsse, calciumreiches Mineralwasser (> 150 mg/l) |
 | Kalium | Schätzwert 4000 mg; reich sind Aprikosen, Bananen, Karotten, Kohlrabi, Tomaten, Nüsse, Dinkel- und Roggenmehl |
 | Magnesium | Schätzwert Männer 350 mg, Frauen 300 mg; Quellen Vollkorn, Hülsenfrüchte, grünes Blattgemüse, Nüsse und Samen, Fisch |
