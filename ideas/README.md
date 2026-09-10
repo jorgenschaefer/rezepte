@@ -15,11 +15,14 @@ einen abstrakt beschriebenen Zielzustand und Notizen für den späteren Änderun
 was in den Notizen steht, ist Vorüberlegung, keine Festlegung. Offene Entscheidungen sind
 in den Dateien als solche markiert.
 
-**[spec-02-grenzen.md](spec-02-grenzen.md) ist geschrieben und noch nicht gebaut.** Sie
+**[spec-02-grenzen.md](spec-02-grenzen.md) ist gebaut** (sechs Commits an
+`dge-wochenbilanz.md`, beiden Skills und `praeferenzen.md`, plus eine Nachschärfung der
+Rundungsregel, die aus den Testläufen kam). Sie
 löst A01, A02, A04, A05, A08, B01 und B07 ganz sowie A12 und B04 teilweise – der Skill
 bekommt Grenzen, Konfliktregeln und einen Würzabschnitt. A11 ist dabei verworfen worden.
 Die Spec ist nach einer Prüfung überarbeitet; was sich dadurch geändert hat, steht in ihrem
-letzten Abschnitt.
+letzten Abschnitt. Verifiziert wurde mechanisch (elf Zusicherungen, vorher rot) und mit je
+drei Skill-Aufrufen für drei Szenarien, alle 3/3; die Belege stehen in den Commit-Nachrichten.
 
 **A03, A06, A07, B02 und B03 sind umgesetzt.** [spec.md](spec.md) hält die Entscheidungen
 fest, die dahinterstehen; gebaut wurde in vier Commits an `zutaten.md`, `praeferenzen.md`,
@@ -48,30 +51,30 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 
 | Datei | Kurz | Gewicht | Stand |
 |---|---|---|---|
-| [A01](A01-salz-obergrenze-statt-zielwert.md) | Salz wird als Zielwert verteilt statt als Obergrenze behandelt; Würzsalz zählt nicht mit | hoch | in Arbeit, [spec-02](spec-02-grenzen.md) |
-| [A02](A02-gesaettigte-fettsaeuren-ohne-grenze.md) | Keine Grenze für gesättigte Fettsäuren | hoch | in Arbeit, [spec-02](spec-02-grenzen.md) |
+| [A01](A01-salz-obergrenze-statt-zielwert.md) | Salz wird als Zielwert verteilt statt als Obergrenze behandelt; Würzsalz zählt nicht mit | hoch | erledigt, [spec-02](spec-02-grenzen.md) |
+| [A02](A02-gesaettigte-fettsaeuren-ohne-grenze.md) | Keine Grenze für gesättigte Fettsäuren | hoch | erledigt, [spec-02](spec-02-grenzen.md) |
 | [A03](A03-zutaten-katalog-ohne-safa-spalte.md) | `zutaten.md` hat keine Spalte dafür – A02 ist ohne sie nicht rechenbar | hoch | erledigt, [spec.md](spec.md) |
-| [A04](A04-fett-als-enges-zielband.md) | Fettquote ohne Toleranz, erzwingt Öl in magere Gerichte | mittel | in Arbeit, [spec-02](spec-02-grenzen.md); Hauptbefund war schon vorher gefallen |
-| [A05](A05-inkonsistente-dichte-arithmetik.md) | Zwei Punkte führen ihre eigene Herleitung nicht sauber aus | mittel | in Arbeit, [spec-02](spec-02-grenzen.md); nur noch die Rundungsregel |
+| [A04](A04-fett-als-enges-zielband.md) | Fettquote ohne Toleranz, erzwingt Öl in magere Gerichte | mittel | erledigt, [spec-02](spec-02-grenzen.md) |
+| [A05](A05-inkonsistente-dichte-arithmetik.md) | Zwei Punkte führen ihre eigene Herleitung nicht sauber aus | mittel | erledigt, [spec-02](spec-02-grenzen.md) |
 | [A06](A06-praeferenzen-werden-nicht-gelesen.md) | `praeferenzen.md` wird nicht gelesen; Zielgrößen doppelt gepflegt | hoch | erledigt, [spec.md](spec.md) |
 | [A07](A07-keine-naehrwertquelle.md) | Keine Nährwertquelle benannt; die Bilanz ist geschätzt | hoch | erledigt, [spec.md](spec.md) |
-| [A08](A08-kohlenhydrate-unter-50-energieprozent.md) | Kohlenhydrate landen unter dem DGE-Richtwert, ohne dass es dasteht | mittel | in Arbeit, [spec-02](spec-02-grenzen.md) |
+| [A08](A08-kohlenhydrate-unter-50-energieprozent.md) | Kohlenhydrate landen unter dem DGE-Richtwert, ohne dass es dasteht | mittel | erledigt, [spec-02](spec-02-grenzen.md) |
 | [A09](A09-huelsenfruechte-zubereitung.md) | Keine Regel zu Hülsenfrüchten (abspülen, durchgaren) | mittel | offen |
 | [A10](A10-jodsalz.md) | Jodsalz wird nicht erwähnt | klein | offen |
 | [A11](A11-mustgo-ohne-prioritaet.md) | Mustgo ohne Vorrang und ohne Abwägung gegen die Grenzen | mittel | verworfen, [A11](A11-mustgo-ohne-prioritaet.md) |
-| [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | in Arbeit, [spec-02](spec-02-grenzen.md); Tagesregel und Diagnostik bleiben offen |
+| [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | teilweise erledigt, [spec-02](spec-02-grenzen.md); Tagesregel und Diagnostik offen |
 
 ## B – Qualität als Prompt
 
 | Datei | Kurz | Gewicht | Stand |
 |---|---|---|---|
-| [B01](B01-prioritaeten-ohne-konfliktregeln.md) | Die „Prioritäten-Hierarchie" löst keine Konflikte | hoch | in Arbeit, [spec-02](spec-02-grenzen.md) |
+| [B01](B01-prioritaeten-ohne-konfliktregeln.md) | Die „Prioritäten-Hierarchie" löst keine Konflikte | hoch | erledigt, [spec-02](spec-02-grenzen.md) |
 | [B02](B02-kein-pruefschritt-vor-der-ausgabe.md) | Kein Prüfschritt vor der Ausgabe | hoch | erledigt, [spec.md](spec.md) |
 | [B03](B03-format-ohne-soll-ist-abgleich.md) | Das Format erzwingt keinen Soll/Ist-Abgleich | mittel | erledigt, in [spec.md](spec.md) miterledigt |
-| [B04](B04-kein-handwerksabschnitt.md) | Nichts darüber, wie das Essen schmecken soll | mittel | in Arbeit, [spec-02](spec-02-grenzen.md); zweite Hälfte geht an B06 |
+| [B04](B04-kein-handwerksabschnitt.md) | Nichts darüber, wie das Essen schmecken soll | mittel | teilweise erledigt, [spec-02](spec-02-grenzen.md); zweite Hälfte bei B06 |
 | [B05](B05-portionsgroesse-hartkodiert.md) | 600 kcal je Portion sind nicht hergeleitet | klein | offen |
 | [B06](B06-keine-abwechslungsregel.md) | Nichts hindert den Skill an ewiger Wiederholung | mittel | offen; erbt aus [spec-02](spec-02-grenzen.md) B04s zweite Hälfte |
-| [B07](B07-benennungen-und-anglizismen.md) | Zwei irreführende Benennungen | klein | in Arbeit, [spec-02](spec-02-grenzen.md) |
+| [B07](B07-benennungen-und-anglizismen.md) | Zwei irreführende Benennungen | klein | erledigt, [spec-02](spec-02-grenzen.md) |
 
 [B08](B08-zubereitungsregel-als-vorbild.md) fällt aus der Reihe: kein Befund, sondern der
 **Stilmaßstab**, an dem sich A01, A02, B01 und B02 messen sollen.
