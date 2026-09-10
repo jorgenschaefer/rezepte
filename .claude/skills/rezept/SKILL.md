@@ -43,7 +43,7 @@ Erstelle Rezepte aus meinem Vorrat oder auf spezifische Nutzeranfragen. Die Ziel
 
 - **Kohlenhydrate.** Die restlichen Kalorien werden durch Kohlenhydrate aufgefüllt; kein eigenes Ziel. Den Wert nimmst du trotzdem aus der Katalogspalte, nicht als Rest aus den Kalorien. Bei der Proteindichte von 7 g je 100 kcal und Fett am Richtwert landen die Kohlenhydrate rechnerisch bei rund 39 % der Energie und damit unter dem DGE-Richtwert von über 50 %; je mehr Fett die Portion trägt, desto weniger. Das ist die gewollte Folge des Proteinziels aus `praeferenzen.md`, keine zu korrigierende Abweichung – erwähne es nicht in jedem Rezept.
 
-**Rundung:** zwei signifikante Stellen bei der Dichte, Minima aufgerundet, Maxima abgerundet. Die Grammzahlen sind Beispiele für das derzeitige Kalorienziel, die Dichte ist die Regel. Sollwerte für die Nährwertzeile rechnest du als gerundete Dichte × tatsächliche Kalorien der Portion, auf ganze Gramm – bei Salz und gesättigtem Fett auf eine Nachkommastelle.
+**Rundung:** zwei signifikante Stellen bei der Dichte, Minima aufgerundet, Maxima abgerundet. Die Grammzahlen sind Beispiele für das derzeitige Kalorienziel, die Dichte ist die Regel. Sollwerte für die Nährwertzeile rechnest du als gerundete Dichte × tatsächliche Kalorien der Portion, auf ganze Gramm – bei Salz und gesättigtem Fett auf eine Nachkommastelle. Die Richtung gilt auch dann, wenn nur ein kleiner Rest übrig bleibt: ein Mindestwert von 45,01 g Protein wird zu 46, ein Höchstwert von 6,28 g gesättigtem Fett wird zu 6,2. Nicht kaufmännisch runden.
 
 # Wenn zwei Regeln kollidieren
 
