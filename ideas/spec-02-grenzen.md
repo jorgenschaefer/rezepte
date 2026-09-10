@@ -79,8 +79,11 @@ eine Frage der Woche und des Einkaufs und damit Sache von `wochenplan`.
 5. **Der Vorrat darf eine Grenze reißen – gebunden an einen echten Packungszwang.**
    Herkunft: Entscheidung des Nutzers vom 10. September 2026, vermerkt in
    `praeferenzen.md`. Der Auslöser ist eng definiert, sonst ist die Grenze eine Formalie:
-   - **Entweder** die Zutat trägt in `vorratskammer.md` den Vermerk „nur als ganze Packung
-     verwenden" (derzeit sechs Zutaten, darunter Räuchertofu 175 g),
+   - **Entweder** `vorratskammer.md` vermerkt bei der Zutat eine Packungsregel – Räuchertofu
+     175 g und Tofu Natur 200 g tragen „nur als ganze Packung verwenden", passierte Tomaten
+     500 g eine eigene Halb-Packungs-Regel. Der Auslöser hängt bewusst nicht an der
+     wörtlichen Zeichenkette, sonst fielen die Tomaten heraus, und er nennt keine Anzahl:
+     eine Zahl im Regeltext wird bei jedem Einkauf falsch.
    - **oder** es bleibt ein Rest, der laut `zutaten.md` vor dem nächsten Kochtag verdirbt –
      Haltbarkeit „frisch" oder ein Vermerk wie „offen 1–3 Tage". Ein Rest der Klasse
      „Wochen" oder „lang" ist **kein** Anlass: er hält, und `wochenplan` erlaubt ihn
@@ -309,7 +312,7 @@ entfällt – die Blocküberschriften sagen das jetzt.
 > Zwei Fälle sind geregelt, alles andere entscheidest du im Rezept und sagst es dazu.
 >
 > **Eine Packung sprengt eine Grenze.** Der Fall greift nur, wenn `vorratskammer.md` bei der
-> Zutat „nur als ganze Packung verwenden" vermerkt oder ein Rest bliebe, der laut
+> Zutat eine Packungsregel vermerkt oder ein Rest bliebe, der laut
 > `zutaten.md` vor dem nächsten Kochtag verdirbt („frisch", „offen 1–3 Tage"). Ein Rest der
 > Klasse „Wochen" oder „lang" ist kein Anlass – er hält.
 >
