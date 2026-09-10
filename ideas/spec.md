@@ -299,9 +299,10 @@ Woran sich das Ergebnis messen lässt:
 
 - Der Skill nennt drei Dateien mit Lesereihenfolge; `vorratskammer.md` steht nicht mehr
   allein da.
-- Im Skill steht keine absolute Grammzahl mehr, die aus 1800 kcal folgt. Suche nach „1800",
-  „125 g", „38 g", „540" findet im Skill nichts mehr außer dem Portionswert 600 kcal (B05,
-  bleibt offen).
+- Im Skill steht keine Grammzahl mehr, die nur bei 1800 kcal stimmt und nicht als solche
+  gekennzeichnet ist. Suche nach „125 g" und „38 g" findet nichts mehr. „1800" kommt weiter
+  vor, aber ausschließlich als Beispiel neben seiner Herleitung – so will es Entscheidung 9.
+  Der Portionswert 600 kcal bleibt hartkodiert (B05, bleibt offen).
 - Jede der 216 Katalogzeilen hat einen Wert in beiden neuen Spalten, und in jeder gilt
   `ges. FS ≤ Fett`.
 - Die Atwater-Gegenrechnung `|kcal − (4·KH + 4·Protein + 9·Fett + 2·Ballaststoffe)|` liegt
