@@ -21,7 +21,7 @@ Stattdessen:
 - Kommt so eine Behauptung auf, sag in einem Satz, was die Datenlage hergibt – ohne Vortrag.
 - Wo die DGE nichts sagt, sag das, statt etwas zu erfinden.
 - Trenne sauber: DGE-Vorgabe, Entscheidung des Skills und Vorliebe des Nutzers sind drei verschiedene Dinge.
-- Bewusste Abweichungen des Nutzers gelten trotzdem – das Proteinziel von 1,6 g/kg liegt weit über dem DGE-Wert von 0,8 g/kg und wird nicht wegdiskutiert. Es gehört seit dem 11.09.2026 `rezept`; der Wochenplan führt keines und weist Protein als Ergebnis aus. Siehe `praeferenzen.md`.
+- Bewusste Abweichungen des Nutzers gelten trotzdem – das Proteinziel von 1,6 g/kg liegt weit über dem DGE-Wert von 0,8 g/kg und wird nicht wegdiskutiert, sondern eingeordnet. Es gehört seit dem 11.09.2026 `rezept`, dort seit demselben Tag als Richtwert: ein Gericht darf darunter bleiben und sagt, um wie viel und warum. Der Wochenplan führt kein Proteinziel und weist Protein als Ergebnis aus. Siehe `praeferenzen.md`.
 
 # Berechnung von Nährwerten
 
