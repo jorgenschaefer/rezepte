@@ -743,7 +743,10 @@ Aus dem Intent, jede mit ihrer Prüfung:
    Zusicherungen 1, 11 und 17.* Der DGE-Referenzwert von 0,8 g je kg ist davon nicht berührt: er
    ist eine DGE-Zahl unter DGE-Zahlen, nicht das Ziel des Nutzers. Ebenso wenig der Protein-**Ist**
    in Tagessumme und Bilanz – ihn verlangt der Intent ausdrücklich. *Vom Nutzer bestätigt.*
-2. **Der Plan bleibt auf das Kalorienziel skalierbar.** *Geprüft durch Zusicherung 20.*
+2. **Der Plan bleibt auf das Kalorienziel skalierbar.** *Zusicherung 20 ist nicht gefahren
+   worden (siehe „Was der Bau ergeben hat"); die Skalierung ist durch die Herleitung im Skill
+   gedeckt und durch die drei Läufe bei 1800 kcal, die den Faktor 0,9 selbst ausrechnen und
+   ausschreiben – aber nicht durch einen Lauf bei abweichendem Ziel.*
 3. **`rezept` verwirft kein Rezept mehr wegen einer gerissenen Zahl.** Betrifft die zweite Spec;
    diese hier fasst `rezept` nicht an. *Geprüft durch Zusicherung 15.*
 4. **`rezept` kocht weiter aus `vorratskammer.md`.** Unberührt, siehe 3.
@@ -751,3 +754,64 @@ Aus dem Intent, jede mit ihrer Prüfung:
    Zusicherungen 15 und 21.*
 6. **Die Trennung aus `CLAUDE.md` bleibt sichtbar.** *Geprüft durch Zusicherungen 4, 10, 13
    und 14.*
+
+
+## Was der Bau ergeben hat
+
+Gebaut in fünf Commits: `praeferenzen.md`, `.claude/skills/wochenplan/SKILL.md`,
+`ideas/README.md`, die Löschung von `wochenplan.md` und – über den geplanten Umfang hinaus –
+`CLAUDE.md`. `rezept`, `dge-wochenbilanz.md`, `zutaten.md` und `vorratskammer.md` blieben
+unangetastet, wie vorgesehen.
+
+**Mechanisch:** sechzehn Zusicherungen, **dreizehn davon vorher rot**. Die drei übrigen (kein
+Modellzitat, Umfang der geänderten Dateien, Zeilenzahl) waren von Anfang an grün und sichern
+nur, dass nichts hereinkommt oder angefasst wird, was nicht soll. Zusicherung 15 ist gegen den
+Bereich `BASE..HEAD` der drei Bau-Commits gemessen, nicht gegen den leeren Diff danach.
+B08-Gegenprobe: 97 → **113 Zeilen** bei einem Budget von 118.
+
+**Durch Aufrufe:** drei Pläne mit dem neuen Stand und ein Kontrolllauf mit dem alten, jeder in
+eigenem Klon und eigenem Kontext, ohne Kenntnis von Spec und Plan.
+
+| DGE-Größe | Soll (1800 kcal) | alter Skill | 17a | 17b | 17c |
+|---|---|---|---|---|---|
+| Milchäquivalente | 360 g/Tag, Band 324–396 | **≈ 2670 g, mit Häkchen** | 350 | 356 | 356 |
+| Getreide | 270 g/Tag, Band 243–297 | **135 g (−50 %)** | 247 | 257 | 246 |
+| Protein | Referenz 55 g, DGE-Pläne 68–77 | **126 g gegen Ziel 126 g** | 75,5 | 72 | 76 |
+
+Keiner der drei neuen Pläne führt ein Proteinziel. Alle drei schreiben von sich aus dazu, dass
+die 1800 kcal eine persönliche Zahl und kein DGE-Wert sind, rechnen das Referenzgewicht selbst
+aus der Körpergröße (BMI 22 bei 177 cm = 69 kg = 55 g) und weisen Protein ausdrücklich als
+Ergebnis aus. Die neuen Mengenarten werden richtig angewandt: Kartoffeln bei +100 % mit „nach
+oben offen", Eier und Säfte als Werte ohne feste Menge, also gar keine Abweichungen.
+
+**Der Kontrolllauf hat den Befund bestätigt und verschärft.** Frisch gerechnet, mit den Dateien
+vor der Änderung und demselben Ziel, liegen die Milchäquivalente bei ≈ 2670 g am Tag – dem
+7,4-Fachen der skalierten DGE-Menge, mit Häkchen –, das Getreide bei der **Hälfte** statt bei
+zwei Dritteln, und die Proteinsumme trifft wieder exakt das Ziel. Das Siebenfache ist damit kein
+Ausrutscher des einen protokollierten Plans, sondern reproduzierbar.
+
+**Zwei Korrekturen kamen aus dem Bau, nicht aus der Spec.** Punkt 1 ließ bei zu hohem
+Wochenschnitt „Brot, Reis oder Nudeln in den größten Mahlzeiten" kürzen – derselbe Mechanismus,
+den diese Spec beseitigt, nur mit dem Kalorienziel als Anlass; gekürzt wird jetzt dort, wo der
+Plan über seiner DGE-Menge liegt, und nur im Rahmen ihrer Toleranz. Und das Gegenbeispiel im
+Kopfabsatz war zuerst mit dem Originalsatz des alten Plans belegt – ein wörtliches Zitat, das
+die verbotene Regel im Prompt ausspricht und Zusicherung 1 riss; es ist jetzt eine Wiedergabe.
+
+**`CLAUDE.md` ist beim Planen des Baus dazugekommen.** Zwei Sätze dort ziehen gegen den gebauten
+Zustand und laden in jeden Lauf. Sie bleiben stehen und bekommen ihre Zuordnung.
+
+**Nicht gefahren:** die Zusicherungen 19 (Proteinvorgabe in der Anfrage), 20 (Lauf bei 2400 kcal)
+und 21 (Regression auf Einkauf, Packungen, Saison und den Diskussionsteil). Der Nutzer hat die
+Läufe nach über zehn Minuten abgebrochen, nachdem die tragenden Zusicherungen grün waren. Was
+damit unbelegt bleibt: **Constraint 2** ist nur durch die Herleitung und durch das Skalieren bei
+1800 kcal gedeckt, nicht durch einen Lauf bei abweichendem Ziel; dass der Skill eine
+Proteinvorgabe aus der Anfrage richtig abweist, steht im Prompt, ist aber nicht vorgeführt; und
+dass Einkaufsliste, Packungsprüfung und Diskussionsteil unverändert funktionieren, ist nur
+dadurch gestützt, dass die drei gefahrenen Pläne vollständige Einkaufslisten mit Packungsständen
+tragen. Wer diese drei nachholen will, findet sie unter „Abnahme".
+
+**Zum Aufbau, für das nächste Mal:** Die ersten vier Läufe sind gestorben, weil sie mit `&` aus
+einem Bash-Aufruf gestartet wurden, der selbst endete – solche Kinder überleben das Ende ihrer
+Tool-Sitzung nicht. Mit `setsid` und eigener Ausgabedatei je Lauf hielten sie durch. Ein Lauf
+braucht rund zwanzig Minuten und schreibt die ganze Zeit nichts; das Fehlen einer Datei ist
+deshalb kein Zeichen für einen hängenden Lauf.
