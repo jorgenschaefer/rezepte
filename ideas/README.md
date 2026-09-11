@@ -75,6 +75,7 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [A10](A10-jodsalz.md) | Jodsalz wird nicht erwähnt | klein | offen |
 | [A11](A11-mustgo-ohne-prioritaet.md) | Mustgo ohne Vorrang und ohne Abwägung gegen die Grenzen | mittel | verworfen, [A11](A11-mustgo-ohne-prioritaet.md) |
 | [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | teilweise erledigt, [spec-02](spec-02-grenzen.md); Tagesregel und Diagnostik offen |
+| [A13](A13-katalogzutat-statt-vorratszutat.md) | Der Skill verkocht Katalogzutaten, die nicht im Vorrat stehen; der Katalog führt dabei in die Irre | mittel | offen |
 
 ## B – Qualität als Prompt
 
@@ -123,3 +124,5 @@ Die wichtigsten Kopplungen – diese Ideen lassen sich nicht einzeln lösen:
   abbildet.
 - ~~**B04 ↔ B07**: „Flavor-Tipp" wird nur umbenannt, wenn das Feld ohnehin angefasst wird.~~ Hinfällig: `spec-02` hat umbenannt.
 - **A09 + A10** lassen sich als ein Commit erledigen.
+- **A13 → `zutaten.md`**: Die Zuordnung wird erst eindeutig, wenn die Markenangaben auf der
+  richtigen Zeile stehen – bei Brokkoli steht dieselbe Packung heute auf beiden.
