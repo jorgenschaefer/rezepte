@@ -571,3 +571,27 @@ Ergebnis.
 - **A09** (Hülsenfrüchte: abspülen, durchgaren) bleibt offen. Der Punkt gehört in die
   Zutatenliste und hängt an einem Katalogwert; er wird nicht nebenbei mitgenommen.
 - **Der Vorrat selbst** – siehe „Jetzt und später".
+
+## Was der Bau ergeben hat
+
+Fünf Commits in der geplanten Reihenfolge; alle fünfzehn mechanischen Zusicherungen grün. Was die
+Läufe darüber hinaus gezeigt haben:
+
+- **Die beiden bezifferten Ursachen sind weg.** Brühe und Sojasauce erscheinen in sechs von fünfzehn
+  Rezepten (Kontrolllauf: null von zwölf), Fisch trägt in allen drei A-Läufen ein Gericht
+  (Kontrolllauf: null), und ein Nudelgericht kommt auf 47 % Nudelenergie bei 34 g Protein, mit Grund.
+- **Der Kontrolllauf hat den Befund bestätigt, nicht gedreht.** Der alte Skill lieferte verschiedene
+  Gerichte, aber viermal hintereinander Soja oder Quark als tragende Proteinquelle und keinen
+  einzigen Löffel Brühe.
+- **Die Richtwerte sind nicht verfallen.** Jedes Rezept trug eine Einordnung, jede Unterschreitung
+  eine Zahl und einen Grund. Das Bedenken, die späte Rechnung mache die Richtwerte unsichtbar, hat
+  sich nicht bestätigt.
+- **Das Salz ist gekippt und wurde nachgeschärft.** Vier von fünfzehn Portionen über 4 g, zwei über
+  5 g. Die Maßangabe trägt jetzt eine Zahl („über 3 g nur bei Packungszwang, und dann ist die Packung
+  das Salz"); die drei Nachprüfungen auf den auslösenden Anfragen ergaben 3,1 – 2,1 – 3,1 g. Damit
+  kehrt der nützliche Teil der alten Regel als Urteil zurück, ohne den Deckel je 100 kcal.
+- **Ein Widerspruch in dieser Spec ist beim Bau aufgefallen:** Zusicherung 14 verlangte, dass
+  „Sollwert" nirgends mehr in `praeferenzen.md` steht, während Änderung 2d den Nutzer-Absatz vom
+  10.09.2026 unverändert lässt – dort steht das Wort. Der Absatz bleibt als Protokoll stehen und
+  verweist jetzt auf seine Neufassung; die Zusicherung ist entsprechend berichtigt.
+- **Umfang:** 2691 → 2478 Wörter (−13 %), 147 → 148 Zeilen. Kriterium 4 bleibt halb eingelöst.

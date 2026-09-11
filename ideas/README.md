@@ -77,6 +77,40 @@ Zahl von einer DGE-Variation gedeckt gewesen (100 % Vollkorn, mehr Gemüse und H
 den Befund trägt jetzt der Grund, den der Plan selbst nennt, und die Milchäquivalente beim Siebenfachen
 der DGE-Menge.
 
+**[spec-07-rezept-kocht-statt-rechnet.md](spec-07-rezept-kocht-statt-rechnet.md) ist gebaut** (fünf
+Commits an `praeferenzen.md`, `.claude/skills/rezept/SKILL.md`, `CLAUDE.md`,
+`.claude/skills/wochenplan/SKILL.md` und dieser Datei). Sie löst A15 und die Rezept-Hälfte von A14,
+und A10 fällt nebenbei mit ab. Aus sechs Zielgrößen je Portion werden sechs DGE-Leitsätze im Wortlaut,
+fünf Tageszahlen der DGE und ein Proteinrichtwert des Nutzers; der Skill kocht zuerst und rechnet
+danach, und jede Abweichung steht als „Einordnung" im Ausgabeformat, statt eine Korrekturrunde
+auszulösen.
+
+**Die Diagnose ließ sich vor dem Bau beziffern**, und darauf beruht die Lösung: Der Salzdeckel ließ
+1,0 g Salz aus Zutaten übrig, während 1 TL Brühe 2,5 g bringt – Brühe und Sojasauce waren rechnerisch
+verboten; und 7 g Protein je 100 kcal erreichen im Vorrat nur Tofu, Soja, Quark und Wildlachs, weshalb
+einer der drei in fast jedem Gericht landete.
+
+**Verifiziert** mit fünfzehn mechanischen Zusicherungen (alle vorher rot) und fünfzehn Rezepten aus
+fünf Szenarien, dazu zwölf Rezepte im Kontrolllauf gegen den alten Skill. **Der Kontrolllauf hat den
+Befund bestätigt:** In den zwölf Rezepten des alten Skills kam **kein einziges Mal** Brühe oder
+Sojasauce vor und **kein einziges Mal** Fisch als Hauptdarsteller; sein Nudelgericht trug 22–38 %
+Nudelenergie, weil 200 g Tofu oder 130 g Soja-Granulat danebengelegt wurden, bis die Proteinzahl
+stand. Der neue Skill nutzt Brühe oder Sojasauce in sechs von fünfzehn Rezepten, führt in allen drei
+A-Läufen Fisch als Hauptdarsteller und lässt Nudeln bis zu 47 % der Energie tragen – mit 34 g Protein
+statt 42 und einem Satz, der sagt, warum. Eine Nährwertzeile wurde von Hand nachgerechnet und stimmte
+auf die Rundung genau.
+
+**Ein Nebeneffekt ist dabei aufgetreten und behoben worden:** Ohne Portionsdeckel lagen vier der
+fünfzehn Rezepte über 4 g Salz, zwei über 5 g – die ganze Packung Räuchertofu (3,0 g) plus Brühe plus
+Nachsalzen. Die Maßangabe im Skill trägt jetzt eine Zahl: über 3 g nur bei Packungszwang, und dann ist
+die Packung das Salz. Drei Nachprüfungen auf genau den Anfragen, die zuvor die hohen Werte erzeugt
+hatten, ergaben 3,1 – 2,1 – 3,1 g. Das ist die Antwort, die `spec-07` für diesen Fall vorgesehen
+hatte; ein Deckel je 100 kcal ist nicht zurückgekommen.
+
+**Kriterium 4 ist nur halb eingelöst:** Der Skill verliert 13 % seiner Wörter (2691 → 2478), bleibt in
+Zeilen aber gleich lang. [B08](B08-zubereitungsregel-als-vorbild.md) bleibt damit offen – sein Maßstab
+gilt weiter, und Kürzen ist ein eigener Durchgang.
+
 **[A14-zwei-skills-zwei-fragen.md](A14-zwei-skills-zwei-fragen.md) dreht die Richtung.** Der
 Nutzer hat am 11. September 2026 entschieden, dass die beiden Skills **nicht** gleichlauten
 sollen: `wochenplan` wird eine reine DGE-Auskunft, nur ans Kalorienziel skaliert und ohne das
@@ -122,12 +156,12 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [A07](A07-keine-naehrwertquelle.md) | Keine Nährwertquelle benannt; die Bilanz ist geschätzt | hoch | erledigt, [spec.md](spec.md) |
 | [A08](A08-kohlenhydrate-unter-50-energieprozent.md) | Kohlenhydrate landen unter dem DGE-Richtwert, ohne dass es dasteht | mittel | erledigt, [spec-02](spec-02-grenzen.md) |
 | [A09](A09-huelsenfruechte-zubereitung.md) | Keine Regel zu Hülsenfrüchten (abspülen, durchgaren) | mittel | offen |
-| [A10](A10-jodsalz.md) | Jodsalz wird nicht erwähnt | klein | offen |
+| [A10](A10-jodsalz.md) | Jodsalz wird nicht erwähnt | klein | erledigt, [spec-07](spec-07-rezept-kocht-statt-rechnet.md) – die DGE-Empfehlung „angereichertes Speisesalz mit Jod und Fluorid" kam mit dem Leitsatz zum Salz mit; `vorratskammer.md` blieb unangetastet |
 | [A11](A11-mustgo-ohne-prioritaet.md) | Mustgo ohne Vorrang und ohne Abwägung gegen die Grenzen | mittel | verworfen, [A11](A11-mustgo-ohne-prioritaet.md) |
 | [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | Salzhälfte erledigt, [spec-02](spec-02-grenzen.md); der Rest erledigt mit [spec-06](spec-06-dge-auskunft.md) – nicht nur hinfällig: der Vermerk zeigt jetzt auf `dge-wochenbilanz.md` statt auf den anderen Skill, und die gemeinsame Ablage braucht es damit nicht |
 | [A13](A13-katalogzutat-statt-vorratszutat.md) | Der Skill wählt Zustand und Sorte selbst, wo der Vorrat sie nicht nennt | mittel | erledigt, [spec-04](spec-04-eindeutige-zuordnung.md); die erste Fassung des Befunds war widerlegt und ist neu geschrieben |
-| [A14](A14-zwei-skills-zwei-fragen.md) | Beide Skills werden an einem Apparat gemessen, obwohl sie zwei Fragen beantworten | hoch | Wochenplan-Hälfte erledigt, [spec-06](spec-06-dge-auskunft.md); die Rezept-Hälfte ist an [A15](A15-rezept-kocht-statt-rechnet.md) übergegangen |
-| [A15](A15-rezept-kocht-statt-rechnet.md) | `rezept` rechnet ein Gericht aus, statt es zu kochen – die Rezepte sind wenig variabel und schmecken fad | hoch | Intent steht, Lösungsfindung offen |
+| [A14](A14-zwei-skills-zwei-fragen.md) | Beide Skills werden an einem Apparat gemessen, obwohl sie zwei Fragen beantworten | hoch | ganz erledigt: Wochenplan-Hälfte [spec-06](spec-06-dge-auskunft.md), Rezept-Hälfte [spec-07](spec-07-rezept-kocht-statt-rechnet.md) über [A15](A15-rezept-kocht-statt-rechnet.md) |
+| [A15](A15-rezept-kocht-statt-rechnet.md) | `rezept` rechnet ein Gericht aus, statt es zu kochen – die Rezepte sind wenig variabel und schmecken fad | hoch | erledigt, [spec-07](spec-07-rezept-kocht-statt-rechnet.md) |
 
 ## B – Qualität als Prompt
 
