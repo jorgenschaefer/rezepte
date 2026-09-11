@@ -24,6 +24,18 @@ Die Spec ist nach einer Prüfung überarbeitet; was sich dadurch geändert hat, 
 letzten Abschnitt. Verifiziert wurde mechanisch (elf Zusicherungen, vorher rot) und mit je
 drei Skill-Aufrufen für drei Szenarien, alle 3/3; die Belege stehen in den Commit-Nachrichten.
 
+**[spec-03-abwechslung.md](spec-03-abwechslung.md) ist gebaut** (drei Commits an
+`.claude/skills/rezept/SKILL.md` und dieser Datei, plus eine Nachschärfung der Spec aus den
+Testläufen). Sie löst B06 und die zweite Hälfte von B04: der Skill entscheidet vor dem Würzen
+eine Geschmacksrichtung und eine Art, trägt beide im Titel und prüft sie als zehnten Posten.
+Nebenbei sind zwei Würzhebel korrigiert worden, die Zutaten nannten, die es im Vorrat nicht
+gibt (Ingwer, Senfkörner). Verifiziert wurde mechanisch (sechzehn Zusicherungen, vorher rot)
+und mit zwölf Rezepten aus vier Sequenzen plus der `spec-02`-Regression, 3/3.
+**Der Kontrolllauf gegen den alten Skill fiel gegen die Annahme aus:** auch ohne die Regel
+liefert er drei verschiedene Gerichte, selbst auf drei identische Fragen. Nachweisbar ist
+deshalb nur die B04-Hälfte – die Richtung steht in zwölf von zwölf Titeln gegen null von
+sechs. Was das für B06 bedeutet, steht im letzten Abschnitt der Spec.
+
 **A03, A06, A07, B02 und B03 sind umgesetzt.** [spec.md](spec.md) hält die Entscheidungen
 fest, die dahinterstehen; gebaut wurde in vier Commits an `zutaten.md`, `praeferenzen.md`,
 `CLAUDE.md` und `.claude/skills/rezept/SKILL.md`. Mit erledigt sind die Salzhälfte von A05
@@ -71,9 +83,9 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [B01](B01-prioritaeten-ohne-konfliktregeln.md) | Die „Prioritäten-Hierarchie" löst keine Konflikte | hoch | erledigt, [spec-02](spec-02-grenzen.md) |
 | [B02](B02-kein-pruefschritt-vor-der-ausgabe.md) | Kein Prüfschritt vor der Ausgabe | hoch | erledigt, [spec.md](spec.md) |
 | [B03](B03-format-ohne-soll-ist-abgleich.md) | Das Format erzwingt keinen Soll/Ist-Abgleich | mittel | erledigt, in [spec.md](spec.md) miterledigt |
-| [B04](B04-kein-handwerksabschnitt.md) | Nichts darüber, wie das Essen schmecken soll | mittel | teilweise erledigt, [spec-02](spec-02-grenzen.md); zweite Hälfte bei B06 |
+| [B04](B04-kein-handwerksabschnitt.md) | Nichts darüber, wie das Essen schmecken soll | mittel | erledigt; Würzhebel in [spec-02](spec-02-grenzen.md), Geschmacksrichtung in [spec-03](spec-03-abwechslung.md) |
 | [B05](B05-portionsgroesse-hartkodiert.md) | 600 kcal je Portion sind nicht hergeleitet | klein | offen |
-| [B06](B06-keine-abwechslungsregel.md) | Nichts hindert den Skill an ewiger Wiederholung | mittel | offen; erbt aus [spec-02](spec-02-grenzen.md) B04s zweite Hälfte |
+| [B06](B06-keine-abwechslungsregel.md) | Nichts hindert den Skill an ewiger Wiederholung | mittel | erledigt, [spec-03](spec-03-abwechslung.md); die Prämisse hat sich dabei nicht bestätigt |
 | [B07](B07-benennungen-und-anglizismen.md) | Zwei irreführende Benennungen | klein | erledigt, [spec-02](spec-02-grenzen.md) |
 
 [B08](B08-zubereitungsregel-als-vorbild.md) fällt aus der Reihe: kein Befund, sondern der
@@ -109,5 +121,5 @@ Die wichtigsten Kopplungen – diese Ideen lassen sich nicht einzeln lösen:
 - **A02 ↔ A04 ↔ A08**: Alle drei verschieben denselben Energiekuchen.
 - **A09 → `zutaten.md`**: Das Abspülen zählt in der Bilanz nur, wenn der Katalogwert es
   abbildet.
-- **B04 ↔ B07**: „Flavor-Tipp" wird nur umbenannt, wenn das Feld ohnehin angefasst wird.
+- ~~**B04 ↔ B07**: „Flavor-Tipp" wird nur umbenannt, wenn das Feld ohnehin angefasst wird.~~ Hinfällig: `spec-02` hat umbenannt.
 - **A09 + A10** lassen sich als ein Commit erledigen.
