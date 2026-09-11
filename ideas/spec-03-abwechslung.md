@@ -352,6 +352,46 @@ Im `ideas/README.md`:
   `spec-02` geschehen.
 - Offen bleiben danach **A09**, **A10**, **B05**, **A12 Zeile 3** und die **A12-Diagnostik**.
 
+## Was der Bau geändert hat
+
+Nachgetragen am 11. September 2026, nach den Testläufen. Was hier steht, widerspricht
+teilweise dem, was oben steht – das Obere bleibt als Stand der Entscheidung stehen.
+
+**Die Abnahme hatte den falschen Nachweis.** „Drei Aufrufe ergeben drei verschiedene
+Richtungen" misst nichts, solange nicht feststeht, was der Skill *ohne* die Regel tut. Zwei
+Kontrollläufe gegen den Stand vor der Änderung haben es festgestellt: einmal auf „noch was
+anderes", einmal auf drei **identische** Fragen – beide Male drei verschiedene Gerichte und
+drei verschiedene Arten. Das Modell variiert innerhalb eines Gesprächs von sich aus.
+
+**Damit ist B06s Prämisse nicht bestätigt.** B06 hat sie selbst als „plausibel, aber nicht
+belegt" geführt und darauf hingewiesen, dass beobachtete Wiederholungen nicht vorliegen. Die
+Kontrolle spricht jetzt dagegen. Der Befund ist deshalb nicht falsch – eine Regel, die
+absichert, was sonst vom Zufall abhängt, bleibt richtig –, aber die Begründung „ohne
+Gegenkraft rastet das Modell in der Mitte ein" trägt nicht als Tatsachenbehauptung.
+
+**Was die Änderung nachweislich leistet, ist die B04-Hälfte.** In zwölf Rezepten mit der
+Regel nennt der Titel die Geschmacksrichtung zwölfmal; in sechs Rezepten ohne sie keinmal.
+Aus einer zufälligen Variation wird eine benannte und prüfbare Entscheidung. Das ist der Satz,
+der über diese Änderung gesagt werden darf.
+
+**Der Rückfallpfad ist ungeprüft.** Der verarmte Vorrat (sechs Posten) gab immer noch zwei
+Richtungen und zwei Arten her; die Regel „unterscheide dich in der Ebene, die noch geht, und
+benenne die Wiederholung" wurde nie betreten. Damit bleibt auch offen, ob sie mit dem Satz
+„die zweite und letzte Ausnahme" im Prüfabschnitt kollidiert. Wer das prüfen will, braucht
+einen Vorrat mit genau einer möglichen Art.
+
+**Drei Sätze sind schärfer geraten als der Wortlaut oben,** jeweils gegen ein Risiko, das vor
+den Läufen benannt war: die Richtung weicht den Grenzen; die Kopplung an die Richtung gilt nur
+für die Geschmackshebel, nicht für die Handgriffe darunter; und aus Posten 10 wird kein
+Vermerk nach Posten 9. Der erste hat im Lauf sichtbar gewirkt – ein Rezept hat die Kokosmilch
+auf 30 g begrenzt und die gesättigten Fettsäuren ausdrücklich als Grund genannt.
+
+**Ein fremder Befund ist dabei aufgefallen** und gehört nicht hierher: In zwei von zwölf
+Rezepten hat der Skill eine Zutat verkocht, die im Katalog steht, aber nicht im Vorrat
+(`Blattspinat, TK`) – einmal stillschweigend, einmal mit ausdrücklicher Fehlzuordnung des
+frischen Spinats. Dasselbe Muster wie beim Ingwer in Änderung 1a, nur im Rezept statt im
+Skilltext. Das braucht einen eigenen Befund in `ideas/`.
+
 ## Offen geblieben
 
 Bewusst nicht entschieden, damit es beim Bauen nicht stillschweigend entschieden wird:
