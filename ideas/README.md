@@ -65,6 +65,15 @@ zu ihrer Größe gehört. Der erste Anlauf zu dieser Gegenprobe war ungültig (a
 neue `praeferenzen.md`) und hat dabei gezeigt, dass eine neue Zeile im Abschnitt „Ziele" auch ohne
 Erwähnung im Prompt wirkt.
 
+**[A14-zwei-skills-zwei-fragen.md](A14-zwei-skills-zwei-fragen.md) dreht die Richtung.** Der
+Nutzer hat am 11. September 2026 entschieden, dass die beiden Skills **nicht** gleichlauten
+sollen: `wochenplan` wird eine reine DGE-Auskunft, nur ans Kalorienziel skaliert und ohne das
+persönliche Proteinziel; `rezept` lehnt sich an die DGE an, gewichtet seine Regeln und nennt
+einen bewusst gebrochenen Punkt als Hinweis mit Grund, statt ihn als Fehler zu beheben. Damit
+ist der offene Rest von A12 hinfällig, und die vier „gilt gleichlautend"-Vermerke aus `spec-02`
+stehen zur Disposition. Der Intent nennt den Einwand, der vorlag – das Proteinziel verlässt
+damit rund fünf Sechstel der Mahlzeiten – und die Entscheidung, die danach getroffen wurde.
+
 **A03, A06, A07, B02 und B03 sind umgesetzt.** [spec.md](spec.md) hält die Entscheidungen
 fest, die dahinterstehen; gebaut wurde in vier Commits an `zutaten.md`, `praeferenzen.md`,
 `CLAUDE.md` und `.claude/skills/rezept/SKILL.md`. Mit erledigt sind die Salzhälfte von A05
@@ -103,8 +112,9 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [A09](A09-huelsenfruechte-zubereitung.md) | Keine Regel zu Hülsenfrüchten (abspülen, durchgaren) | mittel | offen |
 | [A10](A10-jodsalz.md) | Jodsalz wird nicht erwähnt | klein | offen |
 | [A11](A11-mustgo-ohne-prioritaet.md) | Mustgo ohne Vorrang und ohne Abwägung gegen die Grenzen | mittel | verworfen, [A11](A11-mustgo-ohne-prioritaet.md) |
-| [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | teilweise erledigt, [spec-02](spec-02-grenzen.md); Tagesregel und Diagnostik offen |
+| [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | Salzhälfte erledigt, [spec-02](spec-02-grenzen.md); der Rest **hinfällig** mit [A14](A14-zwei-skills-zwei-fragen.md) – die Skills sollen nicht gleichlauten |
 | [A13](A13-katalogzutat-statt-vorratszutat.md) | Der Skill wählt Zustand und Sorte selbst, wo der Vorrat sie nicht nennt | mittel | erledigt, [spec-04](spec-04-eindeutige-zuordnung.md); die erste Fassung des Befunds war widerlegt und ist neu geschrieben |
+| [A14](A14-zwei-skills-zwei-fragen.md) | Beide Skills werden an einem Apparat gemessen, obwohl sie zwei Fragen beantworten | hoch | Intent steht, Lösung offen |
 
 ## B – Qualität als Prompt
 
