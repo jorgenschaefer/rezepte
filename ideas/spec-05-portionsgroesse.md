@@ -253,3 +253,50 @@ Drei Stellen, an denen diese Spec eine Spannung nicht auflöst, sondern nur bene
   klein – findet nicht statt.
 - **[A09](A09-huelsenfruechte-zubereitung.md) und [A10](A10-jodsalz.md)** bleiben offen; sie
   berühren die Portionsgröße nicht und lassen sich laut A10 als Sammelcommit erledigen.
+
+## Was der Bau ergeben hat
+
+Gebaut in zwei Commits an `praeferenzen.md` und `.claude/skills/rezept/SKILL.md`; `zutaten.md`,
+`vorratskammer.md`, `dge-wochenbilanz.md`, `CLAUDE.md` und der `wochenplan`-Skill blieben
+unangetastet, wie unter „Nicht abgedeckt" vorgesehen.
+
+**Mechanisch:** zehn Zusicherungen, **neun davon vorher rot**. Die zehnte (Umfang der geänderten
+Dateien) war von Anfang an grün und sichert nur, dass die Änderung nichts anfasst, was sie nicht
+anfassen soll. Zusicherung 9 ist keine Trefferzahl, sondern eine Bedingung je Zeile; gezählt
+wurde deshalb `grep -n '600' … | grep -v 1800`, vorher zwei Zeilen, nachher keine. Die
+B08-Gegenprobe ist unbewegt: 147 Zeilen vorher wie nachher.
+
+**Durch Aufrufe:** zehn Rezepte in vier Sequenzen, jede in eigenem Kontext und ohne Kenntnis von
+Spec und Plan.
+
+| Szenario | Ergebnis |
+|---|---|
+| 1800 kcal, unverändert | 3/3 im Band 540–660; Regressionen aus `spec-02`, `spec-03` und `spec-04` grün |
+| 2400 kcal im Klon | 3/3 im Band 720–880 gegen ein Ziel von 800 |
+| „heute nur 450 kcal" | 410–490, Rundungsrichtung von selbst richtig angewandt |
+| kalte Mahlzeit | dieselbe Bezugsgröße, ausdrücklich benannt |
+
+**Der Kontrolllauf hat den Befund bestätigt.** Im selben Klon, mit den Dateien *vor* der Änderung
+und einem Kalorienziel von 2400 kcal: 3/3 Rezepte im Band 540–660, mit wörtlichem Zitat des alten
+Satzes und der ausgesprochenen Feststellung, das Band gelte „unabhängig vom Tages-Kalorienziel
+(2400 kcal), das nur die anderen Dichten (Salz, Ballaststoffe, Obst/Gemüse) beeinflusst". Damit
+ist die Inkonsistenz nicht mehr nur hergeleitet, sondern vorgeführt – und sie ist schärfer als in
+dieser Spec behauptet: eine 550-kcal-Portion bekam einen Salzdeckel von 1,3 g, weil die 6 g des
+Tages durch 2400 geteilt werden, während die Portion weiter für 1800 kcal bemessen war. Die
+Portion trug also ein Budget, das nicht zu ihrer Größe gehört.
+
+**Der erste Kontrolllauf war ungültig, und das ist der Mühe wert.** Der Klon trug die alte
+`SKILL.md`, aber die **neue** `praeferenzen.md` – und lieferte prompt 720–880. Das misst nicht den
+Vorher-Zustand, sondern nur den halben Bau. Nebenbei zeigt es etwas, das so nicht geplant war: die
+Tabellenzeile allein verschiebt das Verhalten schon, auch gegen den alten Prompt-Text. Der Skill
+liest den Abschnitt „Ziele" als Ganzes; eine neue Zeile darin wirkt, ohne dass der Prompt sie
+nennt. Für die Zukunft heißt das, dass eine Zeile in „Ziele" kein stiller Eintrag ist.
+
+**Drei Korrekturen kamen aus dem Planen, nicht aus den Läufen** und stehen im ersten Commit: die
+fehlende Rundungsrichtung (Entscheidung 7), ein falsch gerechnetes Band in Zusicherung 13
+(410–500 statt richtig 410–490) und die fehlende Begründung in Änderung 2b – nach dem Maßstab aus
+[B08](B08-zubereitungsregel-als-vorbild.md) sagt eine Regel, *wofür* sie da ist, und „eine
+Festlegung des Nutzers" sagt nur, *was* sie ist.
+
+**Offen geblieben,** unverändert: [A12](A12-salzregeln-der-skills-widersprechen-sich.md),
+[A09](A09-huelsenfruechte-zubereitung.md) und [A10](A10-jodsalz.md).

@@ -49,6 +49,22 @@ und mit 21 Rezepten aus sieben Sequenzen – alle sauber, Spinat 6/6 als TK, Rei
 Lachs 1/1 als Zucht – plus dem Fehlerpfad in einem Scratch-Klon, 3/3 ohne Rezept. Ein elfter
 Prüfposten ist dabei verworfen worden: er hätte in 18 Rezepten nichts gefunden.
 
+**[spec-05-portionsgroesse.md](spec-05-portionsgroesse.md) ist gebaut** (drei Commits an
+`praeferenzen.md`, `.claude/skills/rezept/SKILL.md` und den Ideen-Dateien). Sie löst B05: die
+Portionsgröße steht als Anteil des Kalorienziels in `praeferenzen.md`, und der Skill liest sie von
+dort, statt 600 kcal im Prompt zu führen. Bei 1800 kcal ändern sich die Zahlen nicht – die
+Herleitung ändert sich, das Verhalten nicht. Verifiziert wurde mechanisch (zehn Zusicherungen,
+neun vorher rot) und mit zehn Rezepten aus vier Sequenzen: 3/3 bei unverändertem Ziel samt der
+Regressionen aus `spec-02` bis `spec-04`, 3/3 bei 2400 kcal im Band 720–880, dazu die Anfrage über
+450 kcal und eine kalte Mahlzeit.
+**Der Kontrolllauf hat den Befund bestätigt:** mit den Dateien vor der Änderung und 2400 kcal
+Tagesziel lieferte der Skill 3/3 Portionen im alten Band 540–660 und stellte selbst fest, das Band
+gelte „unabhängig vom Tages-Kalorienziel". Eine 550-kcal-Portion bekam dabei einen Salzdeckel von
+1,3 g, weil die 6 g des Tages durch 2400 geteilt wurden – die Portion trug ein Budget, das nicht
+zu ihrer Größe gehört. Der erste Anlauf zu dieser Gegenprobe war ungültig (alter Skill, aber schon
+neue `praeferenzen.md`) und hat dabei gezeigt, dass eine neue Zeile im Abschnitt „Ziele" auch ohne
+Erwähnung im Prompt wirkt.
+
 **A03, A06, A07, B02 und B03 sind umgesetzt.** [spec.md](spec.md) hält die Entscheidungen
 fest, die dahinterstehen; gebaut wurde in vier Commits an `zutaten.md`, `praeferenzen.md`,
 `CLAUDE.md` und `.claude/skills/rezept/SKILL.md`. Mit erledigt sind die Salzhälfte von A05
@@ -98,7 +114,7 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [B02](B02-kein-pruefschritt-vor-der-ausgabe.md) | Kein Prüfschritt vor der Ausgabe | hoch | erledigt, [spec.md](spec.md) |
 | [B03](B03-format-ohne-soll-ist-abgleich.md) | Das Format erzwingt keinen Soll/Ist-Abgleich | mittel | erledigt, in [spec.md](spec.md) miterledigt |
 | [B04](B04-kein-handwerksabschnitt.md) | Nichts darüber, wie das Essen schmecken soll | mittel | erledigt; Würzhebel in [spec-02](spec-02-grenzen.md), Geschmacksrichtung in [spec-03](spec-03-abwechslung.md) |
-| [B05](B05-portionsgroesse-hartkodiert.md) | 600 kcal je Portion sind nicht hergeleitet | klein | in Arbeit, [spec-05](spec-05-portionsgroesse.md) |
+| [B05](B05-portionsgroesse-hartkodiert.md) | 600 kcal je Portion sind nicht hergeleitet | klein | erledigt, [spec-05](spec-05-portionsgroesse.md) |
 | [B06](B06-keine-abwechslungsregel.md) | Nichts hindert den Skill an ewiger Wiederholung | mittel | erledigt, [spec-03](spec-03-abwechslung.md); die Prämisse hat sich dabei nicht bestätigt |
 | [B07](B07-benennungen-und-anglizismen.md) | Zwei irreführende Benennungen | klein | erledigt, [spec-02](spec-02-grenzen.md) |
 
@@ -119,8 +135,9 @@ Die wichtigsten Kopplungen – diese Ideen lassen sich nicht einzeln lösen:
 - ~~**A02 ↔ A11**: Mustgo-Vorrang und SAFA-Grenze zeigen beide auf die Kokosmilch.~~
   Hinfällig: A11 ist verworfen, der Skill kennt keinen Mustgo-Vorrang. Die SAFA-Grenze
   steht damit allein und braucht keine Rangfolge gegen den Verderbdruck.
-- **A06 → B05**: Eine Portionsgröße aus den Präferenzen setzt voraus, dass der Skill sie
-  liest.
+- ~~**A06 → B05**: Eine Portionsgröße aus den Präferenzen setzt voraus, dass der Skill sie
+  liest.~~ Aufgelöst: `spec.md` hat den Skill an „Ziele" angeschlossen, `spec-05` hat die
+  Portionsgröße dort eingetragen.
 - **A06 + A07 → B02**: Ein Prüfschritt braucht Quelle und Zielwerte, sonst prüft er
   Schätzungen gegen Schätzungen. In `spec.md` zusammen gelöst; die Zeile „gesättigtes Fett"
   fehlt der Prüfliste weiterhin und kommt erst mit A02/A03 dazu.
