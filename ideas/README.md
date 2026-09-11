@@ -114,6 +114,36 @@ Salz-Nachschärfung widersprach („oder das Gericht sonst fad bliebe"). Stand d
 gegenüber dem alten Skill), 142 Zeilen; alle fünfzehn Zusicherungen weiter grün.
 [B08](B08-zubereitungsregel-als-vorbild.md) bleibt offen – sein Maßstab gilt weiter.
 
+**[spec-08-rezept-kuerzen.md](spec-08-rezept-kuerzen.md) ist gebaut** (fünf Commits an
+`ideas/`, `praeferenzen.md`, `zutaten.md` und `.claude/skills/rezept/SKILL.md`). Sie löst die
+B08-Gegenprobe und das vierte Kriterium von spec-07: der Skill sagt jede Regel einmal. Gestrichen
+sind die fünf Richtungen mit Gewürzlisten, die acht Arten, die sieben Würzhebel, die
+Tageszahlen-Tabelle, die fünfstufige Rangfolge, das Salz-Rechenbeispiel und alles, was `CLAUDE.md`,
+`praeferenzen.md` oder `vorratskammer.md` schon tragen; die Rundungsregel für das Band steht jetzt
+bei der Zahl in `praeferenzen.md`, die Gedankenstrich-Regel im Kopf von `zutaten.md`. Drei
+Lockerungen sind Absicht: keine Richtungsliste, „ein anderes Gericht" statt „in allen dreien
+verschieden", und die Rangfolge auf „zuerst Protein, zuletzt Gemüse". Stand: 1502 Wörter (−34 %),
+88 Zeilen (−38 %, unter dem Doppelten der 46 Zeilen aus B08). Die Schätzung „~1150 Wörter" aus dem
+Gespräch hielt nicht: die sechs DGE-Leitsätze, die drei B08-Passagen und das Format tragen allein
+rund 600 Wörter.
+
+**Verifiziert** mit 27 mechanischen Zusicherungen (zehn vorher rot) und acht Rezepten aus fünf
+Szenarien plus drei Rezepten im Kontrolllauf gegen den alten Skill (6cef033). Drei Rezepte in Folge:
+Räuchertofu-Pfanne, Lachs auf Quark-Spinat, Kokos-Linsen-Dal – 645 / 614 / 641 kcal, Salz 3,2 g
+(die ganze Tofu-Packung, kein Nachsalzen) / 1,5 / 1,2 g, jedes mit Einordnung, jeder Titel mit
+Richtung und Art. 2400 kcal: 839 kcal im Band 720–880. „Heute nur 450 kcal": 464 kcal im Band
+410–490, die Rundung aus der neuen Tabellenzeile in `praeferenzen.md` korrekt gelesen. Lachs ohne
+„Zucht" oder „Wild" im Vorrat: kein Rezept, beide Katalogzeilen und das fehlende Wort genannt, ein
+Curry ohne Lachs als Alternative. Fusilli: die Nudeln tragen 43 % der Energie, Protein 30 g mit
+Grund in der Einordnung. Die Nährwertzeile des Lachs-Rezepts wurde von Hand nachgerechnet und
+stimmt auf die Rundung genau.
+
+**Der Kontrolllauf zeigt keinen Unterschied, den die Kürzung gekostet hätte:** der alte Skill
+lieferte ebenfalls drei verschiedene Gerichte (Tofu-Nudelpfanne, Linsencurry, Bohnenbratlinge)
+mit Salz 3,2 / 2,1 / 2,0 g. Eine Beobachtung, kein Fehler: das 450-kcal-Rezept führte keine eigene
+Jodsalz-Zeile, weil Sojasauce und Senf das Salz tragen, und sagte das in der Einordnung; der alte
+Skill formulierte die Regel gleich, es ist keine Folge der Kürzung.
+
 **[A14-zwei-skills-zwei-fragen.md](A14-zwei-skills-zwei-fragen.md) dreht die Richtung.** Der
 Nutzer hat am 11. September 2026 entschieden, dass die beiden Skills **nicht** gleichlauten
 sollen: `wochenplan` wird eine reine DGE-Auskunft, nur ans Kalorienziel skaliert und ohne das
