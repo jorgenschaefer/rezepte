@@ -2,13 +2,18 @@
 
 Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
+Wo der Warenkatalog mehrere Zeilen für denselben Namen führt – frisch und tiefgekühlt, Dose und
+trocken, voll und fettreduziert –, nennt die Zeile hier, was tatsächlich im Haus ist.
+**„Mustgo" und „Neu" sind Statusabschnitte, keine Orte:** eine Zeile dort sagt nichts darüber,
+ob die Ware frisch oder tiefgekühlt ist, und muss es deshalb selbst sagen.
+
 ## Mustgo
 
 Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie aufzufüllen. Sie müssen aber nicht in jedem Rezept vorkommen.
 
 - ja! Brechbohnen, tiefgekühlt
 - Frosta Gemüse-Mix Italienische Küche, tiefgekühlt
-- Kokosmilch 400 ml
+- Kokosmilch 400 ml, nicht fettreduziert
 - Walnusskerne
 
 ## Neu
@@ -17,7 +22,7 @@ Neue Produkte, die kürzlich hinzugefügt wurden.
 
 - Harry Vollkorn Urtyp
 - Grünländer Leicht
-- REWE Bio Blattspinat
+- REWE Bio Blattspinat, tiefgekühlt, 600 g
 
 ## Kühlschrank
 
@@ -44,7 +49,7 @@ Neue Produkte, die kürzlich hinzugefügt wurden.
 - Räuchertofu 175 g (nur als ganze Packung verwenden)
 - Tofu Natur 200 g (nur als ganze Packung verwenden)
 - Joghurt 1,5% (nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
-- Magerquark
+- Magerquark 500 g
 
 ### Gemüsefach
 
@@ -58,7 +63,7 @@ Neue Produkte, die kürzlich hinzugefügt wurden.
 - REWE Beste Wahl Wok-Mix, tiefgekühlt
 - REWE Beste Wahl Kulturheidelbeeren, tiefgekühlt
 - ja! Beeren-Mischung, tiefgekühlt
-- ja! Lachsfilet 250g (nur als Portion von 125 g verwenden)
+- ja! Lachsfilet 250 g, Zuchtlachs (nur als Portion von 125 g verwenden)
 
 ## Küchenschrank
 
@@ -86,7 +91,7 @@ Neue Produkte, die kürzlich hinzugefügt wurden.
 - Haferflocken
 - Gemüsebrühe
 - Rote Linsen
-- Reis
+- Reis, Langkorn/Basmati
 - Vollkorn Fussili
 
 ## Gewürzregal
