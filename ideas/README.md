@@ -98,7 +98,7 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [B02](B02-kein-pruefschritt-vor-der-ausgabe.md) | Kein Prüfschritt vor der Ausgabe | hoch | erledigt, [spec.md](spec.md) |
 | [B03](B03-format-ohne-soll-ist-abgleich.md) | Das Format erzwingt keinen Soll/Ist-Abgleich | mittel | erledigt, in [spec.md](spec.md) miterledigt |
 | [B04](B04-kein-handwerksabschnitt.md) | Nichts darüber, wie das Essen schmecken soll | mittel | erledigt; Würzhebel in [spec-02](spec-02-grenzen.md), Geschmacksrichtung in [spec-03](spec-03-abwechslung.md) |
-| [B05](B05-portionsgroesse-hartkodiert.md) | 600 kcal je Portion sind nicht hergeleitet | klein | offen |
+| [B05](B05-portionsgroesse-hartkodiert.md) | 600 kcal je Portion sind nicht hergeleitet | klein | in Arbeit, [spec-05](spec-05-portionsgroesse.md) |
 | [B06](B06-keine-abwechslungsregel.md) | Nichts hindert den Skill an ewiger Wiederholung | mittel | erledigt, [spec-03](spec-03-abwechslung.md); die Prämisse hat sich dabei nicht bestätigt |
 | [B07](B07-benennungen-und-anglizismen.md) | Zwei irreführende Benennungen | klein | erledigt, [spec-02](spec-02-grenzen.md) |
 
