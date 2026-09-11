@@ -144,6 +144,22 @@ mit Salz 3,2 / 2,1 / 2,0 g. Eine Beobachtung, kein Fehler: das 450-kcal-Rezept f
 Jodsalz-Zeile, weil Sojasauce und Senf das Salz tragen, und sagte das in der Einordnung; der alte
 Skill formulierte die Regel gleich, es ist keine Folge der Kürzung.
 
+**Zwei Nachträge zu spec-08 vom 12. September 2026.** Erstens hat der Nutzer den Skill selbst
+überarbeitet (69a7b3c): Abbruch auch bei fehlender Katalogzeile, drei weitere DGE-Leitsätze
+(Milch, Fleisch, Öle), „zwei bis drei" Gemüseportionen, und die Tageszahlen als „etwa ein
+Drittel" je Portion. Acht Rezepte gegen acht: Portionen, Protein und Varianz gleich, Gemüse von
+260 auf 380 g je Portion; Salz nie über 2,6 g und Räuchertofu in sechs Seriengerichten nie
+unaufgefordert gewählt (vorher zwei von sechs). Ob das am Drittel-Satz liegt, geben die Stichproben
+nicht her; er steht im Widerspruch zum Absatz „Zwei Maße gelten für die Portion" und ist die
+Arithmetik, die spec-07 beziffert hat. Zweitens sind auf seine Frage hin die Schrittliste und die
+„drei Handgriffe" gestrichen (13ac5f8): sieben Rezepte gegen sieben ohne Unterschied in Zahlen,
+Varianz und Titeln. **Ein Satz hatte messbare Wirkung:** ohne „TK-Gemüse nicht mitköcheln" köcheln
+in zwei von fünf Fällen die Brechbohnen in der Sauce mit. **Und ein Befund liegt außerhalb des
+Skills:** alle vier Serien, mit jedem Wortlaut, begannen mit einem Kokos-Curry mit Tofu natur –
+Kokosmilch und Brechbohnen stehen unter „Mustgo", Tofu ist der nächste Eiweißträger. Das
+Startgericht diktiert der Vorrat; das ist „Der Vorrat als Decke" aus spec-07. Stand: 1430 Wörter,
+78 Zeilen.
+
 **[A14-zwei-skills-zwei-fragen.md](A14-zwei-skills-zwei-fragen.md) dreht die Richtung.** Der
 Nutzer hat am 11. September 2026 entschieden, dass die beiden Skills **nicht** gleichlauten
 sollen: `wochenplan` wird eine reine DGE-Auskunft, nur ans Kalorienziel skaliert und ohne das
