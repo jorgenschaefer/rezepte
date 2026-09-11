@@ -11,6 +11,8 @@ import {
   proteinTarget,
   macroSplit,
   weeksToTargetWeight,
+  dailyEnergyBalance,
+  weeksToTargetWeightAtIntake,
 } from './calculator.js'
 
 test('body mass index divides weight by squared height in metres', () => {
@@ -79,6 +81,46 @@ test('macro split reports no carbohydrate when protein and fat already exceed th
   const split = macroSplit(1000, 250)
 
   assert.equal(split.carbohydrateGrams, 0)
+})
+
+test('macro split says by how much fat, protein and fibre overshoot the energy', () => {
+  // 300 kcal fat + 1000 kcal protein + 60 kcal fibre = 1360 kcal for a 1000 kcal day
+  assert.equal(macroSplit(1000, 250).excessKcal, 360)
+})
+
+test('macro split reports no excess while the carbohydrates still fit', () => {
+  assert.equal(macroSplit(2000, 125).excessKcal, 0)
+})
+
+test('macro split caps saturated fat at 10 energy percent', () => {
+  // 2000 kcal * 10 % = 200 kcal, at 9 kcal per gram
+  assert.equal(round(macroSplit(2000, 125).saturatedFatGrams, 1), round(200 / 9, 1))
+})
+
+test('macro split carries the flat salt ceiling', () => {
+  assert.equal(macroSplit(2000, 125).saltGrams, 6)
+})
+
+test('daily energy balance is negative when the intake stays under the need', () => {
+  assert.equal(dailyEnergyBalance(2333, 1800), -533)
+  assert.equal(dailyEnergyBalance(2333, 2800), 467)
+  assert.equal(dailyEnergyBalance(null, 1800), null)
+})
+
+test('weeks at intake turns the gap between need and intake into a duration', () => {
+  // 8 kg * 7000 kcal at a 500 kcal deficit is 112 days
+  assert.equal(round(weeksToTargetWeightAtIntake(78, 70, 2000, 1500), 1), 16)
+  assert.equal(round(weeksToTargetWeightAtIntake(70, 78, 2000, 2500), 1), 16)
+})
+
+test('weeks at intake is null when the intake leads away from the target', () => {
+  assert.equal(weeksToTargetWeightAtIntake(78, 70, 2000, 2200), null)
+  assert.equal(weeksToTargetWeightAtIntake(70, 78, 2000, 1800), null)
+  assert.equal(weeksToTargetWeightAtIntake(78, 70, 2000, 2000), null)
+})
+
+test('weeks at intake is zero when the weights already match', () => {
+  assert.equal(weeksToTargetWeightAtIntake(78, 78, 2000, 2500), 0)
 })
 
 test('weeks to target weight assumes 7000 kcal per kilogram', () => {

@@ -6,6 +6,10 @@
 //   Neither                    Mifflin-St Jeor and the 7000 kcal per kilogram rule of thumb
 export const KCAL_PER_GRAM = { protein: 4, fat: 9, carbohydrate: 4, fibre: 2 }
 export const FAT_ENERGY_PERCENT = 0.3
+// A ceiling, not a target, and a model limit of the DGE meal plans rather than a reference
+// value (dge-wochenbilanz.md). The salt ceiling is a DGE recommendation proper.
+export const SATURATED_FAT_ENERGY_PERCENT = 0.1
+export const SALT_GRAMS_PER_DAY = 6
 export const FIBRE_GRAMS_PER_DAY = 30
 export const KCAL_PER_KILOGRAM_OF_BODY_FAT = 7000
 export const DGE_PROTEIN_GRAMS_PER_KILOGRAM = 0.8
@@ -74,10 +78,35 @@ export function macroSplit(kcal, proteinGrams) {
 
   return {
     fatGrams: fatKcal / KCAL_PER_GRAM.fat,
+    saturatedFatGrams: kcal * SATURATED_FAT_ENERGY_PERCENT / KCAL_PER_GRAM.fat,
+    saltGrams: SALT_GRAMS_PER_DAY,
     proteinGrams,
     fibreGrams: FIBRE_GRAMS_PER_DAY,
     carbohydrateGrams: Math.max(0, carbohydrateKcal) / KCAL_PER_GRAM.carbohydrate,
+    // Fat, protein and fibre are all fixed, so a high protein target can claim more energy
+    // than the day has. The carbohydrates stop at zero; the overshoot is reported instead of
+    // being swallowed, because a split that does not add up is not a split.
+    excessKcal: Math.max(0, -carbohydrateKcal),
   }
+}
+
+// What you eat is known; the deficit is not. Negative means you eat less than you need.
+export function dailyEnergyBalance(teeKcal, intakeKcal) {
+  if (!isPositive(teeKcal) || !Number.isFinite(intakeKcal) || intakeKcal < 0) return null
+
+  return intakeKcal - teeKcal
+}
+
+// Null when this intake never arrives: it holds the weight, or moves away from the target.
+export function weeksToTargetWeightAtIntake(currentWeightKg, targetWeightKg, teeKcal, intakeKcal) {
+  const balance = dailyEnergyBalance(teeKcal, intakeKcal)
+  if (balance === null || !isPositive(currentWeightKg) || !isPositive(targetWeightKg)) return null
+  if (currentWeightKg === targetWeightKg) return 0
+
+  const needsDeficit = targetWeightKg < currentWeightKg
+  if (needsDeficit ? balance >= 0 : balance <= 0) return null
+
+  return weeksToTargetWeight(currentWeightKg, targetWeightKg, Math.abs(balance))
 }
 
 export function weeksToTargetWeight(currentWeightKg, targetWeightKg, dailyDeficitKcal) {
