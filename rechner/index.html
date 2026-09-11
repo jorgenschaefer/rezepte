@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Energie- und BMI-Rechner</title>
+<!--
+  ES-Module laden nicht über file://. Im Repo-Wurzelverzeichnis starten:
+      python3 -m http.server
+  und dann http://localhost:8000/rechner/ öffnen.
+-->
+<style>
+  :root {
+    color-scheme: light dark;
+    --ink: #1a1a1a;
+    --paper: #fbfaf7;
+    --line: #d8d3c8;
+    --muted: #5f5a50;
+    --accent: #2f6b4f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #ece8e0;
+      --paper: #1b1a18;
+      --line: #3d3a35;
+      --muted: #a49d91;
+      --accent: #7fc0a0;
+    }
+  }
+  body {
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    max-width: 54rem;
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.5 system-ui, sans-serif;
+  }
+  h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+  h2 { font-size: 1rem; margin: 2rem 0 .5rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .lead { margin: 0 0 1.5rem; color: var(--muted); }
+  form { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
+  label { display: block; font-weight: 600; margin-bottom: .25rem; }
+  input, select { width: 100%; box-sizing: border-box; padding: .45rem .5rem; font: inherit;
+                  color: inherit; background: transparent; border: 1px solid var(--line); border-radius: 4px; }
+  fieldset { border: 1px solid var(--line); border-radius: 4px; padding: .35rem .6rem .6rem; margin: 0; }
+  legend { font-weight: 600; padding: 0 .25rem; }
+  fieldset label { display: inline; font-weight: 400; margin-right: .75rem; }
+  fieldset input { width: auto; }
+  .hint { display: block; font-weight: 400; font-size: .8rem; color: var(--muted); }
+  table { border-collapse: collapse; width: 100%; margin-top: .5rem; }
+  th, td { text-align: left; padding: .4rem .5rem; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; }
+  td.value, th.value { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody th { font-weight: 400; }
+  .sources { margin-top: 2.5rem; font-size: .85rem; color: var(--muted); }
+  .sources dt { font-weight: 600; margin-top: .75rem; color: var(--ink); }
+  .sources dd { margin: .15rem 0 0; }
+  .table-scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+
+<h1>Energie- und BMI-Rechner</h1>
+<p class="lead">Rechnet Grundumsatz, Bedarf und Tagesmengen aus den Eingaben. Ein
+Nachschlagewerkzeug, keine DGE-Auskunft – siehe die Herkunft der Zahlen unten.</p>
+
+<form id="inputs">
+  <div>
+    <label for="height">Körpergröße <span class="hint">cm</span></label>
+    <input id="height" type="number" value="177" min="100" max="250" step="1">
+  </div>
+  <div>
+    <label for="age">Alter <span class="hint">Jahre</span></label>
+    <input id="age" type="number" value="45" min="15" max="110" step="1">
+  </div>
+  <fieldset>
+    <legend>Geschlecht</legend>
+    <label><input type="radio" name="sex" value="male" checked> männlich</label>
+    <label><input type="radio" name="sex" value="female"> weiblich</label>
+  </fieldset>
+  <div>
+    <label for="weight">Aktuelles Gewicht <span class="hint">kg</span></label>
+    <input id="weight" type="number" value="78" min="30" max="300" step="0.1">
+  </div>
+  <div>
+    <label for="target-bmi">Ziel-BMI <span class="hint">kg/m²</span></label>
+    <input id="target-bmi" type="number" value="24.9" min="15" max="40" step="0.1">
+  </div>
+  <div>
+    <label for="pal">Aktivitätslevel (PAL)</label>
+    <select id="pal">
+      <option value="1.2">1,2 – ausschließlich sitzend oder liegend</option>
+      <option value="1.4" selected>1,4 – sitzend, wenig Freizeitbewegung</option>
+      <option value="1.6">1,6 – sitzend, zeitweise gehend</option>
+      <option value="1.8">1,8 – überwiegend gehend oder stehend</option>
+      <option value="2.0">2,0 – körperlich anstrengende Arbeit</option>
+    </select>
+  </div>
+  <div>
+    <label for="protein-per-kg">Protein <span class="hint">g je kg Körpergewicht · DGE: 0,8</span></label>
+    <input id="protein-per-kg" type="number" value="1.6" min="0.4" max="3" step="0.1">
+  </div>
+  <div>
+    <label for="deficit">Kaloriendefizit <span class="hint">kcal am Tag</span></label>
+    <input id="deficit" type="number" value="500" min="0" max="1500" step="50">
+  </div>
+</form>
+
+<div id="results" aria-live="polite">
+  <h2>Gewicht</h2>
+  <div class="table-scroll">
+  <table>
+    <tbody>
+      <tr><th scope="row">Aktueller BMI</th><td class="value" id="out-bmi"></td></tr>
+      <tr><th scope="row">Zielgewicht beim Ziel-BMI</th><td class="value" id="out-target-weight"></td></tr>
+      <tr><th scope="row">Normalgewicht (BMI 18,5–24,9)</th><td class="value" id="out-normal-range"></td></tr>
+      <tr><th scope="row">Differenz zum Zielgewicht</th><td class="value" id="out-difference"></td></tr>
+      <tr><th scope="row">Dauer beim eingestellten Defizit</th><td class="value" id="out-weeks"></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Energie und Nährstoffe</h2>
+  <div class="table-scroll">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th class="value" id="head-current">Aktuelles Gewicht</th>
+        <th class="value" id="head-target">Zielgewicht</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Grundumsatz</th>
+          <td class="value" id="out-bmr-current"></td><td class="value" id="out-bmr-target"></td></tr>
+      <tr><th scope="row">Bedarf bei gewähltem PAL</th>
+          <td class="value" id="out-tee-current"></td><td class="value" id="out-tee-target"></td></tr>
+      <tr><th scope="row" id="row-protein-user">Protein</th>
+          <td class="value" id="out-protein-current"></td><td class="value" id="out-protein-target"></td></tr>
+      <tr><th scope="row">Protein nach DGE (0,8 g/kg)</th>
+          <td class="value" id="out-protein-dge-current"></td><td class="value" id="out-protein-dge-target"></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Tagesmengen beim Bedarf für das Zielgewicht</h2>
+  <div class="table-scroll">
+  <table>
+    <tbody>
+      <tr><th scope="row">Fett (30 % der Energie)</th><td class="value" id="out-fat"></td></tr>
+      <tr><th scope="row">Protein</th><td class="value" id="out-macro-protein"></td></tr>
+      <tr><th scope="row">Ballaststoffe</th><td class="value" id="out-fibre"></td></tr>
+      <tr><th scope="row">Kohlenhydrate (Rest)</th><td class="value" id="out-carbohydrate"></td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<dl class="sources">
+  <dt>DGE-Referenzwerte</dt>
+  <dd>Fett 30 % der Energie, Ballaststoffe 30 g am Tag, Protein 0,8 g je kg Körpergewicht
+      (bei BMI über 25 gegen das Normalgewicht gerechnet), die PAL-Stufen und die Energiedichten
+      4 / 9 / 4 / 2 kcal je g für Protein, Fett, Kohlenhydrate und Ballaststoffe.</dd>
+  <dt>Entscheidung des Nutzers</dt>
+  <dd>Das Proteinziel von 1,6 g je kg liegt bewusst über dem DGE-Wert und sichert den
+      Muskelerhalt ab.</dd>
+  <dt>Weder noch</dt>
+  <dd>Grundumsatz nach Mifflin-St Jeor und die Faustregel von 7000 kcal je kg Körperfett sind
+      gängige Schätzformeln, aber keine DGE-Werte – die DGE gibt Tabellenrichtwerte an, keine
+      Formel. Beides sind Schätzungen; „entscheidender Kontrollparameter ist das aktuelle
+      Körpergewicht".</dd>
+</dl>
+
+<script type="module">
+import {
+  bodyMassIndex,
+  weightForBodyMassIndex,
+  bodyMassIndexCategory,
+  normalWeightRange,
+  basalMetabolicRate,
+  totalEnergyExpenditure,
+  proteinTarget,
+  macroSplit,
+  weeksToTargetWeight,
+  DGE_PROTEIN_GRAMS_PER_KILOGRAM,
+  KCAL_PER_GRAM,
+} from './calculator.js'
+
+const form = document.getElementById('inputs')
+
+form.addEventListener('input', render)
+render()
+
+function render() {
+  const heightCm = numberFrom('height')
+  const ageYears = numberFrom('age')
+  const sex = form.elements.sex.value
+  const weightKg = numberFrom('weight')
+  const targetBmi = numberFrom('target-bmi')
+  const pal = numberFrom('pal')
+  const proteinPerKg = numberFrom('protein-per-kg')
+  const dailyDeficitKcal = numberFrom('deficit')
+
+  const bmi = bodyMassIndex(weightKg, heightCm)
+  const targetWeightKg = weightForBodyMassIndex(targetBmi, heightCm)
+  const range = normalWeightRange(heightCm)
+
+  show('out-bmi', bmi === null ? null : `${format(bmi, 1)} kg/m² · ${bodyMassIndexCategory(bmi)}`)
+  show('out-target-weight', withUnit(targetWeightKg, 1, 'kg'))
+  show('out-normal-range', range === null ? null : `${format(range.min, 1)}–${format(range.max, 1)} kg`)
+  show('out-difference', weightKg === null || targetWeightKg === null
+    ? null
+    : `${format(targetWeightKg - weightKg, 1)} kg`)
+  show('out-weeks', formatWeeks(weeksToTargetWeight(weightKg, targetWeightKg, dailyDeficitKcal)))
+
+  const columns = [
+    { suffix: 'current', weight: weightKg },
+    { suffix: 'target', weight: targetWeightKg },
+  ]
+
+  show('head-current', withUnit(weightKg, 1, 'kg'))
+  show('head-target', withUnit(targetWeightKg, 1, 'kg'))
+  show('row-protein-user', `Protein (${format(proteinPerKg, 1) || '–'} g/kg)`)
+
+  let targetEnergyKcal = null
+  let targetProteinGrams = null
+
+  for (const { suffix, weight } of columns) {
+    const bmr = basalMetabolicRate(weight, heightCm, ageYears, sex)
+    const tee = totalEnergyExpenditure(bmr, pal)
+    const protein = proteinTarget(weight, proteinPerKg)
+
+    show(`out-bmr-${suffix}`, withUnit(bmr, 0, 'kcal'))
+    show(`out-tee-${suffix}`, withUnit(tee, 0, 'kcal'))
+    show(`out-protein-${suffix}`, withProteinEnergy(protein))
+    show(`out-protein-dge-${suffix}`,
+      withProteinEnergy(proteinTarget(weight, DGE_PROTEIN_GRAMS_PER_KILOGRAM)))
+
+    if (suffix === 'target') {
+      targetEnergyKcal = tee
+      targetProteinGrams = protein
+    }
+  }
+
+  const split = macroSplit(targetEnergyKcal, targetProteinGrams)
+
+  show('out-fat', withUnit(split?.fatGrams, 0, 'g'))
+  show('out-macro-protein', withUnit(split?.proteinGrams, 0, 'g'))
+  show('out-fibre', withUnit(split?.fibreGrams, 0, 'g'))
+  show('out-carbohydrate', withUnit(split?.carbohydrateGrams, 0, 'g'))
+}
+
+function withProteinEnergy(grams) {
+  if (grams == null) return null
+
+  return `${format(grams, 0)} g · ${format(grams * KCAL_PER_GRAM.protein, 0)} kcal`
+}
+
+function formatWeeks(weeks) {
+  if (weeks == null) return null
+  if (weeks === 0) return 'erreicht'
+
+  return `${format(weeks, 1)} Wochen`
+}
+
+function withUnit(value, digits, unit) {
+  if (value == null) return null
+
+  return `${format(value, digits)} ${unit}`
+}
+
+function format(value, digits) {
+  if (value == null || !Number.isFinite(value)) return ''
+
+  return value.toLocaleString('de-DE', { minimumFractionDigits: digits, maximumFractionDigits: digits })
+}
+
+function numberFrom(id) {
+  const value = Number.parseFloat(document.getElementById(id).value)
+
+  return Number.isFinite(value) ? value : null
+}
+
+function show(id, text) {
+  document.getElementById(id).textContent = text ?? '–'
+}
+</script>
+
+</body>
+</html>
