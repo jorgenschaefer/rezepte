@@ -1,23 +1,26 @@
 # Präferenzen
 
-Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Der Skill `rezept` liest nur den Abschnitt „Ziele" und schreibt nichts; die übrigen Abschnitte betreffen die Woche, nicht das einzelne Gericht. Werte lassen sich auch von Hand ändern.
+Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Der Skill `rezept` liest nur den Abschnitt „Ziele" und schreibt nichts; die übrigen Abschnitte betreffen die Woche, nicht das einzelne Gericht. Aus „Ziele" liest `wochenplan` das Kalorienziel, die Körpergröße und die Personenzahl; „Proteinziel" und „Portionsgröße je Rezept" liest nur `rezept`. „Proteinbedarf" und „Planungsgewicht" liest kein Skill – sie halten fest, woher das Proteinziel kommt. Werte lassen sich auch von Hand ändern.
 
 ## Ziele
 
 | Einstellung | Wert |
 |---|---|
 | Körpergröße | 177 cm |
-| Planungsgewicht | 78 kg |
+| Planungsgewicht (Herleitung des Proteinbedarfs) | 78 kg |
 | Kalorienziel | 1800 kcal am Tag, als Wochendurchschnitt |
-| Proteinbedarf | 1,6 g je kg = 125 g am Tag (aus dem Planungsgewicht, nicht aus dem Kalorienziel) |
-| Proteinziel | 7 g je 100 kcal (bei 1800 kcal: 126 g am Tag) |
-| Portionsgröße je Rezept | ⅓ des Kalorienziels, ±10 % (bei 1800 kcal: 600 kcal, Band 540–660) |
+| Proteinbedarf (Herleitung des Proteinziels) | 1,6 g je kg = 125 g am Tag (aus dem Planungsgewicht, nicht aus dem Kalorienziel) |
+| Proteinziel (nur `rezept`) | 7 g je 100 kcal (bei 1800 kcal: 126 g am Tag) |
+| Portionsgröße je Rezept (nur `rezept`) | ⅓ des Kalorienziels, ±10 % (bei 1800 kcal: 600 kcal, Band 540–660) |
 | Personen | 1 |
 
 **Planungsgewicht 78 kg** (seit 2026-09-05): das obere Ende des normalen BMI-Bereichs bei
 177 cm. Die DGE rechnet Protein sonst gegen ein Referenzgewicht von BMI 22, hier also
 69 kg; das Planungsgewicht liegt bewusst darüber, weil das Proteinziel den Muskelerhalt
-absichern soll und ein zu niedrig angesetztes Gewicht das Ziel nach unten zieht.
+absichern soll und ein zu niedrig angesetztes Gewicht das Ziel nach unten zieht. Seit dem
+11.09.2026 trägt das Planungsgewicht nur noch das persönliche Proteinziel, das `rezept` liest;
+der Wochenplan rechnet den DGE-Referenzwert gegen das Referenzgewicht aus der Körpergröße, und
+die Herleitung steht in seinem Abschnitt „Mengen und Toleranzen".
 
 **Protein steht als Dichte**, nicht als feste Grammzahl je Mahlzeit: nur so übersteht das
 Ziel ein kleines Mittagessen, mit dem Kalorien für ein großes Abendessen gespart werden –
@@ -33,6 +36,28 @@ Drittel ist deshalb eine Festlegung des Nutzers, kein Referenzwert und keine Mod
 der Speisepläne. Es gilt für jedes Rezept, das der Skill baut, auch für eine kalte
 Mahlzeit – der Skill unterscheidet die Mahlzeitarten nicht. Nur `rezept` nutzt diesen Wert;
 `wochenplan` verteilt die Tagesenergie frei.
+
+**Der Wochenplan führt kein Proteinziel mehr** (seit 2026-09-11): Er beantwortet eine Frage – was
+gibt die DGE für das Kalorienziel her? –, und eine persönliche Vorgabe, die eine DGE-Menge
+verdrängt, gehört nicht hinein. Der letzte Plan zeigt, was sie verdrängt hat: das Siebenfache der
+DGE-Menge an Milchäquivalenten, und 172 g Getreide statt der skalierten 270 g am Tag. Im Plan gilt
+für Protein künftig der DGE-Referenzwert von 0,8 g je kg, gerechnet gegen das Referenzgewicht aus
+der Körpergröße (BMI 22, bei 177 cm 69 kg, also 55 g am Tag); was die Woche tatsächlich trägt,
+steht als Ergebnis in der Bilanz. Das Proteinziel von 7 g je 100 kcal bleibt für `rezept` in Kraft.
+
+**Was das kostet, lag vor der Entscheidung auf dem Tisch:** Ein DGE-treuer Plan bei 1800 kcal
+landet bei 68–77 g Protein am Tag gegen bisher 126 g – also rund 50 bis 58 g weniger –, und
+`rezept` deckt nur ein Gericht, rund ein Drittel des Tages. Die Begründung vom 05.09.2026 (das
+Proteinziel soll den Muskelerhalt absichern) wird im Wochenplan damit nicht mehr eingelöst. Der
+Nutzer hat den Einwand gehört und die Entscheidung bestätigt.
+
+**Das Kalorienziel ist gesetzt, nicht hergeleitet** (festgehalten am 2026-09-11): Die DGE nennt
+Richtwerte für die Energiezufuhr (PAL 1,4: Männer 25–51 Jahre 2300 kcal, Frauen 1800 kcal) und
+nennt „das aktuelle Körpergewicht" als entscheidenden Kontrollparameter. Diese Richtwerte hängen
+an Alter, Geschlecht und Aktivitätsniveau, die hier nicht hinterlegt sind; die 1800 kcal sind
+deshalb eine Entscheidung des Nutzers und ausdrücklich kein DGE-Wert. Der Wochenplan skaliert die
+DGE-Mengen darauf – das erlaubt die DGE ausdrücklich – und behauptet nicht, die Zahl selbst stamme
+von ihr.
 
 ## Struktur
 
