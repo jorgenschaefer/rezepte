@@ -65,7 +65,9 @@ zu ihrer Größe gehört. Der erste Anlauf zu dieser Gegenprobe war ungültig (a
 neue `praeferenzen.md`) und hat dabei gezeigt, dass eine neue Zeile im Abschnitt „Ziele" auch ohne
 Erwähnung im Prompt wirkt.
 
-**[spec-06-dge-auskunft.md](spec-06-dge-auskunft.md) ist entworfen, aber noch nicht gebaut.** Sie
+**[spec-06-dge-auskunft.md](spec-06-dge-auskunft.md) ist gebaut** (fünf Commits an
+`praeferenzen.md`, `.claude/skills/wochenplan/SKILL.md`, `CLAUDE.md`, dieser Datei und der
+Löschung von `wochenplan.md`). Sie
 löst die Wochenplan-Hälfte von A14 und den Rest von A12: `wochenplan` wird eine DGE-Auskunft, in der
 das Kalorienziel die einzige persönliche Zahl ist; das Protein steht als Ergebnis gegen den
 DGE-Referenzwert von 0,8 g je kg Referenzgewicht. Drei Kaltlesungen haben die Spec dabei zweimal in
@@ -122,9 +124,9 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [A09](A09-huelsenfruechte-zubereitung.md) | Keine Regel zu Hülsenfrüchten (abspülen, durchgaren) | mittel | offen |
 | [A10](A10-jodsalz.md) | Jodsalz wird nicht erwähnt | klein | offen |
 | [A11](A11-mustgo-ohne-prioritaet.md) | Mustgo ohne Vorrang und ohne Abwägung gegen die Grenzen | mittel | verworfen, [A11](A11-mustgo-ohne-prioritaet.md) |
-| [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | Salzhälfte erledigt, [spec-02](spec-02-grenzen.md); der Rest **hinfällig** mit [A14](A14-zwei-skills-zwei-fragen.md) – die Skills sollen nicht gleichlauten |
+| [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | Salzhälfte erledigt, [spec-02](spec-02-grenzen.md); der Rest erledigt mit [spec-06](spec-06-dge-auskunft.md) – nicht nur hinfällig: der Vermerk zeigt jetzt auf `dge-wochenbilanz.md` statt auf den anderen Skill, und die gemeinsame Ablage braucht es damit nicht |
 | [A13](A13-katalogzutat-statt-vorratszutat.md) | Der Skill wählt Zustand und Sorte selbst, wo der Vorrat sie nicht nennt | mittel | erledigt, [spec-04](spec-04-eindeutige-zuordnung.md); die erste Fassung des Befunds war widerlegt und ist neu geschrieben |
-| [A14](A14-zwei-skills-zwei-fragen.md) | Beide Skills werden an einem Apparat gemessen, obwohl sie zwei Fragen beantworten | hoch | Wochenplan-Hälfte: [spec-06](spec-06-dge-auskunft.md) steht, Bau offen. Die Lockerung von `rezept` ist noch nicht entworfen |
+| [A14](A14-zwei-skills-zwei-fragen.md) | Beide Skills werden an einem Apparat gemessen, obwohl sie zwei Fragen beantworten | hoch | Wochenplan-Hälfte erledigt, [spec-06](spec-06-dge-auskunft.md); die Lockerung von `rezept` ist noch nicht entworfen |
 
 ## B – Qualität als Prompt
 
