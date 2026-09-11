@@ -75,7 +75,7 @@ Salz ist der billigste Geschmacksträger und der einzige mit einer Grenze. Woran
 
 - **Röstaromen zuerst:** Tomatenmark, Currypaste und Gewürze kurz im Öl anrösten, bevor Flüssigkeit dazukommt.
 - **Säure zum Schluss:** Zitrone, Essig, Joghurt nach dem Herd. Ersetzt einen Teil des Salzes und hebt flache Gerichte hörbar an.
-- **Schärfe und Aroma:** Chili, Pfeffer, Knoblauch, Ingwer, Senfkörner.
+- **Schärfe und Aroma:** Chiliflocken, Tabasco, Pfeffer, Knoblauch frisch oder granuliert, Senf.
 - **Umami ohne Salz:** Tomatenmark, Röstzwiebeln, geröstetes Soja-Granulat.
 - **Textur-Kontrast:** etwas Knuspriges oder Rohes gegen die weiche Masse.
 - **TK-Gemüse nicht mitköcheln,** sondern separat scharf anbraten oder erst zum Schluss dazugeben.
