@@ -126,7 +126,8 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [A11](A11-mustgo-ohne-prioritaet.md) | Mustgo ohne Vorrang und ohne Abwägung gegen die Grenzen | mittel | verworfen, [A11](A11-mustgo-ohne-prioritaet.md) |
 | [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | Salzhälfte erledigt, [spec-02](spec-02-grenzen.md); der Rest erledigt mit [spec-06](spec-06-dge-auskunft.md) – nicht nur hinfällig: der Vermerk zeigt jetzt auf `dge-wochenbilanz.md` statt auf den anderen Skill, und die gemeinsame Ablage braucht es damit nicht |
 | [A13](A13-katalogzutat-statt-vorratszutat.md) | Der Skill wählt Zustand und Sorte selbst, wo der Vorrat sie nicht nennt | mittel | erledigt, [spec-04](spec-04-eindeutige-zuordnung.md); die erste Fassung des Befunds war widerlegt und ist neu geschrieben |
-| [A14](A14-zwei-skills-zwei-fragen.md) | Beide Skills werden an einem Apparat gemessen, obwohl sie zwei Fragen beantworten | hoch | Wochenplan-Hälfte erledigt, [spec-06](spec-06-dge-auskunft.md); die Lockerung von `rezept` ist noch nicht entworfen |
+| [A14](A14-zwei-skills-zwei-fragen.md) | Beide Skills werden an einem Apparat gemessen, obwohl sie zwei Fragen beantworten | hoch | Wochenplan-Hälfte erledigt, [spec-06](spec-06-dge-auskunft.md); die Rezept-Hälfte ist an [A15](A15-rezept-kocht-statt-rechnet.md) übergegangen |
+| [A15](A15-rezept-kocht-statt-rechnet.md) | `rezept` rechnet ein Gericht aus, statt es zu kochen – die Rezepte sind wenig variabel und schmecken fad | hoch | Intent steht, Lösungsfindung offen |
 
 ## B – Qualität als Prompt
 
