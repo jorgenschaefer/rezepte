@@ -5,7 +5,7 @@ Reviewer je Datei gegengelesen.
 
 **Gegenstand** ist in erster Linie `.claude/skills/rezept/SKILL.md`. Mehrere Befunde
 verlangen aber Änderungen an weiteren Dateien: `zutaten.md` (A03, A07, evtl. A09),
-`praeferenzen.md` (A06, B05, evtl. A08), `vorratskammer.md` (A10),
+`praeferenzen.md` (A06, B05, evtl. A08), `vorratskammer.md` (A10, A13),
 `.claude/skills/wochenplan/SKILL.md` (A12, evtl. A09) und möglicherweise eine neue
 gemeinsame Datei für abgeleitete Zielgrößen (A12). Der Umfang ist also größer, als der
 Titel nahelegt.
@@ -35,6 +35,19 @@ und mit zwölf Rezepten aus vier Sequenzen plus der `spec-02`-Regression, 3/3.
 liefert er drei verschiedene Gerichte, selbst auf drei identische Fragen. Nachweisbar ist
 deshalb nur die B04-Hälfte – die Richtung steht in zwölf von zwölf Titeln gegen null von
 sechs. Was das für B06 bedeutet, steht im letzten Abschnitt der Spec.
+
+**[spec-04-eindeutige-zuordnung.md](spec-04-eindeutige-zuordnung.md) ist gebaut** (vier Commits
+an `vorratskammer.md`, `.claude/skills/rezept/SKILL.md` und den Ideen-Dateien). Sie löst A13:
+der Vorrat nennt Zustand, Sorte und Variante, wo der Katalog mehrere Zeilen führt, und der Skill
+bricht ab, statt zu raten, wenn es zweideutig bleibt. `zutaten.md` blieb unangetastet.
+**Die Gegenprobe hat den Befund gedreht:** `REWE Bio Blattspinat` ist die TK-Packung, womit die
+zwei Fälle, die A13 als Fehler protokolliert hatte, korrekt waren – und die fünf Spinat-Rezepte
+der Gegenprobe falsch. Bei den vier zweideutigen Zeilen lag der Skill in 6 von 9 Fällen falsch;
+zwei schwerere Kollisionen (Zucht- gegen Wildlachs, volle gegen fettreduzierte Kokosmilch)
+standen in A13 gar nicht. Verifiziert wurde mechanisch (fünfzehn Zusicherungen, elf vorher rot)
+und mit 21 Rezepten aus sieben Sequenzen – alle sauber, Spinat 6/6 als TK, Reis 6/6 als Langkorn,
+Lachs 1/1 als Zucht – plus dem Fehlerpfad in einem Scratch-Klon, 3/3 ohne Rezept. Ein elfter
+Prüfposten ist dabei verworfen worden: er hätte in 18 Rezepten nichts gefunden.
 
 **A03, A06, A07, B02 und B03 sind umgesetzt.** [spec.md](spec.md) hält die Entscheidungen
 fest, die dahinterstehen; gebaut wurde in vier Commits an `zutaten.md`, `praeferenzen.md`,
@@ -75,7 +88,7 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [A10](A10-jodsalz.md) | Jodsalz wird nicht erwähnt | klein | offen |
 | [A11](A11-mustgo-ohne-prioritaet.md) | Mustgo ohne Vorrang und ohne Abwägung gegen die Grenzen | mittel | verworfen, [A11](A11-mustgo-ohne-prioritaet.md) |
 | [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | teilweise erledigt, [spec-02](spec-02-grenzen.md); Tagesregel und Diagnostik offen |
-| [A13](A13-katalogzutat-statt-vorratszutat.md) | Der Skill verkocht Katalogzutaten, die nicht im Vorrat stehen; der Katalog führt dabei in die Irre | mittel | offen |
+| [A13](A13-katalogzutat-statt-vorratszutat.md) | Der Skill wählt Zustand und Sorte selbst, wo der Vorrat sie nicht nennt | mittel | erledigt, [spec-04](spec-04-eindeutige-zuordnung.md); die erste Fassung des Befunds war widerlegt und ist neu geschrieben |
 
 ## B – Qualität als Prompt
 
@@ -124,5 +137,8 @@ Die wichtigsten Kopplungen – diese Ideen lassen sich nicht einzeln lösen:
   abbildet.
 - ~~**B04 ↔ B07**: „Flavor-Tipp" wird nur umbenannt, wenn das Feld ohnehin angefasst wird.~~ Hinfällig: `spec-02` hat umbenannt.
 - **A09 + A10** lassen sich als ein Commit erledigen.
-- **A13 → `zutaten.md`**: Die Zuordnung wird erst eindeutig, wenn die Markenangaben auf der
-  richtigen Zeile stehen – bei Brokkoli steht dieselbe Packung heute auf beiden.
+- ~~**A13 → `zutaten.md`**: Die Zuordnung wird erst eindeutig, wenn die Markenangaben auf der
+  richtigen Zeile stehen – bei Brokkoli steht dieselbe Packung heute auf beiden.~~ Hinfällig:
+  die Markenspur im Katalog war richtig, die Lücke stand in `vorratskammer.md`. `spec-04` hat
+  `zutaten.md` nicht angefasst. Die Brokkoli-Zeilen bleiben zweideutig, betreffen aber keine
+  Vorratszutat – die Abbruchregel fängt sie beim Einzug ab.

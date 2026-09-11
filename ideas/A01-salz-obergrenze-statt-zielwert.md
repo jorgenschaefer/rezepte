@@ -96,3 +96,12 @@ Fall, dass die Grenze reißt. Die Zahl steht nicht im Widerspruch zu der, mit de
   entscheiden, siehe A12.
 - Commit `457e3cb` ist ein sauberer Revert-Punkt – aber ein Revert allein behebt nur das
   Band, nicht die fehlende Zählregel (Befund 1), die auch vorher schon fehlte.
+
+## Nachtrag aus den Testläufen zu spec-04 (11. September 2026)
+
+Ein Rezept setzte in der Zubereitung „Salzwasser" für die Nudeln auf, rechnete in der
+Nährwertzeile aber nur das 1 g Nachsalzen. Nudelkochwasser ist damit ein Salzposten, den die
+Zählregel nicht erfasst – sie nennt Brühe, Sojasauce, Currypaste und Senf, nicht das Kochwasser.
+Andere Läufe schrieben an derselben Stelle ausdrücklich „ohne Salz", die Regel wirkt also, aber
+nicht zuverlässig. Gehört sachlich zu diesem Befund und zu [A12](A12-salzregeln-der-skills-widersprechen-sich.md);
+`spec-04` hat es bewusst nicht mitgenommen.

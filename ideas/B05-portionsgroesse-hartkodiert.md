@@ -56,3 +56,13 @@ festgelegt, dass er nur eine Sorte baut.
   dieselbe Entscheidung wie in A06 und gehört einmal getroffen.
 - Schwächere Alternative, die weniger Änderung kostet: die 600 kcal belassen, aber als
   „bei 1800 kcal aus `praeferenzen.md`" kennzeichnen.
+
+## Nachtrag aus den Testläufen zu spec-04 (11. September 2026)
+
+Die Vorfrage dieses Befunds – „Soll `rezept` überhaupt kalte Mahlzeiten bauen?" – ist empirisch
+beantwortet: **er baut sie.** Ein Lauf lieferte auf „Was kann ich kochen?" einen kalten
+Kidneybohnen-Salat mit 649 kcal, ein anderer einen Vollkorn-Nudelsalat mit 652 kcal, beide auf
+die Portionsgröße des warmen Hauptgerichts gerechnet. Damit ist nicht mehr offen, *ob* der Fall
+vorkommt, sondern nur, ob 600 kcal für eine kalte Mahlzeit die richtige Bezugsgröße sind. Die
+zweite Hälfte des Befunds – die Zahl ist aus keiner gepflegten Größe abgeleitet – ist davon
+unberührt.

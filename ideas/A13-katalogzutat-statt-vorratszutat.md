@@ -1,10 +1,17 @@
-# A13 – Der Skill verkocht Katalogzutaten, die nicht im Vorrat sind
+# A13 – Der Skill wählt Zustand und Sorte selbst, wo der Vorrat sie nicht nennt
 
-**Betroffene Dateien:** `.claude/skills/rezept/SKILL.md`, Abschnitt „Grundlagen"; dazu
-`zutaten.md`, weil der Katalog an dieser Stelle selbst in die Irre führt.
+**Betroffene Dateien:** `vorratskammer.md` und `.claude/skills/rezept/SKILL.md`, Abschnitt
+„Grundlagen". **Nicht** `zutaten.md` – siehe unten.
 
 Nicht aus der Prüfung vom 10. September 2026, sondern aus den Testläufen zu
-[spec-03](spec-03-abwechslung.md) am 11. September 2026.
+[spec-03](spec-03-abwechslung.md) am 11. September 2026. Erledigt durch
+[spec-04](spec-04-eindeutige-zuordnung.md) am selben Tag.
+
+**Dieser Befund ist einmal umgeschrieben worden.** Seine erste Fassung sah die Ursache im
+Katalog und nannte zwei Rezepte als Fehler, die keine waren. Die Gegenprobe, die diese erste
+Fassung selbst gefordert hat, hat das widerlegt. Was hier steht, ist die korrigierte Fassung;
+was die erste behauptete und woran sie scheiterte, steht im Abschnitt „Was die erste Fassung
+falsch hatte", weil ein widerlegter Befund mehr über die Methode sagt als ein glatter.
 
 ## Problembeobachtung
 
@@ -14,84 +21,101 @@ Der Skill trennt Vorrat und Katalog ausdrücklich:
 > Katalog, *was es enthält*. […] Ordne zu, und nenne die Zuordnung dort, wo sie nicht
 > offensichtlich ist.
 
-Und davor: „`vorratskammer.md` – was da ist, samt Kommentaren. Wenn nicht anders angegeben,
-nutze ausschließlich diese Zutaten."
+Die Zuordnung ist aber nicht immer möglich. `zutaten.md` führt sechs Namen in zwei Zuständen
+und einen in zwei Varianten; `vorratskammer.md` nannte bei fünf Zeilen nicht, welcher gilt. In
+diesen Fällen hat der Skill gewählt – **schweigend, plausibel begründet und meistens falsch.**
 
-**In 2 von 8 Rezepten, die Spinat verwendeten, hat er trotzdem `Blattspinat, TK` verkocht.**
-Der Vorrat führt unter „Neu" einen `REWE Bio Blattspinat`; im Tiefkühlfach steht kein Spinat.
-Einmal geschah es stillschweigend – die Zutatenzeile lautete „150 g Blattspinat, TK,
-gefroren", ohne dass die Herkunft erwähnt wurde. Einmal geschah es **mit ausdrücklicher
-Begründung**:
+**Gemessen, nicht vermutet.** 18 Rezepte in sechs unabhängigen Sequenzen, keine mit Kenntnis
+dieses Befunds. Bei den vier zweideutigen Zeilen, die überhaupt vorkamen, lag der Skill in **6
+von 9 Fällen** falsch:
 
-> *Zuordnung: „REWE Bio Blattspinat" rechne ich als „Blattspinat, TK" (REWE Bio 600 g) aus
-> dem Katalog – die Marke passt dort, und TK lässt sich portionsweise entnehmen.*
-
-Das ist der interessantere der beiden Fälle, weil der Skill dabei genau die Regel benutzt hat,
-die das verhindern soll: Er hat die Zuordnung genannt, wie verlangt – nur die falsche.
-
-**Der Katalog begünstigt den Fehler.** `zutaten.md` führt zwei Zeilen:
-
-| Zeile | Packung | Haltbarkeit | kcal |
+| Vorratszeile | Katalogzeilen, die passen | Spanne | Läufe falsch |
 |---|---|---|---|
-| `Blattspinat, frisch` | 100 g (Babyspinat); 450 g (**REWE Beste Wahl**) | frisch, 2–3 Tage | 20 |
-| `Blattspinat, TK` | 600 g (**REWE Bio**), 500 g (Iglo) | lang | 17 |
+| `REWE Bio Blattspinat` | `Blattspinat, frisch` und `Blattspinat, TK` | Haltbarkeit 2–3 Tage gegen „lang" | 5 von 5 |
+| `Reis` | `Naturreis (Vollkornreis)` und `Basmatireis, Langkornreis` | 3 gegen 1,5 g Ballaststoffe je 100 g | 3 von 4 |
+| `Kokosmilch 400 ml` | **eine** Zeile, zwei Varianten | 16 gegen 11 g ges. FS je 100 g | 0 von 2, beide geraten |
+| `Magerquark` | eine Zeile, zwei Packungsgrößen | Restplanung, nicht Nährwerte | Größe erfunden |
 
-Die Marke „REWE Bio" steht auf der **TK**-Zeile; die Frisch-Zeile kennt sie nicht. Wer über
-die Marke zuordnet – und die Vorratszeile besteht aus nichts als der Marke plus „Blattspinat"
-– landet zwangsläufig falsch. Der Skill hat hier nicht schlecht geraten, sondern einer Spur
-gefolgt, die der Katalog gelegt hat.
+Dazu eine fünfte Zeile, die in den 18 Rezepten nicht vorkam und die schwerste von allen ist:
+`ja! Lachsfilet 250g`. Der Katalog führt `Lachsfilet, TK (Zucht)` mit „250 g, 2 × 125 g (ja!)"
+**und** `Wildlachsfilet, TK` mit „2 × 125 g (ja!)" – beide unter derselben Marke, beide in
+derselben Portionierung, bei 244 gegen 100 kcal und 18 gegen 2,3 g Fett je 100 g. Über die
+Marke ist das nicht auflösbar, über die Packungsgröße nur schwach.
 
-**Warum das mehr ist als eine Ungenauigkeit.** Die Nährwerte unterscheiden sich kaum (20 zu
-17 kcal, Ballaststoffe 2,5 zu 2 g je 100 g); die Bilanz kippt davon nicht. Es sind die
-anderen drei Folgen, die zählen:
+**Warum das zählt, obwohl die Nährwertspannen teils klein sind.** Beim Spinat unterscheiden
+sich frisch und TK kaum in den Nährwerten (20 gegen 17 kcal), aber deutlich in der
+Haltbarkeit – und daran hängt die Planung:
 
-- **Das Rezept ist nicht kochbar.** Es verlangt etwas, das nicht im Haus ist – und benennt es
-  nicht als Einkaufstipp, wofür der Skill eine eigene Regel hat.
-- **Der Verderbdruck verschwindet.** `zutaten.md` gibt frischem Blattspinat 2–3 Tage, TK-Ware
-  „lang". Wird die frische Packung als TK gerechnet, fällt genau der Zeitdruck weg, den
-  `CLAUDE.md` zur Leitlinie macht: „Was verdirbt, bevor es gegessen wird, ist ein
-  Planungsfehler." In einem der beiden Fälle hat der Skill den Rest folgerichtig gar nicht
-  erst verplant.
-- **Der Fehler ist unsichtbar.** Beide Rezepte lasen sich vollständig plausibel. Der
-  Prüfschritt vor der Ausgabe hat zehn Posten, aber keinen, der fragt, ob jede Zutat im Vorrat
-  steht.
+- **Erfundener Verderbdruck.** Ein Lauf plante 250 g Spinatreste ein, „die in den nächsten zwei
+  Tagen weg müssen". Die 600-g-TK-Packung hält Monate. `CLAUDE.md` macht das Gegenteil zur
+  Leitlinie: „Was verdirbt, bevor es gegessen wird, ist ein Planungsfehler" – hier wird ein
+  Planungsfehler erfunden, der nicht existiert.
+- **Erfundene Packungen.** Aus derselben Vorratszeile wurden drei verschiedene Packungsgrößen
+  (100 g, 450 g, 600 g), je nach Lauf, mit entsprechend verschiedenen Restmengen.
+- **Falsche Garführung.** TK-Spinat wird nach dem Würzabschnitt separat angebraten, frischer
+  untergehoben. Das Rezept wird nicht nur falsch gerechnet, sondern falsch gekocht.
+- **Stiller Bilanzfehler.** Beim Reis ging die Abweichung in die gefährliche Richtung: rund
+  0,5 g Ballaststoffe je Rezept zu viel, gegen einen Mindestwert.
+- **Unsichtbar.** Alle betroffenen Rezepte lasen sich vollständig plausibel, und der
+  Prüfschritt hatte keinen Posten, der die Zuordnung geprüft hätte.
 
-**Dasselbe Muster wie beim Ingwer.** Änderung 1a aus `spec-03` hat aus dem Würzabschnitt zwei
-Zutaten entfernt, die es nicht gibt – `Ingwer` steht im Katalog, aber nicht im Vorrat. Dort
-stand der Fehler im Skilltext und war einmal zu beheben; hier entsteht er bei jedem Aufruf neu.
+**Die Ursache liegt in `vorratskammer.md`, nicht im Katalog.** Die Datei ist nach Orten
+gegliedert – Kühlschrank, Tiefkühlfach, Küchenschrank, Gewürzregal –, aber „Mustgo" und „Neu"
+sind **Statusabschnitte ohne Ortsaussage**. Eine Zeile dort sagt nichts über frisch oder
+tiefgekühlt. Die Nachbarzeilen nannten ihren Zustand selbst („ja! Brechbohnen, tiefgekühlt");
+der Blattspinat nicht. Der Lauf, der am gründlichsten argumentierte, war deshalb der am
+gründlichsten Irregeführte:
+
+> *„REWE Bio Blattspinat" steht im Vorrat unter „Neu" und nicht im Tiefkühlfach; ich rechne
+> deshalb mit „Blattspinat, frisch", obwohl der Katalog „REWE Bio" bei der TK-Zeile nennt.*
+
+Er hat Katalog gegen Vorratsstruktur abgewogen und der Struktur geglaubt. Die Struktur lag
+falsch.
 
 ## Zielzustand
 
-Jede Zutat eines ausgegebenen Rezepts steht entweder in `vorratskammer.md` oder ist als
-Einkaufstipp gekennzeichnet. Wo eine Vorratszutat mehrere Katalogzeilen treffen könnte, ist
-erkennbar, welche gilt – und die Zuordnung folgt dem Zustand der Ware, nicht ihrem
-Markennamen.
+Jede Zutat eines Rezepts trifft die Katalogzeile, die dem tatsächlichen Zustand, der
+tatsächlichen Sorte und der tatsächlichen Variante der Ware im Haus entspricht. Wo das aus den
+Dateien nicht hervorgeht, wählt der Skill nicht, sondern sagt, was fehlt.
 
-## Notizen für den Vorschlag
+## Was die erste Fassung falsch hatte
 
-- Prüfkriterium für „erledigt": In zwanzig Rezepten kommt keine Zutat vor, die nicht im Vorrat
-  steht oder als Einkaufstipp ausgewiesen ist.
-- **Zwei Hebel, vermutlich beide nötig.** Der Katalog kann die Zweideutigkeit kleiner machen,
-  der Skill muss sie aushalten. Nur einen zu ziehen, dürfte zu wenig sein.
-- **Katalogseite:** Die Marken gehören auf die Zeile, auf die sie gehören – oder die
-  Frisch-Zeile bekommt ihre eigene REWE-Bio-Packung. **Offen**, ob es „REWE Bio" als frische
-  Packung überhaupt gibt; das ist am Regal oder bei REWE Online nachzusehen, nicht zu raten.
-  Solange das nicht geklärt ist, keine Zeile erfinden.
-- **Skillseite:** Ein elfter Prüfposten („steht jede Zutat im Vorrat?") wäre die naheliegende
-  Antwort, ist aber nicht die einzige – die Zuordnungsregel in „Grundlagen" könnte auch sagen,
-  dass der **Zustand** (frisch, TK, Dose, trocken) vor dem Markennamen geht. **Offen**, welcher
-  Weg trägt; B08 mahnt, den Prüfschritt nicht zur Sammelstelle für alles zu machen. Der
-  Prüfschritt ist gerade erst von sieben auf zehn Posten gewachsen.
-- **Spinat ist nicht der schlimmste Fall.** `Brokkoli` trägt auf der Frisch-Zeile *und* auf
-  der TK-Zeile dieselbe Packungsangabe `300 g (REWE Bio)` – dort ist über die Marke gar keine
-  Unterscheidung möglich, auch nicht mit gutem Willen. `Blumenkohl` und `Heidelbeeren` stehen
-  ebenfalls in beiden Zuständen. (`Grüne Bohnen` nicht: die gibt es nur als TK-Zeile.) Die
-  Regel gehört deshalb allgemein formuliert, nicht als Spinat-Ausnahme – und die
-  Brokkoli-Zeilen sind der Prüfstein dafür.
-- **Gegenprobe, bevor irgendetwas geändert wird:** Zählen, wie oft der Fehler ohne Zutun
-  auftritt. Zwei von acht ist eine kleine Stichprobe, und beide Fälle betrafen dieselbe Zutat.
-  Ein Befund, der nur an einer Katalogzeile hängt, wird an dieser Zeile behoben und nicht im
-  Skill.
-- Geltungsbereich: `wochenplan` liest den Katalog ebenfalls, plant aber unabhängig vom Vorrat
-  und kauft ein. Der Fehler kann dort in dieser Form nicht auftreten; die Markenzuordnung im
-  Katalog betrifft ihn trotzdem.
+Die erste Fassung behauptete: „In 2 von 8 Rezepten, die Spinat verwendeten, hat er trotzdem
+`Blattspinat, TK` verkocht", und sah die Schuld beim Katalog, weil „REWE Bio" dort auf der
+TK-Zeile steht, während die Frisch-Zeile die Marke nicht kennt. Der Vorschlag lautete, die
+Marken im Katalog zu berichtigen oder der Frisch-Zeile eine eigene REWE-Bio-Packung zu geben.
+
+**Beides war falsch, weil eine Tatsache fehlte:** `REWE Bio Blattspinat` ist die TK-Packung mit
+600 g. Damit waren die zwei protokollierten „Fehler" korrekt, die Markenspur im Katalog führte
+zur Wahrheit, und eine neue Frisch-Zeile wäre eine erfundene Zeile gewesen – genau das, was die
+erste Fassung selbst verboten hat („keine Zeile erfinden"). `zutaten.md` ist an dieser Stelle
+sachlich richtig und wurde nicht angefasst.
+
+Der Fehler der ersten Fassung war nicht das Beobachten, sondern das Deuten ohne die Tatsache.
+Sie hat die Gegenprobe deshalb selbst gefordert – und die hat gearbeitet, wie sie soll: erst
+gegen die Annahme, dass der Fehler häufig ist (18 Rezepte, scheinbar null Fehler), dann gegen
+die Annahme, dass sie selbst richtig zählt. Erst die Rückfrage nach der Packung hat das
+Vorzeichen gedreht.
+
+Zwei weitere Punkte der ersten Fassung haben nicht getragen:
+
+- **Der elfte Prüfposten „steht jede Zutat im Vorrat?"** hätte in 18 Rezepten nichts gefunden.
+  Keines verwendete eine Zutat außerhalb des Vorrats; der Spinat *stand* im Vorrat, nur im
+  falschen Zustand. Der Posten hätte den Fehler passieren lassen, und `spec-04` hat ihn
+  deshalb verworfen – der Prüfschritt bleibt bei zehn Posten.
+- **Brokkoli als „Prüfstein"** war richtig gesehen (beide Zeilen tragen `300 g (REWE Bio)`),
+  aber Brokkoli liegt nicht im Vorrat. Dasselbe gilt für Erbsen und Kichererbsen, die die erste
+  Fassung nicht nennt. Alle drei sind latent, nicht aktiv – die Abbruchregel fängt sie beim
+  Einzug ab.
+
+## Wie es gelöst wurde
+
+[spec-04](spec-04-eindeutige-zuordnung.md), vier Commits:
+
+- `vorratskammer.md` nennt bei den fünf betroffenen Zeilen Zustand, Sorte oder Variante, und
+  ihr Kopf hält fest, dass „Mustgo" und „Neu" Statusabschnitte ohne Ortsaussage sind.
+- Der Skill bekommt eine Rangfolge – ausdrückliche Angabe, dann Abschnitt, die Marke nie – und
+  **bricht ab, wenn es danach zweideutig bleibt**, statt zu raten. Die Packungsgröße ist davon
+  ausgenommen: ohne Angabe behauptet er nichts über den Rest.
+- Verifiziert mit 21 Rezepten in sieben Sequenzen (alle sauber, Spinat 6/6 als TK, Reis 6/6 als
+  Langkorn, Lachs 1/1 als Zucht) und mit dem Fehlerpfad in einem Scratch-Klon (3/3 ohne Rezept).

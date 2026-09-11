@@ -56,3 +56,21 @@ heutigen Vorrat Handgriffe zu erfinden, die dort nicht anfallen.
   `zutaten.md`. Keine Abschlagszahl erfinden – am Etikett nachsehen.
 - Kein Absolutheitsanspruch: Hülsenfrüchte sind nicht der einzige Punkt im Projekt, an dem
   Zubereitung sicherheitsrelevant ist – der Vorrat führt auch Eier und rohen Lachs.
+
+## Nachtrag aus den Testläufen zu spec-04 (11. September 2026)
+
+In den Läufen zu `spec-04` schrieben **vier von fünf** Rezepten mit Dosen-Hülsenfrüchten von
+sich aus „abgetropft und abgespült" in die Zutatenzeile, ohne dass eine Regel es verlangt. Das
+Prüfkriterium, das dieser Befund für „erledigt" nennt, wird also meistens schon erfüllt, bevor
+die Regel existiert – aber nicht immer.
+
+**Der fünfte Fall ist der interessante:** ein Bratlingsrezept schrieb „265 g Kidneybohnen, Dose,
+abgetropft und **trocken getupft**" – bewusst nicht abgespült, weil Wasser die Masse am Binden
+hindert. Ein zweites Bratlingsrezept spülte trotzdem ab und löste das Problem anders (Bohnen
+vorher trocken in der Pfanne schwenken). Hier stehen also zwei sinnvolle Handgriffe gegeneinander,
+und keiner ist einfach falsch. Eine Regel, die das Abspülen unbedingt verlangt, müsste diesen Fall
+mitregeln, statt ihn zu überfahren.
+
+Offen bleibt außerdem beides, was ohnehin offen war: der Trockenware-Fall (einweichen,
+Einweichwasser weg, durchgaren) ist nie aufgetreten, weil der Vorrat keine Trockenbohnen führt,
+und die Bilanzfrage – der Katalogwert gilt vor dem Abspülen – ist unberührt.
