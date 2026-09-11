@@ -107,9 +107,12 @@ die Packung das Salz. Drei Nachprüfungen auf genau den Anfragen, die zuvor die 
 hatten, ergaben 3,1 – 2,1 – 3,1 g. Das ist die Antwort, die `spec-07` für diesen Fall vorgesehen
 hatte; ein Deckel je 100 kcal ist nicht zurückgekommen.
 
-**Kriterium 4 ist nur halb eingelöst:** Der Skill verliert 13 % seiner Wörter (2691 → 2478), bleibt in
-Zeilen aber gleich lang. [B08](B08-zubereitungsregel-als-vorbild.md) bleibt damit offen – sein Maßstab
-gilt weiter, und Kürzen ist ein eigener Durchgang.
+**Kriterium 4 war zunächst nur halb eingelöst:** Der Bau selbst brachte den Skill von 2691 auf 2478
+Wörter bei gleicher Zeilenzahl. Ein Kürzungsdurchgang danach hat zwölf Dopplungen gestrichen – Regeln, die
+an zwei Stellen standen, stehen jetzt an einer – und dabei einen Halbsatz entfernt, der der
+Salz-Nachschärfung widersprach („oder das Gericht sonst fad bliebe"). Stand danach: 2267 Wörter (−16 %
+gegenüber dem alten Skill), 142 Zeilen; alle fünfzehn Zusicherungen weiter grün.
+[B08](B08-zubereitungsregel-als-vorbild.md) bleibt offen – sein Maßstab gilt weiter.
 
 **[A14-zwei-skills-zwei-fragen.md](A14-zwei-skills-zwei-fragen.md) dreht die Richtung.** Der
 Nutzer hat am 11. September 2026 entschieden, dass die beiden Skills **nicht** gleichlauten
