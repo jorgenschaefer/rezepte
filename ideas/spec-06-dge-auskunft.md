@@ -20,8 +20,9 @@ DGE-Mengen, so dass die DGE-Getreidemenge ihm ausweicht. Was am Ende dasteht, is
 DGE-Antwort, sondern die des Nutzers, und die beiden sind nicht mehr auseinanderzuhalten.
 
 **Die kalte Nachprüfung hat die Problemstellung gestützt und an einer Stelle verschärft.** Der
-Intent nennt die Getreidemenge; im letzten gebauten Plan (`wochenplan.md`, Abschnitt
-„Wochenbilanz") sind es zwei Mengen, und beide zeigen auf dasselbe Proteinziel:
+Intent nennt die Getreidemenge; im letzten gebauten Plan (Abschnitt „Wochenbilanz" in
+`wochenplan.md`, wie sie in `e1789f9` steht – die Datei ist mit dieser Spec gelöscht worden,
+weil sie nach Regeln gebaut ist, die es nicht mehr gibt) sind es zwei Mengen, und beide zeigen auf dasselbe Proteinziel:
 
 | DGE-Größe | Soll (skaliert auf 1800 kcal) | Ist im letzten Plan |
 |---|---|---|
@@ -589,9 +590,12 @@ Zusicherung 10 in [spec-05](spec-05-portionsgroesse.md)):
 14. `praeferenzen.md` enthält einen datierten Absatz vom 2026-09-11 mit dem Einwand (rund 50 bis
     58 g am Tag) und der Bestätigung durch den Nutzer, und hält fest, dass das Kalorienziel gesetzt und
     kein DGE-Wert ist.
-15. `git diff --stat` listet genau `praeferenzen.md`, `.claude/skills/wochenplan/SKILL.md` und
-    `ideas/` – insbesondere **nicht** `.claude/skills/rezept/SKILL.md`, `dge-wochenbilanz.md`,
-    `zutaten.md`, `vorratskammer.md`, `CLAUDE.md` oder `wochenplan.md`.
+15. `git diff --stat` **über die Bau-Commits** (`BASE..HEAD` vor der Löschung, nicht der leere
+    Diff nach dem Commit) listet genau `praeferenzen.md`, `.claude/skills/wochenplan/SKILL.md`
+    und `ideas/` – insbesondere **nicht** `.claude/skills/rezept/SKILL.md`,
+    `dge-wochenbilanz.md`, `zutaten.md` oder `vorratskammer.md`. Die Löschung von
+    `wochenplan.md` und der `CLAUDE.md`-Nachtrag sind eigene Commits mit eigener Messung; sie
+    fallen nicht unter diese Zusicherung, weil sie nicht zum Umfang gehören, den sie schützt.
 16. B08-Gegenprobe: `wochenplan/SKILL.md` hat nach dem Bau höchstens **118 Zeilen** (heute 97).
     Der Skill wächst also, und das ist eine bewusste Abwägung gegen Kriterium 5: die Zahl der
     **Vorgaben** sinkt (Proteinrang, Trägerliste, ±10-g-Regel, Proteinpulver, erfundene
