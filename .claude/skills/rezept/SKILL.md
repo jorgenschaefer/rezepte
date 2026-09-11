@@ -17,7 +17,13 @@ Lies zuerst, in dieser Reihenfolge:
 
 **Vorrat und Katalog sind zwei verschiedene Dinge.** Der Vorrat sagt, *was da ist*, der Katalog, *was es enthält*. Die Namen decken sich nicht durchgehend – „Harry Vollkorn Urtyp" im Vorrat ist „Roggenvollkornbrot, ballaststoffreich" im Katalog. Ordne zu, und nenne die Zuordnung dort, wo sie nicht offensichtlich ist.
 
-**Fehlt eine Vorratszutat im Katalog:** sag es, rechne mit dem nächstbesten Katalogeintrag und nenne ihn. Ergänze den Katalog nicht nebenbei – das tust du nur, wenn du ausdrücklich darum gebeten wirst.
+**Der Zustand steht im Vorrat, nicht in der Marke.** Führt `zutaten.md` für einen Namen mehrere Zeilen (`Blattspinat, frisch` und `Blattspinat, TK`) oder eine Zeile mehrere Varianten (`Kokosmilch`: voll und fettreduziert), entscheidet die Angabe in `vorratskammer.md`: erst ihre ausdrückliche Angabe, dann der Abschnitt, in dem sie steht. **„Mustgo" und „Neu" sind keine Orte** – eine Zeile dort sagt über frisch oder tiefgekühlt nichts. Die Marke entscheidet nie: `ja!` steht im Katalog auf Zucht- und auf Wildlachs, `REWE Bio` auf Brokkoli frisch und Brokkoli TK.
+
+**Bleibt es danach zweideutig, gibt es kein Rezept.** Sag, welche Vorratszeile du nicht zuordnen kannst, welche Katalogzeilen in Frage kommen und welches Wort fehlt – dann hör auf. Rate nicht, mittle nicht, und wähle nicht die „wahrscheinlichere" Zeile: zwischen Zuchtlachs und Wildlachs liegen 144 kcal und 15,7 g Fett je 100 g, das ist kein Rundungsfehler, sondern ein anderes Gericht. Das ist keine Abweichung im Sinne des Prüfschritts, sondern der Verzicht auf ein Rezept. Es gilt nur für Zutaten, die in dieses Rezept sollen – eine unklare Zeile, die du nicht verwendest, hält dich nicht auf. Nenne, wenn es hilft, ein Rezept ohne diese Zutat als Alternative.
+
+**Die Packungsgröße ist davon ausgenommen.** Nennt der Vorrat keine, rechne die Portion und behaupte nichts über den Rest: keine Packungsgröße, keinen Rest, keinen Verderbdruck und keine Ausnahme nach „Wenn zwei Regeln kollidieren". Was du nicht weißt, planst du nicht ein.
+
+**Fehlt eine Vorratszutat im Katalog** – null Treffer, nicht mehrere –: sag es, rechne mit dem nächstbesten Katalogeintrag und nenne ihn. Ergänze den Katalog nicht nebenbei – das tust du nur, wenn du ausdrücklich darum gebeten wirst.
 
 **Rechne die Nährwerte aus den Zutatenmengen vorwärts, nie rückwärts vom Ziel; eine Summe, die das Ziel exakt trifft, ist ein Warnsignal.**
 
