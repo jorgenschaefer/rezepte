@@ -498,8 +498,12 @@ Gegen den neuen `SKILL.md`, jede Zusicherung vorher rot:
     und „Planungsgewicht" stehen unverändert mit ihren Werten da.
 12. `CLAUDE.md` enthält „wird nicht wegdiskutiert, sondern eingeordnet".
 13. Das Wort „Jodsalz" kommt im Skill vor (A10).
-14. `praeferenzen.md` enthält weder „Sollwert" noch „eine Zutat je Rezept"; der erste Absatz des
-    Packungs-Hinweises (datiert 2026-09-10) ist unverändert.
+14. Im Packungs-Hinweis von `praeferenzen.md` kommt „eine Zutat je Rezept" nicht mehr vor, und
+    „Einordnung" kommt vor. **Berichtigt beim Bau:** Die ursprüngliche Fassung dieser Zusicherung
+    verlangte, dass „Sollwert" nirgends mehr steht – das widerspricht Änderung 2d, die den
+    Nutzer-Absatz vom 10.09.2026 unverändert lässt, und dort steht das Wort. Der Absatz bleibt als
+    Protokoll stehen und bekommt stattdessen einen Verweis auf seine Neufassung, damit er den
+    Skill nicht mehr überstimmt.
 15. `.claude/skills/wochenplan/SKILL.md` enthält nicht mehr „leitet aus derselben Referenz eigene
     Werte je Portion ab"; sonst ist die Datei unverändert (`git diff --stat`: eine Zeile).
 

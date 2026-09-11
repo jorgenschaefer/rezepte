@@ -1,6 +1,6 @@
 # Präferenzen
 
-Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Der Skill `rezept` liest nur den Abschnitt „Ziele" und schreibt nichts; die übrigen Abschnitte betreffen die Woche, nicht das einzelne Gericht. Aus „Ziele" liest `wochenplan` das Kalorienziel, die Körpergröße und die Personenzahl; „Proteinziel" und „Portionsgröße je Rezept" liest nur `rezept`. „Proteinbedarf" und „Planungsgewicht" liest kein Skill – sie halten fest, woher das Proteinziel kommt. Werte lassen sich auch von Hand ändern.
+Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Der Skill `rezept` liest nur den Abschnitt „Ziele" und schreibt nichts; die übrigen Abschnitte betreffen die Woche, nicht das einzelne Gericht. Aus „Ziele" liest `wochenplan` das Kalorienziel, die Körpergröße und die Personenzahl; „Proteinrichtwert" und „Portionsgröße je Rezept" liest nur `rezept`. „Proteinbedarf" und „Planungsgewicht" liest kein Skill – sie halten fest, woher der Proteinrichtwert kommt. Werte lassen sich auch von Hand ändern.
 
 ## Ziele
 
@@ -9,21 +9,21 @@ Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, 
 | Körpergröße | 177 cm |
 | Planungsgewicht (Herleitung des Proteinbedarfs) | 78 kg |
 | Kalorienziel | 1800 kcal am Tag, als Wochendurchschnitt |
-| Proteinbedarf (Herleitung des Proteinziels) | 1,6 g je kg = 125 g am Tag (aus dem Planungsgewicht, nicht aus dem Kalorienziel) |
-| Proteinziel (nur `rezept`) | 7 g je 100 kcal (bei 1800 kcal: 126 g am Tag) |
-| Portionsgröße je Rezept (nur `rezept`) | ⅓ des Kalorienziels, ±10 % (bei 1800 kcal: 600 kcal, Band 540–660) |
+| Proteinbedarf (Herleitung des Proteinrichtwerts) | 1,6 g je kg = 125 g am Tag (aus dem Planungsgewicht, nicht aus dem Kalorienziel) |
+| Proteinrichtwert (nur `rezept`) | 7 g je 100 kcal – Richtwert, kein Muss (bei 1800 kcal: 126 g am Tag) |
+| Portionsgröße je Rezept (nur `rezept`) | ⅓ des Kalorienziels, ±10 % (bei 1800 kcal: 600 kcal, Band 540–660) – in `rezept` die einzige harte Grenze neben dem Vorrat |
 | Personen | 1 |
 
 **Planungsgewicht 78 kg** (seit 2026-09-05): das obere Ende des normalen BMI-Bereichs bei
 177 cm. Die DGE rechnet Protein sonst gegen ein Referenzgewicht von BMI 22, hier also
-69 kg; das Planungsgewicht liegt bewusst darüber, weil das Proteinziel den Muskelerhalt
-absichern soll und ein zu niedrig angesetztes Gewicht das Ziel nach unten zieht. Seit dem
-11.09.2026 trägt das Planungsgewicht nur noch das persönliche Proteinziel, das `rezept` liest;
+69 kg; das Planungsgewicht liegt bewusst darüber, weil der Proteinrichtwert den Muskelerhalt
+absichern soll und ein zu niedrig angesetztes Gewicht ihn nach unten zieht. Seit dem
+11.09.2026 trägt das Planungsgewicht nur noch den persönlichen Proteinrichtwert, den `rezept` liest;
 der Wochenplan rechnet den DGE-Referenzwert gegen das Referenzgewicht aus der Körpergröße, und
 die Herleitung steht in seinem Abschnitt „Mengen und Toleranzen".
 
-**Protein steht als Dichte**, nicht als feste Grammzahl je Mahlzeit: nur so übersteht das
-Ziel ein kleines Mittagessen, mit dem Kalorien für ein großes Abendessen gespart werden –
+**Protein steht als Dichte**, nicht als feste Grammzahl je Mahlzeit: nur so übersteht der
+Richtwert ein kleines Mittagessen, mit dem Kalorien für ein großes Abendessen gespart werden –
 eine feste Grammzahl würde die kleine Mahlzeit überladen und die große unterfüllen. Die
 126 g sind das, was die Dichte bei 1800 kcal ergibt; die 125 g aus dem Körpergewicht sind
 der Bedarf, der auch bei einem anderen Kalorienziel stehen bleibt.
@@ -37,18 +37,19 @@ der Speisepläne. Es gilt für jedes Rezept, das der Skill baut, auch für eine 
 Mahlzeit – der Skill unterscheidet die Mahlzeitarten nicht. Nur `rezept` nutzt diesen Wert;
 `wochenplan` verteilt die Tagesenergie frei.
 
-**Der Wochenplan führt kein Proteinziel mehr** (seit 2026-09-11): Er beantwortet eine Frage – was
+**Der Wochenplan führt keine persönliche Proteinvorgabe mehr** (seit 2026-09-11): Er beantwortet eine Frage – was
 gibt die DGE für das Kalorienziel her? –, und eine persönliche Vorgabe, die eine DGE-Menge
 verdrängt, gehört nicht hinein. Der letzte Plan zeigt, was sie verdrängt hat: das Siebenfache der
 DGE-Menge an Milchäquivalenten, und 172 g Getreide statt der skalierten 270 g am Tag. Im Plan gilt
 für Protein künftig der DGE-Referenzwert von 0,8 g je kg, gerechnet gegen das Referenzgewicht aus
 der Körpergröße (BMI 22, bei 177 cm 69 kg, also 55 g am Tag); was die Woche tatsächlich trägt,
-steht als Ergebnis in der Bilanz. Das Proteinziel von 7 g je 100 kcal bleibt für `rezept` in Kraft.
+steht als Ergebnis in der Bilanz. Der Proteinrichtwert von 7 g je 100 kcal bleibt für `rezept` in
+Kraft, dort seit dem 11.09.2026 als Richtwert und nicht als Vorgabe.
 
 **Was das kostet, lag vor der Entscheidung auf dem Tisch:** Ein DGE-treuer Plan bei 1800 kcal
 landet bei 68–77 g Protein am Tag gegen bisher 126 g – also rund 50 bis 58 g weniger –, und
-`rezept` deckt nur ein Gericht, rund ein Drittel des Tages. Die Begründung vom 05.09.2026 (das
-Proteinziel soll den Muskelerhalt absichern) wird im Wochenplan damit nicht mehr eingelöst. Der
+`rezept` deckt nur ein Gericht, rund ein Drittel des Tages. Die Begründung vom 05.09.2026 (der
+Proteinrichtwert soll den Muskelerhalt absichern) wird im Wochenplan damit nicht mehr eingelöst. Der
 Nutzer hat den Einwand gehört und die Entscheidung bestätigt.
 
 **Das Kalorienziel ist gesetzt, nicht hergeleitet** (festgehalten am 2026-09-11): Die DGE nennt
@@ -95,12 +96,14 @@ Freitext, den der Skill beachten soll (etwa: Räuchertofu lieber als Naturtofu; 
 2026-09-10): Erzwingt eine Packung mehr Salz oder Fett, als die Portion tragen darf, wird
 sie trotzdem ganz verwendet und die Grenze gerissen. Ich will lieber den Vorrat aufbrauchen
 als angebrochene Reste im Kühlschrank haben. Dafür muss das Rezept die Abweichung mit Zahl
-und Sollwert nennen, und das regelbare Salz entfällt.
+und Sollwert nennen, und das regelbare Salz entfällt. *(Der zweite Satz ist am 11.09.2026 neu
+gefasst – siehe den Absatz darunter; die Entscheidung selbst gilt unverändert.)*
 
-*Präzisiert am 2026-09-10, nach der Umsetzung von `ideas/spec-02-grenzen.md`:* Die Ausnahme
-greift nur bei einem echten Packungszwang, nicht bei jeder Zutat im Haus; sie deckt neben
-Salz und gesättigtem Fett auch das Gesamtfett; und sie trägt nur eine Zutat je Rezept.
-Ausgeführt wird sie vom `rezept`-Skill, in dem die Regel im Wortlaut steht – dieser Eintrag
-hält nur fest, wer sie entschieden hat und warum. Die Grenzen selbst bleiben, wo sie sind:
+*Neu gefasst am 2026-09-11, nach `ideas/spec-07-rezept-kocht-statt-rechnet.md`:* Die Ausnahme
+greift weiter nur bei einem echten Packungszwang, nicht bei jeder Zutat im Haus. Was entfällt,
+ist die Buchhaltung darum: `rezept` kennt keine Sollwerte je Portion mehr, aus denen sich ein
+„gerissener" Wert ergäbe, keine Obergrenze von einer Ausnahme je Rezept und keine Regel, dass
+das regelbare Salz entfällt. Stattdessen sagt die **Einordnung** des Rezepts, was die ganze
+Packung mitbringt und was das für den Tag heißt. Die DGE-Zahlen selbst bleiben, wo sie sind:
 6 g Salz am Tag (DGE-Referenzwert) und 10 En% gesättigte Fettsäuren (Modellvorgabe der
-DGE-Speisepläne, kein Referenzwert).
+DGE-Speisepläne, kein Referenzwert); sie gelten für den Tag, nicht für die einzelne Portion.
