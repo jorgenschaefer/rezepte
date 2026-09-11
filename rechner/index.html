@@ -9,175 +9,257 @@
       python3 -m http.server
   und dann http://localhost:8000/rechner/ öffnen.
 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    color-scheme: light dark;
-    --ink: #1a1a1a;
-    --paper: #fbfaf7;
-    --line: #d8d3c8;
-    --muted: #5f5a50;
-    --accent: #2f6b4f;
+    --paper: #ffffff;
+    --ink: #000000;
+    --muted: #6a6a6a;
+    --hair: #c9c9c9;
+    --band: #e4e4e4;
+    /* Blue marks everything that is your decision rather than a reference value. */
+    --own: #1240a8;
+    --sans: "IBM Plex Sans Condensed", "Roboto Condensed", "Segoe UI", system-ui, sans-serif;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink: #ece8e0;
-      --paper: #1b1a18;
-      --line: #3d3a35;
-      --muted: #a49d91;
-      --accent: #7fc0a0;
-    }
-  }
+  * { box-sizing: border-box; }
   body {
-    margin: 0 auto;
-    padding: 2rem 1rem 4rem;
-    max-width: 54rem;
-    background: var(--paper);
-    color: var(--ink);
-    font: 16px/1.5 system-ui, sans-serif;
+    margin: 0 auto; padding: 2.5rem 1.25rem 5rem; max-width: 46rem;
+    background: var(--paper); color: var(--ink);
+    font: 400 16px/1.45 var(--sans);
+    -webkit-font-smoothing: antialiased;
   }
-  h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
-  h2 { font-size: 1rem; margin: 2rem 0 .5rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-  .lead { margin: 0 0 1.5rem; color: var(--muted); }
-  form { display: grid; gap: 1rem; align-items: end;
-         grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
-  label { display: block; font-weight: 600; margin-bottom: .25rem; }
-  input, select { width: 100%; box-sizing: border-box; padding: .45rem .5rem; font: inherit;
-                  color: inherit; background: transparent; border: 1px solid var(--line); border-radius: 4px; }
-  .hint { display: block; font-weight: 400; font-size: .8rem; color: var(--muted); }
-  /* Fixed layout so the value columns line up from one table to the next. */
-  table { border-collapse: collapse; table-layout: fixed; width: 100%; min-width: 26rem;
-          margin-top: .5rem; }
-  th:first-child, td:first-child { width: 46%; }
-  th, td { text-align: left; padding: .4rem .5rem; border-bottom: 1px solid var(--line); }
-  th { font-weight: 600; }
-  td.value, th.value { text-align: right; font-variant-numeric: tabular-nums; }
-  tbody th { font-weight: 400; }
-  .sources { margin-top: 2.5rem; font-size: .85rem; color: var(--muted); }
-  .sources dt { font-weight: 600; margin-top: .75rem; color: var(--ink); }
-  .sources dd { margin: .15rem 0 0; }
-  .table-scroll { overflow-x: auto; }
+  h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -.015em; margin: 0 0 .3rem; }
+  .lead { max-width: 32rem; margin: 0 0 2.4rem; color: var(--muted); }
+
+  /* Hero: how far it is from here to the target weight. */
+  .track { position: relative; height: 8rem; margin-bottom: 1rem; }
+  .rule { position: absolute; left: 0; right: 0; top: 3.95rem; height: 2px; background: var(--ink); opacity: .25; }
+  .band { position: absolute; top: 3.5rem; height: 1rem; background: var(--band); }
+  .band-label { position: absolute; left: 0; top: 1.9rem; font-size: .8rem; color: var(--muted); white-space: nowrap; }
+  .pin { position: absolute; top: 0; height: 100%; transform: translateX(-50%);
+         display: grid; grid-template-rows: 3.5rem 1rem 3.5rem; justify-items: center;
+         text-align: center; white-space: nowrap;
+         transition: left .35s cubic-bezier(.22,.61,.36,1); }
+  .pin .cap { display: block; font-size: .8rem; color: var(--muted); }
+  .pin .kg { display: block; font-size: 1.45rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .pin .label { grid-row: 1; align-self: end; padding-bottom: .3rem; }
+  .pin .dot { grid-row: 2; align-self: center; width: 13px; height: 13px; border-radius: 50%; background: var(--ink); }
+  .pin.target .label { grid-row: 3; align-self: start; padding-top: .3rem; }
+  .pin.target .cap, .pin.target .kg { color: var(--own); }
+  .pin.target .dot { background: var(--paper); border: 3px solid var(--own); }
+
+  .verdict { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .2rem 1.5rem;
+             border-top: 2px solid var(--ink); padding-top: 1rem; margin-bottom: 2.4rem; }
+  .verdict .delta { font-size: 3.6rem; font-weight: 700; line-height: 1; letter-spacing: -.03em;
+                    font-variant-numeric: tabular-nums; color: var(--own); }
+  .verdict p { margin: .35rem 0 0; max-width: 19rem; color: var(--muted); }
+  .verdict p b { color: var(--ink); font-weight: 600; }
+
+  /* Inputs read as the fill-in part of a leaflet: rules, not boxes. */
+  form { display: grid; gap: .9rem 1.4rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+         padding-bottom: 1.6rem; border-bottom: 1px solid var(--hair); margin-bottom: 2.2rem; }
+  label { display: block; font-size: .8rem; color: var(--muted); margin-bottom: .1rem; }
+  input, select {
+    width: 100%; font: 600 1.05rem/1.3 var(--sans); font-variant-numeric: tabular-nums;
+    color: inherit; background: transparent; border: 0; border-bottom: 2px solid var(--ink);
+    padding: .2rem 0; border-radius: 0; appearance: none;
+  }
+  .note { display: block; font-size: .78rem; color: var(--muted); margin-top: .25rem; }
+  input:focus-visible, select:focus-visible { outline: 2px solid var(--own); outline-offset: 3px; }
+
+  .panel { border: 2px solid var(--ink); padding: .9rem 1rem 1.1rem; margin-bottom: 1.6rem; }
+  .panel h2 { font-size: 1.15rem; font-weight: 700; margin: 0 0 .1rem; }
+  .panel .sub { font-size: .82rem; color: var(--muted); margin: 0 0 .6rem; }
+
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  thead th { font-size: .8rem; font-weight: 400; color: var(--muted); text-align: right; padding: 0 0 .15rem; }
+  thead th .kg { display: block; font-size: 1rem; font-weight: 600; color: var(--ink); }
+  thead th:first-child { text-align: left; }
+  thead th.target-column .kg { color: var(--own); }
+  tbody th { font-weight: 400; text-align: left; }
+  td { text-align: right; }
+  th, td { padding: .32rem 0; border-bottom: 1px solid var(--hair); }
+  tr.heavy th, tr.heavy td { font-weight: 700; border-bottom-width: 2px; border-bottom-color: var(--ink); }
+  tr.sub th, tr.sub td { color: var(--muted); font-size: .88rem; }
+  tr.sub th { padding-left: 1.1rem; }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+  td + td, thead th + th { padding-left: 1.2rem; width: 7.5rem; }
+  td.impossible { text-decoration: underline; text-decoration-style: wavy; text-underline-offset: .25rem; }
+
+  /* The marker says where a number comes from: your decision, the DGE, or a rule of thumb. */
+  .mark { display: inline-block; width: .58rem; height: .58rem; margin-right: .5rem;
+          vertical-align: .02rem; border: 1.5px solid var(--ink); }
+  .mark.own { background: var(--own); border-color: var(--own); }
+  .mark.guess { border-radius: 50%; border-color: var(--muted); }
+  .legend { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; font-size: .82rem; color: var(--muted);
+            margin: -.6rem 0 2.4rem; }
+
+  /* The one inverted element on the page: the split does not add up. */
+  .warning { background: var(--ink); color: var(--paper); padding: .8rem 1rem; margin: -1.2rem 0 2.4rem; }
+  .warning p { margin: 0; }
+  .warning p + p { margin-top: .35rem; color: #c9c9c9; }
+
+  .sources { font-size: .85rem; color: var(--muted); border-top: 1px solid var(--hair); padding-top: 1.2rem; }
+  .sources dt { font-weight: 600; color: var(--ink); margin-top: .8rem; }
+  .sources dd { margin: .1rem 0 0; max-width: 40rem; }
+
+  @media (max-width: 34rem) {
+    body { font-size: 15px; }
+    .verdict .delta { font-size: 2.8rem; }
+    .pin .kg { font-size: 1.15rem; }
+    td + td, thead th + th { width: 5.4rem; padding-left: .6rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .pin { transition: none; } }
 </style>
 </head>
 <body>
 
 <h1>Energie- und BMI-Rechner</h1>
-<p class="lead">Rechnet Grundumsatz, Bedarf und Tagesmengen aus den Eingaben. Ein
-Nachschlagewerkzeug, keine DGE-Auskunft – siehe die Herkunft der Zahlen unten.</p>
+<p class="lead">Wo du stehst, wo du hinwillst und was der Körper an beiden Punkten braucht.
+Ein Nachschlagewerkzeug, keine DGE-Auskunft – jede Zahl trägt ihre Herkunft mit.</p>
 
 <form id="inputs">
   <div>
-    <label for="height">Körpergröße <span class="hint">cm</span></label>
+    <label for="height">Körpergröße in cm</label>
     <input id="height" type="number" value="177" min="100" max="250" step="1">
   </div>
   <div>
-    <label for="age">Alter <span class="hint">Jahre</span></label>
+    <label for="age">Alter in Jahren</label>
     <input id="age" type="number" value="45" min="15" max="110" step="1">
   </div>
   <div>
-    <label for="sex">Geschlecht <span class="hint">für den Grundumsatz</span></label>
+    <label for="sex">Geschlecht</label>
     <select id="sex">
       <option value="male" selected>männlich</option>
       <option value="female">weiblich</option>
     </select>
   </div>
   <div>
-    <label for="weight">Aktuelles Gewicht <span class="hint">kg</span></label>
-    <input id="weight" type="number" value="78" min="30" max="300" step="0.1">
+    <label for="weight">Gewicht in kg</label>
+    <input id="weight" type="text" inputmode="decimal" value="78">
   </div>
   <div>
-    <label for="target-bmi">Ziel-BMI <span class="hint">kg/m²</span></label>
-    <input id="target-bmi" type="number" value="24.9" min="15" max="40" step="0.1">
+    <label for="target-bmi">Ziel-BMI</label>
+    <input id="target-bmi" type="text" inputmode="decimal" value="22,4">
   </div>
   <div>
-    <label for="pal">Aktivitätslevel <span class="hint">PAL 1,0–2,0</span></label>
+    <label for="pal">Aktivitätslevel</label>
     <select id="pal">
-      <option value="1.0">1,0 – nur der Grundumsatz, ohne jede Aktivität</option>
-      <option value="1.2">1,2 – ausschließlich sitzend oder liegend</option>
-      <option value="1.4" selected>1,4 – sitzend, wenig Freizeitbewegung</option>
-      <option value="1.6">1,6 – sitzend, zeitweise gehend</option>
-      <option value="1.8">1,8 – überwiegend gehend oder stehend</option>
-      <option value="2.0">2,0 – körperlich anstrengende Arbeit</option>
+      <option value="1.0" data-note="nur der Grundumsatz, ohne jede Aktivität">PAL 1,0</option>
+      <option value="1.2" data-note="ausschließlich sitzend oder liegend">PAL 1,2</option>
+      <option value="1.4" selected data-note="sitzend, wenig Freizeitbewegung">PAL 1,4</option>
+      <option value="1.6" data-note="sitzend, zeitweise gehend">PAL 1,6</option>
+      <option value="1.8" data-note="überwiegend gehend oder stehend">PAL 1,8</option>
+      <option value="2.0" data-note="körperlich anstrengende Arbeit">PAL 2,0</option>
     </select>
+    <span class="note" id="pal-note"></span>
   </div>
   <div>
-    <label for="protein-per-kg">Protein <span class="hint">g je kg Körpergewicht · DGE: 0,8</span></label>
-    <input id="protein-per-kg" type="number" value="1.6" min="0.4" max="3" step="0.1">
+    <label for="protein-per-kg">Protein in g je kg</label>
+    <input id="protein-per-kg" type="text" inputmode="decimal" value="1,6">
+    <span class="note">DGE: 0,8</span>
   </div>
   <div>
-    <label for="deficit">Kaloriendefizit <span class="hint">kcal am Tag</span></label>
-    <input id="deficit" type="number" value="500" min="0" max="1500" step="50">
+    <label for="intake">Aktuelle kcal am Tag</label>
+    <input id="intake" type="number" value="1800" min="0" max="6000" step="50">
+    <span class="note" id="balance-note"></span>
   </div>
 </form>
 
+<div class="track" aria-hidden="true">
+  <div class="rule"></div>
+  <div class="band" id="band"></div>
+  <div class="band-label" id="band-label"></div>
+  <div class="pin" id="pin-now">
+    <span class="label"><span class="cap">jetzt</span><span class="kg" id="now-kg"></span></span>
+    <span class="dot"></span>
+  </div>
+  <div class="pin target" id="pin-target">
+    <span class="dot"></span>
+    <span class="label"><span class="cap">Ziel</span><span class="kg" id="target-kg"></span></span>
+  </div>
+</div>
+
+<div class="verdict">
+  <span class="delta" id="out-difference">–</span>
+  <p id="out-verdict"></p>
+</div>
+
 <div id="results" aria-live="polite">
+
+<section class="panel">
   <h2>Gewicht</h2>
-  <div class="table-scroll">
+  <p class="sub" id="out-category">–</p>
   <table>
     <tbody>
-      <tr><th scope="row">Aktueller BMI</th><td class="value" id="out-bmi"></td></tr>
-      <tr><th scope="row">Zielgewicht beim Ziel-BMI</th><td class="value" id="out-target-weight"></td></tr>
-      <tr><th scope="row">Normalgewicht (BMI 18,5–24,9)</th><td class="value" id="out-normal-range"></td></tr>
-      <tr><th scope="row">Differenz zum Zielgewicht</th><td class="value" id="out-difference"></td></tr>
-      <tr><th scope="row">Dauer beim eingestellten Defizit</th><td class="value" id="out-weeks"></td></tr>
+      <tr class="heavy"><th scope="row">BMI jetzt</th><td id="out-bmi">–</td></tr>
+      <tr><th scope="row">Zielgewicht beim eingestellten Ziel-BMI</th><td id="out-target-weight">–</td></tr>
+      <tr><th scope="row">Normalgewicht, BMI 18,5–24,9</th><td id="out-normal-range">–</td></tr>
+      <tr><th scope="row">Energiebilanz am Tag</th><td id="out-balance">–</td></tr>
+      <tr><th scope="row">Dauer bei dieser Aufnahme</th><td id="out-weeks">–</td></tr>
     </tbody>
   </table>
-  </div>
+</section>
 
-  <h2>Energie und Nährstoffe</h2>
-  <div class="table-scroll">
+<section class="panel">
+  <h2>Nährwertangaben je Tag</h2>
+  <p class="sub">Alle Mengen für einen ganzen Tag, nicht je 100 g.</p>
   <table>
     <thead>
       <tr>
-        <th></th>
-        <th class="value" id="head-current">Aktuelles Gewicht</th>
-        <th class="value" id="head-target">Zielgewicht</th>
+        <th scope="col">Nährwert</th>
+        <th scope="col">jetzt<span class="kg" id="head-current">–</span></th>
+        <th scope="col" class="target-column">beim Ziel<span class="kg" id="head-target">–</span></th>
       </tr>
     </thead>
     <tbody>
-      <tr><th scope="row">Grundumsatz</th>
-          <td class="value" id="out-bmr-current"></td><td class="value" id="out-bmr-target"></td></tr>
-      <tr><th scope="row">Bedarf bei gewähltem PAL</th>
-          <td class="value" id="out-tee-current"></td><td class="value" id="out-tee-target"></td></tr>
-      <tr><th scope="row" id="row-protein-user">Protein</th>
-          <td class="value" id="out-protein-current"></td><td class="value" id="out-protein-target"></td></tr>
-      <tr><th scope="row">Protein nach DGE (0,8 g/kg)</th>
-          <td class="value" id="out-protein-dge-current"></td><td class="value" id="out-protein-dge-target"></td></tr>
+      <tr class="heavy"><th scope="row"><span class="mark guess"></span>Energie</th>
+          <td id="out-tee-current">–</td><td id="out-tee-target">–</td></tr>
+      <tr class="sub"><th scope="row">Grundumsatz, ohne Aktivität</th>
+          <td id="out-bmr-current">–</td><td id="out-bmr-target">–</td></tr>
+      <tr><th scope="row"><span class="mark"></span>Fett, 30 % der Energie</th>
+          <td id="out-fat-current">–</td><td id="out-fat-target">–</td></tr>
+      <tr class="sub"><th scope="row">davon gesättigte Fettsäuren, höchstens 10 %</th>
+          <td id="out-saturated-fat-current">–</td><td id="out-saturated-fat-target">–</td></tr>
+      <tr><th scope="row"><span class="mark guess"></span>Kohlenhydrate, der Rest</th>
+          <td id="out-carbohydrate-current">–</td><td id="out-carbohydrate-target">–</td></tr>
+      <tr><th scope="row"><span class="mark"></span>Ballaststoffe</th>
+          <td id="out-fibre-current">–</td><td id="out-fibre-target">–</td></tr>
+      <tr><th scope="row"><span class="mark own"></span><span id="row-protein-user">Protein</span></th>
+          <td id="out-protein-current">–</td><td id="out-protein-target">–</td></tr>
+      <tr class="sub"><th scope="row">nach DGE, 0,8 g je kg</th>
+          <td id="out-protein-dge-current">–</td><td id="out-protein-dge-target">–</td></tr>
+      <tr><th scope="row"><span class="mark"></span>Salz, höchstens</th>
+          <td id="out-salt-current">–</td><td id="out-salt-target">–</td></tr>
     </tbody>
   </table>
-  </div>
+</section>
 
-  <h2>Tagesmengen beim jeweiligen Bedarf</h2>
-  <div class="table-scroll">
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th class="value" id="head-macro-current">Aktuelles Gewicht</th>
-        <th class="value" id="head-macro-target">Zielgewicht</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><th scope="row">Fett (30 % der Energie)</th>
-          <td class="value" id="out-fat-current"></td><td class="value" id="out-fat-target"></td></tr>
-      <tr><th scope="row">Protein</th>
-          <td class="value" id="out-macro-protein-current"></td><td class="value" id="out-macro-protein-target"></td></tr>
-      <tr><th scope="row">Ballaststoffe</th>
-          <td class="value" id="out-fibre-current"></td><td class="value" id="out-fibre-target"></td></tr>
-      <tr><th scope="row">Kohlenhydrate (Rest)</th>
-          <td class="value" id="out-carbohydrate-current"></td><td class="value" id="out-carbohydrate-target"></td></tr>
-    </tbody>
-  </table>
-  </div>
+<p class="legend">
+  <span><span class="mark own"></span>deine Entscheidung</span>
+  <span><span class="mark"></span>DGE-Vorgabe</span>
+  <span><span class="mark guess"></span>Schätzformel, keine DGE-Vorgabe</span>
+</p>
+
+<div class="warning" id="warning" hidden>
+  <p id="warning-text"></p>
+  <p id="warning-advice"></p>
+</div>
+
 </div>
 
 <dl class="sources">
   <dt>DGE-Referenzwerte</dt>
   <dd>Fett 30 % der Energie, Ballaststoffe 30 g am Tag, Protein 0,8 g je kg Körpergewicht
       (bei BMI über 25 gegen das Normalgewicht gerechnet), die PAL-Stufen ab 1,2 und die Energiedichten
-      4 / 9 / 4 / 2 kcal je g für Protein, Fett, Kohlenhydrate und Ballaststoffe.</dd>
+      4 / 9 / 4 / 2 kcal je g für Protein, Fett, Kohlenhydrate und Ballaststoffe. Salz: „Mehr als
+      6 g am Tag sollten es nicht sein." Die 10 % der Energie für gesättigte Fettsäuren sind dagegen
+      eine Modellgrenze der DGE-Speisepläne, kein Referenzwert.</dd>
   <dt>Entscheidung des Nutzers</dt>
   <dd>Das Proteinziel von 1,6 g je kg liegt bewusst über dem DGE-Wert und sichert den
-      Muskelerhalt ab.</dd>
+      Muskelerhalt ab. Auch der Ziel-BMI ist eine eigene Setzung, keine Vorgabe.</dd>
   <dt>Weder noch</dt>
   <dd>Grundumsatz nach Mifflin-St Jeor und die Faustregel von 7000 kcal je kg Körperfett sind
       gängige Schätzformeln, aber keine DGE-Werte – die DGE gibt Tabellenrichtwerte an, keine
@@ -196,12 +278,13 @@ import {
   totalEnergyExpenditure,
   proteinTarget,
   macroSplit,
-  weeksToTargetWeight,
+  dailyEnergyBalance,
+  weeksToTargetWeightAtIntake,
   DGE_PROTEIN_GRAMS_PER_KILOGRAM,
-  KCAL_PER_GRAM,
 } from './calculator.js'
 
 const form = document.getElementById('inputs')
+const pal = document.getElementById('pal')
 
 form.addEventListener('input', render)
 render()
@@ -212,62 +295,143 @@ function render() {
   const sex = document.getElementById('sex').value
   const weightKg = numberFrom('weight')
   const targetBmi = numberFrom('target-bmi')
-  const pal = numberFrom('pal')
+  const physicalActivityLevel = numberFrom('pal')
   const proteinPerKg = numberFrom('protein-per-kg')
-  const dailyDeficitKcal = numberFrom('deficit')
+  const intakeKcal = numberFrom('intake')
 
   const bmi = bodyMassIndex(weightKg, heightCm)
   const targetWeightKg = weightForBodyMassIndex(targetBmi, heightCm)
   const range = normalWeightRange(heightCm)
+  const differenceKg = weightKg == null || targetWeightKg == null ? null : targetWeightKg - weightKg
+  const currentTee = totalEnergyExpenditure(
+    basalMetabolicRate(weightKg, heightCm, ageYears, sex), physicalActivityLevel)
+  const balanceKcal = dailyEnergyBalance(currentTee, intakeKcal)
+  const weeks = weeksToTargetWeightAtIntake(weightKg, targetWeightKg, currentTee, intakeKcal)
 
-  show('out-bmi', bmi === null ? null : `${format(bmi, 1)} kg/m² · ${bodyMassIndexCategory(bmi)}`)
+  document.getElementById('pal-note').textContent = pal.selectedOptions[0].dataset.note
+
+  drawScale(weightKg, targetWeightKg, range)
+  show('out-difference', differenceKg == null ? null : `${signed(differenceKg, 1)} kg`)
+  document.getElementById('out-verdict').innerHTML = verdict(bmi, targetBmi, differenceKg, weeks, balanceKcal)
+
+  show('out-bmi', bmi === null ? null : `${format(bmi, 1)} kg/m²`)
+  show('out-category', bodyMassIndexCategory(bmi))
   show('out-target-weight', withUnit(targetWeightKg, 1, 'kg'))
   show('out-normal-range', range === null ? null : `${format(range.min, 1)}–${format(range.max, 1)} kg`)
-  show('out-difference', weightKg === null || targetWeightKg === null
-    ? null
-    : `${format(targetWeightKg - weightKg, 1)} kg`)
-  show('out-weeks', formatWeeks(weeksToTargetWeight(weightKg, targetWeightKg, dailyDeficitKcal)))
+  show('out-balance', balanceKcal == null ? null : `${signed(balanceKcal, 0)} kcal`)
+  show('balance-note', balanceNote(balanceKcal))
+  show('out-weeks', formatWeeks(weeks, balanceKcal, differenceKg))
+
+  show('head-current', withUnit(weightKg, 1, 'kg'))
+  show('head-target', withUnit(targetWeightKg, 1, 'kg'))
+  show('row-protein-user', `Protein, ${format(proteinPerKg, 1) || '–'} g je kg`)
 
   const columns = [
-    { suffix: 'current', weight: weightKg },
-    { suffix: 'target', weight: targetWeightKg },
+    { suffix: 'current', caption: 'jetzt', weight: weightKg },
+    { suffix: 'target', caption: 'beim Ziel', weight: targetWeightKg },
   ]
+  const excesses = []
 
-  for (const id of ['head-current', 'head-macro-current']) show(id, withUnit(weightKg, 1, 'kg'))
-  for (const id of ['head-target', 'head-macro-target']) show(id, withUnit(targetWeightKg, 1, 'kg'))
-  show('row-protein-user', `Protein (${format(proteinPerKg, 1) || '–'} g/kg)`)
-
-  for (const { suffix, weight } of columns) {
+  for (const { suffix, caption, weight } of columns) {
     const bmr = basalMetabolicRate(weight, heightCm, ageYears, sex)
-    const tee = totalEnergyExpenditure(bmr, pal)
+    const tee = totalEnergyExpenditure(bmr, physicalActivityLevel)
     const protein = proteinTarget(weight, proteinPerKg)
+    const split = macroSplit(tee, protein)
 
     show(`out-bmr-${suffix}`, withUnit(bmr, 0, 'kcal'))
     show(`out-tee-${suffix}`, withUnit(tee, 0, 'kcal'))
-    show(`out-protein-${suffix}`, withProteinEnergy(protein))
-    show(`out-protein-dge-${suffix}`,
-      withProteinEnergy(proteinTarget(weight, DGE_PROTEIN_GRAMS_PER_KILOGRAM)))
-
-    const split = macroSplit(tee, protein)
-
     show(`out-fat-${suffix}`, withUnit(split?.fatGrams, 0, 'g'))
-    show(`out-macro-protein-${suffix}`, withUnit(split?.proteinGrams, 0, 'g'))
-    show(`out-fibre-${suffix}`, withUnit(split?.fibreGrams, 0, 'g'))
+    show(`out-saturated-fat-${suffix}`, withUnit(split?.saturatedFatGrams, 0, 'g'))
+    show(`out-salt-${suffix}`, withUnit(split?.saltGrams, 0, 'g'))
     show(`out-carbohydrate-${suffix}`, withUnit(split?.carbohydrateGrams, 0, 'g'))
+    show(`out-fibre-${suffix}`, withUnit(split?.fibreGrams, 0, 'g'))
+    show(`out-protein-${suffix}`, withUnit(protein, 0, 'g'))
+    show(`out-protein-dge-${suffix}`,
+      withUnit(proteinTarget(weight, DGE_PROTEIN_GRAMS_PER_KILOGRAM), 0, 'g'))
+
+    const excess = split?.excessKcal > 0 ? split.excessKcal : null
+    document.getElementById(`out-carbohydrate-${suffix}`).classList.toggle('impossible', excess !== null)
+    if (excess !== null) excesses.push(`${caption} ${format(excess, 0)} kcal`)
   }
+
+  showWarning(excesses, proteinPerKg)
 }
 
-function withProteinEnergy(grams) {
-  if (grams == null) return null
+// Fat, protein and fibre are fixed shares, so a high protein target can claim the whole day
+// and then some. The carbohydrates stop at zero, which on its own looks like a result.
+function showWarning(excesses, proteinPerKg) {
+  const warning = document.getElementById('warning')
+  warning.hidden = excesses.length === 0
+  if (warning.hidden) return
 
-  return `${format(grams, 0)} g · ${format(grams * KCAL_PER_GRAM.protein, 0)} kcal`
+  show('warning-text', `Das geht nicht auf: Fett, Protein und Ballaststoffe brauchen zusammen mehr
+    Energie, als der Tagesbedarf hergibt – ${excesses.join(', ')} zu viel. Die Kohlenhydrate stehen
+    deshalb rechnerisch auf 0 g, es bleibt nichts für sie übrig.`)
+  show('warning-advice', `Senke das Proteinziel (aktuell ${format(proteinPerKg, 1)} g je kg,
+    DGE 0,8) – oder hebe den Bedarf mit einem höheren Aktivitätslevel.`)
 }
 
-function formatWeeks(weeks) {
-  if (weeks == null) return null
-  if (weeks === 0) return 'erreicht'
+function verdict(bmi, targetBmi, differenceKg, weeks, balanceKcal) {
+  if (differenceKg == null || bmi == null) return 'Trag Körpergröße und Gewicht ein.'
 
-  return `${format(weeks, 1)} Wochen`
+  const category = bodyMassIndexCategory(bmi)
+  if (Math.abs(differenceKg) < 0.05) return `Du bist da: BMI <b>${format(bmi, 1)}</b>, ${category}.`
+
+  const direction = differenceKg < 0 ? 'abnehmen' : 'zunehmen'
+  const journey = `${direction}, von BMI <b>${format(bmi, 1)}</b> (${category})
+    auf <b>${format(targetBmi, 1)}</b>`
+
+  if (weeks != null) {
+    return `${journey} – rund <b>${format(weeks, 0)} Wochen</b> bei
+      ${format(Math.abs(balanceKcal), 0)} kcal ${balanceKcal < 0 ? 'unter' : 'über'} dem Bedarf.`
+  }
+  if (balanceKcal === 0) return `${journey}. Nur: du isst genau deinen Bedarf, so bleibt das Gewicht.`
+
+  return `${journey}. Nur: diese Aufnahme liegt
+    ${balanceKcal < 0 ? 'unter' : 'über'} dem Bedarf und führt vom Ziel weg.`
+}
+
+function drawScale(weightKg, targetWeightKg, range) {
+  const values = [weightKg, targetWeightKg, range?.min, range?.max].filter(Number.isFinite)
+  if (values.length === 0) return
+
+  const lowest = Math.min(...values) - 6
+  const highest = Math.max(...values) + 6
+  const position = (kg) => `${((kg - lowest) / (highest - lowest)) * 100}%`
+
+  if (range !== null) {
+    const band = document.getElementById('band')
+    band.style.left = position(range.min)
+    band.style.width = `${((range.max - range.min) / (highest - lowest)) * 100}%`
+    show('band-label', `Normalgewicht ${format(range.min, 0)}–${format(range.max, 0)} kg`)
+  }
+
+  for (const [id, kg] of [['pin-now', weightKg], ['pin-target', targetWeightKg]]) {
+    const pin = document.getElementById(id)
+    pin.hidden = !Number.isFinite(kg)
+    if (!pin.hidden) pin.style.left = position(kg)
+  }
+
+  show('now-kg', withUnit(weightKg, 1, 'kg'))
+  show('target-kg', withUnit(targetWeightKg, 1, 'kg'))
+}
+
+function formatWeeks(weeks, balanceKcal, differenceKg) {
+  if (weeks === 0) return 'Zielgewicht erreicht'
+  if (weeks != null) return `${format(weeks, 1)} Wochen`
+  if (balanceKcal == null || differenceKg == null) return null
+  if (balanceKcal === 0) return 'hält das Gewicht'
+
+  return 'führt vom Ziel weg'
+}
+
+function balanceNote(balanceKcal) {
+  if (balanceKcal == null) return null
+  if (balanceKcal === 0) return 'genau der Bedarf'
+
+  return balanceKcal < 0
+    ? `${format(-balanceKcal, 0)} kcal unter dem Bedarf`
+    : `${format(balanceKcal, 0)} kcal über dem Bedarf`
 }
 
 function withUnit(value, digits, unit) {
@@ -276,14 +440,21 @@ function withUnit(value, digits, unit) {
   return `${format(value, digits)} ${unit}`
 }
 
+function signed(value, digits) {
+  if (Math.abs(value) < 0.05) return `±${format(0, digits)}`
+
+  return `${value > 0 ? '+' : '−'}${format(Math.abs(value), digits)}`
+}
+
 function format(value, digits) {
   if (value == null || !Number.isFinite(value)) return ''
 
   return value.toLocaleString('de-DE', { minimumFractionDigits: digits, maximumFractionDigits: digits })
 }
 
+// The page writes 1,6 everywhere, so the fields take a comma as well as a point.
 function numberFrom(id) {
-  const value = Number.parseFloat(document.getElementById(id).value)
+  const value = Number.parseFloat(document.getElementById(id).value.replace(',', '.'))
 
   return Number.isFinite(value) ? value : null
 }
