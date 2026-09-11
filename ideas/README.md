@@ -65,6 +65,16 @@ zu ihrer Größe gehört. Der erste Anlauf zu dieser Gegenprobe war ungültig (a
 neue `praeferenzen.md`) und hat dabei gezeigt, dass eine neue Zeile im Abschnitt „Ziele" auch ohne
 Erwähnung im Prompt wirkt.
 
+**[spec-06-dge-auskunft.md](spec-06-dge-auskunft.md) ist entworfen, aber noch nicht gebaut.** Sie
+löst die Wochenplan-Hälfte von A14 und den Rest von A12: `wochenplan` wird eine DGE-Auskunft, in der
+das Kalorienziel die einzige persönliche Zahl ist; das Protein steht als Ergebnis gegen den
+DGE-Referenzwert von 0,8 g je kg Referenzgewicht. Drei Kaltlesungen haben die Spec dabei zweimal in
+der Sache korrigiert: Das Zitat „exakt einzuhaltende Zielwerte" beschreibt das Optimierungsmodell und
+nicht die Empfehlung und ist deshalb draußen; und die Getreidezeile aus dem letzten Plan wäre nach der
+Zahl von einer DGE-Variation gedeckt gewesen (100 % Vollkorn, mehr Gemüse und Hülsenfrüchte daneben) –
+den Befund trägt jetzt der Grund, den der Plan selbst nennt, und die Milchäquivalente beim Siebenfachen
+der DGE-Menge.
+
 **[A14-zwei-skills-zwei-fragen.md](A14-zwei-skills-zwei-fragen.md) dreht die Richtung.** Der
 Nutzer hat am 11. September 2026 entschieden, dass die beiden Skills **nicht** gleichlauten
 sollen: `wochenplan` wird eine reine DGE-Auskunft, nur ans Kalorienziel skaliert und ohne das
@@ -114,7 +124,7 @@ EFSA war über die Wiley-Volltexte nicht erreichbar und ist nicht eingeflossen.
 | [A11](A11-mustgo-ohne-prioritaet.md) | Mustgo ohne Vorrang und ohne Abwägung gegen die Grenzen | mittel | verworfen, [A11](A11-mustgo-ohne-prioritaet.md) |
 | [A12](A12-salzregeln-der-skills-widersprechen-sich.md) | `rezept` und `wochenplan` sagen beim Salz Verschiedenes | mittel | Salzhälfte erledigt, [spec-02](spec-02-grenzen.md); der Rest **hinfällig** mit [A14](A14-zwei-skills-zwei-fragen.md) – die Skills sollen nicht gleichlauten |
 | [A13](A13-katalogzutat-statt-vorratszutat.md) | Der Skill wählt Zustand und Sorte selbst, wo der Vorrat sie nicht nennt | mittel | erledigt, [spec-04](spec-04-eindeutige-zuordnung.md); die erste Fassung des Befunds war widerlegt und ist neu geschrieben |
-| [A14](A14-zwei-skills-zwei-fragen.md) | Beide Skills werden an einem Apparat gemessen, obwohl sie zwei Fragen beantworten | hoch | Intent steht, Lösung offen |
+| [A14](A14-zwei-skills-zwei-fragen.md) | Beide Skills werden an einem Apparat gemessen, obwohl sie zwei Fragen beantworten | hoch | Wochenplan-Hälfte: [spec-06](spec-06-dge-auskunft.md) steht, Bau offen. Die Lockerung von `rezept` ist noch nicht entworfen |
 
 ## B – Qualität als Prompt
 
