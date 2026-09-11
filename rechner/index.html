@@ -379,7 +379,7 @@ function verdict(bmi, targetBmi, differenceKg, weeks, balanceKcal) {
 
   const direction = differenceKg < 0 ? 'abnehmen' : 'zunehmen'
   const journey = `${direction}, von BMI <b>${format(bmi, 1)}</b> (${category})
-    auf <b>${format(targetBmi, 1)}</b>`
+    auf <b>${format(targetBmi, 1)}</b> (${bodyMassIndexCategory(targetBmi)})`
 
   if (weeks != null) {
     return `${journey} – rund <b>${format(weeks, 0)} Wochen</b> bei
