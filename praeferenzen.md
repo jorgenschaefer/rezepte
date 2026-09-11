@@ -11,6 +11,7 @@ Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, 
 | Kalorienziel | 1800 kcal am Tag, als Wochendurchschnitt |
 | Proteinbedarf | 1,6 g je kg = 125 g am Tag (aus dem Planungsgewicht, nicht aus dem Kalorienziel) |
 | Proteinziel | 7 g je 100 kcal (bei 1800 kcal: 126 g am Tag) |
+| Portionsgröße je Rezept | ⅓ des Kalorienziels, ±10 % (bei 1800 kcal: 600 kcal, Band 540–660) |
 | Personen | 1 |
 
 **Planungsgewicht 78 kg** (seit 2026-09-05): das obere Ende des normalen BMI-Bereichs bei
@@ -23,6 +24,15 @@ Ziel ein kleines Mittagessen, mit dem Kalorien für ein großes Abendessen gespa
 eine feste Grammzahl würde die kleine Mahlzeit überladen und die große unterfüllen. Die
 126 g sind das, was die Dichte bei 1800 kcal ergibt; die 125 g aus dem Körpergewicht sind
 der Bedarf, der auch bei einem anderen Kalorienziel stehen bleibt.
+
+**Die Portionsgröße ist ein Anteil, keine feste Kalorienzahl** (seit 2026-09-11): Nur so
+bleibt sie richtig, wenn sich das Kalorienziel ändert – eine feste Zahl bliebe stehen,
+während sich alle Dichten anpassen, und der `rezept`-Skill rechnete dann konsistent an der
+falschen Portion. **Die DGE verteilt die Tagesenergie nicht auf die Mahlzeiten**; das
+Drittel ist deshalb eine Festlegung des Nutzers, kein Referenzwert und keine Modellvorgabe
+der Speisepläne. Es gilt für jedes Rezept, das der Skill baut, auch für eine kalte
+Mahlzeit – der Skill unterscheidet die Mahlzeitarten nicht. Nur `rezept` nutzt diesen Wert;
+`wochenplan` verteilt die Tagesenergie frei.
 
 ## Struktur
 
