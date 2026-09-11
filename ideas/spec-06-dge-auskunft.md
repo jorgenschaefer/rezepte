@@ -9,7 +9,10 @@
 
 **Betroffene Dateien:** `.claude/skills/wochenplan/SKILL.md`, `praeferenzen.md` und
 `ideas/README.md`. Sonst keine – `.claude/skills/rezept/SKILL.md`, `dge-wochenbilanz.md`,
-`zutaten.md`, `vorratskammer.md` und `CLAUDE.md` bleiben unangetastet.
+`zutaten.md` und `vorratskammer.md` bleiben unangetastet. `CLAUDE.md` ist beim Bau dazugekommen:
+zwei Sätze dort – „Präferenzen überschreiben offizielle Vorgaben und Regeln" und „das Proteinziel
+… wird nicht wegdiskutiert" – laden in jeden Lauf und ziehen gegen den gebauten Zustand. Sie
+bleiben stehen und bekommen ihre Zuordnung; entschieden vom Nutzer, nachdem der Befund vorlag.
 
 ## Warum
 

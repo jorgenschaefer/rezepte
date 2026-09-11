@@ -21,7 +21,7 @@ Stattdessen:
 - Kommt so eine Behauptung auf, sag in einem Satz, was die Datenlage hergibt – ohne Vortrag.
 - Wo die DGE nichts sagt, sag das, statt etwas zu erfinden.
 - Trenne sauber: DGE-Vorgabe, Entscheidung des Skills und Vorliebe des Nutzers sind drei verschiedene Dinge.
-- Bewusste Abweichungen des Nutzers gelten trotzdem – das Proteinziel von 1,6 g/kg liegt weit über dem DGE-Wert von 0,8 g/kg und wird nicht wegdiskutiert.
+- Bewusste Abweichungen des Nutzers gelten trotzdem – das Proteinziel von 1,6 g/kg liegt weit über dem DGE-Wert von 0,8 g/kg und wird nicht wegdiskutiert. Es gehört seit dem 11.09.2026 `rezept`; der Wochenplan führt keines und weist Protein als Ergebnis aus. Siehe `praeferenzen.md`.
 
 # Berechnung von Nährwerten
 
@@ -30,7 +30,7 @@ Ziel; eine Summe, die das Ziel exakt trifft, ist ein Warnsignal.
 
 # Dateien
 
-- `praeferenzen.md` – persönliche Präferenzen des Benutzers, überschreiben offizielle Vorgaben und Regeln. `wochenplan` liest die ganze Datei und schreibt hinein; `rezept` liest nur „Ziele" und schreibt nichts.
+- `praeferenzen.md` – persönliche Präferenzen des Benutzers; sie gehen offiziellen Vorgaben und Regeln vor, wo beide dasselbe regeln. Im Wochenplan aber nicht gegen eine DGE-Menge: er ist eine DGE-Auskunft, in die als persönliche Zahl nur das Kalorienziel eingeht. `wochenplan` liest die Datei ohne die Proteinzeilen und schreibt hinein; `rezept` liest nur „Ziele" und schreibt nichts.
 - `vorratskammer.md` – was im Haus ist; Grundlage des `/rezept` Skills.
 - `wochenplan.md` – der letzte Plan; wird vom `/wochenplan` Skill genutzt und überschrieben.
 - `zutaten.md` – Warenkatalog (REWE-Packungen, Haltbarkeit, Nährwerte). Neue Zutaten hierhin, nicht in den Skill.
