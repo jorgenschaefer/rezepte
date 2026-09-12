@@ -65,7 +65,7 @@ Zwei Fragen: Liegt die Portion im Band? Ist jede verwendete Zutat eindeutig eine
 - **Portionen:** Anzahl (Standard: 1).
 - **Zeit:** Aktive Zeit am Herd, auf 5 Minuten gerundet.
 - **Kochgeschirr:** Was gebraucht wird und was davon gleichzeitig läuft (z. B. „1 Topf und 1 Pfanne, parallel").
-- **Nährwerte pro Portion:** Eine Tabelle mit vier Spalten – Nährwert, Tag, Portion, Anteil – und den Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse. Wie du die Tagesspalte bekommst, steht unten. Der Anteil ist Portion durch Tag, auf ganze Prozent. In der Tagesspalte steht „höchstens" nur bei den beiden Obergrenzen, gesättigte Fettsäuren und Salz – nur dort ist ein großer Anteil ein Einwand. Alle anderen Zeilen stehen als nackte Zahl, ob Untergrenze oder Zielwert: bei ihnen ist viel nie ein Alarm. Die Tabelle zeigt, wo die Portion im Tag steht – sie ist kein Sollwert für die Mahlzeit, und kein Anteil ist zu treffen; die DGE verteilt den Tag nicht auf Mahlzeiten.
+- **Nährwerte pro Portion:** Eine Tabelle mit vier Spalten – Nährwert, Tag, Portion, Anteil – und den Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse. Wie du die Tagesspalte bekommst, steht unten. Der Anteil ist Portion durch Tag, auf ganze Prozent.
 
   > | Nährwert | Tag | Portion | Anteil |
   > |---|---|---|---|
