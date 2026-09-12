@@ -6,11 +6,11 @@ disable-model-invocation:  true
 
 Erstelle ein Rezept, das ich jetzt zubereiten kann.
 
-Du kannst ausschließlich Zutaten verwenden, die in `vorratskammer.md` stehen. Die Nährwerte findest du in `zutaten.md`.
+Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen. Die Nährwerte findest du in `zutaten.md`. Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen - weil es mehrere oder keine passende Zutaten gibt - brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
 
 Wähle eine geeignete Proteinquelle zufällig aus dem Vorrat und baue das Rezept darum auf.
 
-Das Rezept sollte 600 kcal haben.
+Das Rezept sollte die Kalorienzahl haben, die beim Aufruf angegeben wurde. Wurde nichts angegeben, nimm 600 kcal.
 
 # Format der Antwort
 
