@@ -11,7 +11,7 @@ Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, 
 | Kalorienziel | 1800 kcal am Tag, als Wochendurchschnitt |
 | Proteinbedarf (Herleitung des Proteinrichtwerts) | 1,6 g je kg = 125 g am Tag (aus dem Planungsgewicht, nicht aus dem Kalorienziel) |
 | Proteinrichtwert (nur `rezept`) | 7 g je 100 kcal – Richtwert, kein Muss (bei 1800 kcal: 126 g am Tag) |
-| Portionsgröße je Rezept (nur `rezept`) | ⅓ des Kalorienziels, ±10 %, auf volle 10 kcal gerundet: Ziel und Obergrenze ab, Untergrenze auf (bei 1800 kcal: 600 kcal, Band 540–660) – in `rezept` die einzige harte Grenze neben dem Vorrat |
+| Portionsgröße je Rezept (nur `rezept`) | ⅓ des Kalorienziels, auf volle 10 kcal abgerundet (bei 1800 kcal: 600 kcal) – das ist das Ziel, kein Korridor. Ohne Begründung frei sind ±20 kcal (580–620). Darüber hinaus nur, wenn eine Packungsregel aus `vorratskammer.md` es erzwingt, und auch dann nie über ⅓ + 10 % (660 kcal) und nie unter ⅓ − 10 % (540 kcal). Die Abweichung und die Packung, die sie erzwingt, stehen in der Einordnung. |
 | Personen | 1 |
 
 **Planungsgewicht 78 kg** (seit 2026-09-05): das obere Ende des normalen BMI-Bereichs bei
