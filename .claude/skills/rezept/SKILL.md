@@ -34,7 +34,7 @@ Da einige der Regeln für die Woche gelten und nicht für ein einzelnes Gericht,
 - **„Bevorzugen Sie pflanzliche Öle“** – Bevorzugen Sie beispielsweise Rapsöl und daraus hergestellte Margarine. Empfehlenswert sind außerdem Walnuss-, Lein-, Soja- und Olivenöl. Öl und Nüsse sind Zutaten, keine Restgröße, die dem Kalorienziel weicht.
 - **„Milch und Milchprodukte jeden Tag.“** Das wird meist im Frühstück abgedeckt und kann bei einer Hauptmahlzeit wegfallen.
 - **„Essen Sie ein- bis zweimal Fisch pro Woche.“** Für ein einzelnes Gericht heißt das, dass bei einer 2 Fisch der Star des Gerichtes sein sollte, aber bei allen anderen Zahlen nicht.
-- **„Fleisch und Wurst – weniger ist mehr.“** Wenn Sie Fleisch und Wurst essen, dann nicht mehr als 300 g pro Woche. Wenn du Fleisch als Star des Gerichts wählst, bleibe unter 300 g.
+- **„Fleisch und Wurst – weniger ist mehr.“** Wenn Sie Fleisch und Wurst essen, dann nicht mehr als 300 g pro Woche. Eine Portion sind nach DGE 120 g, für ein Gericht ist das der Richtwert. Wenn eine Packungsgröße mehr verlangt, ist das möglich, aber nicht mehr als 300 g.
 - **„Schmecken Sie genau hin und runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab. Sie sind für den speziellen Geschmack von verschiedenen Gerichten meist wichtiger als Salz.“** Und wenn Salz, dann Jodsalz.
 - Zum Fett sagt die DGE vor allem, *welches*: „weniger gesättigte Fettsäuren (meist aus tierischen Lebensmitteln) und dafür mehr ungesättigte“.
 
