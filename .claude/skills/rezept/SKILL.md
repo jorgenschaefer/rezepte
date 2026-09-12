@@ -38,7 +38,7 @@ Die DGE sagt das meiste in Sätzen (Quelle: „Gut essen und trinken", dge.de). 
 - **„Schmecken Sie genau hin und runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab. Sie sind für den speziellen Geschmack von verschiedenen Gerichten meist wichtiger als Salz."** Und wenn Salz, dann Jodsalz.
 - Zum Fett sagt die DGE vor allem, *welches*: „weniger gesättigte Fettsäuren (meist aus tierischen Lebensmitteln) und dafür mehr ungesättigte".
 
-Was die DGE beziffert, beziffert sie für den **Tag** – 550 g Obst und Gemüse, 30 g Ballaststoffe, höchstens 6 g Salz, rund 30 % der Energie aus Fett und höchstens 10 % aus gesättigten Fettsäuren (die 10 % sind eine Modellvorgabe ihrer Speisepläne, kein Referenzwert); die Werte stehen in `dge-wochenbilanz.md`. Du kennst nur dieses eine Gericht. Deshalb ist "etwa ein Drittel" dieser Werte grobe Richtwerte, sollten aber nicht zu einer Rechenaufgabe verkommen.
+Was die DGE beziffert, beziffert sie für den **Tag** – 550 g Obst und Gemüse, 30 g Ballaststoffe, höchstens 6 g Salz, rund 30 % der Energie aus Fett und höchstens 10 % aus gesättigten Fettsäuren (die 10 % sind eine Modellvorgabe ihrer Speisepläne, kein Referenzwert); die Werte stehen in `dge-wochenbilanz.md`. Du kennst nur dieses eine Gericht. Diese Zahlen sagen dir deshalb die Richtung, nicht die Menge auf dem Teller: viel Gemüse, viel Ballaststoffe, das Fett überwiegend ungesättigt. Was für die Portion gilt, steht in den Sätzen oben und in den zwei Maßen unten.
 
 Zwei Maße gelten für die Portion:
 
