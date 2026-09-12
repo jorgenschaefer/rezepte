@@ -61,6 +61,15 @@ deshalb eine Entscheidung des Nutzers und ausdrücklich kein DGE-Wert. Der Woche
 DGE-Mengen darauf – das erlaubt die DGE ausdrücklich – und behauptet nicht, die Zahl selbst stamme
 von ihr.
 
+**Der Proteinrichtwert schließt die DGE-Marke für Kohlenhydrate aus** (festgehalten am
+2026-09-12): Die DGE will mehr als 50 % der Energie aus Kohlenhydraten. 7 g Protein je 100 kcal
+sind 28 % der Energie, die 30 % Fett kommen dazu – für Kohlenhydrate bleiben rechnerisch
+höchstens 42 %. Eine Portion, die den Proteinrichtwert trifft, kann die KH-Marke also nicht
+treffen; in einem Test mit 20 Rezepten lag der Kohlenhydratanteil bei allen 20 unter dem
+Energieanteil, im Mittel bei 31 % der Portionsenergie. Das ist der Preis der Proteindichte und
+bewusst in Kauf genommen. `rezept` rechnet die Zeile weiter gegen die DGE-Menge und schönt sie
+nicht; die Einordnung braucht das nicht bei jedem Gericht zu wiederholen.
+
 ## Struktur
 
 Wie die Woche gebaut wird. Das sind Entscheidungen, keine DGE-Vorgaben; die DGE gibt nur Mengen vor.
