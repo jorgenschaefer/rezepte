@@ -49,4 +49,3 @@ Skill `rezept`: ein Gericht aus dem Vorrat. Skill `wochenplan`: eine Woche samt 
 
 - Mengen in Gramm, nicht „etwas" oder „eine Handvoll".
 - Was verdirbt, bevor es gegessen wird, ist ein Planungsfehler.
-- Geänderte Ziele oder Ausschlüsse gehören mit Datum und Grund nach `praeferenzen.md`, nicht nur in die Antwort.
