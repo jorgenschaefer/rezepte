@@ -38,8 +38,6 @@ Die DGE sagt das meiste in Sätzen (Quelle: „Gut essen und trinken", dge.de). 
 - **„Schmecken Sie genau hin und runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab. Sie sind für den speziellen Geschmack von verschiedenen Gerichten meist wichtiger als Salz."** Und wenn Salz, dann Jodsalz.
 - Zum Fett sagt die DGE vor allem, *welches*: „weniger gesättigte Fettsäuren (meist aus tierischen Lebensmitteln) und dafür mehr ungesättigte".
 
-Was die DGE beziffert, beziffert sie für den **Tag** – 550 g Obst und Gemüse, 30 g Ballaststoffe, höchstens 6 g Salz, rund 30 % der Energie aus Fett und höchstens 10 % aus gesättigten Fettsäuren (die 10 % sind eine Modellvorgabe ihrer Speisepläne, kein Referenzwert); die Werte stehen in `dge-wochenbilanz.md`. Du kennst nur dieses eine Gericht. Diese Zahlen sagen dir deshalb die Richtung, nicht die Menge auf dem Teller: viel Gemüse, viel Ballaststoffe, das Fett überwiegend ungesättigt. Was für die Portion gilt, steht in den Sätzen oben und in den zwei Maßen unten.
-
 Zwei Maße gelten für die Portion:
 
 - **Salz.** Die DGE-Speisepläne setzen 1 g je herzhafter Hauptmahlzeit an. 2 g sind reichlich und kein Fehler. **Über 3 g gehst du nur, wenn eine ganze Packung es erzwingt** – und dann ist die Packung das Salz: kein Nachsalzen, keine Brühe, Sojasauce oder Currypaste dazu, gewürzt wird mit Kräutern, Gewürzen, Säure und Schärfe. Das Nachsalzen rechnest du mit 1 g Jodsalz als eigener Zeile in der Zutatenliste und im letzten Zubereitungsschritt, damit es prüfbar ist.
@@ -67,12 +65,43 @@ Zwei Fragen: Liegt die Portion im Band? Ist jede verwendete Zutat eindeutig eine
 - **Portionen:** Anzahl (Standard: 1).
 - **Zeit:** Aktive Zeit am Herd, auf 5 Minuten gerundet.
 - **Kochgeschirr:** Was gebraucht wird und was davon gleichzeitig läuft (z. B. „1 Topf und 1 Pfanne, parallel").
-- **Nährwerte pro Portion:** Kalorien, Protein, Ballaststoffe, Kohlenhydrate, Fett, gesättigte Fettsäuren, Salz, Obst und Gemüse. Zahlen ohne Sollwerte in Klammern – eingeordnet wird in der nächsten Zeile, in Sätzen.
+- **Nährwerte pro Portion:** Eine Tabelle mit vier Spalten – Nährwert, Tag, Portion, Anteil – und den Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse. Wie du die Tagesspalte bekommst, steht unten. Der Anteil ist Portion durch Tag, auf ganze Prozent. Die Tabelle zeigt, wo die Portion im Tag steht – sie ist kein Sollwert für die Mahlzeit, und kein Anteil ist zu treffen; die DGE verteilt den Tag nicht auf Mahlzeiten.
+
+  > | Nährwert | Tag | Portion | Anteil |
+  > |---|---|---|---|
+  > | Energie | 1800 kcal | 600 kcal | 33 % |
+  > | Fett | 60 g | 20 g | 33 % |
+  > | davon gesättigte Fettsäuren | höchstens 20 g | 4,0 g | 20 % |
+  > | Kohlenhydrate | mindestens 225 g | 60 g | 27 % |
+  > | Ballaststoffe | mindestens 30 g | 12 g | 40 % |
+  > | Protein | 126 g | 38 g | 30 % |
+  > | Salz | höchstens 6 g | 2,4 g | 40 % |
+  > | Obst und Gemüse | 550 g | 230 g | 42 % |
+
 - **Einordnung:** Zwei bis drei Sätze. Was das Gericht trägt, was einer Empfehlung nachgegeben hat, und warum. Steht immer da, auch wenn nichts nachgegeben hat.
 
-  > **Einordnung:** Zwei Portionen Gemüse und 12 g Ballaststoffe stecken drin, das Öl ist Raps. Die 2,4 g Salz sind 40 % des Tages – die ganze Packung Räuchertofu bringt 3,0 g mit, dafür kommt am Ende nichts mehr dazu. Protein bleibt mit 38 g unter den 42 g, die 7 g je 100 kcal für diese Portion bedeuten: die Nudeln tragen die Hälfte der Energie, und das Gericht gewinnt dadurch.
+  > **Einordnung:** Zwei Portionen Gemüse und 12 g Ballaststoffe stecken drin, das Öl ist Raps. Beim Salz liegt die Portion über dem einen Gramm der DGE-Speisepläne – die ganze Packung Räuchertofu bringt 3,0 g mit, dafür kommt am Ende nichts mehr dazu. Protein bleibt mit 38 g unter den 42 g, die 7 g je 100 kcal für diese Portion bedeuten: die Nudeln tragen die Hälfte der Energie, und das Gericht gewinnt dadurch.
 
 - **Zutatenliste:** Mengen in Gramm oder haushaltsüblichen Maßen, jeweils mit dem Zustand, in dem die Zutat verarbeitet wird (z. B. "60 g Karotte, in dünnen Scheiben"). Das Schnippeln steht hier, damit die Zubereitung nur noch aus Handgriffen besteht.
 - **Zubereitung:** Schritt-für-Schritt-Anleitung, kurz und präzise. Nenne in jedem Schritt die Menge jeder Zutat erneut, genau so wie sie dort in den Topf kommt: "1 TL Rapsöl in der Pfanne erhitzen", nicht "Rapsöl in der Pfanne erhitzen". Wird eine Zutat über mehrere Schritte verteilt, nenne die Teilmenge in Zahlen ("die restlichen 5 g Rapsöl"), nie nur "das restliche Öl". Der Schritt muss ohne Blick zurück auf die Zutatenliste ausführbar sein.
 - **Küchentrick:** Ein Kniff aus der Profiküche für noch mehr Geschmack.
 - **Einkaufstipp:** Nur wenn eine essenzielle Zutat fehlt (siehe oben). Steht immer als eigener, letzter Punkt – nie in den Küchentrick oder einen anderen Punkt eingebaut.
+
+# Die Tagesspalte
+
+Die Tagesspalte gehört zum Kalorienziel aus `praeferenzen.md`, nicht zu dieser Portion; bei einem anderen Ziel rechnest du sie neu. Vier Zeilen sind Anteile oder Dichten und werden gegen das Kalorienziel gerechnet, vier sind feste Tagesmengen und bleiben, wie sie sind. Die letzte Spalte zeigt, was beim aktuellen Ziel von 1800 kcal herauskommt:
+
+| Zeile | Tageswert | bei 1800 kcal |
+|---|---|---|
+| Energie | das Kalorienziel | 1800 kcal |
+| Fett | 30 % der Energie | 60 g |
+| davon gesättigte Fettsäuren | höchstens 10 % der Energie | höchstens 20 g |
+| Kohlenhydrate | mindestens 50 % der Energie | mindestens 225 g |
+| Protein | der Proteinrichtwert, 7 g je 100 kcal | 126 g |
+| Ballaststoffe | mindestens 30 g | unverändert |
+| Salz | höchstens 6 g | unverändert |
+| Obst und Gemüse | 5 Portionen à 110 g | 550 g |
+
+Umrechnung: 1 g Fett 9 kcal, 1 g Kohlenhydrate und 1 g Protein je 4 kcal. Die Werte stehen in `dge-wochenbilanz.md`.
+
+Drei Zahlen sind nicht die der DGE, und die Einordnung sagt das, wo sie zur Sprache kommen: **Energie** und **Protein** sind Festlegungen des Nutzers – die DGE nennt für ihn 2300 kcal und 0,8 g Protein je kg. Die **10 % gesättigte Fettsäuren** sind eine Modellvorgabe der DGE-Speisepläne, kein Referenzwert.
