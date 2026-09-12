@@ -257,10 +257,10 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 
 | Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Passierte Tomaten | 500 g (REWE Beste Wahl, REWE Bio), 400 g, 700 g | lang (offen 3 Tage) | 30 | 1,3 g | 1 g | 4 g | 0,2 g | 0,1 g | 0,5 g | |
+| Passierte Tomaten | 500 g (REWE Beste Wahl, REWE Bio), 400 g, 700 g | lang (offen 3 Tage) | 30 | 1,3 g | 1 g | 4 g | 0,2 g | 0,1 g | 0,5 g | zählt als Gemüse |
 | Stückige Tomaten, Dose | 400 g | lang | 25 | 1,2 g | 1 g | 3,5 g | 0,2 g | 0 | 0,2 g | |
-| Tomatenmark | 200 g Tube | lang (offen Wochen) | 90 | 4 g | 3 g | 14 g | 0,5 g | 0,1 g | 0,5 g | 1 EL = 15 g |
-| Mais, Dose | abgetropft 140 g oder 285 g | lang | 80 | 2,5 g | 3 g | 13 g | 1,2 g | 0,2 g | 0,4 g | |
+| Tomatenmark | 200 g Tube | lang (offen Wochen) | 90 | 4 g | 3 g | 14 g | 0,5 g | 0,1 g | 0,5 g | 1 EL = 15 g; zählt als Gemüse |
+| Mais, Dose | abgetropft 140 g oder 285 g | lang | 80 | 2,5 g | 3 g | 13 g | 1,2 g | 0,2 g | 0,4 g | zählt als Gemüse |
 | Kokosmilch | 400 ml; fettreduziert 400 ml | lang (offen 3 Tage) | 180 (fettreduziert 100) | 1,5 g | 0 | 3 g | 18 g (fettreduziert 12 g) | 16 g (fettreduziert 11) | 0,1 g | |
 | Oliven, ohne Stein | 135–180 g | lang (offen Wochen) | 150 | 1 g | 3 g | 1 g | 14 g | 2 g | 3,0 g | |
 | Sauerkraut | 400 g (REWE Beste Wahl), 650 g (REWE Bio) | lang (offen 1 Woche) | 20 | 1,5 g | 3 g | 1,9 g | 0,5 g | 0,1 g | 1,2 g | |
