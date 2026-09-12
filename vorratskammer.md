@@ -45,7 +45,7 @@ Neue Produkte, die kürzlich hinzugefügt wurden.
 
 ### Hauptfach
 
-- REWE Beste Wahl High Protein Quarkcreme
+- REWE Beste Wahl High Protein Quarkcreme (nur als Nachspeise)
 - Räuchertofu 175 g (nur als ganze Packung verwenden)
 - Tofu Natur 200 g (nur als ganze Packung verwenden)
 - Joghurt 1,5% (nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
