@@ -1,6 +1,6 @@
 # Präferenzen
 
-Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Der Skill `rezept` liest nur den Abschnitt „Ziele" und schreibt nichts; die übrigen Abschnitte betreffen die Woche, nicht das einzelne Gericht. Aus „Ziele" liest `wochenplan` das Kalorienziel, die Körpergröße und die Personenzahl; „Proteinrichtwert" und „Portionsgröße je Rezept" liest nur `rezept`. „Proteinbedarf" und „Planungsgewicht" liest kein Skill – sie halten fest, woher der Proteinrichtwert kommt. Werte lassen sich auch von Hand ändern.
+Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, was in der Diskussion festgelegt wird. Der Skill `rezept` liest nur den Abschnitt „Ziele" und schreibt nichts; die übrigen Abschnitte betreffen die Woche, nicht das einzelne Gericht. Aus „Ziele" liest `wochenplan` das Kalorienziel, die Körpergröße und die Personenzahl; „Proteinrichtwert", „Portionsgröße je Rezept", „Proteinbedarf" und „Planungsgewicht" liest nur `rezept`: die Dichte für die Portion, den Bedarf aus dem Gewicht für die Tagesspalte seiner Nährwerttabelle. Werte lassen sich auch von Hand ändern.
 
 ## Ziele
 

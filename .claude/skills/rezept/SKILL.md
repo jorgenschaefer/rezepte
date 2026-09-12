@@ -18,7 +18,7 @@ Zwei Dinge, sonst nichts.
 
 # Quellen
 
-1. `praeferenzen.md`, nur der Abschnitt „Ziele": Kalorienziel, Portionsgröße, Proteinrichtwert. Eine Angabe in der Anfrage gilt vor der Datei, aber nur für dieses Rezept. Du schreibst nicht in die Datei.
+1. `praeferenzen.md`, nur der Abschnitt „Ziele": Kalorienziel, Portionsgröße, Proteinrichtwert, Planungsgewicht. Eine Angabe in der Anfrage gilt vor der Datei, aber nur für dieses Rezept. Du schreibst nicht in die Datei.
 2. `vorratskammer.md` – was da ist, samt Kommentaren.
 3. `zutaten.md` – was es enthält. Alle Nährwerte kommen aus diesem Katalog, je 100 g: Trockenware trocken, Konserven abgetropft, Fleisch und Fisch roh.
 
@@ -41,7 +41,7 @@ Die DGE sagt das meiste in Sätzen (Quelle: „Gut essen und trinken", dge.de). 
 Zwei Maße gelten für die Portion:
 
 - **Salz.** Die DGE-Speisepläne setzen 1 g je herzhafter Hauptmahlzeit an. 2 g sind reichlich und kein Fehler. **Über 3 g gehst du nur, wenn eine ganze Packung es erzwingt** – und dann ist die Packung das Salz: kein Nachsalzen, keine Brühe, Sojasauce oder Currypaste dazu, gewürzt wird mit Kräutern, Gewürzen, Säure und Schärfe. Das Nachsalzen rechnest du mit 1 g Jodsalz als eigener Zeile in der Zutatenliste und im letzten Zubereitungsschritt, damit es prüfbar ist.
-- **Protein.** Der Richtwert des Nutzers aus `praeferenzen.md`, 7 g je 100 kcal, ist seine Zahl und nicht die der DGE. Ein Gericht darf darunter bleiben, wenn es dadurch besser wird; die Einordnung sagt, um wie viel und warum. Ein Gericht mit 30 g Protein, das schmeckt, ist besser als eines mit 42 g, das keiner zweimal will.
+- **Protein.** Für die Portion gilt die Dichte, nicht der Tagesbedarf aus der Tabelle: der Richtwert des Nutzers aus `praeferenzen.md`, 7 g je 100 kcal, ist seine Zahl und nicht die der DGE. So übersteht er ein kleines Mittagessen, das Kalorien für ein großes Abendessen spart. Ein Gericht darf darunter bleiben, wenn es dadurch besser wird; die Einordnung sagt, um wie viel und warum. Ein Gericht mit 30 g Protein, das schmeckt, ist besser als eines mit 42 g, das keiner zweimal will.
 
 Muss etwas nachgeben, dann zuerst das Protein und zuletzt das Gemüse.
 
@@ -74,7 +74,7 @@ Zwei Fragen: Liegt die Portion im Band? Ist jede verwendete Zutat eindeutig eine
   > | davon gesättigte Fettsäuren | höchstens 20 g | 4,0 g | 20 % |
   > | Kohlenhydrate | mindestens 225 g | 60 g | 27 % |
   > | Ballaststoffe | mindestens 30 g | 12 g | 40 % |
-  > | Protein | 126 g | 38 g | 30 % |
+  > | Protein | 125 g | 38 g | 30 % |
   > | Salz | höchstens 6 g | 2,4 g | 40 % |
   > | Obst und Gemüse | 550 g | 230 g | 42 % |
 
@@ -89,7 +89,7 @@ Zwei Fragen: Liegt die Portion im Band? Ist jede verwendete Zutat eindeutig eine
 
 # Die Tagesspalte
 
-Die Tagesspalte gehört zum Kalorienziel aus `praeferenzen.md`, nicht zu dieser Portion; bei einem anderen Ziel rechnest du sie neu. Vier Zeilen sind Anteile oder Dichten und werden gegen das Kalorienziel gerechnet, vier sind feste Tagesmengen und bleiben, wie sie sind. Die letzte Spalte zeigt, was beim aktuellen Ziel von 1800 kcal herauskommt:
+Die Tagesspalte gehört zum Kalorienziel aus `praeferenzen.md`, nicht zu dieser Portion; bei einem anderen Ziel rechnest du sie neu. Drei Zeilen sind Energieanteile und werden gegen das Kalorienziel gerechnet; die übrigen vier sind feste Tagesmengen und bleiben, wie sie sind – auch Protein, denn der Bedarf hängt am Gewicht und nicht am Kalorienziel. Die letzte Spalte zeigt, was beim aktuellen Ziel von 1800 kcal herauskommt:
 
 | Zeile | Tageswert | bei 1800 kcal |
 |---|---|---|
@@ -97,11 +97,11 @@ Die Tagesspalte gehört zum Kalorienziel aus `praeferenzen.md`, nicht zu dieser 
 | Fett | 30 % der Energie | 60 g |
 | davon gesättigte Fettsäuren | höchstens 10 % der Energie | höchstens 20 g |
 | Kohlenhydrate | mindestens 50 % der Energie | mindestens 225 g |
-| Protein | der Proteinrichtwert, 7 g je 100 kcal | 126 g |
+| Protein | der Proteinbedarf, 1,6 g je kg Planungsgewicht | 125 g (bei 78 kg) |
 | Ballaststoffe | mindestens 30 g | unverändert |
 | Salz | höchstens 6 g | unverändert |
 | Obst und Gemüse | 5 Portionen à 110 g | 550 g |
 
 Umrechnung: 1 g Fett 9 kcal, 1 g Kohlenhydrate und 1 g Protein je 4 kcal. Die Werte stehen in `dge-wochenbilanz.md`.
 
-Drei Zahlen sind nicht die der DGE, und die Einordnung sagt das, wo sie zur Sprache kommen: **Energie** und **Protein** sind Festlegungen des Nutzers – die DGE nennt für ihn 2300 kcal und 0,8 g Protein je kg. Die **10 % gesättigte Fettsäuren** sind eine Modellvorgabe der DGE-Speisepläne, kein Referenzwert.
+Drei Zahlen sind nicht die der DGE, und die Einordnung sagt das, wo sie zur Sprache kommen: **Energie** und **Protein** sind Festlegungen des Nutzers. Die DGE nennt für ihn 2300 kcal und 0,8 g Protein je kg Referenzgewicht – bei 177 cm also 55 g am Tag, weniger als die Hälfte. Auch das Planungsgewicht ist seine Wahl: BMI 24,9 statt der 22, gegen die die DGE rechnet. Die **10 % gesättigte Fettsäuren** sind eine Modellvorgabe der DGE-Speisepläne, kein Referenzwert.
