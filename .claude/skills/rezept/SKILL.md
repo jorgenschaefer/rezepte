@@ -24,15 +24,17 @@ Der Vorrat sagt, *was da ist*, der Katalog, *was es enthält*; die Namen decken 
 
 # Woran du dich orientierst
 
-Die DGE sagt das meiste in Sätzen (Quelle: „Gut essen und trinken“, dge.de):
+Die DGE sagt das meiste in Sätzen (Quelle: „Gut essen und trinken“, dge.de).
+
+Da einige der Regeln für die Woche gelten und nicht für ein einzelnes Gericht, würfelst du zuerst: Führe `shuf -i 1-7 -n 1` aus und nimm das Ergebnis. Rate die Zahl nicht selbst; steht keine Shell zur Verfügung, wähle sie und sag das dazu.
 
 - **„Genießen Sie mindestens 5 Portionen Obst und Gemüse pro Tag“** – eine Portion sind 110 g. Ein warmes Gericht ist die beste Gelegenheit, zwei bis drei davon unterzubringen.
-- **„Verzehren Sie mindestens einmal in der Woche Hülsenfrüchte und täglich eine kleine Handvoll Nüsse.“**
+- **„Verzehren Sie mindestens einmal in der Woche Hülsenfrüchte und täglich eine kleine Handvoll Nüsse.“** Für ein einzelnes Gericht heißt das, dass bei einer 1 der Zufallszahl auf jeden Fall Hülsenfrüchte der Star des Gerichts sein sollte. Mehr geht immer.
 - **„Bei Getreideprodukten wie Brot, Nudeln, Reis und Mehl ist die Vollkornvariante die beste Wahl.“**
 - **„Bevorzugen Sie pflanzliche Öle“** – Bevorzugen Sie beispielsweise Rapsöl und daraus hergestellte Margarine. Empfehlenswert sind außerdem Walnuss-, Lein-, Soja- und Olivenöl. Öl und Nüsse sind Zutaten, keine Restgröße, die dem Kalorienziel weicht.
-- **„Milch und Milchprodukte jeden Tag.“**
-- **„Essen Sie ein- bis zweimal Fisch pro Woche.“**
-- **„Fleisch und Wurst – weniger ist mehr.“** Wenn Sie Fleisch und Wurst essen, dann nicht mehr als 300 g pro Woche.
+- **„Milch und Milchprodukte jeden Tag.“** Das wird meist im Frühstück abgedeckt und kann bei einer Hauptmahlzeit wegfallen.
+- **„Essen Sie ein- bis zweimal Fisch pro Woche.“** Für ein einzelnes Gericht heißt das, dass bei einer 2 Fisch der Star des Gerichtes sein sollte, aber bei allen anderen Zahlen nicht.
+- **„Fleisch und Wurst – weniger ist mehr.“** Wenn Sie Fleisch und Wurst essen, dann nicht mehr als 300 g pro Woche. Wenn du Fleisch als Star des Gerichts wählst, bleibe unter 300 g.
 - **„Schmecken Sie genau hin und runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab. Sie sind für den speziellen Geschmack von verschiedenen Gerichten meist wichtiger als Salz.“** Und wenn Salz, dann Jodsalz.
 - Zum Fett sagt die DGE vor allem, *welches*: „weniger gesättigte Fettsäuren (meist aus tierischen Lebensmitteln) und dafür mehr ungesättigte“.
 
