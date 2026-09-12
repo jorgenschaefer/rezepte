@@ -65,15 +65,15 @@ Zwei Fragen: Liegt die Portion im Band? Ist jede verwendete Zutat eindeutig eine
 - **Portionen:** Anzahl (Standard: 1).
 - **Zeit:** Aktive Zeit am Herd, auf 5 Minuten gerundet.
 - **Kochgeschirr:** Was gebraucht wird und was davon gleichzeitig läuft (z. B. „1 Topf und 1 Pfanne, parallel").
-- **Nährwerte pro Portion:** Eine Tabelle mit vier Spalten – Nährwert, Tag, Portion, Anteil – und den Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse. Wie du die Tagesspalte bekommst, steht unten. Der Anteil ist Portion durch Tag, auf ganze Prozent. Die Tabelle zeigt, wo die Portion im Tag steht – sie ist kein Sollwert für die Mahlzeit, und kein Anteil ist zu treffen; die DGE verteilt den Tag nicht auf Mahlzeiten.
+- **Nährwerte pro Portion:** Eine Tabelle mit vier Spalten – Nährwert, Tag, Portion, Anteil – und den Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse. Wie du die Tagesspalte bekommst, steht unten. Der Anteil ist Portion durch Tag, auf ganze Prozent. In der Tagesspalte steht „höchstens" nur bei den beiden Obergrenzen, gesättigte Fettsäuren und Salz – nur dort ist ein großer Anteil ein Einwand. Alle anderen Zeilen stehen als nackte Zahl, ob Untergrenze oder Zielwert: bei ihnen ist viel nie ein Alarm. Die Tabelle zeigt, wo die Portion im Tag steht – sie ist kein Sollwert für die Mahlzeit, und kein Anteil ist zu treffen; die DGE verteilt den Tag nicht auf Mahlzeiten.
 
   > | Nährwert | Tag | Portion | Anteil |
   > |---|---|---|---|
   > | Energie | 1800 kcal | 600 kcal | 33 % |
   > | Fett | 60 g | 20 g | 33 % |
   > | davon gesättigte Fettsäuren | höchstens 20 g | 4,0 g | 20 % |
-  > | Kohlenhydrate | mindestens 225 g | 60 g | 27 % |
-  > | Ballaststoffe | mindestens 30 g | 12 g | 40 % |
+  > | Kohlenhydrate | 225 g | 60 g | 27 % |
+  > | Ballaststoffe | 30 g | 12 g | 40 % |
   > | Protein | 125 g | 38 g | 30 % |
   > | Salz | höchstens 6 g | 2,4 g | 40 % |
   > | Obst und Gemüse | 550 g | 230 g | 42 % |
@@ -89,17 +89,17 @@ Zwei Fragen: Liegt die Portion im Band? Ist jede verwendete Zutat eindeutig eine
 
 # Die Tagesspalte
 
-Die Tagesspalte gehört zum Kalorienziel aus `praeferenzen.md`, nicht zu dieser Portion; bei einem anderen Ziel rechnest du sie neu. Drei Zeilen sind Energieanteile und werden gegen das Kalorienziel gerechnet; die übrigen vier sind feste Tagesmengen und bleiben, wie sie sind – auch Protein, denn der Bedarf hängt am Gewicht und nicht am Kalorienziel. Die letzte Spalte zeigt, was beim aktuellen Ziel von 1800 kcal herauskommt:
+Die Tagesspalte gehört zum Kalorienziel aus `praeferenzen.md`, nicht zu dieser Portion; bei einem anderen Ziel rechnest du sie neu. Drei Zeilen sind Energieanteile und werden gegen das Kalorienziel gerechnet; die übrigen vier sind feste Tagesmengen und bleiben, wie sie sind – auch Protein, denn der Bedarf hängt am Gewicht und nicht am Kalorienziel. Die letzte Spalte zeigt, was beim aktuellen Ziel von 1800 kcal herauskommt und so in der Tagesspalte steht:
 
 | Zeile | Tageswert | bei 1800 kcal |
 |---|---|---|
 | Energie | das Kalorienziel | 1800 kcal |
 | Fett | 30 % der Energie | 60 g |
 | davon gesättigte Fettsäuren | höchstens 10 % der Energie | höchstens 20 g |
-| Kohlenhydrate | mindestens 50 % der Energie | mindestens 225 g |
+| Kohlenhydrate | mehr als 50 % der Energie | 225 g |
 | Protein | der Proteinbedarf, 1,6 g je kg Planungsgewicht | 125 g (bei 78 kg) |
-| Ballaststoffe | mindestens 30 g | unverändert |
-| Salz | höchstens 6 g | unverändert |
+| Ballaststoffe | mindestens 30 g | 30 g |
+| Salz | höchstens 6 g | höchstens 6 g |
 | Obst und Gemüse | 5 Portionen à 110 g | 550 g |
 
 Umrechnung: 1 g Fett 9 kcal, 1 g Kohlenhydrate und 1 g Protein je 4 kcal. Die Werte stehen in `dge-wochenbilanz.md`.
