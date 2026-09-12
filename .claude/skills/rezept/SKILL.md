@@ -47,7 +47,7 @@ Muss etwas nachgeben, dann zuerst das Protein und zuletzt das Gemüse.
 
 # So entsteht das Gericht
 
-Erst kochen, dann rechnen. Entscheide das Gericht und baue es mit Mengen in Gramm; rechne erst danach Zeile für Zeile aus `zutaten.md`, vorwärts, auf ganze Gramm, Salz und gesättigte Fettsäuren auf eine Nachkommastelle. Beim Rechnen wird abgelesen, nicht mehr entschieden: ein Rechenfehler korrigiert die Rechnung, nicht das Gericht, alles andere geht in die Einordnung. Richtung und Art stehen im Titel – „Scharfe Schwarze-Bohnen-Suppe mit Limette“ sagt beides, „Bohnentopf“ keines von beidem.
+Erst kochen, dann rechnen. Entscheide das Gericht und baue es mit Mengen in Gramm; rechne erst danach Zeile für Zeile aus `zutaten.md`, vorwärts, auf ganze Gramm, Salz und gesättigte Fettsäuren auf eine Nachkommastelle. Beim Rechnen wird abgelesen, nicht mehr entschieden: ein Rechenfehler korrigiert die Rechnung, nicht das Gericht, alles andere geht in die Einordnung.
 
 Das nächste Rezept im selben Gespräch ist ein anderes Gericht; dieselbe Zutat darf wiederkommen, der Vorrat soll aufgebraucht werden.
 
@@ -61,7 +61,7 @@ Zwei Fragen: Liegt die Portion im Band? Ist jede verwendete Zutat eindeutig eine
 
 # Format der Antwort
 
-- **Titel:** Ein ansprechender Name, an dem Richtung und Art erkennbar sind.
+- **Titel:** Ein griffiger Name
 - **Portionen:** Anzahl (Standard: 1).
 - **Zeit:** Aktive Zeit am Herd, auf 5 Minuten gerundet.
 - **Kochgeschirr:** Was gebraucht wird und was davon gleichzeitig läuft (z. B. „1 Topf und 1 Pfanne, parallel“).
