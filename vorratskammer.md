@@ -2,11 +2,6 @@
 
 Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
-Wo der Warenkatalog mehrere Zeilen für denselben Namen führt – frisch und tiefgekühlt, Dose und
-trocken, voll und fettreduziert –, nennt die Zeile hier, was tatsächlich im Haus ist.
-**„Mustgo" und „Neu" sind Statusabschnitte, keine Orte:** eine Zeile dort sagt nichts darüber,
-ob die Ware frisch oder tiefgekühlt ist, und muss es deshalb selbst sagen.
-
 ## Mustgo
 
 Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie aufzufüllen. Sie müssen aber nicht in jedem Rezept vorkommen.
@@ -17,8 +12,6 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Walnusskerne
 
 ## Neu
-
-Neue Produkte, die kürzlich hinzugefügt wurden.
 
 - Harry Vollkorn Urtyp
 - Grünländer Leicht
