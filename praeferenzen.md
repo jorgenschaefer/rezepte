@@ -15,12 +15,13 @@ Der Skill `wochenplan` liest diese Datei vor jeder Planung und schreibt hinein, 
 | Personen | 1 |
 
 **Planungsgewicht 78 kg** (seit 2026-09-05): das obere Ende des normalen BMI-Bereichs bei
-177 cm. Die DGE rechnet Protein sonst gegen ein Referenzgewicht von BMI 22, hier also
-69 kg; das Planungsgewicht liegt bewusst darüber, weil der Proteinrichtwert den Muskelerhalt
-absichern soll und ein zu niedrig angesetztes Gewicht ihn nach unten zieht. Seit dem
-11.09.2026 trägt das Planungsgewicht nur noch den persönlichen Proteinrichtwert, den `rezept` liest;
-der Wochenplan rechnet den DGE-Referenzwert gegen das Referenzgewicht aus der Körpergröße, und
-die Herleitung steht in seinem Abschnitt „Mengen und Toleranzen".
+177 cm, also BMI 24,9 × 1,77² = 78 kg. Die DGE rechnet Protein sonst gegen ein Referenzgewicht
+von BMI 22, hier also 69 kg; das Planungsgewicht liegt bewusst darüber, weil der
+Proteinrichtwert den Muskelerhalt absichern soll und ein zu niedrig angesetztes Gewicht ihn
+nach unten zieht. Seit dem 11.09.2026 trägt das Planungsgewicht nur noch den persönlichen
+Proteinrichtwert, den `rezept` liest; der Wochenplan rechnet den DGE-Referenzwert gegen das
+Referenzgewicht aus der Körpergröße, und die Herleitung steht in seinem Abschnitt „Mengen und
+Toleranzen".
 
 **Protein steht als Dichte**, nicht als feste Grammzahl je Mahlzeit: nur so übersteht der
 Richtwert ein kleines Mittagessen, mit dem Kalorien für ein großes Abendessen gespart werden –
