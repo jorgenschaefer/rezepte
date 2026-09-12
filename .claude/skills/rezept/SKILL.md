@@ -1,12 +1,12 @@
 ---
 name: rezept
-description: Erstelle ein Rezept um es jetzt zu kochen
-disable-model-invocation:  true
+description: Erstelle ein Rezept, um es jetzt zu kochen
+disable-model-invocation: true
 ---
 
 Erstelle ein Rezept, das ich jetzt zubereiten kann.
 
-Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen. Die Nährwerte findest du in `zutaten.md`. Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen - weil es mehrere oder keine passende Zutaten gibt - brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
+Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen. Die Nährwerte findest du in `zutaten.md`. Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
 
 Wähle eine geeignete Proteinquelle zufällig aus dem Vorrat und baue das Rezept darum auf.
 
