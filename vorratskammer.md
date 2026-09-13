@@ -15,6 +15,10 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Harry Vollkorn Urtyp
 - Grünländer Leicht
 - REWE Bio Blattspinat, tiefgekühlt, 600 g
+- Salatgurke
+- Äpfel
+- Erdnussmus, REWE Bio
+- Kaergarden Balance 200 g
 
 ## Kühlschrank
 
