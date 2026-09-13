@@ -8,7 +8,6 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 
 - ja! Brechbohnen, tiefgekühlt
 - Frosta Gemüse-Mix Italienische Küche, tiefgekühlt
-- Kokosmilch 400 ml, nicht fettreduziert
 - Walnusskerne
 
 ## Neu
