@@ -31,7 +31,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Bamboo Garden Rote Curry Paste
 - Bamboo Garden Gelbe Curry Paste
 
-- Ketchup (Hein Zero)
+- Ketchup (Heinz Zero)
 - Sojasauce
 - Tabasco Red Pepper Sauce
 
@@ -70,12 +70,12 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 
 - Vantastic foods Soja-Granulat vegan
 - Vantastic foods Soja Schnetzel vegan
-- Salz
+- Salz, jodiert
 - Speisestärke
 - Backpulver
 - Natron
 - Zucker
-- Mehl
+- Mehl, Type 550
 
 - Erythrit
 - Süßstoff flüssig
@@ -87,7 +87,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Haferflocken
 - Gemüsebrühe
 - Rote Linsen
-- Reis, Langkorn/Basmati
+- Reis, Langkorn/Basmati (zukünftig: Natur)
 - Vollkorn Fussili
 
 ## Gewürzregal
