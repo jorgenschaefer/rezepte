@@ -37,3 +37,4 @@ Zutaten oder Gruppen, die in keinem Plan vorkommen sollen. Je Zeile: was genau, 
 |---|---|---|
 | Thunfisch (Dose und frisch) | 2026-09-05 | mag ich gar nicht; anderer Fisch bleibt |
 | Sauermilch- und Geruchskäse (Harzer, Handkäse, Limburger, Romadur) | 2026-09-05 | mag ich nicht; Schnitt- und Frischkäse bleiben |
+| Hummus (Kichererbsen-Aufstrich) | 2026-09-13 | mag ich nicht; Kichererbsen als ganze Hülsenfrucht bleiben |
