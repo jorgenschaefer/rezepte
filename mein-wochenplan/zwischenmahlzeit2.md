@@ -35,6 +35,6 @@
 ## Hinweise
 
 - Die herzhafte der beiden Zwischenmahlzeiten. Sticks und Dip lassen sich morgens vorbereiten und mitnehmen.
-- Erdnussmus zählt bei der DGE zu Nüssen und Samen. Zusammen mit `zwischenmahlzeit1.md` und den 10 g im Frühstück ist der Tageswert von 22,5 g damit gedeckt.
+- Erdnussmus zählt bei der DGE zu Nüssen und Samen. 20 g decken zusammen mit den 10 g im Frühstück den Tageswert von 22,5 g bei 1800 kcal. Kommen die 15 g Walnüsse aus `zwischenmahlzeit1.md` am selben Tag dazu, sind es 45 g und damit das Doppelte – dann lieber zwischen den beiden Zwischenmahlzeiten wechseln, statt beide an einem Tag zu essen.
 - Mit 7,2 g die proteinreichste Zwischenmahlzeit – und im Gegensatz zu einem Quarkdip ohne Milchäquivalente. 50 g Magerquark wären allein 360 g und damit der komplette Tageswert (DGE-Faktor 7,2 gilt auch für Quark).
 - Erdnussmus mit 0 g Salz nehmen (REWE Bio); die Zentis-Variante bringt 0,8 g je 100 g mit. Die Sojasauce liefert hier bereits 0,51 g.
