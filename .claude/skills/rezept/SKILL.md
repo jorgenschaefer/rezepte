@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 Erstelle ein Rezept, das ich jetzt zubereiten kann.
 
-Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen. Die Kommentare dort sind Vorgaben, keine Hinweise: Was zur Verwendung einer Zutat vermerkt ist – „nur als ganze Dose“, „nur als Portion von 125 g“, „nur als ganze oder halbe Packung“ samt der Bedingung, die daran hängt –, bestimmt die Menge im Rezept. Die Nährwerte findest du in `zutaten.md`. Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
+Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen. Die Kommentare dort sind Vorgaben, keine Hinweise: Was zur Verwendung einer Zutat vermerkt ist – „nur als ganze Dose“, „nur als Portion von 125 g“, „nur als ganze oder halbe Packung“ samt der Bedingung, die daran hängt –, bestimmt die Menge im Rezept. Die Nährwerte findest du in `zutaten.md`. Die Nährwerttabelle rechnest du nicht im Kopf: `scripts/naehrwerte.mjs` neben dieser Datei nimmt auf der Standardeingabe je Zeile „Zutat | Gramm“, schlägt die Werte im Katalog nach und gibt die fertige Tabelle aus; `--portionen N` teilt sie. Was das Skript ausgibt, steht im Rezept. Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
 
 Wähle eine geeignete Proteinquelle zufällig aus dem Vorrat und baue das Rezept darum auf.
 

@@ -1,0 +1,23 @@
+schema_version: "1.0"
+name: rechnet-mit-dem-skript
+description: >
+  Die Nährwerttabelle ist reine Arithmetik über acht Zutaten, und von Hand geht
+  sie irgendwann schief – der Commit „Correct the nut arithmetic in snack 2"
+  steht dafür. scripts/naehrwerte.mjs rechnet sie; dieser Fall hält fest, dass
+  der Skill das Skript auch benutzt, statt im Kopf zu addieren.
+tags: [naehrwerte]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+runs: 3
+graders:
+  - type: tool_used
+    name: skript-gelaufen
+    weight: 1
+    tool: Bash
+    input_match: naehrwerte
+    min: 1
