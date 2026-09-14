@@ -1,9 +1,9 @@
 # Abnehmen – Stand und Übergabe
 
-Geschrieben am 2026-09-13. Diese Datei fasst ein Gespräch zusammen, in dem das
-Kalorienziel neu hergeleitet wurde. Sie ist die Übergabe an den nächsten Agenten:
-was feststeht, was entschieden wurde, was offen ist, und welche Fehler schon
-einmal gemacht wurden.
+Geschrieben am 2026-09-13, die Mengen am 2026-09-14 gegen die angelegten Gerichte
+nachgerechnet. Diese Datei fasst ein Gespräch zusammen, in dem das Kalorienziel neu
+hergeleitet wurde. Sie ist die Übergabe an den nächsten Agenten: was feststeht, was
+entschieden wurde, was offen ist, und welche Fehler schon einmal gemacht wurden.
 
 ## Person
 
@@ -66,16 +66,54 @@ Das Abendessen war bis dahin eine 200-g-Quarkcreme mit 136 kcal.
 
 ## Struktur, wie sie jetzt gedacht ist
 
+Die Gerichte liegen als Dateien in `mein-wochenplan/`. Die Zahlen unten sind am
+14. September 2026 aus den Grammmengen der Dateien gegen `zutaten.md` vorwärts
+nachgerechnet; die vier Gerichte stimmen mit ihren Nährwerttabellen überein.
+
 | Mahlzeit | Inhalt | kcal |
 |---|---|---|
-| Frühstück | zufällig aus `mein-wochenplan/fruehstueck1.md` bis `fruehstueck4.md` | 519–540 |
-| Mittagessen | je ein neues Rezept aus dem Vorrat nach dem Skill `rezept` | rund 610 |
-| Zwischenmahlzeit ×2 | fünf Varianten im Wechsel | je 168–199 |
-| Abendbrot | zwei Varianten, ersetzen die Quarkcreme | 586 / 595 |
+| Frühstück | zufällig aus `fruehstueck1.md` bis `fruehstueck4.md` | 519–540 |
+| Mittagessen | je ein neues Rezept aus dem Vorrat nach dem Skill `rezept` | 598–626 |
+| Zwischenmahlzeit 1 | `zwischenmahlzeit1.md`, Apfel mit Walnüssen | 198 |
+| Zwischenmahlzeit 2 | `zwischenmahlzeit2.md`, Gemüsesticks mit Erdnuss-Dip | 186 |
+| Abendbrot | `abendbrot1.md` Brotzeit / `abendbrot2.md` Nudelsalat, im Wechsel | 478 / 479 |
 
-Summe rund 2090 kcal. Die beiden Abendbrote (Vollkornbrot mit Ei und Rohkost;
-Hummusbrot mit Kichererbsen-Tomaten-Salat) und die fünf Zwischenmahlzeiten sind im
-Gespräch ausgerechnet, aber **noch nicht als Dateien angelegt** – siehe „Offen".
+**Der Tag liegt damit bei 2005 kcal** (Spanne über die sieben Tage: 1988 bis 2029),
+nicht bei den 2090, die hier zuerst standen. Gegen das hergeleitete Ziel von 2100
+fehlen rund 95 kcal am Tag – kein Fehler, aber Spielraum, falls beim Neurechnen
+etwas dazukommen soll.
+
+Beide Zwischenmahlzeiten sind je Tag eingerechnet, nicht im Wechsel. Von den fünf
+im Gespräch gerechneten Varianten sind zwei angelegt; die anderen drei gibt es
+nicht. Abendbrot 2 ist ein Nudelsalat und kein Hummusbrot mehr, weil Hummus seit
+dem 13. September in `praeferenzen.md` ausgeschlossen ist.
+
+So sieht der Tag im Schnitt aus, mit den DGE-Werten auf 2100 kcal skaliert:
+
+| Nährstoff | Tag mit Abendbrot 1 | Tag mit Abendbrot 2 | Ziel | |
+|---|---|---|---|---|
+| Energie | 2005 kcal | 2006 kcal | 2100 kcal | −4 % |
+| Protein | 105 g | 102 g | 55 g | weit darüber, siehe unten |
+| Ballaststoffe | 70 g | 63 g | 31 g | mehr als das Doppelte |
+| Fett | 64 g = 29 % der Energie | 67 g = 30 % | 30 % | ✓ |
+| ges. Fettsäuren | 14 g = 6,4 % | 12 g = 5,4 % | höchstens 10 % | ✓ |
+| Salz | 5,3 g | 4,0 g | höchstens 6 g | siehe unten |
+| Obst und Gemüse | 1387 g | 1367 g | 550 g | rund 12 Portionen |
+
+Das Mittagessen ist dabei aus den Tagessummen von `wochenplan.md` herausgerechnet
+(Tagessumme minus Frühstück minus Quarkcreme), weil die sieben Mittagsgerichte nur
+dort stehen und keine eigenen Dateien haben. Die kcal gehen exakt auf; wer die
+Gerichte neu rechnet, sollte die Werte am Gericht selbst nehmen.
+
+Zwei Dinge fallen bei der Nachrechnung auf:
+
+- **Die Ballaststoffe sind hoch, nicht knapp.** 63–70 g am Tag bei einem Ziel von
+  31 g. Der größte Posten sind die 10 g Flohsamenschalen im Frühstück (8,5 g) und
+  150 g Roggenvollkornbrot am Abend (14 g). Das ist kein Grenzwert, den man reißen
+  kann, aber die Menge will getrunken sein – 1,5 l reichen dafür nicht.
+- **Die Gerichte sind gegen 1800 kcal gerechnet, nicht gegen 2100.** Ihre Hinweise
+  nennen 22,5 g Nüsse und 9 g Streichfett am Tag; das sind die auf 1800 skalierten
+  DGE-Werte. Wenn das Ziel auf 2100 geht, gehören diese Zeilen nachgezogen.
 
 ## Zwei Sondertage in der Woche
 
@@ -123,22 +161,43 @@ Maßstab ist `dge-wochenbilanz.md`, Skalierungsfaktor 1,05.
 
 ## Was beim Planen aufpasst
 
-**Salz ist der engste Wert.** Brot bringt 1,0 g je 100 g mit, Knäckebrot 1,2 g,
-Räuchertofu 1,7 g, Hummus 1,5 g. Mit Abendbrot 2 liegt der Tag bei rund 5,2 g von
-6 g. An den Tagen mit Pizza oder Restaurantessen reicht das nicht – dort das
-salzärmere Abendbrot 1 nehmen oder das Abendbrot ganz durch das auswärtige Essen
-ersetzen.
+**Salz ist der engste Wert – und das salzarme Abendbrot ist Nummer 2.** Brot
+bringt 1,0 g je 100 g mit, Knäckebrot 1,2 g, Räuchertofu 1,7 g. Die Brotzeit
+(`abendbrot1.md`) trägt deshalb 1,8 g, der Nudelsalat (`abendbrot2.md`) nur 0,6 g;
+sein einziger Salzträger ist der Mais. Damit liegt der Tag bei **5,3 g mit
+Abendbrot 1 und 4,0 g mit Abendbrot 2**, bei einem Limit von 6 g.
+
+Hier stand vorher die umgekehrte Empfehlung. Sie stammt aus der Zeit, als
+Abendbrot 2 noch das Hummusbrot war; mit dem Nudelsalat hat sich das Verhältnis
+gedreht. **An Tagen mit Pizza oder Essen auswärts also Abendbrot 2**, oder das
+Abendbrot ganz durch das auswärtige Essen ersetzen.
+
+Ein Tag reißt die 6 g auch ohne Restaurant: der Räuchertofu-Wok am Samstag bringt
+allein 3,1 g mit und kommt mit Abendbrot 1 auf **6,4 g**. An diesem Tag gehört
+Abendbrot 2 auf den Tisch (5,1 g). Die 7-g-Grenze für den Einzeltag hält jede
+Kombination ein.
 
 **Die Milchäquivalente kippen ins Gegenteil.** Mit täglicher Quarkcreme lag der
 Plan bei +594 % (der DGE-Faktor für Quark ist 7,2). Ohne sie bleiben nur die 308 g
-aus dem Frühstücksjoghurt, also −27 % gegenüber 420 g. Fix: 20 g Grünländer Leicht
-aufs Abendbrot – 56 kcal, 144 g Milchäquivalente, nur 0,16 g Salz, liegt laut
-`vorratskammer.md` schon im Kühlschrank.
+aus dem Frühstücksjoghurt, also −27 % gegenüber 420 g. Die 20 g Grünländer Leicht
+in `abendbrot1.md` bringen 144 g dazu – 56 kcal, nur 0,16 g Salz, liegt laut
+`vorratskammer.md` schon im Kühlschrank. Der Nudelsalat hat keine Milchprodukte,
+im Wechsel der beiden Abendbrote landet der Schnitt also bei 380 g. Das sind
+−10 % gegen 420 g und damit im Rahmen; ganz geschlossen ist die Lücke nicht.
 
-**Protein ist reichlich, nicht knapp.** Der Plan trägt rund 104 g am Tag. Der
-DGE-Referenzwert sind 0,8 g je kg, bei BMI über 25 gegen das Normalgewicht
-gerechnet: 22 × 1,77² = 69 kg, also **55 g am Tag**. Kein Grund, Protein weiter
-hochzuziehen.
+**Die Nüsse sind jetzt zu viel, nicht zu wenig.** 10 g im Frühstück, 15 g Walnüsse
+in Zwischenmahlzeit 1 und 20 g Erdnussmus in Zwischenmahlzeit 2 ergeben **45 g am
+Tag** gegen einen Zielwert von 26 g. Der Hinweis in `zwischenmahlzeit2.md`, der
+Tageswert sei „damit gedeckt", rechnet mit nur einer Zwischenmahlzeit je Tag und
+stimmt für die Struktur mit zweien nicht. Das ist der erste Hebel, wenn die
+2005 kcal doch nach unten sollen: die Nüsse sind die energiedichteste Stelle im
+Plan. Beim Neurechnen entscheiden, ob die beiden Zwischenmahlzeiten wirklich beide
+jeden Tag vorkommen oder sich abwechseln.
+
+**Protein ist reichlich, nicht knapp.** Der Plan trägt 102–105 g am Tag; die
+Nachrechnung bestätigt die hier zuerst genannten rund 104 g. Der DGE-Referenzwert
+sind 0,8 g je kg, bei BMI über 25 gegen das Normalgewicht gerechnet:
+22 × 1,77² = 69 kg, also **55 g am Tag**. Kein Grund, Protein weiter hochzuziehen.
 
 ## Ein Fehler, der schon gemacht wurde
 
@@ -172,18 +231,27 @@ zur Sprache.
 
 1. **Das Kalorienziel entscheiden.** 2100 kcal sind hergeleitet, `praeferenzen.md`
    steht auf 1800. Ohne Antwort des Nutzers bleibt die Datei, wie sie ist.
-2. **Abendbrote und Zwischenmahlzeiten als Dateien anlegen.** Vorgeschlagen waren
-   `mein-wochenplan/abendbrot1.md` und `abendbrot2.md` neben den vier Frühstücken.
-   Der Nutzer hat darauf noch nicht geantwortet.
+2. **Erledigt am 13. September:** die beiden Abendbrote und zwei
+   Zwischenmahlzeiten liegen als Dateien in `mein-wochenplan/`. Drei der fünf
+   gerechneten Zwischenmahlzeiten fehlen noch; ob sie gebraucht werden, hängt an
+   Punkt 7.
 3. **Wochenplan neu rechnen.** `mein-wochenplan/wochenplan.md` steht noch auf dem
    alten Ziel von 1260 kcal und führt die Quarkcreme als Abendessen. Die vier
    Frühstücke und die sieben Mittagsrezepte können bleiben.
 4. **Nüsse im Frühstück.** Die vier Frühstücke haben je 10 g Mandeln oder
    Leinsamen. 15 g statt 10 g wurde besprochen, aber nichts geändert – der Nutzer
-   sagte ausdrücklich „nichts ändern, nur reden". Mit den Zwischenmahlzeiten ist die
-   Nusslücke ohnehin weitgehend geschlossen.
+   sagte ausdrücklich „nichts ändern, nur reden". Das erledigt sich von selbst:
+   mit beiden Zwischenmahlzeiten liegen die Nüsse bei 45 g statt 26 g am Tag,
+   es fehlt nichts mehr.
 5. **Pizzasorte** für das Wochenbudget, siehe oben.
-6. **Mustgo:** 300 g Brechbohnen und der größte Teil der Walnusskerne liegen noch.
+6. **Mustgo:** 300 g Brechbohnen liegen noch. Die Walnüsse trägt
+   `zwischenmahlzeit1.md` mit 15 g je Tag ab; seit dem 13. September stehen
+   Salatgurke, Äpfel, Erdnussmus und die Kaergarden Balance neu auf der Liste –
+   Gurke und Streichfett gehen in `abendbrot1.md`, Äpfel und Erdnussmus in die
+   beiden Zwischenmahlzeiten.
+7. **Eine oder zwei Zwischenmahlzeiten am Tag?** Die Struktur rechnet mit zweien,
+   die Hinweise in den Gerichten mit einer. Daran hängen 186 kcal und die Frage,
+   ob die Nüsse zu hoch liegen.
 
 ## Die Dateien im Projekt
 
@@ -193,7 +261,7 @@ zur Sprache.
 | `dge-wochenbilanz.md` | die DGE-Mengen und Referenzwerte, mit Quellen |
 | `zutaten.md` | Warenkatalog: REWE-Packungen, Haltbarkeit, Nährwerte je 100 g |
 | `vorratskammer.md` | was gerade daheim ist, inklusive Mustgo |
-| `mein-wochenplan/` | die vier Frühstücke und der Wochenplan |
+| `mein-wochenplan/` | die vier Frühstücke, zwei Abendbrote, zwei Zwischenmahlzeiten und der Wochenplan |
 | `.claude/skills/wochenplan/` | Skill für den Wochenplan |
 | `.claude/skills/rezept/` | Skill für ein einzelnes Gericht aus dem Vorrat |
 
