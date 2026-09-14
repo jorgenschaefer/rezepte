@@ -1,0 +1,36 @@
+schema_version: "1.0"
+name: kcal-korridor
+description: >
+  Ohne Korridor ist die Kalorienzahl eine Punktvorgabe, und eine Punktvorgabe
+  wird getroffen – notfalls rückwärts. CLAUDE.md nennt das beim Namen: „eine
+  Summe, die das Ziel exakt trifft, ist ein Warnsignal". Bei gerundeten
+  Zutatenmengen ist ein Treffer auf die Kilokalorie Zufall; trifft er
+  wiederholt, ist nicht vorwärts gerechnet worden.
+tags: [naehrwerte]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill]
+runs: 3
+graders:
+  - type: regex
+    name: nicht-exakt-600
+    weight: 1
+    pattern: "Energie\\s*\\|\\s*600\\s*kcal"
+    match: not_contains
+  - type: llm
+    name: gerundete-mengen-im-korridor
+    weight: 1
+    criteria: |
+      Zwei Dinge zusammen:
+
+      1. Alle Zutatenmengen sind haushaltsübliche Zahlen – Gramm in Schritten von 5 g
+         oder 10 g, sonst ganze Stück, TL, EL. Eine Menge wie 63 g, 137 g oder 212 g
+         ist ein Fehler: sie entsteht nur, wenn eine Menge auf eine Zielsumme
+         zurechtgerechnet wurde.
+      2. Die ausgewiesene Energie je Portion liegt zwischen 570 und 630 kcal.
+
+      Bestanden nur, wenn beides zutrifft.

@@ -10,7 +10,7 @@ Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen. Die Kommenta
 
 Wähle eine geeignete Proteinquelle zufällig aus dem Vorrat und baue das Rezept darum auf.
 
-Das Rezept sollte die Kalorienzahl haben, die beim Aufruf angegeben wurde. Wurde nichts angegeben, nimm 600 kcal.
+Das Rezept trifft die Kalorienzahl, die beim Aufruf angegeben wurde, auf ±5 % genau; wurde nichts angegeben, nimm 600 kcal. Der Korridor ist da, damit die Zutatenmengen haushaltsübliche Zahlen bleiben: Rechne die Nährwerte aus den Mengen vorwärts und schreibe die Summe hin, die dabei herauskommt. Eine Summe, die das Ziel aufs Kilokalorie genau trifft, ist ein Warnsignal, kein Erfolg.
 
 # Format der Antwort
 
