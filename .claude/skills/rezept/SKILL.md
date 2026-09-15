@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 Erstelle ein Rezept, das ich jetzt zubereiten kann.
 
+Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
+
 Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
 Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
