@@ -1,6 +1,6 @@
 # Eval-Suite für `rezept`
 
-Zehn Fälle gegen den Skill, jeder mit drei Läufen:
+Sechzehn Fälle gegen den Skill, jeder mit drei Läufen:
 
 ```bash
 claude plugin eval . --scaffold --allow-tools Bash --ablation none
@@ -27,18 +27,39 @@ Datei gehört zu `wochenplan`.
 | `naehrwerte-aus-dem-katalog` | „Die Nährwerte der Zutaten findest du in `zutaten.md`." | 2 von 3 |
 | `unbekannte-zutat-bricht-ab` | „Kannst du eine Zutat … brich ab …" | 2 von 3 |
 | `standardkalorien` | „Wurde keine Kalorienzahl angegeben, nimm 600 kcal." | 1 von 3 |
+| `format-abschnitte` | `**Portionen:**` | 0 von 3 |
+| `format-abschnitte` | `**Zeit:**` | 0 von 3 |
+| `format-abschnitte` | `**Kochgeschirr:**` | 0 von 3 |
+| `format-abschnitte` | `**Nährwerte pro Portion:**` | 0 von 3 |
+| `kochgeschirr-parallel` | „Was davon gleichzeitig läuft …" | 0 von 3 |
+| `zutaten-mit-zustand` | „Zu jeder Zutat der Zustand …" | 0 von 3 |
+| `haushaltsuebliche-mengen` | „Mengen in Gramm oder haushaltsüblichen Maßen." | 2 von 3 |
+| `schritte-nennen-mengen` | „Nenne in jedem Schritt die Menge jeder Zutat erneut …" | 2 von 3 |
+| `naehrwerttabelle` | – | 3 von 3 |
+| `zeit-aktiv-und-gerundet` | – | 3 von 3 |
 | `vorrat-schlaegt-wunsch` | – | 3 von 3 |
 | `proteinquelle-im-mittelpunkt` | – | 3 von 3 |
 | `kcal-korridor` | – | 3 von 3 |
 | `keine-punktlandung` | – | 3 von 3 |
-| `haushaltsuebliche-mengen` | – | 3 von 3 |
 | `rechnet-mit-dem-skript` | – | 3 von 3 |
 | `vorratskammer-regeln` | – | 3 von 3 |
 
-Die ersten drei Fälle sind Belege: ohne ihre Zeile rot, mit ihr als einziger
-zurückgebauter Zeile wieder grün. Die übrigen sieben sind Absicherungen – sie
-halten fest, was das Modell heute von selbst richtig macht, und schlagen an,
-wenn sich das ändert.
+Die oberen elf Zeilen sind Belege: ohne ihre Zeile rot, mit ihr als einziger
+zurückgebauter Zeile wieder grün. Die unteren acht Fälle sind Absicherungen –
+sie halten fest, was das Modell heute von selbst richtig macht, und schlagen
+an, wenn sich das ändert.
+
+Die vier Abschnittszeilen prüfen die Überschrift, nicht den Inhalt: Ohne
+`**Zeit:**` nennt die Antwort das Feld „Aktive Zubereitungszeit", ohne
+`**Kochgeschirr:**` heißt es „Gebraucht wird" und „Parallel". Der Abschnitt
+bleibt, sein Name nicht – und Namen sind es, an denen ein Wochenplan die
+Rezepte später wieder auseinandernimmt.
+
+`keine-punktlandung` schlägt gelegentlich an, ohne dass etwas kaputt ist: In
+einem von acht Läufen summierte die Vorwärtsrechnung auf glatte 600 kcal, weil
+`naehrwerte.mjs` die Energie auf ganze kcal rundet. Der Fall sucht die
+systematische Punktlandung, nicht den Zufallstreffer – ein einzelner roter Lauf
+ist erst dann ein Befund, wenn er sich wiederholt.
 
 ## Die Regel steht nicht nur in SKILL.md
 
@@ -47,6 +68,13 @@ ganzen Skillordner, und der Kopf von `scripts/naehrwerte.mjs` trug die Regeln
 mit: „Rechnet die Nährwerttabelle eines Rezepts aus den Zutatenmengen vorwärts
 gegen zutaten.md" – zwei Zeilen des Skills, in einem Kommentar. Die Messung zur
 Vorwärtsrechnung ist deshalb mit neutralisiertem Skriptkopf wiederholt worden.
+
+Die Nährwerttabelle steht ebenso doppelt: `formatiereTabelle()` in
+`scripts/naehrwerte.mjs` druckt „| Nährwert | Portion |" und genau die acht
+Zeilen von Energie bis Obst und Gemüse. Das Modell übernimmt die Ausgabe, und
+beide Unterpunkte des Nährwertabschnitts blieben ohne Wirkung – nicht weil die
+Regel egal wäre, sondern weil der Code sie schon durchsetzt. Sie stehen
+trotzdem im Skill: siehe den nächsten Abschnitt.
 
 Den Vorrat findet das Modell ohne jede Zeile: `vorratskammer.md` liegt im
 Arbeitsverzeichnis und ist dort die einzige Zutatenliste. Auch unter Zug nach
@@ -60,6 +88,27 @@ alle neun Prosa-Zeilen gleichzeitig fehlten, wurden drei Fälle rot – dieselbe
 drei, die einzeln nichts gezeigt hatten. Eine Streichliste gilt deshalb nur,
 wenn sie als Ganzes gemessen wurde.
 
+## Der Formatabschnitt trägt als Ganzes
+
+Neunzehn Einzelablationen sprachen zwölf Formatzeilen frei. Gemeinsam entfernt
+kippten sie zwei Fälle: `schritte-nennen-mengen` schrieb „Das Rapsöl in der
+Pfanne stark erhitzen" ohne Menge, und `proteinquelle-im-mittelpunkt` fiel von
+5 von 5 auf 4 von 9. Die Mengenzeile ist daraufhin zurückgekehrt; beim zweiten
+Fall ließ sich die Ursache nicht auf eine Zeile eingrenzen:
+
+| Formatabschnitt | `proteinquelle-im-mittelpunkt` |
+|---|---|
+| unverändert | 5 von 5 |
+| ohne fünf Detailzeilen | 4 von 5 |
+| nur Überschriften und Abschnittszeilen | 3 von 5 |
+| zwölf Zeilen entfernt | 4 von 9 |
+
+5 von 5 gegen 4 von 5 ist bei fünf Läufen kein Unterschied, den man messen
+kann – dafür bräuchte es dreißig Läufe je Arm. Belegt ist der Rand: Mit dem
+vollen Abschnitt trägt die gezogene Proteinquelle das Gericht, nach dem großen
+Rückbau in weniger als der Hälfte der Läufe. Gestrichen wurden deshalb nur die
+fünf Zeilen, die auch im gemeinsamen Rückbau unauffällig blieben.
+
 ## Was der Judge nicht kann
 
 **Die Tabelle gegen die Skriptausgabe.** Ein LLM-Grader schafft den Vergleich
@@ -72,6 +121,13 @@ Haiku wie mit Sonnet, in Läufen, die Zeile für Zeile stimmten. Dafür gibt es
 claude plugin eval . --case 'rechnet*' --scaffold --allow-tools Bash --keep-temp
 node evals/pruefe-tabelle.mjs evals/results/<zeitstempel>/aggregate-result.json
 ```
+
+**Mengen über Schritte hinweg zählen.** Drei Anläufe mit unterschiedlich
+scharfen Kriterien verwarfen Antworten, in denen jede Zutat ihre Menge trug –
+der Judge muss zehn Zutaten über acht Schritte verfolgen und verzählt sich.
+`schritte-nennen-mengen` prüft das jetzt mit einem regulären Ausdruck und nur
+am Öl, das der Auftrag in zwei Schritte zwingt. Ebenso `zutaten-mit-zustand`:
+Der Judge urteilt nur noch über Karotte und Zwiebel, die der Auftrag setzt.
 
 **Den Zufall.** „Wähle die Proteinquelle zufällig aus dem Vorrat" lässt sich je
 Lauf nicht prüfen – ein einzelnes Rezept sieht mit und ohne die Zeile gleich

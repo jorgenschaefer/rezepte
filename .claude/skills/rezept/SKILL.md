@@ -19,10 +19,7 @@ Wurde keine Kalorienzahl angegeben, nimm 600 kcal.
 - **Titel:** Ein griffiger Name
 - **Portionen:** Anzahl (Standard: 1).
 - **Zeit:**
-  - Die aktive Zubereitungszeit, nicht die Gesamtzeit.
-  - Auf 5 Minuten gerundet.
 - **Kochgeschirr:**
-  - Was gebraucht wird.
   - Was davon gleichzeitig läuft (z. B. „1 Topf und 1 Pfanne, parallel“).
 - **Nährwerte pro Portion:**
   - Eine Tabelle mit zwei Spalten – Nährwert und Portion.
@@ -32,5 +29,3 @@ Wurde keine Kalorienzahl angegeben, nimm 600 kcal.
   - Zu jeder Zutat der Zustand, in dem sie verarbeitet wird (z. B. „60 g Karotte, in dünnen Scheiben“).
 - **Zubereitung:** Schritt-für-Schritt-Anleitung, kurz und präzise.
   - Nenne in jedem Schritt die Menge jeder Zutat erneut, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“.
-  - Wird eine Zutat über mehrere Schritte verteilt, nenne die Teilmenge in Zahlen („die restlichen 5 g Rapsöl“), nie nur „das restliche Öl“.
-  - Der Schritt muss ohne Blick zurück auf die Zutatenliste ausführbar sein.
