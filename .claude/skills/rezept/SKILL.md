@@ -6,18 +6,43 @@ disable-model-invocation: true
 
 Erstelle ein Rezept, das ich jetzt zubereiten kann.
 
-Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen. Die Nährwerte findest du in `zutaten.md`. Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
+Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
 
-Wähle eine geeignete Proteinquelle zufällig aus dem Vorrat und baue das Rezept darum auf.
+Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
-Das Rezept trifft die Kalorienzahl, die beim Aufruf angegeben wurde, auf ±5 % genau; wurde nichts angegeben, nimm 600 kcal. Der Korridor ist da, damit die Zutatenmengen haushaltsübliche Zahlen bleiben: Rechne die Nährwerte aus den Mengen vorwärts und schreibe die Summe hin, die dabei herauskommt. Eine Summe, die das Ziel aufs Kilokalorie genau trifft, ist ein Warnsignal, kein Erfolg.
+Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
+
+Wähle die Proteinquelle zufällig aus dem Vorrat.
+
+Bau das Rezept um diese Proteinquelle herum auf.
+
+Das Rezept trifft die Kalorienzahl, die beim Aufruf angegeben wurde, auf ±5 % genau.
+
+Wurde keine Kalorienzahl angegeben, nimm 600 kcal.
+
+Die Zutatenmengen bleiben dabei haushaltsübliche Zahlen.
+
+Rechne die Nährwerte aus den Mengen vorwärts und schreibe die Summe hin, die dabei herauskommt.
+
+Eine Summe, die das Ziel aufs Kilokalorie genau trifft, ist ein Warnsignal, kein Erfolg.
 
 # Format der Antwort
 
 - **Titel:** Ein griffiger Name
 - **Portionen:** Anzahl (Standard: 1).
-- **Zeit:** Aktive Zubereitungszeit, auf 5 Minuten gerundet.
-- **Kochgeschirr:** Was gebraucht wird und was davon gleichzeitig läuft (z. B. „1 Topf und 1 Pfanne, parallel“).
-- **Nährwerte pro Portion:** Eine Tabelle mit zwei Spalten – Nährwert und Portion – und den Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse.
-- **Zutatenliste:** Mengen in Gramm oder haushaltsüblichen Maßen, jeweils mit dem Zustand, in dem die Zutat verarbeitet wird (z. B. „60 g Karotte, in dünnen Scheiben“).
-- **Zubereitung:** Schritt-für-Schritt-Anleitung, kurz und präzise. Nenne in jedem Schritt die Menge jeder Zutat erneut, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“. Wird eine Zutat über mehrere Schritte verteilt, nenne die Teilmenge in Zahlen („die restlichen 5 g Rapsöl“), nie nur „das restliche Öl“. Der Schritt muss ohne Blick zurück auf die Zutatenliste ausführbar sein.
+- **Zeit:**
+  - Die aktive Zubereitungszeit, nicht die Gesamtzeit.
+  - Auf 5 Minuten gerundet.
+- **Kochgeschirr:**
+  - Was gebraucht wird.
+  - Was davon gleichzeitig läuft (z. B. „1 Topf und 1 Pfanne, parallel“).
+- **Nährwerte pro Portion:**
+  - Eine Tabelle mit zwei Spalten – Nährwert und Portion.
+  - Die Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse.
+- **Zutatenliste:**
+  - Mengen in Gramm oder haushaltsüblichen Maßen.
+  - Zu jeder Zutat der Zustand, in dem sie verarbeitet wird (z. B. „60 g Karotte, in dünnen Scheiben“).
+- **Zubereitung:** Schritt-für-Schritt-Anleitung, kurz und präzise.
+  - Nenne in jedem Schritt die Menge jeder Zutat erneut, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“.
+  - Wird eine Zutat über mehrere Schritte verteilt, nenne die Teilmenge in Zahlen („die restlichen 5 g Rapsöl“), nie nur „das restliche Öl“.
+  - Der Schritt muss ohne Blick zurück auf die Zutatenliste ausführbar sein.
