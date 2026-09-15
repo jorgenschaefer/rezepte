@@ -1,10 +1,10 @@
 schema_version: "1.0"
 name: vorratskammer-regeln
 description: >
-  Die Vorratskammer schreibt einzelnen Zutaten vor, wie sie zu verwenden sind
-  („nur als ganze Dose", „nur als ganze oder halbe Packung"). Ein Rezept, das
-  eine solche Zutat anders portioniert, lässt einen Rest zurück, den es nicht
-  gibt.
+  Absicherung, kein Beleg: Die Kommentare in vorratskammer.md („nur als Portion
+  von 125 g") werden auch ohne eine Zeile im Skill befolgt. Der Fall schlägt
+  an, wenn ein Rezept eine solche Zutat anders portioniert und einen Rest
+  zurücklässt, den es nicht gibt.
 tags: [vorrat]
 context:
   scaffold_script: scaffold.sh

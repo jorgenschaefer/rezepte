@@ -1,10 +1,10 @@
 schema_version: "1.0"
 name: rechnet-mit-dem-skript
 description: >
-  Die Nährwerttabelle ist reine Arithmetik über acht Zutaten, und von Hand geht
-  sie irgendwann schief – der Commit „Correct the nut arithmetic in snack 2"
-  steht dafür. scripts/naehrwerte.mjs rechnet sie; dieser Fall hält fest, dass
-  der Skill das Skript auch benutzt, statt im Kopf zu addieren.
+  Absicherung, kein Beleg: Das Modell findet scripts/naehrwerte.mjs im
+  Skillordner von selbst. Der Fall schlägt an, wenn wieder im Kopf addiert
+  wird – die Tabelle ist Arithmetik über acht Zutaten, und von Hand geht sie
+  irgendwann schief.
 tags: [naehrwerte]
 context:
   scaffold_script: scaffold.sh

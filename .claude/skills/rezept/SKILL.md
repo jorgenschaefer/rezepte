@@ -6,25 +6,13 @@ disable-model-invocation: true
 
 Erstelle ein Rezept, das ich jetzt zubereiten kann.
 
-Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
-
 Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
 Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
 
 Wähle die Proteinquelle zufällig aus dem Vorrat.
 
-Bau das Rezept um diese Proteinquelle herum auf.
-
-Das Rezept trifft die Kalorienzahl, die beim Aufruf angegeben wurde, auf ±5 % genau.
-
 Wurde keine Kalorienzahl angegeben, nimm 600 kcal.
-
-Die Zutatenmengen bleiben dabei haushaltsübliche Zahlen.
-
-Rechne die Nährwerte aus den Mengen vorwärts und schreibe die Summe hin, die dabei herauskommt.
-
-Eine Summe, die das Ziel aufs Kilokalorie genau trifft, ist ein Warnsignal, kein Erfolg.
 
 # Format der Antwort
 
