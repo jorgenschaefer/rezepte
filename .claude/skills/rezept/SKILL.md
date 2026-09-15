@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 Erstelle ein Rezept, das ich jetzt zubereiten kann.
 
-Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen. Die Kommentare dort sind Vorgaben, keine Hinweise: Was zur Verwendung einer Zutat vermerkt ist – „nur als ganze Dose“, „nur als Portion von 125 g“, „nur als ganze oder halbe Packung“ samt der Bedingung, die daran hängt –, bestimmt die Menge im Rezept. Die Nährwerte findest du in `zutaten.md`. Die Nährwerttabelle rechnest du nicht im Kopf: `scripts/naehrwerte.mjs` neben dieser Datei nimmt auf der Standardeingabe je Zeile „Zutat | Gramm“, schlägt die Werte im Katalog nach und gibt die fertige Tabelle aus; `--portionen N` teilt sie. Übernimm die Tabelle, die es ausgibt, unverändert ins Rezept, statt sie abzuschreiben – auch die Zeile Obst und Gemüse. Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
+Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen. Die Nährwerte findest du in `zutaten.md`. Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
 
 Wähle eine geeignete Proteinquelle zufällig aus dem Vorrat und baue das Rezept darum auf.
 
@@ -21,12 +21,3 @@ Das Rezept trifft die Kalorienzahl, die beim Aufruf angegeben wurde, auf ±5 % g
 - **Nährwerte pro Portion:** Eine Tabelle mit zwei Spalten – Nährwert und Portion – und den Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse.
 - **Zutatenliste:** Mengen in Gramm oder haushaltsüblichen Maßen, jeweils mit dem Zustand, in dem die Zutat verarbeitet wird (z. B. „60 g Karotte, in dünnen Scheiben“).
 - **Zubereitung:** Schritt-für-Schritt-Anleitung, kurz und präzise. Nenne in jedem Schritt die Menge jeder Zutat erneut, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“. Wird eine Zutat über mehrere Schritte verteilt, nenne die Teilmenge in Zahlen („die restlichen 5 g Rapsöl“), nie nur „das restliche Öl“. Der Schritt muss ohne Blick zurück auf die Zutatenliste ausführbar sein.
-
-# Prüfung vor der Ausgabe
-
-Geh das fertige Rezept Zeile für Zeile durch, bevor du es ausgibst. Jeder Punkt hier ist ein Fehler, kein Vermerk: behebe ihn und rechne die betroffenen Mengen neu.
-
-- Eine Zutat, die nicht in `vorratskammer.md` steht, oder eine, deren Kommentar dort eine andere Menge verlangt als die Zutatenliste nennt.
-- Eine Zahl in der Nährwerttabelle, die von der Ausgabe von `scripts/naehrwerte.mjs` abweicht. Es gilt, was das Skript ausgibt – auch dann, wenn es das Kalorienziel um 3 kcal verfehlt.
-- Eine Energie außerhalb des Korridors von ±5 %. Dagegen hilft eine andere Menge, nicht eine andere Zahl in der Tabelle.
-- Eine Zutat, deren Teilmengen in den Schritten sich nicht zur Menge aus der Zutatenliste addieren, oder ein Schritt, der eine Menge nur mit Worten nennt statt mit einer Zahl.
