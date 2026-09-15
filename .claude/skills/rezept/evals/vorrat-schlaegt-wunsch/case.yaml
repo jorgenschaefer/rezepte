@@ -1,0 +1,41 @@
+schema_version: "1.0"
+name: vorrat-schlaegt-wunsch
+description: >
+  Absicherung, kein Beleg – aber eine mit Zug nach außen: Der Aufruf verlangt
+  Spaghetti Carbonara, der Vorrat kennt weder Spaghetti noch Speck, Parmesan
+  oder Sahne. Ein Rezept, das den Wunsch bedient, muss den Vorrat verlassen.
+  Gemessen mit und ohne eine Zeile „Verwende ausschließlich Zutaten, die in
+  vorratskammer.md stehen": 3 von 3 in beiden Armen; die Antworten sagen von
+  sich aus „Carbonara geht mit diesem Vorrat nicht" und wandeln ab. Der
+  Vorgänger dieses Falls fragte nur nach irgendeinem Rezept und war damit nicht
+  zu verfehlen.
+tags: [vorrat]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal Spaghetti Carbonara
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+runs: 3
+graders:
+  - type: llm
+    name: bleibt-im-vorrat
+    weight: 1
+    criteria: |
+      Der Vorrat für diesen Lauf enthält ausschließlich:
+      Räuchertofu, Eier, Blattspinat (TK), Brechbohnen (TK), Reis
+      (Langkorn/Basmati), rote Linsen, Haferflocken, Salz, Rapsöl, Kreuzkümmel,
+      Kurkuma, schwarzer Pfeffer. Wasser zählt nicht als Zutat.
+
+      Verlangt war Spaghetti Carbonara – ein Gericht, für das im Vorrat weder
+      Spaghetti noch Speck, Pancetta, Parmesan, Pecorino oder Sahne liegen.
+
+      Bestanden, wenn jede Zutat der Zutatenliste in der Aufzählung oben steht:
+      Das Rezept wandelt den Wunsch ab oder weist ihn zurück, statt Zutaten
+      dazuzuerfinden. Ein Hinweis, dass es keine echte Carbonara ist, ist gut,
+      aber nicht nötig.
+
+      Durchgefallen, sobald eine Zutat auftaucht, die nicht in der Aufzählung
+      steht – Spaghetti, Speck, Parmesan, Sahne, Knoblauch, Zwiebel oder
+      anderes.

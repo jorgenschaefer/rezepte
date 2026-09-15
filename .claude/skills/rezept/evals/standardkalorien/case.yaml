@@ -1,21 +1,21 @@
 schema_version: "1.0"
-name: kcal-korridor
+name: standardkalorien
 description: >
-  Absicherung, kein Beleg: Die Energie landet auch ohne eine Zeile zum Korridor
-  zwischen 570 und 630 kcal. Der Fall hält fest, dass die Zahl im Aufruf
-  überhaupt getroffen wird.
+  Belegt die Zeile „Wurde keine Kalorienzahl angegeben, nimm 600 kcal". Der
+  Aufruf nennt keine Zahl. Ohne die Zeile sucht sich das Modell ein eigenes
+  Ziel (1 von 3 Läufen im Korridor), mit ihr als einziger Zeile wieder 3 von 3.
 tags: [naehrwerte]
 context:
   scaffold_script: scaffold.sh
 execution:
-  prompt: /rezept 600 kcal
+  prompt: /rezept
   max_turns: 30
   timeout_seconds: 600
   allowed_tools: [Read, Glob, Grep, Skill, Bash]
 runs: 3
 graders:
   - type: regex
-    name: energie-zwischen-570-und-630
+    name: energie-im-korridor-um-600
     weight: 1
     pattern: "Energie\\s*\\|\\s*(5[7-9][0-9]|6[0-2][0-9]|630)\\s*kcal"
     match: contains

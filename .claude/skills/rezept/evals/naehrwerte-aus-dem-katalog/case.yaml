@@ -1,0 +1,26 @@
+schema_version: "1.0"
+name: naehrwerte-aus-dem-katalog
+description: >
+  Belegt die Zeile „Die Nährwerte der Zutaten findest du in zutaten.md". Ohne
+  sie füllt das Modell die Tabelle aus eigenem Wissen, und niemand sieht es den
+  Zahlen an; der Fall hält deshalb fest, dass der Katalog gelesen wird.
+  Gemessen: ohne die Zeile 2 von 3 Läufen, mit ihr als einziger Zeile wieder
+  3 von 3. Achtung, dieser Fall braucht einen eigenen Aufruf OHNE
+  `--allow-tools Bash` – mit dem Zuschuss liest das Modell den Katalog über
+  scripts/naehrwerte.mjs, und Read zählt nicht mehr.
+tags: [naehrwerte]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Skill]
+runs: 3
+graders:
+  - type: tool_used
+    name: katalog-gelesen
+    weight: 1
+    tool: Read
+    input_match: zutaten.md
+    min: 1

@@ -1,0 +1,33 @@
+schema_version: "1.0"
+name: haushaltsuebliche-mengen
+description: >
+  Absicherung, kein Beleg: Die Mengen bleiben auch ohne eigene Zeile
+  haushaltsüblich. Eine Zahl wie 63 g oder 137 g entstünde nur beim
+  Zurechtrechnen auf eine Zielsumme.
+tags: [naehrwerte]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+runs: 3
+graders:
+  - type: llm
+    name: gerundete-mengen
+    weight: 1
+    criteria: |
+      Sieh dir die Zutatenliste an. Gefragt ist nur, ob die Mengen so aussehen,
+      wie man sie in einer Küche abmisst.
+
+      Ein Fehler ist eine Grammzahl über 10 g, die weder durch 5 teilbar ist
+      noch eine Packungs-, Dosen- oder Portionsmenge aus dem Vorrat wiedergibt
+      (etwa 175 g Räuchertofu, 240 g schwarze Bohnen, 125 g Lachs): 63 g, 137 g
+      oder 212 g entstehen nur, wenn eine Menge auf eine Zielsumme
+      zurechtgerechnet wurde.
+
+      Kein Fehler sind Stück, TL, EL, Prisen und Würzmengen bis 10 g – auch
+      „1 g Salz" oder „3 g Knoblauch" nicht.
+
+      Bestanden, wenn keine Menge in der Liste ein Fehler in diesem Sinn ist.

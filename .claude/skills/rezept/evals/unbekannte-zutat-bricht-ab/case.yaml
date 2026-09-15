@@ -1,0 +1,33 @@
+schema_version: "1.0"
+name: unbekannte-zutat-bricht-ab
+description: >
+  Belegt die Zeile „Kannst du eine Zutat nicht eindeutig zuordnen … brich ab
+  und gib die Zutat aus". Der Vorrat dieses Falls enthält Miso-Paste, die in
+  zutaten.md nicht vorkommt; der Aufruf verlangt sie. Ohne die Zeile schätzt
+  ein Lauf die Nährwerte und kocht weiter (2 von 3), mit ihr als einziger Zeile
+  wieder 3 von 3.
+tags: [vorrat]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal mit Miso-Paste
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+runs: 3
+graders:
+  - type: regex
+    name: kein-rezept-ausgegeben
+    weight: 1
+    pattern: "Zubereitung"
+    match: not_contains
+  - type: llm
+    name: nennt-die-zutat
+    weight: 1
+    criteria: |
+      Bestanden, wenn die Antwort abbricht und dabei die Miso-Paste als die
+      Zutat nennt, die sich in `zutaten.md` nicht zuordnen ließ.
+
+      Durchgefallen, wenn ein Rezept ausgegeben wird – auch mit geschätzten
+      Nährwerten, auch ohne die Miso-Paste –, oder wenn der Abbruch die Zutat
+      nicht benennt.
