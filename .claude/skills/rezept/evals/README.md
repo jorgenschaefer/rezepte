@@ -1,6 +1,6 @@
 # Eval-Suite für `rezept`
 
-Sechzehn Fälle gegen den Skill, jeder mit drei Läufen:
+Siebzehn Fälle gegen den Skill, jeder mit drei Läufen:
 
 ```bash
 claude plugin eval . --scaffold --allow-tools Bash --ablation none
@@ -24,6 +24,7 @@ Datei gehört zu `wochenplan`.
 
 | Fall | Zeile im Skill | ohne die Zeile |
 |---|---|---|
+| `zwei-listen-im-ordner` | „Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen." | 3 von 5 |
 | `naehrwerte-aus-dem-katalog` | „Die Nährwerte der Zutaten findest du in `zutaten.md`." | 2 von 3 |
 | `unbekannte-zutat-bricht-ab` | „Kannst du eine Zutat … brich ab …" | 2 von 3 |
 | `standardkalorien` | „Wurde keine Kalorienzahl angegeben, nimm 600 kcal." | 1 von 3 |
@@ -44,7 +45,7 @@ Datei gehört zu `wochenplan`.
 | `rechnet-mit-dem-skript` | – | 3 von 3 |
 | `vorratskammer-regeln` | – | 3 von 3 |
 
-Die oberen elf Zeilen sind Belege: ohne ihre Zeile rot, mit ihr als einziger
+Die oberen zwölf Zeilen sind Belege: ohne ihre Zeile rot, mit ihr als einziger
 zurückgebauter Zeile wieder grün. Die unteren acht Fälle sind Absicherungen –
 sie halten fest, was das Modell heute von selbst richtig macht, und schlagen
 an, wenn sich das ändert.
@@ -78,7 +79,18 @@ trotzdem im Skill: siehe den nächsten Abschnitt.
 
 Den Vorrat findet das Modell ohne jede Zeile: `vorratskammer.md` liegt im
 Arbeitsverzeichnis und ist dort die einzige Zutatenliste. Auch unter Zug nach
-außen (`vorrat-schlaegt-wunsch`) bleibt es dabei.
+außen (`vorrat-schlaegt-wunsch`) bleibt es dabei – die Vorratszeile war
+deshalb lange nicht messbar.
+
+`zwei-listen-im-ordner` nimmt der Umgebung diesen Hinweis: Neben dem Vorrat
+liegt `vorrat-keller.md`, ein zweites Regal im selben Haushalt, ebenso haltbar
+und verfügbar. Damit hat die Umgebung keine Antwort mehr darauf, welche Liste
+gilt, und die Zeile bekommt eine: mit ihr 5 von 5 sauber, ohne sie kochten 2
+von 5 Läufen aus dem Keller – „150 g Aubergine, 125 g Champignons".
+
+Eine Einkaufsliste („gerade eingekauft, noch nicht eingeräumt") reichte dafür
+nicht: Die ließ der Skill in neun von zehn Läufen auch ohne die Zeile stehen.
+Eine Falle, die der Skill von selbst meidet, misst nichts.
 
 ## Einzeln entbehrlich ist nicht gemeinsam entbehrlich
 
