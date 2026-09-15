@@ -1,0 +1,42 @@
+schema_version: "1.0"
+name: schritte-nennen-mengen
+description: >
+  Tofu und Gemüse werden nacheinander angebraten, damit das Öl zweimal in die
+  Pfanne kommt. Geprüft wird, ob es an jeder Stelle mit seiner Menge dasteht –
+  sonst hieße es „Rapsöl in der Pfanne erhitzen“. Das prüft ein regulärer
+  Ausdruck und nur am Öl: Ein Judge, der alle Zutaten über alle Schritte
+  mitzählen soll, urteilte in drei Anläufen unbrauchbar und verwarf Antworten,
+  in denen jede Zutat ihre Menge trug.
+tags: [format]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal Pfannengericht, bei dem Tofu und Gemüse nacheinander angebraten werden
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+runs: 3
+graders:
+  - type: regex
+    name: oel-immer-mit-menge
+    weight: 1
+    pattern: "(?<!\\d\\s*(?:g|ml|EL|TL|Prise|Prisen)[^.\\n]{0,10})(?:Rapsöl|Olivenöl)"
+    match: not_contains
+  - type: llm
+    name: schritt-ohne-rueckblick
+    weight: 1
+    criteria: |
+      Sieh dir nur die Zubereitungsschritte an.
+
+      Gefragt ist eine einzige Sache: Verweist ein Schritt auf etwas, das nur
+      in der Zutatenliste steht, statt es an Ort und Stelle aufzuschlüsseln?
+      Etwa „die Gewürzmischung", „das vorbereitete Gemüse", „die Marinade"
+      oder „die Zutaten für die Sauce", ohne dass irgendein Schritt vorher
+      sagt, was darin ist.
+
+      Ein Verweis auf einen früheren Schritt ist in Ordnung („die Sauce aus
+      Schritt 2", „der gebratene Tofu aus Schritt 4"), solange dieser Schritt
+      die Zutaten genannt hat.
+
+      Nenne zuerst jeden Schritt, der so zurückverweist, mit seiner Nummer.
+      Findest du keinen, ist der Fall bestanden.

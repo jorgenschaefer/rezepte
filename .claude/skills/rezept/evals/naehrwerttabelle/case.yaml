@@ -1,0 +1,62 @@
+schema_version: "1.0"
+name: naehrwerttabelle
+description: >
+  Prüft die Nährwerttabelle Zeile für Zeile: zwei Spalten, und jeder der acht
+  Nährwerte steht darin. Energie, Fett und Protein schreibt das Modell auch
+  von selbst; Ballaststoffe, Salz sowie Obst und Gemüse sind die Zeilen, an
+  denen sich zeigt, ob die Aufzählung im Skill etwas bewirkt.
+tags: [format, naehrwerte]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+runs: 3
+graders:
+  - type: regex
+    name: tabelle-mit-zwei-spalten
+    weight: 1
+    pattern: "\\|\\s*:?-{2,}:?\\s*\\|\\s*:?-{2,}:?\\s*\\|[ \\t]*\\n"
+    match: contains
+  - type: regex
+    name: zeile-energie
+    weight: 1
+    pattern: "Energie"
+    match: contains
+  - type: regex
+    name: zeile-fett
+    weight: 1
+    pattern: "\\|\\s*Fett"
+    match: contains
+  - type: regex
+    name: zeile-gesaettigte-fettsaeuren
+    weight: 1
+    pattern: "gesättigte"
+    match: contains
+  - type: regex
+    name: zeile-kohlenhydrate
+    weight: 1
+    pattern: "Kohlenhydrate"
+    match: contains
+  - type: regex
+    name: zeile-ballaststoffe
+    weight: 1
+    pattern: "Ballaststoffe"
+    match: contains
+  - type: regex
+    name: zeile-protein
+    weight: 1
+    pattern: "Protein"
+    match: contains
+  - type: regex
+    name: zeile-salz
+    weight: 1
+    pattern: "\\|\\s*Salz"
+    match: contains
+  - type: regex
+    name: zeile-obst-und-gemuese
+    weight: 1
+    pattern: "Obst und Gemüse"
+    match: contains

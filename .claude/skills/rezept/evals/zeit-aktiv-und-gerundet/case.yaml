@@ -1,0 +1,34 @@
+schema_version: "1.0"
+name: zeit-aktiv-und-gerundet
+description: >
+  Ofengericht, damit Warte- und Arbeitszeit auseinanderfallen: Die angegebene
+  Zeit muss die aktive sein, nicht die Summe aus Vorbereitung und Backzeit,
+  und sie muss auf 5 Minuten gerundet sein.
+tags: [format]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal aus dem Ofen
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+runs: 3
+graders:
+  - type: regex
+    name: auf-5-minuten-gerundet
+    weight: 1
+    pattern: "Zeit[^0-9\\n]*\\d*[05]\\s*(?:Min|min)"
+    match: contains
+  - type: llm
+    name: aktive-zeit-statt-gesamtzeit
+    weight: 1
+    criteria: |
+      Das Rezept hat eine Backzeit oder eine andere Wartezeit, in der man
+      nichts tut.
+
+      Bestanden, wenn die Zeitangabe oben im Rezept die aktive Arbeitszeit
+      nennt: die Zeit am Herd und am Brett, ohne die Wartezeit. Sie darf die
+      Wartezeit zusätzlich ausweisen ("15 Minuten aktiv, 35 Minuten im Ofen").
+
+      Durchgefallen, wenn die genannte Zeit die Gesamtzeit ist, also
+      Arbeitszeit plus Wartezeit in einer Zahl.
