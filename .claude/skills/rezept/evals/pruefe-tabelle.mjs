@@ -5,7 +5,7 @@
 // drei bis fünf Skriptläufe aus verworfenen Entwürfen, und der Judge greift den
 // falschen. Deshalb läuft die Prüfung hier deterministisch.
 //
-// Aufruf: claude plugin eval . --case 'pruefung*' --keep-temp …
+// Aufruf: claude plugin eval . --case 'rechnet*' --keep-temp …
 //         node evals/pruefe-tabelle.mjs evals/results/<zeitstempel>/aggregate-result.json
 import { readFileSync } from 'node:fs'
 
