@@ -8,17 +8,6 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 
 - ja! Brechbohnen, tiefgekühlt
 - Frosta Gemüse-Mix Italienische Küche, tiefgekühlt
-- Walnusskerne
-
-## Neu
-
-- Harry Vollkorn Urtyp
-- Grünländer Leicht
-- REWE Bio Blattspinat, tiefgekühlt, 600 g
-- Salatgurke
-- Äpfel
-- Erdnussmus, REWE Bio
-- Kaergarden Balance 200 g
 
 ## Kühlschrank
 
@@ -46,12 +35,15 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Tofu Natur 200 g (nur als ganze Packung verwenden)
 - Joghurt 1,5% (nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
 - Magerquark 500 g
+- Grünländer Leicht
+- Kaergarden Balance 200 g
 
 ### Gemüsefach
 
 - Rote Zwiebeln
 - Knoblauch
 - Karotten
+- Salatgurke
 
 ## Tiefkühlfach
 
@@ -60,6 +52,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - REWE Beste Wahl Kulturheidelbeeren, tiefgekühlt
 - ja! Beeren-Mischung, tiefgekühlt
 - ja! Lachsfilet 250 g, Zuchtlachs (nur als Portion von 125 g verwenden)
+- REWE Bio Blattspinat, tiefgekühlt, 600 g
 
 ## Küchenschrank
 
@@ -89,6 +82,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Rote Linsen
 - Reis, Langkorn/Basmati (zukünftig: Natur)
 - Vollkorn Fussili
+- Erdnussmus, REWE Bio
 
 ## Gewürzregal
 
@@ -114,6 +108,10 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Zimt
 
 ## Sonstiges
+
+- Harry Vollkorn Urtyp
+- Äpfel
+- Bananen
 
 - Pfefferminztee
 - Fencheltee
