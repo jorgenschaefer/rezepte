@@ -151,6 +151,29 @@ test('der bloße Name „Kokosmilch" ist jetzt mehrdeutig und bricht ab', () => 
   )
 })
 
+test('eine Klammer in einer Nährwertspalte nennt nur ein Produkt ihrer Zeile', () => {
+  const zeilen = readFileSync(new URL('../../../../zutaten.md', import.meta.url), 'utf8')
+    .split('\n')
+    .filter((zeile) => zeile.startsWith('|'))
+    .map((zeile) => zeile.split('|').map((zelle) => zelle.trim()))
+    .filter((zellen) => zellen.length > 11 && zellen[1] !== 'Zutat' && !/^-+$/.test(zellen[1]))
+
+  for (const zellen of zeilen) {
+    const herkunft = `${zellen[1]} ${zellen[2]}`.toLowerCase()
+
+    // Die Nährwertspalten: kcal bis Salz, ohne Zutat, Packung, Haltbarkeit und Hinweis.
+    for (const zelle of zellen.slice(4, 11)) {
+      const klammer = zelle.match(/\(([^)]*?)\s*[\d,]+\s*g?\)/)
+      if (!klammer) continue
+
+      assert.ok(
+        herkunft.includes(klammer[1].toLowerCase()),
+        `„${zellen[1]}": die Klammer nennt „${klammer[1]}", aber weder die Zutat noch die Packung führen das Produkt`,
+      )
+    }
+  }
+})
+
 function runde(zahl, stellen = 0) {
   return Number(zahl.toFixed(stellen))
 }

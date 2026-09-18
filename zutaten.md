@@ -252,8 +252,8 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Olivenöl nativ extra | 500 ml | lang | 900 | 0 | 0 | 0 | 100 g | 14 g | 0 | |
 | Leinöl | 250 ml (REWE Bio) | lang (offen 4 Wochen, kühl) | 900 | 0 | 0 | 0 | 100 g | 9,2 g | 0 | nur kalt |
 | Margarine, halbfett | 450 g (Lätta) | Wochen | 360 | 0 | 0 | 1,4 g | 39 g | 11 g | 0,5 g | |
-| Butter-Rapsöl-Mischung | 350 g (Arla Kaergarden), 400 g (Kerrygold extra) | Wochen | 589 | 0,5 g | 0 | 0,5 g | 65 g | 34 g | 1,0 g (Kerrygold extra ungesalzen 0,02 g) | Etikett 10.9.2026; streichfähig |
-| Butter-Rapsöl-Mischung, ungesalzen | 200 g (Arla Kaergarden Ungesalzen) | Wochen | 589 | 0,5 g | 0 | 0,5 g | 65 g | 34 g | 0,01 g | Etikett REWE 13.9.2026; streichfähig; salzfrei, aber 34 g gesättigte Fettsäuren |
+| Butter-Rapsöl-Mischung | 350 g (Arla Kaergarden), 400 g (Kerrygold extra) | Wochen | 589 | 0,5 g | 0 | 0,5 g | 65 g | 34 g | 1,0 g | Etikett 10.9.2026; streichfähig |
+| Butter-Rapsöl-Mischung, ungesalzen | 200 g (Arla Kaergarden Ungesalzen), 250/400 g (Kerrygold extra ungesalzen) | Wochen | 589 | 0,5 g | 0 | 0,5 g | 65 g | 34 g | 0,01 g | Etikett REWE 13.9.2026; streichfähig; salzfrei, aber 34 g gesättigte Fettsäuren (Kerrygold extra ungesalzen 35 g, Salz 0,02 g) |
 | Butter-Rapsöl-Mischung, ungesalzen, fettreduziert | 200 g (Arla Kaergarden Balance Ungesalzen) | Wochen | 515 | 0,3 g | 0 | 0,3 g | 57 g | 19 g | 0,01 g | Etikett REWE 13.9.2026; streichfähig; salzfrei und mit 19 g gesättigten Fettsäuren gut die Hälfte der normalen Mischung – aber immer noch fast doppelt so viel wie halbfette Margarine (11 g) bei 155 kcal mehr je 100 g |
 
 ## Konserven, Vorrat, Würze
