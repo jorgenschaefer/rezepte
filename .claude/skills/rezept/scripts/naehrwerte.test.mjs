@@ -174,6 +174,51 @@ test('eine Klammer in einer Nährwertspalte nennt nur ein Produkt ihrer Zeile', 
   }
 })
 
+test('jede Datenzeile hat so viele Zellen wie die Kopfzeile ihres Abschnitts', () => {
+  for (const { sektion, kopf, zeilen } of leseTabellen()) {
+    for (const zellen of zeilen) {
+      assert.equal(
+        zellen.length,
+        kopf.length,
+        `„${zellen[0]}" im Abschnitt „${sektion}" hat ${zellen.length} Zellen, die Kopfzeile ${kopf.length}`,
+      )
+    }
+  }
+})
+
+// Liest zutaten.md abschnittsweise als Tabellen. Die Nährwerte holt leseKatalog
+// aus naehrwerte.mjs; hier geht es um die Form der Tabelle selbst, die dort
+// niemand prüft – ein Abschnitt, seine Kopfzeile und seine Datenzeilen.
+function leseTabellen() {
+  const tabellen = []
+  let sektion = ''
+  let aktuelle = null
+
+  for (const zeile of readFileSync(new URL('../../../../zutaten.md', import.meta.url), 'utf8').split('\n')) {
+    if (zeile.startsWith('## ')) {
+      sektion = zeile.slice(3).trim()
+      aktuelle = null
+      continue
+    }
+    if (!zeile.startsWith('|')) {
+      aktuelle = null
+      continue
+    }
+
+    const zellen = zeile.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((z) => z.trim())
+    if (zellen[0] === 'Zutat') {
+      aktuelle = { sektion, kopf: zellen, zeilen: [] }
+      tabellen.push(aktuelle)
+      continue
+    }
+    if (!aktuelle || zellen.every((z) => /^-+$/.test(z))) continue
+
+    aktuelle.zeilen.push(zellen)
+  }
+
+  return tabellen
+}
+
 function runde(zahl, stellen = 0) {
   return Number(zahl.toFixed(stellen))
 }
