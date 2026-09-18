@@ -66,7 +66,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Soja-Granulat, trocken (TVP) | 300 g (Vantastic foods) | lang | 322 | 49 g | 8,8 g | 27 g | 1,2 g | 0,3 g | 0,01 g | Etikett 8.9.2026; Portion 30–40 g trocken, in der 2,5-fachen Menge Brühe 10 min quellen |
 | Soja-Schnetzel, trocken (TVP) | 250 g (Vantastic foods) | lang | 322 | 49 g | 8,8 g | 27 g | 1,2 g | 0,3 g | 0,01 g | Etikett 8.9.2026; identische Werte wie das Granulat, nur gröbere Stücke |
 | Edamame, TK, ohne Schote | 300 g (REWE Bio), 500 g | lang | 120 | 11 g | 5 g | 8,6 g | 4,7 g | 2,2 g | 0 | |
-| Erbsen, TK | 450 g (REWE Bio), 1 kg (ja!) | lang | 80 | 5,5 g | 5 g | 8 g | 0,5 g | 0,2 g | 0 | zählen als Gemüse und als Hülsenfrucht |
+| Erbsen, TK | 450 g (REWE Bio), 1 kg (ja!) | lang | 80 | 5,5 g | 5 g | 8 g | 0,5 g | 0,2 g | 0 | Hülsenfrucht, kein Gemüse |
 | Hummus natur | 175 g (Noa), 200 g (REWE Bio) | frisch (offen 3 Tage) | 330 | 6,4 g | 4 g | 9 g | 29 g | 2,5 g | 1,5 g | 30 g je Scheibe Brot; Hülsenfrucht-Aufstrich im Sinn der DGE; 60 g ≈ ⅓ Portion Hülsenfrüchte |
 
 ## Gemüse, frisch
@@ -88,7 +88,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Möhren | 1 kg; Snackmöhren 250 g | Wochen | 35 | 1 g | 3 g | 6,5 g | 0,2 g | 0 | 0,1 g | ja | Jun–Nov, Lager ganzjährig | Möhre ca. 80 g |
 | Zwiebeln | 500 g im Netz, 1 kg (Bahde) | Wochen | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | ja | Lager ganzjährig | Zwiebel ca. 80 g |
 | Rote Zwiebeln | 500 g im Netz | Wochen | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | ja | Lager ganzjährig | |
-| Knoblauch | 100–200 g im Netz | Wochen | – | – | – | – | – | – | – | – | – | Würzmenge, nicht rechnen |
+| Knoblauch | 100–200 g im Netz | Wochen | – | – | – | – | – | – | – | – | – | Würzmenge |
 | Ingwer | ca. 100 g | Wochen | – | – | – | – | – | – | – | – | Import | Würzmenge |
 | Porree | 1 Stange ca. 300 g | Wochen | 30 | 2 g | 2,5 g | 3,3 g | 0,3 g | 0 | 0 | ja | Jul–Mär | |
 | Kohlrabi | 1 Stück ca. 350 g | Wochen | 25 | 2 g | 1,5 g | 3,7 g | 0,1 g | 0 | 0 | ja | Mai–Okt | |
@@ -102,7 +102,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Staudensellerie | 1 Staude ca. 400 g (Bio) | Wochen | 15 | 1,2 g | 1,5 g | 2,2 g | 0,2 g | 0 | 0,2 g | ja | Jul–Nov | Rohkost, Suppe |
 | Lauchzwiebeln | Bund ca. 100 g | frisch (5 Tage) | 30 | 1,8 g | 2 g | 4,5 g | 0,3 g | 0 | 0 | ja | Mai–Okt | Salat, Pfanne |
 | Avocado | 1 Stück ca. 150 g (REWE Bio) | Wochen (reif 2 Tage) | 160 | 2 g | 4 g | 0,4 g | 15 g | 2,1 g | 0 | ja | Import | Fettquelle; DGE-Speisepläne: höchstens einmal je Woche |
-| Kräuter, frisch (Petersilie, Basilikum, Koriander, Schnittlauch) | Bund ca. 30 g oder Topf | frisch (3–5 Tage) | – | – | – | – | – | – | – | ja | Topf ganzjährig | Würzmenge; die DGE zählt Kräuter zu Obst und Gemüse |
+| Kräuter, frisch (Petersilie, Basilikum, Koriander, Schnittlauch) | Bund ca. 30 g oder Topf | frisch (3–5 Tage) | – | – | – | – | – | – | – | ja | Topf ganzjährig | Würzmenge |
 | Zitronen | 500 g im Netz | Wochen | – | – | – | – | – | – | – | – | Import | Würzmenge |
 | Gewürzgurken | 360 g (Kühne) | lang (offen Wochen) | 30 | 0,9 g | 1,3 g | 4,9 g | 0,2 g | 0,1 g | 1,6 g | ja | ganzjährig | Brotbelag; salzreich |
 
@@ -140,10 +140,10 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Beeren, TK (Himbeeren, Erdbeeren, Heidelbeeren) | 500 g (REWE Beste Wahl, ja! Beeren-Mischung); Brombeeren 300 g (REWE Bio) | lang | 40 | 1 g | 4 g | 7,8 g | 0,5 g | 0,1 g | 0 | ja | ganzjährig | Portion 100 g; Himbeeren 5 g Ballaststoffe; reine Heidelbeeren siehe eigene Zeile |
 | Heidelbeeren, TK | 500 g (REWE Beste Wahl Kulturheidelbeeren) | lang | 52 | 0,7 g | 2,4 g | 11 g | 0 | 0 | 0 | ja | ganzjährig | Etikett 8.9.2026; Portion 125 g; weniger Ballaststoffe als die Beeren-Mischung |
 | Mango, TK, gewürfelt | 500 g (REWE Beste Wahl), 300 g (REWE Bio) | lang | 60 | 0,6 g | 1,7 g | 16 g | 0,4 g | 0,1 g | 0 | ja | ganzjährig | |
-| Datteln, entsteint | 200 g, 500 g (Seeberger) | lang | 290 | 2 g | 8 g | 66 g | 0,5 g | 0,1 g | 0 | Trockenobst | ganzjährig | 25 g = 1 Portion Trockenobst |
-| Sultaninen | 200 g (REWE Bio), 500 g (Seeberger) | lang | 300 | 2,5 g | 5 g | 68 g | 0,5 g | 0,2 g | 0 | Trockenobst | ganzjährig | 25 g = 1 Portion Trockenobst |
-| Aprikosen, getrocknet | 125 g, 200 g (Seeberger) | lang | 275 | 4,8 g | 8 g | 55 g | 0,5 g | 0,1 g | 0 | Trockenobst | ganzjährig | 25 g = 1 Portion Trockenobst; Kaliumquelle der DGE-Speisepläne |
-| Pflaumen, getrocknet | 150 g (Farmer's Snack Bio), 250 g (Seeberger) | lang | 240 | 2 g | 7 g | 54 g | 0 | 0 | 0 | Trockenobst | ganzjährig | 25 g = 1 Portion Trockenobst; Kalium |
+| Datteln, entsteint | 200 g, 500 g (Seeberger) | lang | 290 | 2 g | 8 g | 66 g | 0,5 g | 0,1 g | 0 | Trockenobst | ganzjährig |  |
+| Sultaninen | 200 g (REWE Bio), 500 g (Seeberger) | lang | 300 | 2,5 g | 5 g | 68 g | 0,5 g | 0,2 g | 0 | Trockenobst | ganzjährig |  |
+| Aprikosen, getrocknet | 125 g, 200 g (Seeberger) | lang | 275 | 4,8 g | 8 g | 55 g | 0,5 g | 0,1 g | 0 | Trockenobst | ganzjährig | Kaliumquelle der DGE-Speisepläne |
+| Pflaumen, getrocknet | 150 g (Farmer's Snack Bio), 250 g (Seeberger) | lang | 240 | 2 g | 7 g | 54 g | 0 | 0 | 0 | Trockenobst | ganzjährig | Kalium |
 
 ## Nüsse, Samen, Nussmus
 
@@ -260,10 +260,10 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 
 | Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Passierte Tomaten | 500 g (REWE Beste Wahl, REWE Bio), 400 g, 700 g | lang (offen 3 Tage) | 30 | 1,3 g | 1 g | 4 g | 0,2 g | 0,1 g | 0,5 g | ja | zählt als Gemüse |
+| Passierte Tomaten | 500 g (REWE Beste Wahl, REWE Bio), 400 g, 700 g | lang (offen 3 Tage) | 30 | 1,3 g | 1 g | 4 g | 0,2 g | 0,1 g | 0,5 g | ja |  |
 | Stückige Tomaten, Dose | 400 g | lang | 25 | 1,2 g | 1 g | 3,5 g | 0,2 g | 0 | 0,2 g | ja | |
-| Tomatenmark | 200 g Tube | lang (offen Wochen) | 90 | 4 g | 3 g | 14 g | 0,5 g | 0,1 g | 0,5 g | ja | 1 EL = 15 g; zählt als Gemüse |
-| Mais, Dose | abgetropft 140 g oder 285 g | lang | 80 | 2,5 g | 3 g | 13 g | 1,2 g | 0,2 g | 0,4 g | ja | zählt als Gemüse |
+| Tomatenmark | 200 g Tube | lang (offen Wochen) | 90 | 4 g | 3 g | 14 g | 0,5 g | 0,1 g | 0,5 g | ja | 1 EL = 15 g |
+| Mais, Dose | abgetropft 140 g oder 285 g | lang | 80 | 2,5 g | 3 g | 13 g | 1,2 g | 0,2 g | 0,4 g | ja |  |
 | Kokosmilch, vollfett | 400 ml (REWE Beste Wahl cremig) | lang (offen 3 Tage) | 183 | 1,5 g | 0 | 3,1 g | 18 g | 16,7 g | 0 | – | Etikett REWE 18.9.2026 |
 | Kokosmilch, fettreduziert | 400 ml (REWE Beste Wahl, REWE Bio) | lang (offen 3 Tage) | 118 | 1 g | 0,5 g | 1,3 g | 12 g | 10,7 g | 0 | – | Etikett REWE 18.9.2026; spart je Dose rund 26 g gesättigte Fettsäuren |
 | Oliven, ohne Stein | 135–180 g | lang (offen Wochen) | 150 | 1 g | 3 g | 1 g | 14 g | 2 g | 3,0 g | – | |
@@ -296,7 +296,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Orangensaft | 1 l (REWE Beste Wahl) | lang (offen 5 Tage) | 45 | 0,7 g | 0 | 8,5 g | 0,2 g | 0 | 0 | ja | Glas 200 ml; DGE: 2 Gläser je Woche |
 | Apfelsaft naturtrüb | 1 l | lang (offen 5 Tage) | 45 | 0,1 g | 0 | 11 g | 0,1 g | 0 | 0 | ja | |
-| Tomatensaft | 1 l | lang (offen 5 Tage) | 20 | 1 g | 1 g | 3 g | 0,5 g | 0 | 0,6 g | ja | zählt bei der DGE als Gemüseportion |
+| Tomatensaft | 1 l | lang (offen 5 Tage) | 20 | 1 g | 1 g | 3 g | 0,5 g | 0 | 0,6 g | ja |  |
 | Mineralwasser, calciumreich (> 150 mg/l) | 6 × 1,5 l (Gerolsteiner Medium, 348 mg Calcium/l) | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | DGE: calciumreiches Mineralwasser zählt als Calciumquelle; DGE-Speisepläne 300 ml/Tag |
 | Kaffee, Tee, ungesüßt | – | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | zählen zu den 1,5 l; laut DGE 3–4 Tassen |
 | Light-Getränke (Cola Zero) | 1 l; 6 × 0,5 l | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | zählen zu den 1,5 l; DGE: „weniger empfehlenswert" wegen Süß-, Farb- und Aromastoffen |
