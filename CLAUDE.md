@@ -1,8 +1,3 @@
-# Berechnung von Nährwerten
-
-Nährwerte immer aus den Zutatenmengen vorwärts rechnen, nie rückwärts vom
-Ziel; eine Summe, die das Ziel exakt trifft, ist ein Warnsignal.
-
 # REWE Online als Nährwertquelle
 
 - REWE Online (shop.rewe.de) ist die Referenz für Packungsgrößen und Etikett-Nährwerte.
