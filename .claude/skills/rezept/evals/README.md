@@ -1,6 +1,6 @@
 # Eval-Suite für `rezept`
 
-Siebzehn Fälle gegen den Skill, jeder mit drei Läufen:
+Achtzehn Fälle gegen den Skill, jeder mit drei Läufen:
 
 ```bash
 claude plugin eval . --scaffold --allow-tools Bash --ablation none
@@ -36,6 +36,7 @@ Datei gehört zu `wochenplan`.
 | `zutaten-mit-zustand` | „Zu jeder Zutat der Zustand …" | 0 von 3 |
 | `haushaltsuebliche-mengen` | „Mengen in Gramm oder haushaltsüblichen Maßen." | 2 von 3 |
 | `schritte-nennen-mengen` | „Nenne in jedem Schritt die Menge jeder Zutat erneut …" | 2 von 3 |
+| `pruefung-vor-der-ausgabe` | „Lass das fertige Rezept von einem Subagenten prüfen …" | 0 von 3 |
 | `naehrwerttabelle` | – | 3 von 3 |
 | `zeit-aktiv-und-gerundet` | – | 3 von 3 |
 | `vorrat-schlaegt-wunsch` | – | 3 von 3 |
@@ -45,8 +46,8 @@ Datei gehört zu `wochenplan`.
 | `rechnet-mit-dem-skript` | – | 3 von 3 |
 | `vorratskammer-regeln` | – | 3 von 3 |
 
-Die oberen zwölf Zeilen sind Belege: ohne ihre Zeile rot, mit ihr als einziger
-zurückgebauter Zeile wieder grün. Die unteren acht Fälle sind Absicherungen –
+Die oberen dreizehn Zeilen sind Belege: ohne ihre Zeile rot, mit ihr als
+einziger zurückgebauter Zeile wieder grün. Die unteren acht Fälle sind Absicherungen –
 sie halten fest, was das Modell heute von selbst richtig macht, und schlagen
 an, wenn sich das ändert.
 
