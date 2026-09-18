@@ -193,7 +193,8 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Ziegenfrischkäse | 2 × 60 g (Bettine), 150 g | frisch | 275 | 16,5 g | 0 | 3,1 g | 22 g | 17 g | 0,8 g | 30 g je Scheibe Brot |
 | Camembert | 250 g (Le Rustique), 125 g (REWE Beste Wahl) | Wochen (offen 5 Tage) | 270 | 21 g | 0 | 1 g | 20 g | 14 g | 1,6 g | Portion 30 g |
 | Ricotta | 250 g (Galbani) | frisch (offen 3 Tage) | 165 | 8 g | 0 | 6 g | 12 g | 8,3 g | 0,4 g | Aufstrich, Pasta, Pfannkuchenfüllung |
-| Saure Sahne, Schmand | 200 g (REWE Bio); Schmand 24 % 200 g | frisch (offen 5 Tage) | 115 (Schmand 240) | 3 g | 0 | 3,3 g | 10 g (Schmand 24 g) | 6,6 g | 0,1 g | Dip, Suppe, Ofenkartoffel |
+| Saure Sahne | 200 g (REWE Bio, Frankenland 10 %) | frisch (offen 5 Tage) | 115 | 3 g | 0 | 3,3 g | 10 g | 6,6 g | 0,1 g | Etikett REWE 18.9.2026; Dip, Suppe, Ofenkartoffel |
+| Schmand | 200 g (Schwälbchen, Frankenland, 24 %) | frisch (offen 5 Tage) | 240 | 2,7 g | 0 | 3,4 g | 24 g | 15,6 g | 0,1 g | Etikett REWE 18.9.2026; Dip, Suppe, Ofenkartoffel; 2,4 × so fett wie saure Sahne und mit 15,6 g gesättigten Fettsäuren der Posten, an dem gekürzt wird |
 | Schlagsahne 30 % | 200 g, 500 g (Hansano) | frisch (offen 3 Tage) | 295 | 2,5 g | 0 | 3,2 g | 30 g | 22 g | 0,1 g | 2 EL = 30 g für Saucen |
 | Kakaopulver, schwach entölt | 100 g (Dr. Oetker), 250 g | lang | 365 | 20 g | 28 g | 8,9 g | 21 g | 13 g | 0,1 g | 1 TL = 5 g in Quark oder Porridge; ohne Zucker |
 | Butter | 250 g | Wochen | 740 | 0,7 g | 0 | 0,6 g | 82 g | 52 g | 0,1 g | 10 g je Scheibe Brot |
@@ -263,7 +264,8 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Stückige Tomaten, Dose | 400 g | lang | 25 | 1,2 g | 1 g | 3,5 g | 0,2 g | 0 | 0,2 g | |
 | Tomatenmark | 200 g Tube | lang (offen Wochen) | 90 | 4 g | 3 g | 14 g | 0,5 g | 0,1 g | 0,5 g | 1 EL = 15 g; zählt als Gemüse |
 | Mais, Dose | abgetropft 140 g oder 285 g | lang | 80 | 2,5 g | 3 g | 13 g | 1,2 g | 0,2 g | 0,4 g | zählt als Gemüse |
-| Kokosmilch | 400 ml; fettreduziert 400 ml | lang (offen 3 Tage) | 180 (fettreduziert 100) | 1,5 g | 0 | 3 g | 18 g (fettreduziert 12 g) | 16 g (fettreduziert 11) | 0,1 g | |
+| Kokosmilch, vollfett | 400 ml (REWE Beste Wahl cremig) | lang (offen 3 Tage) | 183 | 1,5 g | 0 | 3,1 g | 18 g | 16,7 g | 0 | Etikett REWE 18.9.2026 |
+| Kokosmilch, fettreduziert | 400 ml (REWE Beste Wahl, REWE Bio) | lang (offen 3 Tage) | 118 | 1 g | 0,5 g | 1,3 g | 12 g | 10,7 g | 0 | Etikett REWE 18.9.2026; spart je Dose rund 26 g gesättigte Fettsäuren |
 | Oliven, ohne Stein | 135–180 g | lang (offen Wochen) | 150 | 1 g | 3 g | 1 g | 14 g | 2 g | 3,0 g | |
 | Sauerkraut | 400 g (REWE Beste Wahl), 650 g (REWE Bio) | lang (offen 1 Woche) | 20 | 1,5 g | 3 g | 1,9 g | 0,5 g | 0,1 g | 1,2 g | |
 | Gemüsebrühe, Pulver | 140 g (REWE Bio) | lang | – | – | – | – | – | – | ≈ 50 g | 1 TL = 5 g ≈ 2,5 g Salz |

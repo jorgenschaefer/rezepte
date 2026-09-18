@@ -118,6 +118,39 @@ test('die Tabelle nennt die Zeilen, die das Antwortformat verlangt', () => {
   }
 })
 
+test('Schmand und saure Sahne sind eigene Zeilen mit eigenen Werten', () => {
+  const sahne = findeZutat(katalog, 'Saure Sahne')
+  const schmand = findeZutat(katalog, 'Schmand')
+
+  assert.equal(sahne.kcal, 115)
+  assert.equal(sahne.fett, 10)
+  assert.equal(schmand.kcal, 240)
+  assert.equal(schmand.fett, 24)
+})
+
+test('fettreduzierte Kokosmilch ist eine eigene Zeile mit eigenen Werten', () => {
+  const voll = findeZutat(katalog, 'Kokosmilch, vollfett')
+  const reduziert = findeZutat(katalog, 'Kokosmilch, fettreduziert')
+
+  assert.equal(voll.kcal, 183)
+  assert.equal(voll.fett, 18)
+  assert.equal(reduziert.kcal, 118)
+  assert.equal(reduziert.fett, 12)
+})
+
+test('der bloße Name „Kokosmilch" ist jetzt mehrdeutig und bricht ab', () => {
+  assert.throws(
+    () => findeZutat(katalog, 'Kokosmilch'),
+    (fehler) => {
+      assert.match(fehler.message, /mehrdeutig/)
+      assert.match(fehler.message, /Kokosmilch, vollfett/)
+      assert.match(fehler.message, /Kokosmilch, fettreduziert/)
+
+      return true
+    },
+  )
+})
+
 function runde(zahl, stellen = 0) {
   return Number(zahl.toFixed(stellen))
 }
