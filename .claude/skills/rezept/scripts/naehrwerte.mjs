@@ -8,12 +8,14 @@ import { readFileSync, existsSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-// Eine Portion Obst oder Gemüse nach DGE; Trockenobst zählt mit 25 g (zutaten.md).
+// Eine Portion Obst oder Gemüse nach DGE; Trockenobst zählt mit 25 g
+// (dge-wochenbilanz.md). Welche Zeile dazugehört, sagt allein die O/G-Spalte
+// des Katalogs – nicht die Abschnittsüberschrift und nicht der Hinweistext.
 const PORTION_GRAMM = 110
 const TROCKENOBST_PORTION_GRAMM = 25
 
-const GEMUESESEKTIONEN = new Set(['Gemüse, frisch', 'Gemüse, tiefgekühlt'])
-const OBSTSEKTIONEN = new Set(['Obst'])
+const OBST_UND_GEMUESE = 'ja'
+const TROCKENOBST = 'Trockenobst'
 
 const SPALTEN = {
   kcal: 'kcal',
@@ -28,12 +30,10 @@ const SPALTEN = {
 export function leseKatalog(text) {
   const zeilen = text.split('\n')
   const rows = []
-  let sektion = ''
   let kopf = null
 
   for (const zeile of zeilen) {
     if (zeile.startsWith('## ')) {
-      sektion = zeile.slice(3).trim()
       kopf = null
       continue
     }
@@ -49,7 +49,7 @@ export function leseKatalog(text) {
     }
     if (!kopf || zellen.every((z) => /^-+$/.test(z))) continue
 
-    rows.push(baueZeile(sektion, kopf, zellen))
+    rows.push(baueZeile(kopf, zellen))
   }
 
   return rows
@@ -130,24 +130,19 @@ export function formatiereTabelle(summe, portionen = 1) {
   ].join('\n')
 }
 
-function baueZeile(sektion, kopf, zellen) {
+function baueZeile(kopf, zellen) {
+  // Abschnitte ohne O/G-Spalte liefern hier undefined – kein Obst und Gemüse.
   const hole = (spalte) => zellen[kopf.indexOf(spalte)]
-  const hinweis = zellen[zellen.length - 1] ?? ''
+  const obstGemuese = hole('O/G')
   const zeile = {
     zutat: zellen[0],
-    sektion,
-    hinweis,
-    trockenobst: hinweis.includes('Portion Trockenobst'),
+    trockenobst: obstGemuese === TROCKENOBST,
+    zaehltAlsObstGemuese: obstGemuese === OBST_UND_GEMUESE || obstGemuese === TROCKENOBST,
   }
 
   for (const [schluessel, spalte] of Object.entries(SPALTEN)) {
     zeile[schluessel] = leseZahl(hole(spalte))
   }
-
-  zeile.zaehltAlsObstGemuese =
-    GEMUESESEKTIONEN.has(sektion) ||
-    OBSTSEKTIONEN.has(sektion) ||
-    hinweis.includes('zählt als Gemüse')
 
   return zeile
 }

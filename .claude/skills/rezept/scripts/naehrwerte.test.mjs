@@ -174,6 +174,56 @@ test('eine Klammer in einer Nährwertspalte nennt nur ein Produkt ihrer Zeile', 
   }
 })
 
+test('Säfte zählen als Obst und Gemüse, die DGE führt sie in der Gruppe', () => {
+  assert.equal(berechne(katalog, [{ zutat: 'Tomatensaft', gramm: 200 }]).obstGemuese, 200)
+  assert.equal(berechne(katalog, [{ zutat: 'Orangensaft', gramm: 200 }]).obstGemuese, 200)
+})
+
+test('Würzmengen zählen nicht als Obst und Gemüse', () => {
+  assert.equal(berechne(katalog, [{ zutat: 'Knoblauch', gramm: 10 }]).obstGemuese, 0)
+  assert.equal(berechne(katalog, [{ zutat: 'Ingwer', gramm: 10 }]).obstGemuese, 0)
+})
+
+// Erbsen sind laut dge-wochenbilanz.md eine Hülsenfrucht mit eigenem Ziel,
+// kein Gemüse – auch wenn der Hinweistext der Zeile lange etwas anderes sagte.
+test('Hülsenfrüchte zählen nicht als Obst und Gemüse', () => {
+  assert.equal(berechne(katalog, [{ zutat: 'Erbsen, TK', gramm: 150 }]).obstGemuese, 0)
+  assert.equal(berechne(katalog, [{ zutat: 'Edamame, TK', gramm: 150 }]).obstGemuese, 0)
+})
+
+test('die O/G-Spalte steht in jedem Abschnitt, der Obst und Gemüse führt', () => {
+  const erwartet = [
+    'Gemüse, frisch',
+    'Gemüse, tiefgekühlt',
+    'Obst',
+    'Konserven, Vorrat, Würze',
+    'Getränke',
+  ]
+
+  for (const sektion of erwartet) {
+    const tabelle = leseTabellen().find((t) => t.sektion === sektion)
+
+    assert.ok(tabelle.kopf.includes('O/G'), `Abschnitt „${sektion}" hat keine O/G-Spalte`)
+  }
+})
+
+// Ein versehentlicher ASCII-Bindestrich wäre vom Gedankenstrich nicht zu
+// unterscheiden und ginge still als „zählt nicht" durch – deshalb der
+// Vergleich auf Gleichheit, nicht auf eine Zeichenklasse.
+test('die O/G-Spalte trägt nur ja, Trockenobst oder einen Gedankenstrich', () => {
+  for (const { sektion, kopf, zeilen } of leseTabellen()) {
+    const spalte = kopf.indexOf('O/G')
+    if (spalte === -1) continue
+
+    for (const zellen of zeilen) {
+      assert.ok(
+        ['ja', 'Trockenobst', '–'].includes(zellen[spalte]),
+        `„${zellen[0]}" im Abschnitt „${sektion}" hat den O/G-Wert „${zellen[spalte]}"`,
+      )
+    }
+  }
+})
+
 test('jede Datenzeile hat so viele Zellen wie die Kopfzeile ihres Abschnitts', () => {
   for (const { sektion, kopf, zeilen } of leseTabellen()) {
     for (const zellen of zeilen) {

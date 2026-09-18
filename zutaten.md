@@ -1,6 +1,6 @@
 # Zutatenkatalog – REWE-Packungen, Haltbarkeit, Nährwerte
 
-Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk „im Lieferservice nicht gelistet" gibt es im Markt, die Packung ist die übliche), jeweils die gängigste Größe der Eigenmarken (ja!, REWE Beste Wahl, REWE Bio) oder des marktüblichen Markenprodukts. Nährwerte je 100 g, gerundet – bei Trockenware trocken, bei Konserven abgetropft, bei Fleisch und Fisch roh. kcal, Protein und Ballaststoffe sind übliche Tabellenwerte. Fett und Salz stammen bei Markenprodukten und Konserven vom REWE-Etikett (Stand 5. September 2026), Kohlenhydrate und gesättigte Fettsäuren ebenso (Stand 10. September 2026), bei Rohware jeweils aus Tabellenwerten; wo Marken stark abweichen, steht die Abweichung in Klammern. **Ballaststoffe sind in den Kohlenhydraten nicht enthalten** – die EU-Kennzeichnung führt sie getrennt, und der Katalog übernimmt das. Wer eine Zeile gegenrechnet, setzt deshalb kcal ≈ 4·Kohlenhydrate + 4·Protein + 9·Fett + 2·Ballaststoffe an, nicht die Formel ohne den letzten Summanden. Die Spalte „Saison" bei Obst und Gemüse nennt die Erntezeit in Deutschland oder, wo vermerkt, in Europa; „Lager" heißt aus deutscher Lagerware erhältlich. Für die Wochenplanung reicht diese Genauigkeit. Ein Gedankenstrich heißt: für diese Spalte gibt es in dieser Zeile keinen Wert, sie wird nicht mitgerechnet – und zwar nur die Spalte, in der er steht. Bei Brühe, Sojasauce, Currypaste und Senf stehen die Gedankenstriche bei Energie, Protein, Ballaststoffen und Kohlenhydraten, weil das Würzmengen sind; was dort als Zahl steht, zählt normal mit – bei Currypaste 2 g Fett, bei Senf 4 g Fett und das Salz aller vier Zeilen.
+Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk „im Lieferservice nicht gelistet" gibt es im Markt, die Packung ist die übliche), jeweils die gängigste Größe der Eigenmarken (ja!, REWE Beste Wahl, REWE Bio) oder des marktüblichen Markenprodukts. Nährwerte je 100 g, gerundet – bei Trockenware trocken, bei Konserven abgetropft, bei Fleisch und Fisch roh. kcal, Protein und Ballaststoffe sind übliche Tabellenwerte. Fett und Salz stammen bei Markenprodukten und Konserven vom REWE-Etikett (Stand 5. September 2026), Kohlenhydrate und gesättigte Fettsäuren ebenso (Stand 10. September 2026), bei Rohware jeweils aus Tabellenwerten; wo Marken stark abweichen, steht die Abweichung in Klammern. **Ballaststoffe sind in den Kohlenhydraten nicht enthalten** – die EU-Kennzeichnung führt sie getrennt, und der Katalog übernimmt das. Wer eine Zeile gegenrechnet, setzt deshalb kcal ≈ 4·Kohlenhydrate + 4·Protein + 9·Fett + 2·Ballaststoffe an, nicht die Formel ohne den letzten Summanden. Die Spalte „Saison" bei Obst und Gemüse nennt die Erntezeit in Deutschland oder, wo vermerkt, in Europa; „Lager" heißt aus deutscher Lagerware erhältlich. Für die Wochenplanung reicht diese Genauigkeit. Ein Gedankenstrich heißt: für diese Spalte gibt es in dieser Zeile keinen Wert, sie wird nicht mitgerechnet – und zwar nur die Spalte, in der er steht. Bei Brühe, Sojasauce, Currypaste und Senf stehen die Gedankenstriche bei Energie, Protein, Ballaststoffen und Kohlenhydraten, weil das Würzmengen sind; was dort als Zahl steht, zählt normal mit – bei Currypaste 2 g Fett, bei Senf 4 g Fett und das Salz aller vier Zeilen. Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und **sie allein entscheidet, ob eine Zeile zur DGE-Gruppe „Obst und Gemüse" zählt** – nicht die Abschnittsüberschrift und nicht der Hinweistext. `ja` heißt: 110 g sind eine Portion. `Trockenobst`: 25 g sind eine Portion. Der Gedankenstrich heißt hier nicht „kein Wert", sondern „zählt nicht". Die Zahlen und der Zuschnitt der Gruppe stammen aus `dge-wochenbilanz.md`: Kräuter, Pilze, Trockenfrüchte und Säfte gehören dazu, Hülsenfrüchte dagegen bilden eine eigene Gruppe mit eigenem Ziel – Erbsen, Edamame und Bohnen aus dem Abschnitt „Hülsenfrüchte, Tofu" zählen deshalb nicht mit, grüne Bohnen als Gemüse schon. Knoblauch, Ingwer und Zitronen stehen als Würzmengen auf `–`, Kräuter dagegen auf `ja`, weil die DGE sie ausdrücklich zur Gruppe zählt.
 
 **Haltbarkeitsklassen** (entscheiden, wie viel einer Packung in der Woche verplant sein muss):
 
@@ -71,79 +71,79 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 
 ## Gemüse, frisch
 
-| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Saison | Einheit / Hinweis |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| Paprika | Stück ca. 250 g; Mix 500 g | frisch | 30 | 1 g | 2 g | 5 g | 0,3 g | 0 | 0 | Jul–Okt | hält 7–10 Tage |
-| Tomaten (Rispen, Cherry) | 500 g; Cherry 250–400 g | frisch | 20 | 1 g | 1 g | 3 g | 0,2 g | 0 | 0 | Jul–Okt | |
-| Salatgurke | 1 Stück ca. 400 g | frisch | 12 | 0,6 g | 0,5 g | 2 g | 0,2 g | 0 | 0 | Jun–Sep | |
-| Zucchini | Stück ca. 300 g; 500 g (REWE Bio) | frisch | 20 | 1,5 g | 1 g | 2 g | 0,3 g | 0,1 g | 0 | Jun–Okt | hält 7–10 Tage |
-| Aubergine | 1 Stück ca. 300 g | frisch | 20 | 1 g | 3 g | 2 g | 0,2 g | 0 | 0 | Jul–Sep | |
-| Brokkoli | 500 g; 300 g (REWE Bio) | frisch | 30 | 3 g | 3 g | 2,5 g | 0,2 g | 0 | 0 | Jun–Okt | 3–5 Tage |
-| Blumenkohl | 1 Kopf ca. 500–800 g | frisch | 25 | 2,5 g | 3 g | 2,5 g | 0,3 g | 0,1 g | 0 | Jun–Okt | |
-| Champignons | 250 g; 400 g (weiß) | frisch | 20 | 3 g | 2 g | 0,6 g | 0,3 g | 0 | 0 | ganzjährig | 3–5 Tage |
-| Blattspinat, frisch | 100 g (Babyspinat); 450 g (REWE Beste Wahl) | frisch | 20 | 2,5 g | 2,5 g | 0,6 g | 0,3 g | 0,1 g | 0,2 g | Apr–Jun, Sep–Nov | 2–3 Tage |
-| Romana-Salatherzen | 3 Stück ca. 300 g | frisch | 15 | 1,3 g | 1,5 g | 1,5 g | 0,2 g | 0 | 0 | Mai–Okt | |
-| Eisbergsalat | 1 Kopf ca. 500 g | frisch | 15 | 1 g | 1 g | 2 g | 0,2 g | 0 | 0 | Jun–Okt | hält 7 Tage |
-| Rucola | 125 g; 80 g (REWE Bio) | frisch | 25 | 2,5 g | 1,6 g | 2 g | 0,7 g | 0,1 g | 0,1 g | Apr–Okt | 2–3 Tage |
-| Möhren | 1 kg; Snackmöhren 250 g | Wochen | 35 | 1 g | 3 g | 6,5 g | 0,2 g | 0 | 0,1 g | Jun–Nov, Lager ganzjährig | Möhre ca. 80 g |
-| Zwiebeln | 500 g im Netz, 1 kg (Bahde) | Wochen | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | Lager ganzjährig | Zwiebel ca. 80 g |
-| Rote Zwiebeln | 500 g im Netz | Wochen | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | Lager ganzjährig | |
-| Knoblauch | 100–200 g im Netz | Wochen | – | – | – | – | – | – | – | – | Würzmenge, nicht rechnen |
-| Ingwer | ca. 100 g | Wochen | – | – | – | – | – | – | – | Import | Würzmenge |
-| Porree | 1 Stange ca. 300 g | Wochen | 30 | 2 g | 2,5 g | 3,3 g | 0,3 g | 0 | 0 | Jul–Mär | |
-| Kohlrabi | 1 Stück ca. 350 g | Wochen | 25 | 2 g | 1,5 g | 3,7 g | 0,1 g | 0 | 0 | Mai–Okt | |
-| Weißkohl, Spitzkohl | Kopf ca. 1–1,5 kg | Wochen | 25 | 1,3 g | 3 g | 4 g | 0,2 g | 0 | 0 | Jun–Feb, Lager | angeschnitten 1 Woche |
-| Chinakohl | Kopf ca. 1 kg | Wochen | 15 | 1,2 g | 1,5 g | 1,2 g | 0,3 g | 0 | 0 | Aug–Feb | |
-| Rote Bete, gekocht, vakuumiert | 500 g | Wochen | 45 | 1,5 g | 2,5 g | 8,5 g | 0,1 g | 0 | 0,2 g | Jul–Mär | |
-| Hokkaido-Kürbis | Stück ca. 1 kg | Wochen | 60 | 1,5 g | 2,5 g | 11 g | 0,5 g | 0,1 g | 0 | Sep–Dez | mit Schale essbar |
-| Feldsalat | 150 g | frisch (2–3 Tage) | 15 | 1,8 g | 1,5 g | 0,7 g | 0,4 g | 0,1 g | 0 | Okt–Mär | Folat, Eisen, Calcium (DGE) |
-| Grünkohl | 500 g Beutel frisch; TK 450 g (iglo; im Lieferservice nicht gelistet) | frisch (3 Tage), TK lang | 45 | 4 g | 4 g | 1 g | 1 g | 0,2 g | 0 | Nov–Feb | Calcium- und Folatquelle (DGE); Portion 200 g |
-| Fenchel | Knolle ca. 250 g | Wochen | 25 | 2,4 g | 3 g | 2,8 g | 0,3 g | 0 | 0,1 g | Jun–Okt | roh in Salat oder gebraten |
-| Staudensellerie | 1 Staude ca. 400 g (Bio) | Wochen | 15 | 1,2 g | 1,5 g | 2,2 g | 0,2 g | 0 | 0,2 g | Jul–Nov | Rohkost, Suppe |
-| Lauchzwiebeln | Bund ca. 100 g | frisch (5 Tage) | 30 | 1,8 g | 2 g | 4,5 g | 0,3 g | 0 | 0 | Mai–Okt | Salat, Pfanne |
-| Avocado | 1 Stück ca. 150 g (REWE Bio) | Wochen (reif 2 Tage) | 160 | 2 g | 4 g | 0,4 g | 15 g | 2,1 g | 0 | Import | Fettquelle; DGE-Speisepläne: höchstens einmal je Woche |
-| Kräuter, frisch (Petersilie, Basilikum, Koriander, Schnittlauch) | Bund ca. 30 g oder Topf | frisch (3–5 Tage) | – | – | – | – | – | – | – | Topf ganzjährig | Würzmenge; die DGE zählt Kräuter zu Obst und Gemüse |
-| Zitronen | 500 g im Netz | Wochen | – | – | – | – | – | – | – | Import | Würzmenge |
-| Gewürzgurken | 360 g (Kühne) | lang (offen Wochen) | 30 | 0,9 g | 1,3 g | 4,9 g | 0,2 g | 0,1 g | 1,6 g | ganzjährig | Brotbelag; salzreich |
+| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Saison | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Paprika | Stück ca. 250 g; Mix 500 g | frisch | 30 | 1 g | 2 g | 5 g | 0,3 g | 0 | 0 | ja | Jul–Okt | hält 7–10 Tage |
+| Tomaten (Rispen, Cherry) | 500 g; Cherry 250–400 g | frisch | 20 | 1 g | 1 g | 3 g | 0,2 g | 0 | 0 | ja | Jul–Okt | |
+| Salatgurke | 1 Stück ca. 400 g | frisch | 12 | 0,6 g | 0,5 g | 2 g | 0,2 g | 0 | 0 | ja | Jun–Sep | |
+| Zucchini | Stück ca. 300 g; 500 g (REWE Bio) | frisch | 20 | 1,5 g | 1 g | 2 g | 0,3 g | 0,1 g | 0 | ja | Jun–Okt | hält 7–10 Tage |
+| Aubergine | 1 Stück ca. 300 g | frisch | 20 | 1 g | 3 g | 2 g | 0,2 g | 0 | 0 | ja | Jul–Sep | |
+| Brokkoli | 500 g; 300 g (REWE Bio) | frisch | 30 | 3 g | 3 g | 2,5 g | 0,2 g | 0 | 0 | ja | Jun–Okt | 3–5 Tage |
+| Blumenkohl | 1 Kopf ca. 500–800 g | frisch | 25 | 2,5 g | 3 g | 2,5 g | 0,3 g | 0,1 g | 0 | ja | Jun–Okt | |
+| Champignons | 250 g; 400 g (weiß) | frisch | 20 | 3 g | 2 g | 0,6 g | 0,3 g | 0 | 0 | ja | ganzjährig | 3–5 Tage |
+| Blattspinat, frisch | 100 g (Babyspinat); 450 g (REWE Beste Wahl) | frisch | 20 | 2,5 g | 2,5 g | 0,6 g | 0,3 g | 0,1 g | 0,2 g | ja | Apr–Jun, Sep–Nov | 2–3 Tage |
+| Romana-Salatherzen | 3 Stück ca. 300 g | frisch | 15 | 1,3 g | 1,5 g | 1,5 g | 0,2 g | 0 | 0 | ja | Mai–Okt | |
+| Eisbergsalat | 1 Kopf ca. 500 g | frisch | 15 | 1 g | 1 g | 2 g | 0,2 g | 0 | 0 | ja | Jun–Okt | hält 7 Tage |
+| Rucola | 125 g; 80 g (REWE Bio) | frisch | 25 | 2,5 g | 1,6 g | 2 g | 0,7 g | 0,1 g | 0,1 g | ja | Apr–Okt | 2–3 Tage |
+| Möhren | 1 kg; Snackmöhren 250 g | Wochen | 35 | 1 g | 3 g | 6,5 g | 0,2 g | 0 | 0,1 g | ja | Jun–Nov, Lager ganzjährig | Möhre ca. 80 g |
+| Zwiebeln | 500 g im Netz, 1 kg (Bahde) | Wochen | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | ja | Lager ganzjährig | Zwiebel ca. 80 g |
+| Rote Zwiebeln | 500 g im Netz | Wochen | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | ja | Lager ganzjährig | |
+| Knoblauch | 100–200 g im Netz | Wochen | – | – | – | – | – | – | – | – | – | Würzmenge, nicht rechnen |
+| Ingwer | ca. 100 g | Wochen | – | – | – | – | – | – | – | – | Import | Würzmenge |
+| Porree | 1 Stange ca. 300 g | Wochen | 30 | 2 g | 2,5 g | 3,3 g | 0,3 g | 0 | 0 | ja | Jul–Mär | |
+| Kohlrabi | 1 Stück ca. 350 g | Wochen | 25 | 2 g | 1,5 g | 3,7 g | 0,1 g | 0 | 0 | ja | Mai–Okt | |
+| Weißkohl, Spitzkohl | Kopf ca. 1–1,5 kg | Wochen | 25 | 1,3 g | 3 g | 4 g | 0,2 g | 0 | 0 | ja | Jun–Feb, Lager | angeschnitten 1 Woche |
+| Chinakohl | Kopf ca. 1 kg | Wochen | 15 | 1,2 g | 1,5 g | 1,2 g | 0,3 g | 0 | 0 | ja | Aug–Feb | |
+| Rote Bete, gekocht, vakuumiert | 500 g | Wochen | 45 | 1,5 g | 2,5 g | 8,5 g | 0,1 g | 0 | 0,2 g | ja | Jul–Mär | |
+| Hokkaido-Kürbis | Stück ca. 1 kg | Wochen | 60 | 1,5 g | 2,5 g | 11 g | 0,5 g | 0,1 g | 0 | ja | Sep–Dez | mit Schale essbar |
+| Feldsalat | 150 g | frisch (2–3 Tage) | 15 | 1,8 g | 1,5 g | 0,7 g | 0,4 g | 0,1 g | 0 | ja | Okt–Mär | Folat, Eisen, Calcium (DGE) |
+| Grünkohl | 500 g Beutel frisch; TK 450 g (iglo; im Lieferservice nicht gelistet) | frisch (3 Tage), TK lang | 45 | 4 g | 4 g | 1 g | 1 g | 0,2 g | 0 | ja | Nov–Feb | Calcium- und Folatquelle (DGE); Portion 200 g |
+| Fenchel | Knolle ca. 250 g | Wochen | 25 | 2,4 g | 3 g | 2,8 g | 0,3 g | 0 | 0,1 g | ja | Jun–Okt | roh in Salat oder gebraten |
+| Staudensellerie | 1 Staude ca. 400 g (Bio) | Wochen | 15 | 1,2 g | 1,5 g | 2,2 g | 0,2 g | 0 | 0,2 g | ja | Jul–Nov | Rohkost, Suppe |
+| Lauchzwiebeln | Bund ca. 100 g | frisch (5 Tage) | 30 | 1,8 g | 2 g | 4,5 g | 0,3 g | 0 | 0 | ja | Mai–Okt | Salat, Pfanne |
+| Avocado | 1 Stück ca. 150 g (REWE Bio) | Wochen (reif 2 Tage) | 160 | 2 g | 4 g | 0,4 g | 15 g | 2,1 g | 0 | ja | Import | Fettquelle; DGE-Speisepläne: höchstens einmal je Woche |
+| Kräuter, frisch (Petersilie, Basilikum, Koriander, Schnittlauch) | Bund ca. 30 g oder Topf | frisch (3–5 Tage) | – | – | – | – | – | – | – | ja | Topf ganzjährig | Würzmenge; die DGE zählt Kräuter zu Obst und Gemüse |
+| Zitronen | 500 g im Netz | Wochen | – | – | – | – | – | – | – | – | Import | Würzmenge |
+| Gewürzgurken | 360 g (Kühne) | lang (offen Wochen) | 30 | 0,9 g | 1,3 g | 4,9 g | 0,2 g | 0,1 g | 1,6 g | ja | ganzjährig | Brotbelag; salzreich |
 
 ## Gemüse, tiefgekühlt
 
-| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Kaisergemüse (Brokkoli, Blumenkohl, Möhren) | 1 kg (ja!) | lang | 35 | 2,5 g | 3 g | 5 g | 0,3 g | 0,1 g | 0 | Portion 200 g |
-| Brokkoli, TK | 300 g (REWE Bio) | lang | 30 | 3 g | 3 g | 2,5 g | 0,3 g | 0,1 g | 0 | |
-| Blumenkohl, TK | 1 kg (ja!) | lang | 25 | 2,5 g | 3 g | 2,5 g | 0,3 g | 0,1 g | 0 | |
-| Blattspinat, TK | 600 g (REWE Bio), 500 g (Iglo) | lang | 17 | 2,5 g | 2 g | 0,6 g | 0,1 g | 0 | 0,05 g | Etikett 8.9.2026 (REWE Bio); Iglo 22 kcal, 3 g Protein, 0,5 g Fett und deklariert 603 µg Vitamin A und 52 µg Folat je 100 g; portionierbar; nicht mit Rahm- oder Würzspinat verwechseln |
-| Rosenkohl, TK | 300 g (REWE Bio) | lang | 40 | 4,5 g | 4 g | 3,4 g | 0,3 g | 0,1 g | 0 | |
-| Grüne Bohnen, Brechbohnen, TK | 750 g (ja!; im Lieferservice nicht gelistet) | lang | 30 | 2 g | 3 g | 2,5 g | 0,2 g | 0,2 g | 0 | Gemüse, keine Hülsenfrucht-Portion |
-| Wok-Mix, TK, ungewürzt | 750 g (REWE Beste Wahl) | lang | 42 | 3,1 g | 2,5 g | 5,8 g | 0,4 g | 0 | 0,03 g | Etikett 8.9.2026; 10 Sorten: Mungobohnenkeime 26 %, Kaiserschoten, Porree, Möhren, Erbsen, Bambus, Black Fungus, Wirsing, Pastinake, Paprika; ohne Öl und Sauce |
-| Gemüsemix ohne Sauce, TK | 600 g (Frosta Lieblings Gemüse Mix) | lang | 40 | 2,5 g | 3 g | 5 g | 0,4 g | 0,1 g | 0,1 g | |
-| Gemüse-Mix Italienische Küche, TK | 600 g (Frosta) | lang | 30 | 1,5 g | 2,3 g | 4,1 g | 0,3 g | 0,1 g | 0,04 g | Etikett 8.9.2026; mit 0,04 g Salz je 100 g ungewürzt |
+| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Kaisergemüse (Brokkoli, Blumenkohl, Möhren) | 1 kg (ja!) | lang | 35 | 2,5 g | 3 g | 5 g | 0,3 g | 0,1 g | 0 | ja | Portion 200 g |
+| Brokkoli, TK | 300 g (REWE Bio) | lang | 30 | 3 g | 3 g | 2,5 g | 0,3 g | 0,1 g | 0 | ja | |
+| Blumenkohl, TK | 1 kg (ja!) | lang | 25 | 2,5 g | 3 g | 2,5 g | 0,3 g | 0,1 g | 0 | ja | |
+| Blattspinat, TK | 600 g (REWE Bio), 500 g (Iglo) | lang | 17 | 2,5 g | 2 g | 0,6 g | 0,1 g | 0 | 0,05 g | ja | Etikett 8.9.2026 (REWE Bio); Iglo 22 kcal, 3 g Protein, 0,5 g Fett und deklariert 603 µg Vitamin A und 52 µg Folat je 100 g; portionierbar; nicht mit Rahm- oder Würzspinat verwechseln |
+| Rosenkohl, TK | 300 g (REWE Bio) | lang | 40 | 4,5 g | 4 g | 3,4 g | 0,3 g | 0,1 g | 0 | ja | |
+| Grüne Bohnen, Brechbohnen, TK | 750 g (ja!; im Lieferservice nicht gelistet) | lang | 30 | 2 g | 3 g | 2,5 g | 0,2 g | 0,2 g | 0 | ja | Gemüse, keine Hülsenfrucht-Portion |
+| Wok-Mix, TK, ungewürzt | 750 g (REWE Beste Wahl) | lang | 42 | 3,1 g | 2,5 g | 5,8 g | 0,4 g | 0 | 0,03 g | ja | Etikett 8.9.2026; 10 Sorten: Mungobohnenkeime 26 %, Kaiserschoten, Porree, Möhren, Erbsen, Bambus, Black Fungus, Wirsing, Pastinake, Paprika; ohne Öl und Sauce |
+| Gemüsemix ohne Sauce, TK | 600 g (Frosta Lieblings Gemüse Mix) | lang | 40 | 2,5 g | 3 g | 5 g | 0,4 g | 0,1 g | 0,1 g | ja | |
+| Gemüse-Mix Italienische Küche, TK | 600 g (Frosta) | lang | 30 | 1,5 g | 2,3 g | 4,1 g | 0,3 g | 0,1 g | 0,04 g | ja | Etikett 8.9.2026; mit 0,04 g Salz je 100 g ungewürzt |
 
 ## Obst
 
-| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Saison | Einheit / Hinweis |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| Äpfel | 1 kg; 2 kg (regional) | Wochen | 55 | 0,3 g | 2 g | 12 g | 0,3 g | 0 | 0 | Aug–Nov, Lager bis Apr | Apfel ca. 180 g |
-| Bananen | Stück ca. 200 g, einzeln | frisch | 90 | 1,2 g | 2 g | 20 g | 0,2 g | 0,1 g | 0 | Import | 4–6 Tage, grün kaufen |
-| Orangen | 1 kg; 1,5 kg im Netz | Wochen | 45 | 1 g | 2 g | 9 g | 0,2 g | 0 | 0 | Nov–Mär (Europa) | Orange ca. 200 g |
-| Mandarinen | 750 g im Netz | Wochen | 50 | 0,8 g | 1,7 g | 10,5 g | 0,3 g | 0 | 0 | Nov–Jan | Stück ca. 60 g |
-| Birnen | 500 g (REWE Bio); 1 kg | frisch | 55 | 0,5 g | 3 g | 12 g | 0,3 g | 0 | 0 | Aug–Nov | Birne ca. 180 g |
-| Kiwi | Stück ca. 80 g, einzeln | Wochen | 55 | 1 g | 2 g | 10 g | 0,6 g | 0 | 0 | Nov–Mär (Europa) | |
-| Trauben, kernlos | 500 g | frisch | 70 | 0,7 g | 1,5 g | 16 g | 0,3 g | 0,1 g | 0 | Aug–Okt (Europa) | |
-| Heidelbeeren, frisch | 300 g; 500 g | frisch | 45 | 0,6 g | 3 g | 7 g | 0,6 g | 0 | 0 | Jun–Sep | 3–5 Tage |
-| Erdbeeren, frisch | 500 g (REWE Beste Wahl) | frisch (2 Tage) | 35 | 0,7 g | 2 g | 6 g | 0,4 g | 0 | 0 | Mai–Jul | |
-| Himbeeren, frisch | 125 g | frisch (1–2 Tage) | 35 | 1,3 g | 5 g | 4,8 g | 0,3 g | 0 | 0 | Jun–Sep | |
-| Nektarinen, Pfirsiche | 350 g (REWE Bio), lose | frisch (3–5 Tage) | 45 | 0,9 g | 2 g | 9 g | 0,1 g | 0 | 0 | Jun–Sep (Europa) | Stück ca. 130 g |
-| Pflaumen, Zwetschgen | 500 g (REWE Bio) | frisch (4–6 Tage) | 50 | 0,6 g | 1,7 g | 10 g | 0,2 g | 0 | 0 | Jul–Okt | |
-| Wassermelone | Mini ca. 2 kg | Wochen (angeschnitten 3 Tage) | 30 | 0,6 g | 0,3 g | 7 g | 0,2 g | 0 | 0 | Jun–Sep (Europa) | Portion 250 g |
-| Beeren, TK (Himbeeren, Erdbeeren, Heidelbeeren) | 500 g (REWE Beste Wahl, ja! Beeren-Mischung); Brombeeren 300 g (REWE Bio) | lang | 40 | 1 g | 4 g | 7,8 g | 0,5 g | 0,1 g | 0 | ganzjährig | Portion 100 g; Himbeeren 5 g Ballaststoffe; reine Heidelbeeren siehe eigene Zeile |
-| Heidelbeeren, TK | 500 g (REWE Beste Wahl Kulturheidelbeeren) | lang | 52 | 0,7 g | 2,4 g | 11 g | 0 | 0 | 0 | ganzjährig | Etikett 8.9.2026; Portion 125 g; weniger Ballaststoffe als die Beeren-Mischung |
-| Mango, TK, gewürfelt | 500 g (REWE Beste Wahl), 300 g (REWE Bio) | lang | 60 | 0,6 g | 1,7 g | 16 g | 0,4 g | 0,1 g | 0 | ganzjährig | |
-| Datteln, entsteint | 200 g, 500 g (Seeberger) | lang | 290 | 2 g | 8 g | 66 g | 0,5 g | 0,1 g | 0 | ganzjährig | 25 g = 1 Portion Trockenobst |
-| Sultaninen | 200 g (REWE Bio), 500 g (Seeberger) | lang | 300 | 2,5 g | 5 g | 68 g | 0,5 g | 0,2 g | 0 | ganzjährig | 25 g = 1 Portion Trockenobst |
-| Aprikosen, getrocknet | 125 g, 200 g (Seeberger) | lang | 275 | 4,8 g | 8 g | 55 g | 0,5 g | 0,1 g | 0 | ganzjährig | 25 g = 1 Portion Trockenobst; Kaliumquelle der DGE-Speisepläne |
-| Pflaumen, getrocknet | 150 g (Farmer's Snack Bio), 250 g (Seeberger) | lang | 240 | 2 g | 7 g | 54 g | 0 | 0 | 0 | ganzjährig | 25 g = 1 Portion Trockenobst; Kalium |
+| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Saison | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Äpfel | 1 kg; 2 kg (regional) | Wochen | 55 | 0,3 g | 2 g | 12 g | 0,3 g | 0 | 0 | ja | Aug–Nov, Lager bis Apr | Apfel ca. 180 g |
+| Bananen | Stück ca. 200 g, einzeln | frisch | 90 | 1,2 g | 2 g | 20 g | 0,2 g | 0,1 g | 0 | ja | Import | 4–6 Tage, grün kaufen |
+| Orangen | 1 kg; 1,5 kg im Netz | Wochen | 45 | 1 g | 2 g | 9 g | 0,2 g | 0 | 0 | ja | Nov–Mär (Europa) | Orange ca. 200 g |
+| Mandarinen | 750 g im Netz | Wochen | 50 | 0,8 g | 1,7 g | 10,5 g | 0,3 g | 0 | 0 | ja | Nov–Jan | Stück ca. 60 g |
+| Birnen | 500 g (REWE Bio); 1 kg | frisch | 55 | 0,5 g | 3 g | 12 g | 0,3 g | 0 | 0 | ja | Aug–Nov | Birne ca. 180 g |
+| Kiwi | Stück ca. 80 g, einzeln | Wochen | 55 | 1 g | 2 g | 10 g | 0,6 g | 0 | 0 | ja | Nov–Mär (Europa) | |
+| Trauben, kernlos | 500 g | frisch | 70 | 0,7 g | 1,5 g | 16 g | 0,3 g | 0,1 g | 0 | ja | Aug–Okt (Europa) | |
+| Heidelbeeren, frisch | 300 g; 500 g | frisch | 45 | 0,6 g | 3 g | 7 g | 0,6 g | 0 | 0 | ja | Jun–Sep | 3–5 Tage |
+| Erdbeeren, frisch | 500 g (REWE Beste Wahl) | frisch (2 Tage) | 35 | 0,7 g | 2 g | 6 g | 0,4 g | 0 | 0 | ja | Mai–Jul | |
+| Himbeeren, frisch | 125 g | frisch (1–2 Tage) | 35 | 1,3 g | 5 g | 4,8 g | 0,3 g | 0 | 0 | ja | Jun–Sep | |
+| Nektarinen, Pfirsiche | 350 g (REWE Bio), lose | frisch (3–5 Tage) | 45 | 0,9 g | 2 g | 9 g | 0,1 g | 0 | 0 | ja | Jun–Sep (Europa) | Stück ca. 130 g |
+| Pflaumen, Zwetschgen | 500 g (REWE Bio) | frisch (4–6 Tage) | 50 | 0,6 g | 1,7 g | 10 g | 0,2 g | 0 | 0 | ja | Jul–Okt | |
+| Wassermelone | Mini ca. 2 kg | Wochen (angeschnitten 3 Tage) | 30 | 0,6 g | 0,3 g | 7 g | 0,2 g | 0 | 0 | ja | Jun–Sep (Europa) | Portion 250 g |
+| Beeren, TK (Himbeeren, Erdbeeren, Heidelbeeren) | 500 g (REWE Beste Wahl, ja! Beeren-Mischung); Brombeeren 300 g (REWE Bio) | lang | 40 | 1 g | 4 g | 7,8 g | 0,5 g | 0,1 g | 0 | ja | ganzjährig | Portion 100 g; Himbeeren 5 g Ballaststoffe; reine Heidelbeeren siehe eigene Zeile |
+| Heidelbeeren, TK | 500 g (REWE Beste Wahl Kulturheidelbeeren) | lang | 52 | 0,7 g | 2,4 g | 11 g | 0 | 0 | 0 | ja | ganzjährig | Etikett 8.9.2026; Portion 125 g; weniger Ballaststoffe als die Beeren-Mischung |
+| Mango, TK, gewürfelt | 500 g (REWE Beste Wahl), 300 g (REWE Bio) | lang | 60 | 0,6 g | 1,7 g | 16 g | 0,4 g | 0,1 g | 0 | ja | ganzjährig | |
+| Datteln, entsteint | 200 g, 500 g (Seeberger) | lang | 290 | 2 g | 8 g | 66 g | 0,5 g | 0,1 g | 0 | Trockenobst | ganzjährig | 25 g = 1 Portion Trockenobst |
+| Sultaninen | 200 g (REWE Bio), 500 g (Seeberger) | lang | 300 | 2,5 g | 5 g | 68 g | 0,5 g | 0,2 g | 0 | Trockenobst | ganzjährig | 25 g = 1 Portion Trockenobst |
+| Aprikosen, getrocknet | 125 g, 200 g (Seeberger) | lang | 275 | 4,8 g | 8 g | 55 g | 0,5 g | 0,1 g | 0 | Trockenobst | ganzjährig | 25 g = 1 Portion Trockenobst; Kaliumquelle der DGE-Speisepläne |
+| Pflaumen, getrocknet | 150 g (Farmer's Snack Bio), 250 g (Seeberger) | lang | 240 | 2 g | 7 g | 54 g | 0 | 0 | 0 | Trockenobst | ganzjährig | 25 g = 1 Portion Trockenobst; Kalium |
 
 ## Nüsse, Samen, Nussmus
 
@@ -258,48 +258,48 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 
 ## Konserven, Vorrat, Würze
 
-| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Passierte Tomaten | 500 g (REWE Beste Wahl, REWE Bio), 400 g, 700 g | lang (offen 3 Tage) | 30 | 1,3 g | 1 g | 4 g | 0,2 g | 0,1 g | 0,5 g | zählt als Gemüse |
-| Stückige Tomaten, Dose | 400 g | lang | 25 | 1,2 g | 1 g | 3,5 g | 0,2 g | 0 | 0,2 g | |
-| Tomatenmark | 200 g Tube | lang (offen Wochen) | 90 | 4 g | 3 g | 14 g | 0,5 g | 0,1 g | 0,5 g | 1 EL = 15 g; zählt als Gemüse |
-| Mais, Dose | abgetropft 140 g oder 285 g | lang | 80 | 2,5 g | 3 g | 13 g | 1,2 g | 0,2 g | 0,4 g | zählt als Gemüse |
-| Kokosmilch, vollfett | 400 ml (REWE Beste Wahl cremig) | lang (offen 3 Tage) | 183 | 1,5 g | 0 | 3,1 g | 18 g | 16,7 g | 0 | Etikett REWE 18.9.2026 |
-| Kokosmilch, fettreduziert | 400 ml (REWE Beste Wahl, REWE Bio) | lang (offen 3 Tage) | 118 | 1 g | 0,5 g | 1,3 g | 12 g | 10,7 g | 0 | Etikett REWE 18.9.2026; spart je Dose rund 26 g gesättigte Fettsäuren |
-| Oliven, ohne Stein | 135–180 g | lang (offen Wochen) | 150 | 1 g | 3 g | 1 g | 14 g | 2 g | 3,0 g | |
-| Sauerkraut | 400 g (REWE Beste Wahl), 650 g (REWE Bio) | lang (offen 1 Woche) | 20 | 1,5 g | 3 g | 1,9 g | 0,5 g | 0,1 g | 1,2 g | |
-| Gemüsebrühe, Pulver | 140 g (REWE Bio) | lang | – | – | – | – | – | – | ≈ 50 g | 1 TL = 5 g ≈ 2,5 g Salz |
-| Sojasauce | 250 ml | lang | – | – | – | – | 0 | – | 17 g | 1 EL (15 ml) ≈ 2,5 g Salz |
-| Currypaste (rot, gelb) | 110–125 g | lang (offen Wochen) | – | – | – | – | 2 g | – | 4 g | 1 EL = 20 g |
-| Senf | 200 ml | lang | – | – | – | – | 4 g | – | 2,5 g | |
-| Apfelessig, Weißweinessig | 750 ml (REWE Bio), 500 ml | lang | 15 | 0 | 0 | 0,1 g | 0 | 0 | 0 | 1 EL = 10 g; Dressing |
-| Balsamico-Essig | 500 ml (REWE Beste Wahl) | lang | 90 | 0,5 g | 0 | 17 g | 0 | 0 | 0,1 g | 1 EL = 10 g; die Crema hat 226 kcal und 48 g Zucker je 100 ml |
-| Tahin (Sesammus) | 300 ml (Biozentrale), 250 g (REWE Bio) | lang | 695 | 24 g | 8 g | 10 g | 62 g | 10 g | 0,4 g | 1 EL = 15 g; Hummus, Dressing; zählt zu Nüssen und Samen |
-| Pesto Genovese | 190 g (Barilla), 130 g (REWE Bio) | lang (offen 1 Woche) | 490 | 4,7 g | 3 g | 11 g | 47 g | 5,3 g | 3,2 g | 1 EL = 20 g; fett- und salzreiches Fertigprodukt |
-| Konfitüre, Fruchtaufstrich | 370 g (Bonne Maman), 250 g (REWE Bio Fruchtaufstrich) | lang (offen Wochen) | 240 | 0,4 g | 1 g | 59 g | 0 | 0 | 0 | 1 TL = 10 g; zählt zu den freien Zuckern; DGE-Speisepläne 25 g zum Frühstück |
-| Ketchup ohne Zuckerzusatz | 400 ml (Heinz Zero) | lang (offen Wochen) | 45 | 1,6 g | 1 g | 8 g | 0,1 g | 0 | 0,1 g | 1 EL = 15 g; normaler Ketchup hat 100 kcal, 22 g Zucker und 1,8 g Salz je 100 g |
-| Zitronen-, Limettensaft, Flasche | 200 ml | lang (offen Wochen) | 25 | 0,3 g | 0 | 5,5 g | 0 | 0 | 0 | 1 EL = 10 g; Dressing; Vitamin C verbessert die Eisenaufnahme (DGE) |
-| Salz, jodiert und fluoridiert | 500 g | lang | 0 | 0 | 0 | 0 | 0 | 0 | 100 g | 1 TL = 5 g; in der Rechnung 1 g je warmem Gericht |
-| Gewürze und Scharfes (Pfeffer, Paprika, Curry, Kreuzkümmel, Kurkuma, Zimt, Oregano, Thymian, Chiliflocken, Tabasco, getrocknete Kräuter) | Grundvorrat | lang | – | – | – | – | – | – | – | Würzmenge; DGE: „Runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab" |
-| Süßstoff flüssig, Erythrit, FlavDrops | 300 ml (ja!), 400 g (Borchers) | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Süßen ohne freie Zucker; nicht rechnen |
-| Zucker | 1 kg | lang | 400 | 0 | 0 | 100 g | 0 | 0 | 0 | 1 TL = 4 g; zählt zu den freien Zuckern |
-| Weizenmehl Type 405 oder 550 | 1 kg (REWE Beste Wahl) | lang | 340 | 12 g | 4 g | 69 g | 1 g | 0,1 g | 0 | Pfannkuchen, Binden; kein Vollkorn |
-| Speisestärke | 400 g (Mondamin) | lang | 355 | 0,5 g | 1 g | 86 g | 0,5 g | 0,1 g | 0 | 1 EL = 10 g; Binden |
-| Backpulver, Natron | Päckchen 15 g; 150 g | lang | – | – | – | – | – | – | – | Würzmenge; Pfannkuchen, Bratlinge |
-| Flohsamenschalen | 175 g (Biozentrale), 250 g (REWE Bio) | lang | 205 | 3 g | 85 g | 3,6 g | 1 g | 0,1 g | 0,3 g | 1 TL = 5 g ≈ 4 g Ballaststoffe; in Quark oder Porridge, dazu viel trinken |
-| Honig | 250 g, 500 g | lang | 310 | 0 | 0 | 76 g | 0 | 0 | 0 | 1 TL = 8 g |
-| Proteinpulver, Whey | 300 g (ESN, More) | lang | 380 | 75 g | 0 | 6,8 g | 5 g | 2,3 g | 1,1 g | 30 g = 115 kcal, 22 g Protein; kein DGE-Lebensmittel, nur auf Wunsch |
+| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Passierte Tomaten | 500 g (REWE Beste Wahl, REWE Bio), 400 g, 700 g | lang (offen 3 Tage) | 30 | 1,3 g | 1 g | 4 g | 0,2 g | 0,1 g | 0,5 g | ja | zählt als Gemüse |
+| Stückige Tomaten, Dose | 400 g | lang | 25 | 1,2 g | 1 g | 3,5 g | 0,2 g | 0 | 0,2 g | ja | |
+| Tomatenmark | 200 g Tube | lang (offen Wochen) | 90 | 4 g | 3 g | 14 g | 0,5 g | 0,1 g | 0,5 g | ja | 1 EL = 15 g; zählt als Gemüse |
+| Mais, Dose | abgetropft 140 g oder 285 g | lang | 80 | 2,5 g | 3 g | 13 g | 1,2 g | 0,2 g | 0,4 g | ja | zählt als Gemüse |
+| Kokosmilch, vollfett | 400 ml (REWE Beste Wahl cremig) | lang (offen 3 Tage) | 183 | 1,5 g | 0 | 3,1 g | 18 g | 16,7 g | 0 | – | Etikett REWE 18.9.2026 |
+| Kokosmilch, fettreduziert | 400 ml (REWE Beste Wahl, REWE Bio) | lang (offen 3 Tage) | 118 | 1 g | 0,5 g | 1,3 g | 12 g | 10,7 g | 0 | – | Etikett REWE 18.9.2026; spart je Dose rund 26 g gesättigte Fettsäuren |
+| Oliven, ohne Stein | 135–180 g | lang (offen Wochen) | 150 | 1 g | 3 g | 1 g | 14 g | 2 g | 3,0 g | – | |
+| Sauerkraut | 400 g (REWE Beste Wahl), 650 g (REWE Bio) | lang (offen 1 Woche) | 20 | 1,5 g | 3 g | 1,9 g | 0,5 g | 0,1 g | 1,2 g | ja | |
+| Gemüsebrühe, Pulver | 140 g (REWE Bio) | lang | – | – | – | – | – | – | ≈ 50 g | – | 1 TL = 5 g ≈ 2,5 g Salz |
+| Sojasauce | 250 ml | lang | – | – | – | – | 0 | – | 17 g | – | 1 EL (15 ml) ≈ 2,5 g Salz |
+| Currypaste (rot, gelb) | 110–125 g | lang (offen Wochen) | – | – | – | – | 2 g | – | 4 g | – | 1 EL = 20 g |
+| Senf | 200 ml | lang | – | – | – | – | 4 g | – | 2,5 g | – | |
+| Apfelessig, Weißweinessig | 750 ml (REWE Bio), 500 ml | lang | 15 | 0 | 0 | 0,1 g | 0 | 0 | 0 | – | 1 EL = 10 g; Dressing |
+| Balsamico-Essig | 500 ml (REWE Beste Wahl) | lang | 90 | 0,5 g | 0 | 17 g | 0 | 0 | 0,1 g | – | 1 EL = 10 g; die Crema hat 226 kcal und 48 g Zucker je 100 ml |
+| Tahin (Sesammus) | 300 ml (Biozentrale), 250 g (REWE Bio) | lang | 695 | 24 g | 8 g | 10 g | 62 g | 10 g | 0,4 g | – | 1 EL = 15 g; Hummus, Dressing; zählt zu Nüssen und Samen |
+| Pesto Genovese | 190 g (Barilla), 130 g (REWE Bio) | lang (offen 1 Woche) | 490 | 4,7 g | 3 g | 11 g | 47 g | 5,3 g | 3,2 g | – | 1 EL = 20 g; fett- und salzreiches Fertigprodukt |
+| Konfitüre, Fruchtaufstrich | 370 g (Bonne Maman), 250 g (REWE Bio Fruchtaufstrich) | lang (offen Wochen) | 240 | 0,4 g | 1 g | 59 g | 0 | 0 | 0 | – | 1 TL = 10 g; zählt zu den freien Zuckern; DGE-Speisepläne 25 g zum Frühstück |
+| Ketchup ohne Zuckerzusatz | 400 ml (Heinz Zero) | lang (offen Wochen) | 45 | 1,6 g | 1 g | 8 g | 0,1 g | 0 | 0,1 g | – | 1 EL = 15 g; normaler Ketchup hat 100 kcal, 22 g Zucker und 1,8 g Salz je 100 g |
+| Zitronen-, Limettensaft, Flasche | 200 ml | lang (offen Wochen) | 25 | 0,3 g | 0 | 5,5 g | 0 | 0 | 0 | – | 1 EL = 10 g; Dressing; Vitamin C verbessert die Eisenaufnahme (DGE) |
+| Salz, jodiert und fluoridiert | 500 g | lang | 0 | 0 | 0 | 0 | 0 | 0 | 100 g | – | 1 TL = 5 g; in der Rechnung 1 g je warmem Gericht |
+| Gewürze und Scharfes (Pfeffer, Paprika, Curry, Kreuzkümmel, Kurkuma, Zimt, Oregano, Thymian, Chiliflocken, Tabasco, getrocknete Kräuter) | Grundvorrat | lang | – | – | – | – | – | – | – | – | Würzmenge; DGE: „Runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab" |
+| Süßstoff flüssig, Erythrit, FlavDrops | 300 ml (ja!), 400 g (Borchers) | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Süßen ohne freie Zucker; nicht rechnen |
+| Zucker | 1 kg | lang | 400 | 0 | 0 | 100 g | 0 | 0 | 0 | – | 1 TL = 4 g; zählt zu den freien Zuckern |
+| Weizenmehl Type 405 oder 550 | 1 kg (REWE Beste Wahl) | lang | 340 | 12 g | 4 g | 69 g | 1 g | 0,1 g | 0 | – | Pfannkuchen, Binden; kein Vollkorn |
+| Speisestärke | 400 g (Mondamin) | lang | 355 | 0,5 g | 1 g | 86 g | 0,5 g | 0,1 g | 0 | – | 1 EL = 10 g; Binden |
+| Backpulver, Natron | Päckchen 15 g; 150 g | lang | – | – | – | – | – | – | – | – | Würzmenge; Pfannkuchen, Bratlinge |
+| Flohsamenschalen | 175 g (Biozentrale), 250 g (REWE Bio) | lang | 205 | 3 g | 85 g | 3,6 g | 1 g | 0,1 g | 0,3 g | – | 1 TL = 5 g ≈ 4 g Ballaststoffe; in Quark oder Porridge, dazu viel trinken |
+| Honig | 250 g, 500 g | lang | 310 | 0 | 0 | 76 g | 0 | 0 | 0 | – | 1 TL = 8 g |
+| Proteinpulver, Whey | 300 g (ESN, More) | lang | 380 | 75 g | 0 | 6,8 g | 5 g | 2,3 g | 1,1 g | – | 30 g = 115 kcal, 22 g Protein; kein DGE-Lebensmittel, nur auf Wunsch |
 
 ## Getränke
 
-| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Orangensaft | 1 l (REWE Beste Wahl) | lang (offen 5 Tage) | 45 | 0,7 g | 0 | 8,5 g | 0,2 g | 0 | 0 | Glas 200 ml; DGE: 2 Gläser je Woche |
-| Apfelsaft naturtrüb | 1 l | lang (offen 5 Tage) | 45 | 0,1 g | 0 | 11 g | 0,1 g | 0 | 0 | |
-| Tomatensaft | 1 l | lang (offen 5 Tage) | 20 | 1 g | 1 g | 3 g | 0,5 g | 0 | 0,6 g | zählt bei der DGE als Gemüseportion |
-| Mineralwasser, calciumreich (> 150 mg/l) | 6 × 1,5 l (Gerolsteiner Medium, 348 mg Calcium/l) | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | DGE: calciumreiches Mineralwasser zählt als Calciumquelle; DGE-Speisepläne 300 ml/Tag |
-| Kaffee, Tee, ungesüßt | – | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | zählen zu den 1,5 l; laut DGE 3–4 Tassen |
-| Light-Getränke (Cola Zero) | 1 l; 6 × 0,5 l | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | zählen zu den 1,5 l; DGE: „weniger empfehlenswert" wegen Süß-, Farb- und Aromastoffen |
+| Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Orangensaft | 1 l (REWE Beste Wahl) | lang (offen 5 Tage) | 45 | 0,7 g | 0 | 8,5 g | 0,2 g | 0 | 0 | ja | Glas 200 ml; DGE: 2 Gläser je Woche |
+| Apfelsaft naturtrüb | 1 l | lang (offen 5 Tage) | 45 | 0,1 g | 0 | 11 g | 0,1 g | 0 | 0 | ja | |
+| Tomatensaft | 1 l | lang (offen 5 Tage) | 20 | 1 g | 1 g | 3 g | 0,5 g | 0 | 0,6 g | ja | zählt bei der DGE als Gemüseportion |
+| Mineralwasser, calciumreich (> 150 mg/l) | 6 × 1,5 l (Gerolsteiner Medium, 348 mg Calcium/l) | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | DGE: calciumreiches Mineralwasser zählt als Calciumquelle; DGE-Speisepläne 300 ml/Tag |
+| Kaffee, Tee, ungesüßt | – | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | zählen zu den 1,5 l; laut DGE 3–4 Tassen |
+| Light-Getränke (Cola Zero) | 1 l; 6 × 0,5 l | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | zählen zu den 1,5 l; DGE: „weniger empfehlenswert" wegen Süß-, Farb- und Aromastoffen |
 
 ## Diskretorisches
 
