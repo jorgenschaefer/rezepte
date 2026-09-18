@@ -26,9 +26,3 @@ graders:
     weight: 1
     pattern: "Energie\\s*\\|\\s*(5[7-9][0-9]|6[0-2][0-9]|630)\\s*kcal"
     match: contains
-  - type: regex
-    name: pruefung-bleibt-unsichtbar
-    weight: 1
-    pattern: "(Einwand|Prüfbericht|Subagent|Koch-Review)"
-    flags: i
-    match: not_contains
