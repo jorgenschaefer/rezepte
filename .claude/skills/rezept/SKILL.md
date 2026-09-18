@@ -16,7 +16,7 @@ Wähle die Proteinquelle zufällig aus dem Vorrat.
 
 Wurde keine Kalorienzahl angegeben, nimm 600 kcal.
 
-Lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste und Zubereitung sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur."
+Lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste und Zubereitung sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Korrekturen, die eine neue Zutat brauchen, kennzeichne als optional."
 
 # Format der Antwort
 
