@@ -55,8 +55,45 @@ export function leseKatalog(text) {
   return rows
 }
 
+// Rezepte schreiben die Marke mit („REWE Bio Blattspinat"), der Katalog führt
+// die Zutat („Blattspinat, TK").
+export const MARKEN =
+  /^(?:REWE Bio|REWE Beste Wahl|REWE|ja!|Frosta|Bonduelle|Vantastic foods|Harry|Kölln|Barilla|Bamboo Garden|Iglo|Arla|Heinz)\s+/i
+
+// Wasser hat keine Katalogzeile und trägt zu keiner Spalte bei. Ohne diesen
+// Eintrag fand „150 ml Wasser" über den Präfixtreffer die Wassermelone – und
+// schrieb ihr Gewicht der Obst-und-Gemüse-Zeile gut.
+export const KEINE_ZUTAT =
+  /^(?:kochendes |heißes |kaltes |lauwarmes |warmes )?(?:leitungs)?wasser\b/i
+
+// Schreibweisen derselben Zutat. Der Katalog führt „Möhren", die Rezepte
+// schreiben „Karotte" – so steht es auch im Beispiel des Skills.
+export const SYNONYME = new Map([
+  ['karotte', 'Möhren'],
+  ['karotten', 'Möhren'],
+  ['zitronensaft', 'Zitronen-, Limettensaft'],
+  ['limettensaft', 'Zitronen-, Limettensaft'],
+  ['gemüsebrühepulver', 'Gemüsebrühe, Pulver'],
+  ['gemüsebrühpulver', 'Gemüsebrühe, Pulver'],
+  ['gemüsebrühe-pulver', 'Gemüsebrühe, Pulver'],
+  ['brühpulver', 'Gemüsebrühe, Pulver'],
+  ['vollkorn-fusilli', 'Vollkornnudeln'],
+  ['vollkornfusilli', 'Vollkornnudeln'],
+  ['vollkorn fussili', 'Vollkornnudeln'],
+  ['vollkornnudeln', 'Vollkornnudeln'],
+])
+
+export function istKeineZutat(name) {
+  return KEINE_ZUTAT.test(name.trim())
+}
+
 export function findeZutat(katalog, name) {
-  const gesucht = normalisiere(name)
+  if (istKeineZutat(name)) {
+    throw new Error(`„${name}" ist keine Zutat aus dem Katalog`)
+  }
+
+  const ohneMarke = name.replace(MARKEN, '')
+  const gesucht = normalisiere(SYNONYME.get(normalisiere(ohneMarke)) ?? ohneMarke)
 
   const exakt = katalog.filter((r) => normalisiere(r.zutat) === gesucht)
   if (exakt.length === 1) return exakt[0]
@@ -90,6 +127,9 @@ export function berechne(katalog, posten) {
   }
 
   for (const { zutat, gramm } of posten) {
+    // Wasser steht in Zutatenlisten, trägt aber zu keiner Spalte bei.
+    if (istKeineZutat(zutat)) continue
+
     const zeile = findeZutat(katalog, zutat)
     const faktor = gramm / 100
 

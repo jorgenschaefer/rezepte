@@ -272,3 +272,33 @@ function leseTabellen() {
 function runde(zahl, stellen = 0) {
   return Number(zahl.toFixed(stellen))
 }
+
+// Die drei Fallen aus evals/rezept-lesen.mjs. Jede stammt aus einem echten
+// Lauf; bis hierher waren sie nur im Auswerteskript abgewehrt, nicht in dem
+// Skript, das der Skill selbst aufruft.
+
+test('Wasser findet nicht die Wassermelone', () => {
+  assert.throws(() => findeZutat(katalog, 'Wasser'), /keine Zutat/)
+  assert.throws(() => findeZutat(katalog, 'lauwarmes Wasser'), /keine Zutat/)
+})
+
+test('Wasser in der Rechnung trägt nichts bei, statt abzubrechen', () => {
+  const summe = berechne(katalog, [
+    { zutat: 'Rote Linsen, trocken', gramm: 100 },
+    { zutat: 'Wasser', gramm: 300 },
+  ])
+
+  assert.equal(summe.kcal, 340)
+  assert.equal(summe.obstGemuese, 0)
+})
+
+test('eine Marke vor der Zutat wird abgestreift', () => {
+  assert.equal(findeZutat(katalog, 'REWE Bio Blattspinat, TK').zutat, 'Blattspinat, TK')
+  assert.equal(findeZutat(katalog, 'ja! Vollkornnudeln').zutat, 'Vollkornnudeln (Fusilli, Penne, Spaghetti)')
+})
+
+test('geläufige Schreibweisen finden ihre Katalogzeile', () => {
+  assert.equal(findeZutat(katalog, 'Karotte').zutat, 'Möhren')
+  assert.equal(findeZutat(katalog, 'Karotten').zutat, 'Möhren')
+  assert.equal(findeZutat(katalog, 'Vollkorn Fussili').zutat, 'Vollkornnudeln (Fusilli, Penne, Spaghetti)')
+})

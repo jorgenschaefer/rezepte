@@ -8,37 +8,17 @@
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { findeZutat, leseKatalog } from '../scripts/naehrwerte.mjs'
+import {
+  KEINE_ZUTAT,
+  MARKEN,
+  SYNONYME,
+  findeZutat,
+  leseKatalog,
+} from '../scripts/naehrwerte.mjs'
 
-// Der Katalog führt „Möhren", die Rezepte schreiben „Karotte" – so steht es
-// auch im Beispiel des Skills. Das ist keine Unsauberkeit des Rezepts, also
-// darf es den Lauf nicht unauswertbar machen.
-// Der Katalog führt „Möhren", die Rezepte schreiben „Karotte" – so steht es
-// auch im Beispiel des Skills. Ebenso „Zitronensaft" für die Flasche, die
-// beide Säfte in einer Zeile führt, und „Vollkorn-Fusilli" für die Zeile, die
-// alle drei Nudelformen nennt. Das sind Schreibweisen derselben Zutat, keine
-// Unsauberkeit des Rezepts – sie dürfen den Lauf nicht unauswertbar machen.
-const SYNONYME = new Map([
-  ['karotte', 'Möhren'],
-  ['karotten', 'Möhren'],
-  ['zitronensaft', 'Zitronen-, Limettensaft'],
-  ['limettensaft', 'Zitronen-, Limettensaft'],
-  ['gemüsebrühepulver', 'Gemüsebrühe, Pulver'],
-  ['gemüsebrühpulver', 'Gemüsebrühe, Pulver'],
-  ['gemüsebrühe-pulver', 'Gemüsebrühe, Pulver'],
-  ['brühpulver', 'Gemüsebrühe, Pulver'],
-  ['vollkorn-fusilli', 'Vollkornnudeln'],
-  ['vollkornfusilli', 'Vollkornnudeln'],
-  ['vollkornnudeln', 'Vollkornnudeln'],
-])
-
-// Wasser hat keine Katalogzeile und trägt zu keiner Spalte bei. Ohne diesen
-// Eintrag fand „150 ml Wasser" über den Präfixtreffer die Wassermelone.
-const KEINE_ZUTAT = /^(?:kochendes |heißes |kaltes |lauwarmes )?(?:leitungs)?wasser\b/i
-
-// Rezepte schreiben die Marke mit („REWE Bio Blattspinat"), der Katalog führt
-// die Zutat („Blattspinat, TK").
-const MARKEN = /^(?:REWE Bio|REWE Beste Wahl|REWE|ja!|Frosta|Bonduelle|Vantastic foods|Harry|Kölln|Barilla|Bamboo Garden|Iglo|Arla|Heinz)\s+/i
+// Die Auflösungsregeln – Synonyme, Marken, Wasser – stehen in
+// scripts/naehrwerte.mjs, damit der Rechner des Skills und dieses
+// Auswerteskript dieselben benutzen. Zwei Kopien driften auseinander.
 
 const hier = dirname(fileURLToPath(import.meta.url))
 
