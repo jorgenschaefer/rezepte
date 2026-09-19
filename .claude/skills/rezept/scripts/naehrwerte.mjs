@@ -98,15 +98,19 @@ export function findeZutat(katalog, name) {
   const exakt = katalog.filter((r) => normalisiere(r.zutat) === gesucht)
   if (exakt.length === 1) return exakt[0]
 
-  for (const treffer of [
-    katalog.filter((r) => normalisiere(r.zutat).startsWith(gesucht)),
-    katalog.filter((r) => normalisiere(r.zutat).includes(gesucht)),
-  ]) {
-    if (treffer.length === 1) return treffer[0]
-    if (treffer.length > 1) {
-      throw new Error(
-        `„${name}" ist mehrdeutig – es passen: ${treffer.map((r) => r.zutat).join(', ')}`,
-      )
+  // „Rote Zwiebel" im Rezept, „Rote Zwiebeln" im Katalog – der Plural auf -n
+  // ist dieselbe Zutat, nicht eine zweite.
+  for (const kandidat of [gesucht, gesucht.endsWith('n') ? gesucht.slice(0, -1) : `${gesucht}n`]) {
+    for (const treffer of [
+      katalog.filter((r) => trifftAnWortgrenze(normalisiere(r.zutat), kandidat, 0)),
+      katalog.filter((r) => findeAnWortgrenze(normalisiere(r.zutat), kandidat)),
+    ]) {
+      if (treffer.length === 1) return treffer[0]
+      if (treffer.length > 1) {
+        throw new Error(
+          `„${name}" ist mehrdeutig – es passen: ${treffer.map((r) => r.zutat).join(', ')}`,
+        )
+      }
     }
   }
 
@@ -205,6 +209,28 @@ function teileZeile(zeile) {
     .replace(/\|$/, '')
     .split('|')
     .map((z) => z.trim())
+}
+
+// Ein Treffer zählt nur, wenn er an einer Wortgrenze beginnt und endet.
+// „Curry" traf sonst in „Currypaste" und holte eine Zeile mit Fett und Salz,
+// wo das Gewürzregal gemeint war; „Tofu" traf in „Räuchertofu".
+const WORTZEICHEN = /[\p{L}\p{N}]/u
+
+function trifftAnWortgrenze(text, gesucht, ab) {
+  if (!text.startsWith(gesucht, ab)) return false
+  if (ab > 0 && WORTZEICHEN.test(text[ab - 1])) return false
+
+  const dahinter = text[ab + gesucht.length]
+
+  return dahinter === undefined || !WORTZEICHEN.test(dahinter)
+}
+
+function findeAnWortgrenze(text, gesucht) {
+  for (let ab = text.indexOf(gesucht); ab !== -1; ab = text.indexOf(gesucht, ab + 1)) {
+    if (trifftAnWortgrenze(text, gesucht, ab)) return true
+  }
+
+  return false
 }
 
 function normalisiere(name) {

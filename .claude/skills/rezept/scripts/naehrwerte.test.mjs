@@ -302,3 +302,72 @@ test('geläufige Schreibweisen finden ihre Katalogzeile', () => {
   assert.equal(findeZutat(katalog, 'Karotten').zutat, 'Möhren')
   assert.equal(findeZutat(katalog, 'Vollkorn Fussili').zutat, 'Vollkornnudeln (Fusilli, Penne, Spaghetti)')
 })
+
+// Getroffen wird an Wortgrenzen. Ohne das griff „Curry" mitten in
+// „Currypaste" und holte eine Zeile mit Fett und Salz, wo das Gewürzregal
+// gemeint war.
+
+test('ein Gewürz trifft die Gewürzzeile, nicht die gleichnamige Paste', () => {
+  assert.match(findeZutat(katalog, 'Curry').zutat, /^Gewürze und Scharfes/)
+  assert.equal(findeZutat(katalog, 'Currypaste').zutat, 'Currypaste (rot, gelb)')
+})
+
+test('ein Wortende schützt vor dem Treffer mitten im Wort', () => {
+  assert.equal(findeZutat(katalog, 'Tofu').zutat, 'Tofu natur')
+  assert.equal(findeZutat(katalog, 'Räuchertofu').zutat, 'Räuchertofu')
+})
+
+test('Singular und Plural finden dieselbe Zeile', () => {
+  assert.equal(findeZutat(katalog, 'Zwiebel').zutat, 'Zwiebeln')
+  assert.equal(findeZutat(katalog, 'Rote Zwiebel').zutat, 'Rote Zwiebeln')
+  assert.equal(findeZutat(katalog, 'Banane').zutat, 'Bananen')
+  assert.equal(findeZutat(katalog, 'Möhre').zutat, 'Möhren')
+})
+
+// Die Zuordnung Vorrat -> Katalog, modellfrei. Geprüft wird gegen die
+// eingefrorene Kopie unter evals/, nicht gegen den echten Vorrat: Was heute im
+// Kühlschrank liegt, darf keinen Test rot machen.
+const VORRAT_ZU_KATALOG = new Map([
+  ['Eier', 'Eier, Größe M'],
+  ['Räuchertofu', 'Räuchertofu'],
+  ['Tofu natur', 'Tofu natur'],
+  ['Magerquark', 'Magerquark'],
+  ['Rote Zwiebeln', 'Rote Zwiebeln'],
+  ['Möhren', 'Möhren'],
+  ['Salatgurke', 'Salatgurke'],
+  ['Wok-Mix, TK, ungewürzt', 'Wok-Mix, TK, ungewürzt'],
+  ['Blattspinat, TK', 'Blattspinat, TK'],
+  ['Mais, Dose', 'Mais, Dose'],
+  ['Kidneybohnen, Dose', 'Kidneybohnen, Dose'],
+  ['Schwarze Bohnen, Dose', 'Schwarze Bohnen, Dose'],
+  ['Passierte Tomaten', 'Passierte Tomaten'],
+  ['Haferflocken', 'Haferflocken (zart oder kernig)'],
+  ['Rote Linsen', 'Rote Linsen, trocken'],
+  ['Basmatireis', 'Basmatireis, Langkornreis'],
+  ['Vollkornnudeln', 'Vollkornnudeln (Fusilli, Penne, Spaghetti)'],
+  ['Erdnussmus', 'Erdnussmus, Erdnussbutter'],
+  ['Leinsamen', 'Leinsamen, geschrotet'],
+  ['Olivenöl', 'Olivenöl nativ extra'],
+  ['Rapsöl', 'Rapsöl'],
+  ['Bananen', 'Bananen'],
+])
+
+test('jede Vorratszutat findet ihre Katalogzeile', () => {
+  for (const [vorrat, erwartet] of VORRAT_ZU_KATALOG) {
+    assert.equal(findeZutat(katalog, vorrat).zutat, erwartet, `„${vorrat}"`)
+  }
+})
+
+test('keine Vorratszutat landet in einer Zeile einer anderen Warengruppe', () => {
+  // Die stillen Fehlgriffe, die der Audit gefunden hat: Ein Gewürz darf nicht
+  // in der Paste landen, Wasser nicht in der Melone, Tofu nicht im Räuchertofu.
+  const verboten = [
+    ['Curry', 'Currypaste (rot, gelb)'],
+    ['Tofu', 'Räuchertofu'],
+  ]
+
+  for (const [name, falsch] of verboten) {
+    assert.notEqual(findeZutat(katalog, name).zutat, falsch, `„${name}"`)
+  }
+  assert.throws(() => findeZutat(katalog, 'Wasser'), /keine Zutat/)
+})
