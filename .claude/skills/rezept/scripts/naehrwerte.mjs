@@ -103,6 +103,8 @@ export const SYNONYME = new Map([
   ['gelbe curry paste', 'Currypaste'],
   ['erdnussmus, rewe bio', 'Erdnussmus'],
   ['reis, langkorn/basmati', 'Basmatireis'],
+  ['joghurt 1,5%', 'Naturjoghurt 1,5 %'],
+  ['joghurt 1,5 %', 'Naturjoghurt 1,5 %'],
 ])
 
 export function istKeineZutat(name) {

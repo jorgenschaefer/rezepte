@@ -167,7 +167,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Zutat | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Milch 1,5 % | 1 l (frisch oder H-Milch) | frisch (H-Milch ungeöffnet lang) | 47 | 3,4 g | 0 | 5 g | 1,5 g | 1 g | 0,1 g | Portion 250 ml; offen 3–4 Tage |
-| Naturjoghurt 1,5 % | 500 g (ja!, Weihenstephan), 1 kg (REWE Beste Wahl) | frisch | 50 | 4 g | 0 | 6,3 g | 1,5 g | 1 g | 0,2 g | Portion 150 g; offen 5–7 Tage |
+| Naturjoghurt 1,5 % | 500 g (ja!, Weihenstephan), 1 kg (REWE Beste Wahl) | frisch | 62 | 5,3 g | 0 | 6,3 g | 1,5 g | 1 g | 0,2 g | Etikett ja! 19.9.2026; Portion 150 g; offen 5–7 Tage |
 | Naturjoghurt 3,5–3,8 % | 500 g (REWE Bio), 150 g Becher | frisch | 65 | 4 g | 0 | 4,8 g | 3,5 g | 2,5 g | 0,2 g | |
 | Joghurt griechischer Art 0,2 % | 450 g (Fage Total) | frisch | 57 | 10 g | 0 | 4 g | 0,2 g | 0,1 g | 0,1 g | |
 | Skyr natur | 450 g (Arla), 400 g (REWE Bio) | frisch | 63 | 11 g | 0 | 4 g | 0,2 g | 0,1 g | 0,1 g | |

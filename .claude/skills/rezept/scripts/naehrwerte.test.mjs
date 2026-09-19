@@ -434,8 +434,7 @@ function vorratsname(zeile) {
 }
 
 // Zeilen, die der Katalog bewusst nicht führt: Getränke und Aromen ohne
-// nennenswerte Nährwerte. Joghurt 1,5 % ist etwas anderes – dort fehlt die
-// Katalogzeile, und sie gehört nach REWE-Etikett nachgetragen.
+// nennenswerte Nährwerte.
 const OHNE_KATALOGZEILE = new Set([
   'Coke Zero',
   'Pfefferminztee',
@@ -444,7 +443,6 @@ const OHNE_KATALOGZEILE = new Set([
   'Nescafe Gold Fertig Kaffee',
   'FlavDrops Cocos',
   'FlavDrops Lemon',
-  'Joghurt 1,5%',
 ])
 
 test('jede Zeile aus vorratskammer.md findet genau eine Katalogzeile', () => {
