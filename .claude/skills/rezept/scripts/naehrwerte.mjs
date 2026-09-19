@@ -66,46 +66,12 @@ export const MARKEN =
 export const KEINE_ZUTAT =
   /^(?:kochendes |heißes |kaltes |lauwarmes |warmes )?(?:leitungs)?wasser\b/i
 
-// Schreibweisen derselben Zutat. Der Katalog führt „Möhren", die Rezepte
-// schreiben „Karotte" – so steht es auch im Beispiel des Skills.
-export const SYNONYME = new Map([
-  ['karotte', 'Möhren'],
-  ['karotten', 'Möhren'],
-  ['zitronensaft', 'Zitronen-, Limettensaft'],
-  ['limettensaft', 'Zitronen-, Limettensaft'],
-  ['gemüsebrühepulver', 'Gemüsebrühe, Pulver'],
-  ['gemüsebrühpulver', 'Gemüsebrühe, Pulver'],
-  ['gemüsebrühe-pulver', 'Gemüsebrühe, Pulver'],
-  ['brühpulver', 'Gemüsebrühe, Pulver'],
-  ['vollkorn-fusilli', 'Vollkornnudeln'],
-  ['vollkornfusilli', 'Vollkornnudeln'],
-  ['vollkorn fussili', 'Vollkornnudeln'],
-  ['vollkornnudeln', 'Vollkornnudeln'],
-  ['kaisergemüse, tk', 'Kaisergemüse'],
-  ['sojagranulat', 'Soja-Granulat'],
-  ['soja-granulat', 'Soja-Granulat'],
-  ['sojaschnetzel', 'Soja-Schnetzel'],
-  ['soja schnetzel', 'Soja-Schnetzel'],
-  ['mehl, type 550', 'Weizenmehl Type 405 oder 550'],
-  ['balsamico essig', 'Balsamico-Essig'],
-  // Der Vorrat nennt das Produkt, der Katalog die Warengruppe – die Marke
-  // steht dort in der Packungsspalte, nach der nicht gesucht wird.
-  ['vollkorn urtyp', 'Roggenvollkornbrot, ballaststoffreich'],
-  ['grünländer leicht', 'Schnittkäse leicht in Scheiben'],
-  ['kaergarden balance', 'Butter-Rapsöl-Mischung, ungesalzen, fettreduziert'],
-  ['goldmais', 'Mais, Dose'],
-  ['kulturheidelbeeren, tk', 'Heidelbeeren, TK'],
-  ['beeren-mischung, tk', 'Beeren, TK'],
-  ['lachsfilet, zuchtlachs', 'Lachsfilet, TK'],
-  ['tabasco red pepper sauce', 'Gewürze und Scharfes'],
-  ['senf, mittelscharf', 'Senf'],
-  ['rote curry paste', 'Currypaste'],
-  ['gelbe curry paste', 'Currypaste'],
-  ['erdnussmus, rewe bio', 'Erdnussmus'],
-  ['reis, langkorn/basmati', 'Basmatireis'],
-  ['joghurt 1,5%', 'Naturjoghurt 1,5 %'],
-  ['joghurt 1,5 %', 'Naturjoghurt 1,5 %'],
-])
+// Spalte 1 trägt den exakten REWE-Produktnamen, Spalte 2 den Kochnamen, unter
+// dem Rezepte die Zutat führen – mehrere durch Semikolon getrennt. Gesucht wird
+// über beide, damit „Rapsöl" die Zeile „REWE Bio Rapsöl nativ 500ml" findet.
+function namenVon(zeile) {
+  return zeile.namen
+}
 
 export function istKeineZutat(name) {
   return KEINE_ZUTAT.test(name.trim())
@@ -117,17 +83,18 @@ export function findeZutat(katalog, name) {
   }
 
   const ohneMarke = name.replace(MARKEN, '')
-  const gesucht = normalisiere(SYNONYME.get(normalisiere(ohneMarke)) ?? ohneMarke)
+  const gesucht = normalisiere(ohneMarke)
 
-  const exakt = katalog.filter((r) => normalisiere(r.zutat) === gesucht)
+  const exakt = katalog.filter((r) => namenVon(r).some((n) => n === gesucht))
   if (exakt.length === 1) return exakt[0]
 
   // „Rote Zwiebel" im Rezept, „Rote Zwiebeln" im Katalog – der Plural auf -n
   // ist dieselbe Zutat, nicht eine zweite.
   for (const kandidat of [gesucht, gesucht.endsWith('n') ? gesucht.slice(0, -1) : `${gesucht}n`]) {
     for (const treffer of [
-      katalog.filter((r) => trifftAnWortgrenze(normalisiere(r.zutat), kandidat, 0)),
-      katalog.filter((r) => findeAnWortgrenze(normalisiere(r.zutat), kandidat)),
+      katalog.filter((r) => namenVon(r).some((n) => n === kandidat)),
+      katalog.filter((r) => namenVon(r).some((n) => trifftAnWortgrenze(n, kandidat, 0))),
+      katalog.filter((r) => namenVon(r).some((n) => findeAnWortgrenze(n, kandidat))),
     ]) {
       if (treffer.length === 1) return treffer[0]
       if (treffer.length > 1) {
@@ -202,8 +169,13 @@ function baueZeile(kopf, zellen) {
   // Abschnitte ohne O/G-Spalte liefern hier undefined – kein Obst und Gemüse.
   const hole = (spalte) => zellen[kopf.indexOf(spalte)]
   const obstGemuese = hole('O/G')
+  const kochname = hole('Kochname') ?? ''
   const zeile = {
     zutat: zellen[0],
+    kochname,
+    namen: [zellen[0], ...kochname.split(';')]
+      .map((n) => normalisiere(n))
+      .filter((n) => n && n !== '---'),
     trockenobst: obstGemuese === TROCKENOBST,
     zaehltAlsObstGemuese: obstGemuese === OBST_UND_GEMUESE || obstGemuese === TROCKENOBST,
   }

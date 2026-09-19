@@ -11,14 +11,13 @@ import { fileURLToPath } from 'node:url'
 import {
   KEINE_ZUTAT,
   MARKEN,
-  SYNONYME,
   findeZutat,
   leseKatalog,
 } from '../scripts/naehrwerte.mjs'
 
-// Die Auflösungsregeln – Synonyme, Marken, Wasser – stehen in
-// scripts/naehrwerte.mjs, damit der Rechner des Skills und dieses
-// Auswerteskript dieselben benutzen. Zwei Kopien driften auseinander.
+// Marken und Wasser stehen in scripts/naehrwerte.mjs, damit der Rechner des
+// Skills und dieses Auswerteskript dieselben benutzen. Die Schreibweisen der
+// Rezepte stehen als Kochname in zutaten.md – Daten statt Tabelle im Code.
 
 const hier = dirname(fileURLToPath(import.meta.url))
 
@@ -126,7 +125,7 @@ function zerlege(text) {
 
     if (!name || name.length > NAME_HOECHSTENS) continue
     if (KEINE_ZUTAT.test(name)) continue
-    const eintrag = { name: SYNONYME.get(name.toLowerCase()) ?? name, volltext: volltext.trim() }
+    const eintrag = { name, volltext: volltext.trim() }
 
     if (gramm) mitGramm.push({ ...eintrag, gramm: Number(gramm[1].replace(',', '.')) })
     else ohneGramm.push(eintrag)

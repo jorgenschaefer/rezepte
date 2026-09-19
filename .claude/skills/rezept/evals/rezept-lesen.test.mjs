@@ -23,8 +23,8 @@ test('liest die Grammangabe auch aus der Klammer hinter dem Haushaltsmaß', () =
   assert.equal(posten.name, 'Rapsöl')
 })
 
-test('schreibt Karotte auf die Katalogzeile Möhren um', () => {
-  assert.equal(zutatenliste('- 80 g Karotte, in dünnen Scheiben')[0].name, 'Möhren')
+test('lässt Karotte stehen – aufgelöst wird erst gegen den Kochnamen', () => {
+  assert.equal(zutatenliste('- 80 g Karotte, in dünnen Scheiben')[0].name, 'Karotte')
 })
 
 test('übergeht Zeilen, die keine Zutat sind', () => {
@@ -44,7 +44,7 @@ test('nennt die Zeilen ohne Grammangabe beim Namen', () => {
 
   assert.deepEqual(
     ohneGrammangabe(liste).map((p) => p.name),
-    ['Gemüsebrühe, Pulver', 'Knoblauch', 'Chiliflocken'],
+    ['Gemüsebrühepulver', 'Knoblauch', 'Chiliflocken'],
   )
 })
 
@@ -90,11 +90,11 @@ test('findet die Katalogzeile zu gängigen Schreibweisen', () => {
   assert.deepEqual(
     namen.flatMap((zeile) => zutatenliste(zeile)).map((p) => aufloesen(p).katalogname),
     [
-      'Zitronen-, Limettensaft, Flasche',
-      'Zitronen-, Limettensaft, Flasche',
-      'Gemüsebrühe, Pulver',
-      'Gemüsebrühe, Pulver',
-      'Vollkornnudeln (Fusilli, Penne, Spaghetti)',
+      'REWE Bio Zitronensaft 0,25l',
+      'REWE Bio Limettensaft 250ml',
+      'REWE Bio Gemüsebrühe 140g',
+      'REWE Bio Gemüsebrühe 140g',
+      'Barilla Integrale Vollkorn Fusilli 500g',
     ],
   )
 })
@@ -103,9 +103,9 @@ test('findet die Katalogzeile zu gängigen Schreibweisen', () => {
 // Die Zeile steht im Katalog auf rund 50 g Salz je 100 g. Ein Skript, das sie
 // übergeht, hält eine richtige Tabelle für veraltet.
 test('erkennt, ob eine Zutat ohne Grammangabe Nährwerte trägt', () => {
-  assert.equal(traegtNaehrwerte('Gemüsebrühe, Pulver'), true)
-  assert.equal(traegtNaehrwerte('Rapsöl'), true)
-  assert.equal(traegtNaehrwerte('Knoblauch'), false)
+  assert.equal(traegtNaehrwerte('REWE Bio Gemüsebrühe 140g'), true)
+  assert.equal(traegtNaehrwerte('REWE Bio Rapsöl nativ 500ml'), true)
+  assert.equal(traegtNaehrwerte('Knoblauch 200g im Netz'), false)
 })
 
 // „2 Eier, Größe M (116 g)" trägt die Grammzahl hinter dem Namen, nicht davor.
@@ -143,7 +143,7 @@ test('liest nur den Abschnitt zwischen Zutatenliste und Zubereitung', () => {
 
   assert.deepEqual(
     zutatenliste(antwort).map((p) => p.name),
-    ['Möhren'],
+    ['Karotte'],
   )
   assert.deepEqual(ohneGrammangabe(antwort), [])
 })
@@ -153,7 +153,7 @@ test('liest nur den Abschnitt zwischen Zutatenliste und Zubereitung', () => {
 test('findet die Katalogzeile auch, wenn hinten etwas angehängt ist', () => {
   const [posten] = zutatenliste('- 265 g Kidneybohnen aus der Dose, abgetropft')
 
-  assert.equal(aufloesen(posten).katalogname, 'Kidneybohnen, Dose')
+  assert.equal(aufloesen(posten).katalogname, 'ja! Kidney-Bohnen rot 255g')
 })
 
 // Der Prüfauftrag kündigt an: „Hier Zutatenliste und Zubereitung:" – und

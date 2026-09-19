@@ -9,19 +9,19 @@ const katalog = leseKatalog(
 )
 
 test('der Katalog liest jede Zeile mit ihren Nährwerten je 100 g', () => {
-  const linsen = findeZutat(katalog, 'Rote Linsen, trocken')
+  const linsen = findeZutat(katalog, 'Rote Linsen')
 
-  assert.equal(linsen.kcal, 340)
-  assert.equal(linsen.protein, 24)
-  assert.equal(linsen.ballaststoffe, 11)
+  assert.equal(linsen.kcal, 341)
+  assert.equal(linsen.protein, 25.5)
+  assert.equal(linsen.ballaststoffe, 12.5)
   assert.equal(linsen.kohlenhydrate, 50)
   assert.equal(linsen.fett, 1.5)
   assert.equal(linsen.gesaettigt, 0.3)
-  assert.equal(linsen.salz, 0)
+  assert.equal(linsen.salz, 0.01)
 })
 
 test('eine Zutat wird auch über einen Präfix gefunden', () => {
-  assert.equal(findeZutat(katalog, 'Rote Linsen').zutat, 'Rote Linsen, trocken')
+  assert.equal(findeZutat(katalog, 'Rote Linsen').zutat, 'REWE Bio Rote Linsen 500g')
 })
 
 test('ein mehrdeutiger Name bricht ab und nennt die Kandidaten', () => {
@@ -42,23 +42,23 @@ test('ein unbekannter Name bricht ab und nennt die Zutat', () => {
 })
 
 test('die Mengen werden von 100 g auf die Grammzahl skaliert', () => {
-  const summe = berechne(katalog, [{ zutat: 'Rote Linsen, trocken', gramm: 120 }])
+  const summe = berechne(katalog, [{ zutat: 'Rote Linsen', gramm: 120 }])
 
-  assert.equal(runde(summe.kcal), 408)
-  assert.equal(runde(summe.protein, 1), 28.8)
-  assert.equal(runde(summe.ballaststoffe, 1), 13.2)
+  assert.equal(runde(summe.kcal), 409)
+  assert.equal(runde(summe.protein, 1), 30.6)
+  assert.equal(runde(summe.ballaststoffe, 1), 15)
   assert.equal(runde(summe.fett, 1), 1.8)
 })
 
 test('mehrere Zutaten werden aufaddiert', () => {
   const summe = berechne(katalog, [
-    { zutat: 'Rote Linsen, trocken', gramm: 120 },
+    { zutat: 'Rote Linsen', gramm: 120 },
     { zutat: 'Rapsöl', gramm: 10 },
   ])
 
-  assert.equal(runde(summe.kcal), 498)
+  assert.equal(runde(summe.kcal), 499)
   assert.equal(runde(summe.fett, 1), 11.8)
-  assert.equal(runde(summe.gesaettigt, 2), 1.06)
+  assert.equal(runde(summe.gesaettigt, 2), 1.12)
 })
 
 test('ein Gedankenstrich zählt nicht mit, die Zahl daneben schon', () => {
@@ -94,11 +94,11 @@ test('Trockenobst zählt mit 25 g je Portion, nicht mit 110 g', () => {
 })
 
 test('die Tabelle teilt durch die Portionszahl', () => {
-  const summe = berechne(katalog, [{ zutat: 'Rote Linsen, trocken', gramm: 200 }])
+  const summe = berechne(katalog, [{ zutat: 'Rote Linsen', gramm: 200 }])
   const tabelle = formatiereTabelle(summe, 2)
 
-  assert.match(tabelle, /\| Energie \| 340 kcal \|/)
-  assert.match(tabelle, /\| Protein \| 24 g \|/)
+  assert.match(tabelle, /\| Energie \| 341 kcal \|/)
+  assert.match(tabelle, /\| Protein \| 25,5 g \|/)
 })
 
 test('die Tabelle nennt die Zeilen, die das Antwortformat verlangt', () => {
@@ -284,23 +284,23 @@ test('Wasser findet nicht die Wassermelone', () => {
 
 test('Wasser in der Rechnung trägt nichts bei, statt abzubrechen', () => {
   const summe = berechne(katalog, [
-    { zutat: 'Rote Linsen, trocken', gramm: 100 },
+    { zutat: 'Rote Linsen', gramm: 100 },
     { zutat: 'Wasser', gramm: 300 },
   ])
 
-  assert.equal(summe.kcal, 340)
+  assert.equal(summe.kcal, 341)
   assert.equal(summe.obstGemuese, 0)
 })
 
 test('eine Marke vor der Zutat wird abgestreift', () => {
-  assert.equal(findeZutat(katalog, 'REWE Bio Blattspinat, TK').zutat, 'Blattspinat, TK')
-  assert.equal(findeZutat(katalog, 'ja! Vollkornnudeln').zutat, 'Vollkornnudeln (Fusilli, Penne, Spaghetti)')
+  assert.equal(findeZutat(katalog, 'Blattspinat, TK').zutat, 'REWE Bio Blattspinat 600g')
+  assert.equal(findeZutat(katalog, 'ja! Vollkornnudeln').zutat, 'Barilla Integrale Vollkorn Fusilli 500g')
 })
 
 test('geläufige Schreibweisen finden ihre Katalogzeile', () => {
-  assert.equal(findeZutat(katalog, 'Karotte').zutat, 'Möhren')
-  assert.equal(findeZutat(katalog, 'Karotten').zutat, 'Möhren')
-  assert.equal(findeZutat(katalog, 'Vollkorn Fussili').zutat, 'Vollkornnudeln (Fusilli, Penne, Spaghetti)')
+  assert.equal(findeZutat(katalog, 'Karotte').zutat, 'REWE Bio Möhren 1kg')
+  assert.equal(findeZutat(katalog, 'Karotten').zutat, 'REWE Bio Möhren 1kg')
+  assert.equal(findeZutat(katalog, 'Vollkorn-Fusilli').zutat, 'Barilla Integrale Vollkorn Fusilli 500g')
 })
 
 // Getroffen wird an Wortgrenzen. Ohne das griff „Curry" mitten in
@@ -308,48 +308,47 @@ test('geläufige Schreibweisen finden ihre Katalogzeile', () => {
 // gemeint war.
 
 test('ein Gewürz trifft die Gewürzzeile, nicht die gleichnamige Paste', () => {
-  assert.match(findeZutat(katalog, 'Curry').zutat, /^Gewürze und Scharfes/)
-  assert.equal(findeZutat(katalog, 'Currypaste').zutat, 'Currypaste (rot, gelb)')
+  assert.equal(findeZutat(katalog, 'Curry').zutat, 'REWE Beste Wahl Curry')
+  assert.equal(findeZutat(katalog, 'Rote Currypaste').zutat, 'Bamboo Garden Rote Curry Paste 125g')
 })
 
 test('ein Wortende schützt vor dem Treffer mitten im Wort', () => {
-  assert.equal(findeZutat(katalog, 'Tofu').zutat, 'Tofu natur')
-  assert.equal(findeZutat(katalog, 'Räuchertofu').zutat, 'Räuchertofu')
+  assert.equal(findeZutat(katalog, 'Tofu natur').zutat, 'REWE Bio pflanzlich Tofu Natur 2x200g')
+  assert.equal(findeZutat(katalog, 'Räuchertofu').zutat, 'REWE Bio pflanzlich Räucher-Tofu 2x175g')
 })
 
 test('Singular und Plural finden dieselbe Zeile', () => {
-  assert.equal(findeZutat(katalog, 'Zwiebel').zutat, 'Zwiebeln')
-  assert.equal(findeZutat(katalog, 'Rote Zwiebel').zutat, 'Rote Zwiebeln')
-  assert.equal(findeZutat(katalog, 'Banane').zutat, 'Bananen')
-  assert.equal(findeZutat(katalog, 'Möhre').zutat, 'Möhren')
+  assert.equal(findeZutat(katalog, 'Rote Zwiebel').zutat, 'REWE Bio Zwiebeln rot 500g')
+  assert.equal(findeZutat(katalog, 'Rote Zwiebeln').zutat, 'REWE Bio Zwiebeln rot 500g')
+  assert.equal(findeZutat(katalog, 'Banane').zutat, 'REWE Beste Wahl Banane ca. 200g')
+  assert.equal(findeZutat(katalog, 'Möhre').zutat, 'REWE Bio Möhren 1kg')
 })
 
 // Die Zuordnung Vorrat -> Katalog, modellfrei. Geprüft wird gegen die
 // eingefrorene Kopie unter evals/, nicht gegen den echten Vorrat: Was heute im
 // Kühlschrank liegt, darf keinen Test rot machen.
 const VORRAT_ZU_KATALOG = new Map([
-  ['Eier', 'Eier, Größe M'],
-  ['Räuchertofu', 'Räuchertofu'],
-  ['Tofu natur', 'Tofu natur'],
-  ['Magerquark', 'Magerquark'],
-  ['Rote Zwiebeln', 'Rote Zwiebeln'],
-  ['Möhren', 'Möhren'],
-  ['Salatgurke', 'Salatgurke'],
-  ['Wok-Mix, TK, ungewürzt', 'Wok-Mix, TK, ungewürzt'],
-  ['Blattspinat, TK', 'Blattspinat, TK'],
-  ['Mais, Dose', 'Mais, Dose'],
-  ['Kidneybohnen, Dose', 'Kidneybohnen, Dose'],
-  ['Schwarze Bohnen, Dose', 'Schwarze Bohnen, Dose'],
-  ['Passierte Tomaten', 'Passierte Tomaten'],
-  ['Haferflocken', 'Haferflocken (zart oder kernig)'],
-  ['Rote Linsen', 'Rote Linsen, trocken'],
-  ['Basmatireis', 'Basmatireis, Langkornreis'],
-  ['Vollkornnudeln', 'Vollkornnudeln (Fusilli, Penne, Spaghetti)'],
-  ['Erdnussmus', 'Erdnussmus, Erdnussbutter'],
-  ['Leinsamen', 'Leinsamen, geschrotet'],
-  ['Olivenöl', 'Olivenöl nativ extra'],
-  ['Rapsöl', 'Rapsöl'],
-  ['Bananen', 'Bananen'],
+  ['Eier', 'REWE Beste Wahl Respeggt Eier Freilandhaltung 10 Stück'],
+  ['Räuchertofu', 'REWE Bio pflanzlich Räucher-Tofu 2x175g'],
+  ['Tofu natur', 'REWE Bio pflanzlich Tofu Natur 2x200g'],
+  ['Magerquark', 'ja! Speisequark Magerstufe 500g'],
+  ['Rote Zwiebeln', 'REWE Bio Zwiebeln rot 500g'],
+  ['Möhren', 'REWE Bio Möhren 1kg'],
+  ['Salatgurke', 'REWE Bio Gurke 1 Stück'],
+  ['Wok-Mix', 'REWE Beste Wahl Wok-Mix 750g'],
+  ['Blattspinat, TK', 'REWE Bio Blattspinat 600g'],
+  ['Mais', 'Bonduelle Goldmais 140g'],
+  ['Kidneybohnen', 'ja! Kidney-Bohnen rot 255g'],
+  ['Schwarze Bohnen', 'REWE Beste Wahl Schwarze Bohnen 400g'],
+  ['Passierte Tomaten', 'ja! Tomaten passiert 500g'],
+  ['Haferflocken', 'ja! Zarte Haferflocken 500g'],
+  ['Rote Linsen', 'REWE Bio Rote Linsen 500g'],
+  ['Vollkornnudeln', 'Barilla Integrale Vollkorn Fusilli 500g'],
+  ['Erdnussmus', 'REWE Bio Erdnussmus 250g'],
+  ['Leinsamen', 'REWE Bio Leinsamen geschrotet 400g'],
+  ['Olivenöl', 'REWE Bio Natives Olivenöl 750ml'],
+  ['Rapsöl', 'REWE Bio Rapsöl nativ 500ml'],
+  ['Bananen', 'REWE Beste Wahl Banane ca. 200g'],
 ])
 
 test('die Vorratszutaten landen in der richtigen Katalogzeile', () => {
@@ -372,10 +371,10 @@ test('keine Vorratszutat landet in einer Zeile einer anderen Warengruppe', () =>
   assert.throws(() => findeZutat(katalog, 'Wasser'), /keine Zutat/)
 })
 
-// Das Gewürzregal des Vorrats gegen die Sammelzeile des Katalogs. Vorher
-// lösten nur die Wörter auf, die zufällig in ihrer Klammer standen: „Thymian"
-// ja, „Rosmarin" nein, „Pfeffer" ja, „Pfeffer, schwarz" nein.
-test('jedes Gewürz aus dem Vorrat findet die Sammelzeile', () => {
+// Das Gewürzregal des Vorrats. Früher deckte eine Sammelzeile alles ab, und es
+// löste nur auf, was zufällig in ihrer Klammer stand: „Thymian" ja, „Rosmarin"
+// nein. Jetzt hat jedes Glas seine Zeile – ohne Nährwerte, es sind Würzmengen.
+test('jedes Gewürz aus dem Vorrat findet seine eigene Zeile', () => {
   const regal = [
     'Zimtstangen',
     'Nelken',
@@ -398,17 +397,18 @@ test('jedes Gewürz aus dem Vorrat findet die Sammelzeile', () => {
   ]
 
   for (const gewuerz of regal) {
-    assert.match(findeZutat(katalog, gewuerz).zutat, /^Gewürze und Scharfes/, `„${gewuerz}"`)
+    const zeile = findeZutat(katalog, gewuerz)
+    assert.equal(zeile.kcal, null, `„${gewuerz}" soll eine Würzmenge ohne Energie sein`)
   }
 })
 
 test('Vorratsschreibweisen mit abweichendem Katalognamen lösen auf', () => {
   const paare = [
-    ['Kaisergemüse, TK', 'Kaisergemüse (Brokkoli, Blumenkohl, Möhren)'],
-    ['Sojagranulat', 'Soja-Granulat, trocken (TVP)'],
-    ['Sojaschnetzel', 'Soja-Schnetzel, trocken (TVP)'],
-    ['Mehl, Type 550', 'Weizenmehl Type 405 oder 550'],
-    ['Balsamico Essig', 'Balsamico-Essig'],
+    ['Kaisergemüse', 'ja! Kaisergemüse 1kg'],
+    ['Sojagranulat', 'Vantastic foods Soja-Granulat vegan 300g'],
+    ['Sojaschnetzel', 'Vantastic foods Soja Schnetzel vegan 250g'],
+    ['Mehl, Type 550', 'REWE Bio Weizenmehl Type 550 1kg'],
+    ['Balsamico', 'REWE Bio Aceto Balsamico 500ml'],
   ]
 
   for (const [vorrat, erwartet] of paare) {
@@ -420,17 +420,11 @@ test('Vorratsschreibweisen mit abweichendem Katalognamen lösen auf', () => {
 // vorratskammer.md muss genau eine Katalogzeile finden. Ohne diesen Test deckt
 // die Zuordnung nur das ab, woran beim Schreiben gedacht wurde.
 //
-// Der Vorrat nennt Produkte („REWE Beste Wahl Kulturheidelbeeren, tiefgekühlt,
-// 500 g"), der Katalog Warengruppen. Was hier abgeräumt wird, ist die
-// Verpackung der Zeile, nicht ihr Name: Klammerkommentar, Grammangabe und das
-// angehängte „vegan".
+// Seit vorratskammer.md die exakten REWE-Produktnamen führt, ist hier nichts
+// mehr zu putzen: Abgeräumt wird nur der Klammerkommentar des Haushalts
+// („nur als ganze Dose verwenden"), der Rest ist der Katalogname selbst.
 function vorratsname(zeile) {
-  return zeile
-    .replace(/\s*\(.*$/, '')
-    .replace(/,?\s*\d+\s*g\b/gi, '')
-    .replace(/\s+vegan\b/i, '')
-    .replace(/,\s*tiefgekühlt/i, ', TK')
-    .trim()
+  return zeile.replace(/\s*\(.*$/, '').trim()
 }
 
 // Zeilen, die der Katalog bewusst nicht führt: Getränke und Aromen ohne
