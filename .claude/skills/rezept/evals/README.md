@@ -37,6 +37,7 @@ Datei gehört zu `wochenplan`.
 | `haushaltsuebliche-mengen` | „Mengen in Gramm oder haushaltsüblichen Maßen." | 2 von 3 |
 | `schritte-nennen-mengen` | „Nenne in jedem Schritt die Menge jeder Zutat erneut …" | 2 von 3 |
 | `pruefung-vor-der-ausgabe` | „Lass das fertige Rezept von einem Subagenten prüfen …" | 0 von 3 |
+| `korrektur-kennzeichnet-neue-zutat` | „Korrekturen, die eine neue Zutat brauchen …" | siehe unten |
 | `naehrwerttabelle` | – | 3 von 3 |
 | `zeit-aktiv-und-gerundet` | – | 3 von 3 |
 | `vorrat-schlaegt-wunsch` | – | 3 von 3 |
@@ -121,6 +122,44 @@ kann – dafür bräuchte es dreißig Läufe je Arm. Belegt ist der Rand: Mit de
 vollen Abschnitt trägt die gezogene Proteinquelle das Gericht, nach dem großen
 Rückbau in weniger als der Hälfte der Läufe. Gestrichen wurden deshalb nur die
 fünf Zeilen, die auch im gemeinsamen Rückbau unauffällig blieben.
+
+## Was die Prüfung taugt, steht nicht in der Ausgabe
+
+`pruefung-vor-der-ausgabe` belegt, dass geprüft wird. Was der Prüfer findet,
+prüft er nicht – und das blieb lange unbemerkt: Ohne die Kennzeichnungszeile
+schlug der Koch Korrekturen mit Kokosmilch vor, die niemand im Haus hat, ohne
+dass die Antwort das verriet.
+
+`korrektur-kennzeichnet-neue-zutat` misst das. Die Antwort des Prüfers steht
+nur im Verlauf, als Ergebnis des Agent-Aufrufs, deshalb zählt sie ein Skript
+statt eines Graders:
+
+```bash
+claude plugin eval . --case 'korrektur-kennzeichnet*' --scaffold \
+  --allow-tools Bash --ablation none --keep-temp
+node evals/pruefe-kennzeichnung.mjs evals/results/<zeitstempel>/aggregate-result.json
+```
+
+Gemessen: mit der Zeile 1 von 1 gekennzeichnet, ohne sie kein einziger
+Vorschlag mit neuer Zutat – je drei Läufe. **Das ist zu wenig, um etwas zu
+belegen.** Ein Vorschlag mit neuer Zutat fällt etwa in jedem dritten Lauf, und
+ob er fällt, hängt am gezogenen Gericht: Ein Curry ohne Kokosmilch lockt, eine
+Tomatensauce nicht. Für eine tragfähige Quote braucht der Fall zehn Läufe je
+Arm.
+
+Belastbarer ist bislang die Vormessung außerhalb des Harness, die den
+Prüfer-Prompt direkt gegen fünf eingefrorene Rezepte laufen ließ: 30 Läufe, 12
+Korrekturen mit neuer Zutat, alle zwölf gekennzeichnet. Ohne die Zeile schlugen
+in vier Läufen zwei Korrekturen Kokosmilch vor, unmarkiert. Diese Messung prüft
+aber nur den Prompt, nicht den Skill – ändert jemand die Zeile in SKILL.md,
+merkt sie es nicht. Deshalb steht der Fall jetzt hier.
+
+Das Skript erkennt eine neue Zutat über eine Liste von Wortstämmen, nicht über
+Sprachverständnis. Es übersieht, was nicht daraufsteht, und es zählt mit, was
+ein Befund nur erwähnt: Im Ablationslauf sah ein Lob auf die verwerteten
+Walnüsse zunächst aus wie ein Vorschlag. Die Quote ist deshalb kein Messwert
+zum Ablesen – das Skript druckt jeden Treffer im Volltext, und wer die Zahl
+benutzt, liest sie.
 
 ## Was der Judge nicht kann
 
