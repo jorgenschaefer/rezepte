@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 Erstelle ein Rezept.
 
+Das Rezept sollte ungefähr 600 kcal erreichen.
+
 Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
 
 Die Nährwerte der Zutaten findest du in `zutaten.md`.
@@ -13,8 +15,6 @@ Die Nährwerte der Zutaten findest du in `zutaten.md`.
 Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
 
 Wähle die Proteinquelle zufällig aus dem Vorrat.
-
-Wurde keine Kalorienzahl angegeben, nimm 600 kcal.
 
 Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste und Zubereitung sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Korrekturen, die eine neue Zutat brauchen, kennzeichne als optional."
 
