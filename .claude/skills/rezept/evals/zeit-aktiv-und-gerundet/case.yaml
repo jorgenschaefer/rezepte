@@ -1,9 +1,20 @@
 schema_version: "1.0"
 name: zeit-aktiv-und-gerundet
 description: >
-  Ofengericht, damit Warte- und Arbeitszeit auseinanderfallen: Die angegebene
-  Zeit muss die aktive sein, nicht die Summe aus Vorbereitung und Backzeit,
-  und sie muss auf 5 Minuten gerundet sein.
+  Ofengericht, damit Warte- und Arbeitszeit auseinanderfallen: Die Zeitangabe
+  muss beide Zahlen nennen – die aktive Arbeitszeit und die Wartezeit –, und
+  die erste genannte Zahl muss auf 5 Minuten gerundet sein.
+
+  Die Wartezeit war früher erlaubt, nicht verlangt – damit bestand ein blankes
+  „15 Minuten" für einen Auflauf, der die Küche 50 Minuten belegt. Genau diese
+  Zahl entscheidet aber, ob ein Vorschlag angenommen oder verworfen wird; sie
+  darf nicht schneller aussehen, als das Gericht ist.
+
+  Welche der beiden Zahlen vorn steht, prüft der Fall nicht mehr. Früher musste
+  es die aktive sein; gemessen wurde „ca. 65 Minuten (davon ca. 20 Minuten
+  aktiv)", und das ist für die Entscheidung, ob ein Vorschlag zu lange dauert,
+  eher besser. Beachte: Der Rundungs-Grader liest deshalb mal die aktive Zeit,
+  mal die Gesamtzeit – je nachdem, welche vorn steht.
 tags: [format]
 context:
   scaffold_script: scaffold.sh
@@ -11,7 +22,7 @@ execution:
   prompt: /rezept 600 kcal aus dem Ofen
   max_turns: 30
   timeout_seconds: 600
-  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+  allowed_tools: [Read, Glob, Grep, Skill, Bash, Agent]
 runs: 3
 graders:
   - type: regex
@@ -20,15 +31,22 @@ graders:
     pattern: "Zeit[^0-9\\n]*\\d*[05]\\s*(?:Min|min)"
     match: contains
   - type: llm
-    name: aktive-zeit-statt-gesamtzeit
+    name: aktive-zeit-und-wartezeit
     weight: 1
     criteria: |
       Das Rezept hat eine Backzeit oder eine andere Wartezeit, in der man
       nichts tut.
 
-      Bestanden, wenn die Zeitangabe oben im Rezept die aktive Arbeitszeit
-      nennt: die Zeit am Herd und am Brett, ohne die Wartezeit. Sie darf die
-      Wartezeit zusätzlich ausweisen ("15 Minuten aktiv, 35 Minuten im Ofen").
+      Bestanden, wenn die Zeitangabe oben im Rezept beide Zahlen nennt: die
+      aktive Arbeitszeit – die Zeit am Herd und am Brett – und die Wartezeit,
+      in der man nichts tut. Wie das formuliert ist, spielt keine Rolle;
+      „15 Minuten aktiv, 35 Minuten im Ofen" und „15 Min. Arbeit + 35 Min.
+      Backzeit" sind beide in Ordnung.
 
-      Durchgefallen, wenn die genannte Zeit die Gesamtzeit ist, also
-      Arbeitszeit plus Wartezeit in einer Zahl.
+      Durchgefallen, wenn dort nur eine Zahl steht – gleich welche. Die aktive
+      Zeit allein („15 Minuten") lässt das Gericht schneller aussehen, als es
+      die Küche belegt. Die Summe allein („50 Minuten") verschweigt, dass man
+      davon nur 15 Minuten wirklich beschäftigt ist.
+
+      Die Zahlen müssen in der Zeitangabe oben stehen. Dass die Backzeit
+      irgendwo in den Schritten auftaucht, genügt nicht.
