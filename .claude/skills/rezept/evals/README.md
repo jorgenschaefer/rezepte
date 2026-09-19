@@ -46,12 +46,14 @@ Datei gehört zu `wochenplan`.
 | `keine-punktlandung` | – | 3 von 3 |
 | `rechnet-mit-dem-skript` | – | 3 von 3 |
 | `vorratskammer-regeln` | – | 3 von 3 |
-| `nur-das-ueberarbeitete-rezept` | – | 13 von 13 |
+| `nur-das-ueberarbeitete-rezept` | „Bevor du es ausgibst, lass das fertige Rezept … prüfen" | im Harness nicht messbar, siehe unten |
 
 Die oberen dreizehn Zeilen sind Belege: ohne ihre Zeile rot, mit ihr als
-einziger zurückgebauter Zeile wieder grün. Die unteren acht Fälle sind Absicherungen –
-sie halten fest, was das Modell heute von selbst richtig macht, und schlagen
-an, wenn sich das ändert.
+einziger zurückgebauter Zeile wieder grün. Die acht Zeilen mit einem
+Gedankenstrich sind Absicherungen – sie halten fest, was das Modell heute von
+selbst richtig macht, und schlagen an, wenn sich das ändert. Die beiden
+übrigen Zeilen tragen eine Skillzeile, deren Beleg nicht in den Harness passt;
+beide stehen weiter unten.
 
 Die vier Abschnittszeilen prüfen die Überschrift, nicht den Inhalt: Ohne
 `**Zeit:**` nennt die Antwort das Feld „Aktive Zubereitungszeit", ohne
@@ -179,10 +181,47 @@ node evals/pruefe-ein-rezept.mjs evals/results/<zeitstempel>/aggregate-result.js
 
 Im Harness tritt das Verhalten nicht auf: 13 von 13 Läufen geben genau ein
 Rezept aus, fünf davon auf Opus 5 statt dem Standardmodell, und die
-Zwischennachrichten sind durchweg kurze Statuszeilen. Der Fall ist deshalb
-keine Maßnahme, sondern eine Absicherung – er hält fest, was heute von selbst
-stimmt. Am Skill wurde dafür nichts geändert; eine Formulierung, deren Wirkung
-sich nicht messen lässt, wäre nur Ballast.
+Zwischennachrichten sind durchweg kurze Statuszeilen.
+
+**Das lag am Harness, nicht am Skill.** Dort blockiert der Agent-Aufruf: Der
+Befund des Kochs *ist* das `tool_result`, und zwischen Aufruf und Befund gibt
+es kein Fenster, in das ein Entwurf passen würde. In der interaktiven Sitzung
+startet derselbe Aufruf im Hintergrund („Async agent launched") und gibt sofort
+zurück. Genau diese Wartezeit füllte der Skill mit dem Rezept – und danach
+stand es überarbeitet ein zweites Mal da. Dreizehn grüne Läufe belegten also
+nur, dass der Harness die Bedingung nicht herstellt; mehr Läufe hätten daran
+nichts geändert.
+
+Nachgewiesen wurde es an einem echten Sitzungsverlauf. Das Skript nimmt deshalb
+auch eine `.jsonl` direkt:
+
+```bash
+node evals/pruefe-ein-rezept.mjs ~/.claude/projects/<projekt>/<sitzung>.jsonl
+```
+
+Gemessen: 2 Rezepte in einem Lauf, der Entwurf unter „Der Prüf-Subagent läuft.
+Währenddessen das Rezept:". Die Prüfzeile in SKILL.md beginnt daraufhin mit
+„Bevor du es ausgibst" – die Reihenfolge steht jetzt in derselben Zeile wie der
+Auftrag an den Prüfer, statt in einem eigenen Absatz darunter.
+
+Damit hängen zwei Fälle an einem Satz: `pruefung-vor-der-ausgabe` daran, *dass*
+geprüft wird, `nur-das-ueberarbeitete-rezept` daran, *wann* ausgegeben wird.
+Wer die Zeile anfasst, hat beide vor sich.
+
+Der Harness-Fall bleibt als Absicherung stehen: Er hält fest, dass der
+synchrone Weg weiterhin genau ein Rezept ausgibt. Den asynchronen Weg deckt er
+nicht ab, und ein Flag, das ihn dazu bringt, gibt es in `claude plugin eval`
+nicht – die Gegenprobe zur Formulierung ist eine interaktive Sitzung, gemessen
+mit demselben Skript. Der Harness kann zwei Fassungen der Zeile nicht
+auseinanderhalten: Wo kein Wartefenster ist, ändert auch keine Formulierung
+etwas. Das ist dieselbe Lage wie bei
+`korrektur-kennzeichnet-neue-zutat`: Die tragfähige Messung liegt außerhalb des
+Harness, der Fall drinnen hält die Regel an den Skill gebunden.
+
+Als Rezept zählen nur Textblöcke mit *zwei* Tabellenzeilen am Zeilenanfang –
+Energie und Protein. Eine einzelne genügt nicht: Eine Antwort *über* das
+Rezept zitiert „| Energie | 600 kcal |" mitten im Satz und zählte sonst als
+weiteres Rezept mit.
 
 Als Rezept zählt ein Textblock mit Nährwerttabelle *und* Zubereitung. An der
 Überschrift allein lässt es sich nicht festmachen – mal steht dort

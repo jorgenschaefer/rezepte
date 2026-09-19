@@ -18,7 +18,7 @@ Wurde keine Kalorienzahl angegeben, nimm 600 kcal.
 
 Die Zubereitungszeit mit allen Vorbereitungen sollte unter 45 Minuten liegen.
 
-Lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste und Zubereitung sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Korrekturen, die eine neue Zutat brauchen, kennzeichne als optional."
+Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste und Zubereitung sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Korrekturen, die eine neue Zutat brauchen, kennzeichne als optional."
 
 # Format der Antwort
 

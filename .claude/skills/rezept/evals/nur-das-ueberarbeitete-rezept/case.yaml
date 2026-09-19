@@ -7,6 +7,13 @@ description: >
   und muss raten, welche gilt. Der Grader hier stellt nur sicher, dass geprüft
   wurde; gezählt wird im Verlauf, mit evals/pruefe-ein-rezept.mjs – ein Grader
   sieht nur die Endantwort und damit immer genau ein Rezept.
+  Der Fall deckt nur den synchronen Weg ab: Im Harness blockiert der
+  Agent-Aufruf, und zwischen Aufruf und Befund passt kein Entwurf. Gefallen ist
+  das doppelte Rezept in der interaktiven Sitzung, wo der Prüfer im Hintergrund
+  startet; dafür liest dasselbe Skript einen Sitzungsverlauf direkt. Die Regel
+  steht im „Bevor du es ausgibst" der Prüfzeile – derselben Zeile, an der
+  pruefung-vor-der-ausgabe hängt. Siehe evals/README.md, „Ein Rezept, nicht
+  zwei".
 tags: [format]
 context:
   scaffold_script: scaffold.sh
