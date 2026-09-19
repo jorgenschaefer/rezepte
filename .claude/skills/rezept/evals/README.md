@@ -44,7 +44,7 @@ Datei gehört zu `wochenplan`.
 | `zwei-listen-im-ordner` | „Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen." | 3 von 5 |
 | `naehrwerte-aus-dem-katalog` | „Die Nährwerte der Zutaten findest du in `zutaten.md`." | 2 von 3 |
 | `unbekannte-zutat-bricht-ab` | „Kannst du eine Zutat … brich ab …" | 2 von 3 |
-| `standardkalorien` | „Wurde keine Kalorienzahl angegeben, nimm 600 kcal." | 1 von 3 |
+| `standardkalorien` | „Das Rezept sollte ungefähr 600 kcal erreichen." | 1 von 3 |
 | `format-abschnitte` | `**Portionen:**` | 0 von 3 |
 | `format-abschnitte` | `**Zeit:**` | 0 von 3 |
 | `format-abschnitte` | `**Kochgeschirr:**` | 0 von 3 |

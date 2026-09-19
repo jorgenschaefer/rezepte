@@ -1,9 +1,16 @@
 schema_version: "1.0"
 name: standardkalorien
 description: >
-  Belegt die Zeile „Wurde keine Kalorienzahl angegeben, nimm 600 kcal". Der
+  Belegt die Zeile „Das Rezept sollte ungefähr 600 kcal erreichen". Der
   Aufruf nennt keine Zahl. Ohne die Zeile sucht sich das Modell ein eigenes
   Ziel (1 von 3 Läufen im Korridor), mit ihr als einziger Zeile wieder 3 von 3.
+
+  Die Zeile hieß früher „Wurde keine Kalorienzahl angegeben, nimm 600 kcal"
+  und stand hinten bei den Sonderfällen; jetzt steht sie als Ziel oben und
+  ohne Bedingung. Nachgemessen, weil eine unbedingte 600 die Zahl aus dem
+  Auftrag hätte überschreiben können: `vorratskammer-regeln` mit
+  „/rezept 450 kcal mit Lachs" landete bei 450, 444 und 450 kcal. Die
+  gewünschte Zahl gewinnt, die 600 greift nur ohne Angabe.
 tags: [naehrwerte]
 context:
   scaffold_script: scaffold.sh
