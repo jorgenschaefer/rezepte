@@ -4,7 +4,7 @@ description: Erstelle ein Rezept, um es jetzt zu kochen
 disable-model-invocation: true
 ---
 
-Erstelle ein Rezept, das ich jetzt zubereiten kann.
+Erstelle ein Rezept.
 
 Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
 
@@ -15,6 +15,8 @@ Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrer
 Wähle die Proteinquelle zufällig aus dem Vorrat.
 
 Wurde keine Kalorienzahl angegeben, nimm 600 kcal.
+
+Die Zubereitungszeit mit allen Vorbereitungen sollte unter 45 Minuten liegen.
 
 Lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste und Zubereitung sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Korrekturen, die eine neue Zutat brauchen, kennzeichne als optional."
 
