@@ -1,0 +1,33 @@
+schema_version: "1.0"
+name: pruefer-bleibt-im-vorrat
+description: >
+  Belegt die Zeile „… der nur Zutatenliste, Zubereitung und `vorratskammer.md`
+  sieht: … Nutze keine Zutaten, die nicht im Vorrat sind." Vorher sah der Koch
+  den Vorrat nicht und konnte gar nicht wissen, was der Haushalt führt: Er
+  schlug Kokosmilch vor, und er hielt umgekehrt das Salz aus dem Küchenschrank
+  für eine neue Zutat.
+
+  „Curry" ist die Falle: Der Vorrat hat rote und gelbe Currypaste, aber keine
+  Kokosmilch – und ohne sie wirkt ein Curry unfertig. Genau dieser Köder steht
+  schon im README als der, der zieht.
+
+  Der Grader stellt nur sicher, dass geprüft wurde; der Bericht des Kochs steht
+  nicht in der Antwort, sondern nur im Verlauf. Gezählt wird mit
+  evals/pruefe-vorrat-im-befund.mjs, und zwar auf null: Ein Vorschlag von
+  außerhalb soll nicht mehr gekennzeichnet, sondern gar nicht erst gemacht
+  werden.
+tags: [vorrat, pruefer]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal Curry
+  max_turns: 40
+  timeout_seconds: 900
+  allowed_tools: [Read, Glob, Grep, Skill, Bash, Agent]
+runs: 5
+graders:
+  - type: tool_used
+    name: pruefer-gelaufen
+    weight: 1
+    tool: Agent
+    min: 1
