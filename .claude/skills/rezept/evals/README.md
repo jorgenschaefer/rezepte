@@ -1,15 +1,32 @@
 # Eval-Suite für `rezept`
 
-Achtzehn Fälle gegen den Skill, jeder mit drei Läufen:
+Zwanzig Fälle gegen den Skill, jeder mit drei Läufen. Alles auf einmal:
+
+```bash
+bin/run-evals
+bin/run-evals --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
+```
+
+Das Skript führt die Varianten aus, die unten einzeln begründet sind: die
+Unit-Tests, die Suite mit Bash, den Katalogfall ohne Bash, den Zufallsfall mit
+fünf Läufen und die vier Nachprüfungen im Verlauf. Die Nachprüfungen benutzen
+die Läufe der Suite mit, statt dieselben Fälle noch einmal durch den Harness zu
+schicken – `evals/nur-einen-fall.mjs` schneidet den passenden Fall aus dem
+Ergebnis heraus. `--verlauf` hängt die einzige Prüfung an, die der Harness
+nicht leisten kann; siehe „Ein Rezept, nicht zwei".
+
+Von Hand sind es mindestens zwei Aufrufe, weil `--allow-tools Bash` suite-weit
+gilt:
 
 ```bash
 claude plugin eval . --scaffold --allow-tools Bash --ablation none
 claude plugin eval . --case 'naehrwerte-aus*' --scaffold --ablation none
 ```
 
-Zwei Aufrufe, weil `--allow-tools Bash` suite-weit gilt: Der Katalogfall zählt
-Read-Zugriffe auf `zutaten.md`, und mit Bash liest das Modell den Katalog über
-`scripts/naehrwerte.mjs`, wo Read nicht mehr zählt.
+Der Katalogfall zählt Read-Zugriffe auf `zutaten.md`, und mit Bash liest das
+Modell den Katalog über `scripts/naehrwerte.mjs`, wo Read nicht mehr zählt.
+Beide Aufrufe laufen vom Skillordner aus, nicht von der Projektwurzel – sonst
+findet der Harness die Fälle nicht.
 
 `--scaffold` ist nötig: jeder Fall legt über `evals/scaffold.sh` die Dateien
 bereit, die der Skill liest. `vorratskammer.md` liegt als eingefrorene Kopie in

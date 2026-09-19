@@ -1,0 +1,152 @@
+#!/usr/bin/env bash
+#
+# Führt die Eval-Suite für den Skill `rezept` in allen Varianten aus, die
+# .claude/skills/rezept/evals/README.md dokumentiert. Ein einzelnes
+# `claude plugin eval .` deckt sie nicht ab:
+#
+#   1. Die Unit-Tests der Rechnung – ohne Modell, ohne Kosten.
+#   2. Die Suite mit Bash. Deckt 19 der 20 Fälle ab.
+#   3. Den Katalogfall ohne Bash: `--allow-tools Bash` gilt suite-weit, und mit
+#      Bash liest das Modell `zutaten.md` über scripts/naehrwerte.mjs, wo der
+#      Read-Zähler des Falls nicht mehr anschlägt. Nur dieser zweite Lauf zählt
+#      für `naehrwerte-aus-dem-katalog`.
+#   4. Den Zufallsfall mit fünf Läufen: `--runs` gilt ebenfalls suite-weit, und
+#      pruefe-zufall.mjs braucht die fünf aus dem README.
+#   5. Vier Nachprüfungen, die kein Grader leisten kann, weil sie im Verlauf
+#      stehen statt in der Endantwort.
+#
+# Die Nachprüfungen benutzen die Läufe aus Schritt 2 mit (über
+# evals/nur-einen-fall.mjs), statt dieselben Fälle noch einmal durch den
+# Harness zu schicken. Das spart rund ein Viertel der Modellläufe.
+#
+# Nicht abgedeckt: der asynchrone Weg. Im Harness blockiert der Agent-Aufruf,
+# das doppelte Rezept kann dort nicht fallen. Dafür `--verlauf` mit dem
+# Verlauf einer interaktiven Sitzung – siehe README, „Ein Rezept, nicht zwei".
+#
+#   bin/run-evals
+#   bin/run-evals --verlauf ~/.claude/projects/-home-jorgen-Projects-rezepte/<sitzung>.jsonl
+#
+set -uo pipefail
+
+WURZEL="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SKILL="$WURZEL/.claude/skills/rezept"
+EVALS="$SKILL/evals"
+
+VERLAUF=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --verlauf)
+      VERLAUF="${2:-}"
+      if [ -z "$VERLAUF" ]; then
+        echo "--verlauf braucht einen Pfad" >&2
+        exit 2
+      fi
+      shift 2
+      ;;
+    -h|--help)
+      awk 'NR > 2 { if (!/^#/) exit; sub(/^# ?/, ""); print }' "${BASH_SOURCE[0]}"
+      exit 0
+      ;;
+    *)
+      echo "Unbekannte Option: $1 (siehe --help)" >&2
+      exit 2
+      ;;
+  esac
+done
+
+if [ -n "$VERLAUF" ] && [ ! -f "$VERLAUF" ]; then
+  echo "Verlauf nicht gefunden: $VERLAUF" >&2
+  exit 2
+fi
+
+LAUF="$(date -u +%Y-%m-%dT%H-%M-%SZ)"
+BASIS="$EVALS/results/$LAUF"
+mkdir -p "$BASIS"
+
+FEHLER=()
+
+melde() { printf '\n\033[1m== %s\033[0m\n' "$1"; }
+
+pruefe() {
+  local name="$1"
+  shift
+  if "$@"; then
+    printf '\033[32mok\033[0m       %s\n' "$name"
+  else
+    printf '\033[31mfehler\033[0m   %s\n' "$name"
+    FEHLER+=("$name")
+  fi
+}
+
+# Der Harness findet die Fälle nur vom Skillordner aus.
+cd "$SKILL" || exit 1
+
+melde "1/5  Unit-Tests der Rechnung"
+pruefe "naehrwerte.test.mjs" node --test "$SKILL/scripts/naehrwerte.test.mjs"
+
+melde "2/5  Suite mit Bash (20 Fälle)"
+pruefe "suite" claude plugin eval . \
+  --scaffold --allow-tools Bash --ablation none \
+  --keep-temp --no-publish --output-dir "$BASIS/suite"
+
+melde "3/5  Katalogfall ohne Bash"
+pruefe "naehrwerte-aus-dem-katalog (ohne Bash)" claude plugin eval . \
+  --case 'naehrwerte-aus*' --scaffold --ablation none \
+  --no-publish --output-dir "$BASIS/katalog"
+
+melde "4/5  Zufallsfall mit fünf Läufen"
+pruefe "haushaltsuebliche-mengen (5 Läufe)" claude plugin eval . \
+  --case 'haushaltsuebliche*' --runs 5 --scaffold --allow-tools Bash \
+  --ablation none --keep-temp --no-publish --output-dir "$BASIS/zufall"
+
+melde "5/5  Nachprüfungen im Verlauf"
+
+SUITE="$BASIS/suite/aggregate-result.json"
+
+nachpruefung() {
+  local name="$1" fall="$2" skript="$3"
+  local teil="$BASIS/$fall.json"
+
+  if [ ! -f "$SUITE" ]; then
+    printf '\033[33muebersprungen\033[0m  %s – die Suite hat kein Ergebnis geschrieben\n' "$name"
+    FEHLER+=("$name (kein Suite-Ergebnis)")
+    return
+  fi
+
+  if ! node "$EVALS/nur-einen-fall.mjs" "$SUITE" "$fall" > "$teil"; then
+    FEHLER+=("$name (Fall nicht im Ergebnis)")
+    return
+  fi
+
+  pruefe "$name" node "$EVALS/$skript" "$teil"
+}
+
+nachpruefung "Kennzeichnung neuer Zutaten" korrektur-kennzeichnet-neue-zutat pruefe-kennzeichnung.mjs
+nachpruefung "Ein Rezept, nicht zwei"     nur-das-ueberarbeitete-rezept      pruefe-ein-rezept.mjs
+nachpruefung "Tabelle gegen das Skript"   rechnet-mit-dem-skript             pruefe-tabelle.mjs
+
+if [ -f "$BASIS/zufall/aggregate-result.json" ]; then
+  pruefe "Verteilung der Proteinquelle" node "$EVALS/pruefe-zufall.mjs" "$BASIS/zufall/aggregate-result.json"
+else
+  printf '\033[33muebersprungen\033[0m  Verteilung der Proteinquelle – Schritt 4 hat kein Ergebnis geschrieben\n'
+  FEHLER+=("Verteilung der Proteinquelle (kein Ergebnis)")
+fi
+
+if [ -n "$VERLAUF" ]; then
+  melde "Zusatz  Asynchroner Weg im Sitzungsverlauf"
+  pruefe "Ein Rezept, nicht zwei (interaktiv)" node "$EVALS/pruefe-ein-rezept.mjs" "$VERLAUF"
+fi
+
+melde "Ergebnis"
+echo "Ergebnisse unter $BASIS"
+
+if [ ${#FEHLER[@]} -eq 0 ]; then
+  echo "Alles grün."
+  exit 0
+fi
+
+echo "Rot (${#FEHLER[@]}):"
+for name in "${FEHLER[@]}"; do
+  echo "  - $name"
+done
+exit 1
