@@ -192,7 +192,7 @@ nur die Endantwort und damit immer genau eines:
 
 ```bash
 claude plugin eval . --case 'nur-das-ueberarbeitete*' --scaffold \
-  --allow-tools Bash --keep-temp
+  --allow-tools Bash --ablation none --keep-temp
 node evals/pruefe-ein-rezept.mjs evals/results/<zeitstempel>/aggregate-result.json
 ```
 
@@ -256,7 +256,8 @@ Haiku wie mit Sonnet, in Läufen, die Zeile für Zeile stimmten. Dafür gibt es
 `pruefe-tabelle.mjs`:
 
 ```bash
-claude plugin eval . --case 'rechnet*' --scaffold --allow-tools Bash --keep-temp
+claude plugin eval . --case 'rechnet*' --scaffold --allow-tools Bash \
+  --ablation none --keep-temp
 node evals/pruefe-tabelle.mjs evals/results/<zeitstempel>/aggregate-result.json
 ```
 
@@ -275,7 +276,8 @@ Fisch und Tofu. `pruefe-zufall.mjs` zählt die Familien und meldet Fehler, wenn
 alle Läufe dieselbe ziehen:
 
 ```bash
-claude plugin eval . --case 'haushaltsuebliche*' --runs 5 --scaffold --allow-tools Bash --keep-temp
+claude plugin eval . --case 'haushaltsuebliche*' --runs 5 --scaffold \
+  --allow-tools Bash --ablation none --keep-temp
 node evals/pruefe-zufall.mjs evals/results/<zeitstempel>/aggregate-result.json
 ```
 
