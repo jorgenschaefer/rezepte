@@ -46,6 +46,7 @@ Datei gehört zu `wochenplan`.
 | `keine-punktlandung` | – | 3 von 3 |
 | `rechnet-mit-dem-skript` | – | 3 von 3 |
 | `vorratskammer-regeln` | – | 3 von 3 |
+| `nur-das-ueberarbeitete-rezept` | – | 13 von 13 |
 
 Die oberen dreizehn Zeilen sind Belege: ohne ihre Zeile rot, mit ihr als
 einziger zurückgebauter Zeile wieder grün. Die unteren acht Fälle sind Absicherungen –
@@ -160,6 +161,35 @@ ein Befund nur erwähnt: Im Ablationslauf sah ein Lob auf die verwerteten
 Walnüsse zunächst aus wie ein Vorschlag. Die Quote ist deshalb kein Messwert
 zum Ablesen – das Skript druckt jeden Treffer im Volltext, und wer die Zahl
 benutzt, liest sie.
+
+### Ein Rezept, nicht zwei
+
+Aus derselben Ecke kam die Beobachtung, der Skill gebe das Rezept zweimal aus:
+einmal vor dem Prüfer und danach überarbeitet noch einmal. Wer kocht, hätte
+dann zwei Fassungen untereinander und müsste raten, welche gilt.
+
+`nur-das-ueberarbeitete-rezept` zählt die Rezepte im Verlauf – ein Grader sieht
+nur die Endantwort und damit immer genau eines:
+
+```bash
+claude plugin eval . --case 'nur-das-ueberarbeitete*' --scaffold \
+  --allow-tools Bash --keep-temp
+node evals/pruefe-ein-rezept.mjs evals/results/<zeitstempel>/aggregate-result.json
+```
+
+Im Harness tritt das Verhalten nicht auf: 13 von 13 Läufen geben genau ein
+Rezept aus, fünf davon auf Opus 5 statt dem Standardmodell, und die
+Zwischennachrichten sind durchweg kurze Statuszeilen. Der Fall ist deshalb
+keine Maßnahme, sondern eine Absicherung – er hält fest, was heute von selbst
+stimmt. Am Skill wurde dafür nichts geändert; eine Formulierung, deren Wirkung
+sich nicht messen lässt, wäre nur Ballast.
+
+Als Rezept zählt ein Textblock mit Nährwerttabelle *und* Zubereitung. An der
+Überschrift allein lässt es sich nicht festmachen – mal steht dort
+`### Zutatenliste`, mal `- **Zutatenliste:**` –, und das Stichwort allein
+genügt nicht: Die Statuszeile „Jetzt die Prüfung durch den Koch-Subagenten (der
+nur Zutatenliste und Zubereitung sieht)" führt beide Begriffe, aber keine
+Tabelle.
 
 ## Was der Judge nicht kann
 
