@@ -1,10 +1,11 @@
 // Schneidet einen einzelnen Fall aus einem aggregate-result.json heraus.
 //
-// Die vier Nachprüfungen (pruefe-kennzeichnung, pruefe-ein-rezept,
-// pruefe-tabelle, pruefe-zufall) laufen über *jeden* Fall im Ergebnis. Gegen
-// das Ergebnis der ganzen Suite gehalten prüfen sie deshalb auch Fälle, für
-// die sie nicht gedacht sind – pruefe-tabelle etwa meldet „das Skript lief
-// nicht" für jeden Fall, der naehrwerte.mjs gar nicht aufruft.
+// Die Nachprüfungen (pruefe-ein-rezept, pruefe-tabelle, pruefe-zufall,
+// pruefe-vorrat-im-befund, pruefe-tabelle-gegen-liste,
+// pruefe-korridor-nach-korrektur) laufen über *jeden* Fall
+// im Ergebnis. Gegen das Ergebnis der ganzen Suite gehalten prüfen sie deshalb
+// auch Fälle, für die sie nicht gedacht sind – pruefe-tabelle etwa meldet „das
+// Skript lief nicht" für jeden Fall, der naehrwerte.mjs gar nicht aufruft.
 //
 // Statt jeden Fall ein zweites Mal durch den Harness zu schicken, schneidet
 // dieses Skript ihn aus dem Suite-Ergebnis heraus. Die Verläufe bleiben, wo

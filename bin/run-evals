@@ -4,15 +4,16 @@
 # .claude/skills/rezept/evals/README.md dokumentiert. Ein einzelnes
 # `claude plugin eval .` deckt sie nicht ab:
 #
-#   1. Die Unit-Tests der Rechnung – ohne Modell, ohne Kosten.
-#   2. Die Suite mit Bash. Deckt 19 der 20 Fälle ab.
+#   1. Die Unit-Tests der Rechnung und des Rezeptlesers – ohne Modell, ohne
+#      Kosten.
+#   2. Die Suite mit Bash. Deckt 21 der 22 Fälle ab.
 #   3. Den Katalogfall ohne Bash: `--allow-tools Bash` gilt suite-weit, und mit
 #      Bash liest das Modell `zutaten.md` über scripts/naehrwerte.mjs, wo der
 #      Read-Zähler des Falls nicht mehr anschlägt. Nur dieser zweite Lauf zählt
 #      für `naehrwerte-aus-dem-katalog`.
 #   4. Den Zufallsfall mit fünf Läufen: `--runs` gilt ebenfalls suite-weit, und
 #      pruefe-zufall.mjs braucht die fünf aus dem README.
-#   5. Vier Nachprüfungen, die kein Grader leisten kann, weil sie im Verlauf
+#   5. Sechs Nachprüfungen, die kein Grader leisten kann, weil sie im Verlauf
 #      stehen statt in der Endantwort.
 #
 # Die Nachprüfungen benutzen die Läufe aus Schritt 2 mit (über
@@ -81,10 +82,11 @@ pruefe() {
 # Der Harness findet die Fälle nur vom Skillordner aus.
 cd "$SKILL" || exit 1
 
-melde "1/5  Unit-Tests der Rechnung"
+melde "1/5  Unit-Tests"
 pruefe "naehrwerte.test.mjs" node --test "$SKILL/scripts/naehrwerte.test.mjs"
+pruefe "rezept-lesen.test.mjs" node --test "$EVALS/rezept-lesen.test.mjs"
 
-melde "2/5  Suite mit Bash (20 Fälle)"
+melde "2/5  Suite mit Bash (22 Fälle)"
 pruefe "suite" claude plugin eval . \
   --scaffold --allow-tools Bash --ablation none \
   --keep-temp --no-publish --output-dir "$BASIS/suite"
@@ -121,9 +123,11 @@ nachpruefung() {
   pruefe "$name" node "$EVALS/$skript" "$teil"
 }
 
-nachpruefung "Kennzeichnung neuer Zutaten" korrektur-kennzeichnet-neue-zutat pruefe-kennzeichnung.mjs
+nachpruefung "Prüfer bleibt im Vorrat"    pruefer-bleibt-im-vorrat          pruefe-vorrat-im-befund.mjs
+nachpruefung "Tabelle gegen die Liste"   tabelle-passt-zur-zutatenliste    pruefe-tabelle-gegen-liste.mjs
 nachpruefung "Ein Rezept, nicht zwei"     nur-das-ueberarbeitete-rezept      pruefe-ein-rezept.mjs
 nachpruefung "Tabelle gegen das Skript"   rechnet-mit-dem-skript             pruefe-tabelle.mjs
+nachpruefung "Korridor nach der Korrektur" korridor-haelt-die-korrektur-aus  pruefe-korridor-nach-korrektur.mjs
 
 if [ -f "$BASIS/zufall/aggregate-result.json" ]; then
   pruefe "Verteilung der Proteinquelle" node "$EVALS/pruefe-zufall.mjs" "$BASIS/zufall/aggregate-result.json"

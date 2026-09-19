@@ -1,6 +1,6 @@
 # Eval-Suite für `rezept`
 
-Zwanzig Fälle gegen den Skill, jeder mit drei Läufen. Alles auf einmal:
+Zweiundzwanzig Fälle gegen den Skill, jeder mit drei Läufen. Alles auf einmal:
 
 ```bash
 bin/run-evals
@@ -9,7 +9,7 @@ bin/run-evals --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
 
 Das Skript führt die Varianten aus, die unten einzeln begründet sind: die
 Unit-Tests, die Suite mit Bash, den Katalogfall ohne Bash, den Zufallsfall mit
-fünf Läufen und die vier Nachprüfungen im Verlauf. Die Nachprüfungen benutzen
+fünf Läufen und die fünf Nachprüfungen im Verlauf. Die Nachprüfungen benutzen
 die Läufe der Suite mit, statt dieselben Fälle noch einmal durch den Harness zu
 schicken – `evals/nur-einen-fall.mjs` schneidet den passenden Fall aus dem
 Ergebnis heraus. `--verlauf` hängt die einzige Prüfung an, die der Harness
@@ -54,7 +54,8 @@ Datei gehört zu `wochenplan`.
 | `haushaltsuebliche-mengen` | „Mengen in Gramm oder haushaltsüblichen Maßen." | 2 von 3 |
 | `schritte-nennen-mengen` | „Nenne in jedem Schritt die Menge jeder Zutat erneut …" | 2 von 3 |
 | `pruefung-vor-der-ausgabe` | „Lass das fertige Rezept von einem Subagenten prüfen …" | 0 von 3 |
-| `korrektur-kennzeichnet-neue-zutat` | „Korrekturen, die eine neue Zutat brauchen …" | siehe unten |
+| `pruefer-bleibt-im-vorrat` | „Nutze keine Zutaten, die nicht im Vorrat sind." | siehe unten |
+| `tabelle-passt-zur-zutatenliste` | „Ändert eine Korrektur Mengen oder Zutaten, rechne …" | siehe unten |
 | `naehrwerttabelle` | – | 3 von 3 |
 | `zeit-aktiv-und-gerundet` | – | 3 von 3 |
 | `vorrat-schlaegt-wunsch` | – | 3 von 3 |
@@ -62,11 +63,12 @@ Datei gehört zu `wochenplan`.
 | `kcal-korridor` | – | 3 von 3 |
 | `keine-punktlandung` | – | 3 von 3 |
 | `rechnet-mit-dem-skript` | – | 3 von 3 |
+| `korridor-haelt-die-korrektur-aus` | – | siehe unten |
 | `vorratskammer-regeln` | – | 3 von 3 |
 | `nur-das-ueberarbeitete-rezept` | „Bevor du es ausgibst, lass das fertige Rezept … prüfen" | im Harness nicht messbar, siehe unten |
 
 Die oberen dreizehn Zeilen sind Belege: ohne ihre Zeile rot, mit ihr als
-einziger zurückgebauter Zeile wieder grün. Die acht Zeilen mit einem
+einziger zurückgebauter Zeile wieder grün. Die neun Zeilen mit einem
 Gedankenstrich sind Absicherungen – sie halten fest, was das Modell heute von
 selbst richtig macht, und schlagen an, wenn sich das ändert. Die beiden
 übrigen Zeilen tragen eine Skillzeile, deren Beleg nicht in den Harness passt;
@@ -145,41 +147,94 @@ fünf Zeilen, die auch im gemeinsamen Rückbau unauffällig blieben.
 
 ## Was die Prüfung taugt, steht nicht in der Ausgabe
 
-`pruefung-vor-der-ausgabe` belegt, dass geprüft wird. Was der Prüfer findet,
-prüft er nicht – und das blieb lange unbemerkt: Ohne die Kennzeichnungszeile
-schlug der Koch Korrekturen mit Kokosmilch vor, die niemand im Haus hat, ohne
-dass die Antwort das verriet.
+`pruefung-vor-der-ausgabe` belegt, dass geprüft wird. Was der Prüfer findet und
+was mit seinen Befunden geschieht, steht nicht in der Antwort, sondern nur im
+Verlauf – als Eingabe und Ergebnis des Agent-Aufrufs. Dafür gibt es zwei Fälle
+mit je einem Skript statt eines Graders.
 
-`korrektur-kennzeichnet-neue-zutat` misst das. Die Antwort des Prüfers steht
-nur im Verlauf, als Ergebnis des Agent-Aufrufs, deshalb zählt sie ein Skript
-statt eines Graders:
+`pruefer-bleibt-im-vorrat` misst, ob der Koch im Vorrat bleibt. Früher sah er
+nur Zutatenliste und Zubereitung und konnte gar nicht wissen, was der Haushalt
+führt: Er schlug Kokosmilch vor, und er hielt umgekehrt das Salz aus dem
+Küchenschrank für eine neue Zutat. Jetzt bekommt er `vorratskammer.md` und den
+Auftrag, nichts anderes zu verwenden.
 
 ```bash
-claude plugin eval . --case 'korrektur-kennzeichnet*' --scaffold \
+claude plugin eval . --case 'pruefer-bleibt-im-vorrat' --scaffold \
   --allow-tools Bash --ablation none --keep-temp
-node evals/pruefe-kennzeichnung.mjs evals/results/<zeitstempel>/aggregate-result.json
+node evals/pruefe-vorrat-im-befund.mjs evals/results/<zeitstempel>/aggregate-result.json
 ```
 
-Gemessen: mit der Zeile 1 von 1 gekennzeichnet, ohne sie kein einziger
-Vorschlag mit neuer Zutat – je drei Läufe. **Das ist zu wenig, um etwas zu
-belegen.** Ein Vorschlag mit neuer Zutat fällt etwa in jedem dritten Lauf, und
-ob er fällt, hängt am gezogenen Gericht: Ein Curry ohne Kokosmilch lockt, eine
-Tomatensauce nicht. Für eine tragfähige Quote braucht der Fall zehn Läufe je
-Arm.
+Gezählt wird auf null: Ein Vorschlag von außerhalb soll nicht gekennzeichnet,
+sondern gar nicht erst gemacht werden. Der Prompt lautet „Curry", weil der
+Vorrat Currypaste führt, aber keine Kokosmilch – der Köder, der zieht. Eine
+Tomatensauce lockt nicht, und eine Falle, die niemand betritt, misst nichts.
 
-Belastbarer ist bislang die Vormessung außerhalb des Harness, die den
-Prüfer-Prompt direkt gegen fünf eingefrorene Rezepte laufen ließ: 30 Läufe, 12
-Korrekturen mit neuer Zutat, alle zwölf gekennzeichnet. Ohne die Zeile schlugen
-in vier Läufen zwei Korrekturen Kokosmilch vor, unmarkiert. Diese Messung prüft
-aber nur den Prompt, nicht den Skill – ändert jemand die Zeile in SKILL.md,
-merkt sie es nicht. Deshalb steht der Fall jetzt hier.
+Der Vorgänger `korrektur-kennzeichnet-neue-zutat` ist entfallen. Er maß, ob
+Vorschläge mit fremder Zutat als optional markiert sind; diese Regel steht
+nicht mehr im Skill, seit der Prüfer den Vorrat sieht.
 
-Das Skript erkennt eine neue Zutat über eine Liste von Wortstämmen, nicht über
-Sprachverständnis. Es übersieht, was nicht daraufsteht, und es zählt mit, was
+`tabelle-passt-zur-zutatenliste` misst, ob die Nährwerte die Überarbeitung
+überstehen. Der Skill rechnet die Tabelle vor der Prüfung; arbeitet er danach
+einen Befund ein, der Mengen ändert, steht eine veraltete Tabelle in der
+Antwort.
+
+```bash
+claude plugin eval . --case 'tabelle-passt-zur-zutatenliste' --scaffold \
+  --allow-tools Bash --ablation none --keep-temp
+node evals/pruefe-tabelle-gegen-liste.mjs evals/results/<zeitstempel>/aggregate-result.json
+```
+
+Warum nicht `pruefe-tabelle.mjs`: Das vergleicht die Tabelle mit der letzten
+Ausgabe von `naehrwerte.mjs` im selben Lauf. Rechnet das Modell nach der
+Prüfung nicht neu, ist diese Ausgabe genauso veraltet wie die Tabelle – beide
+decken sich, und der Fehler bleibt unsichtbar. An Verläufen von vor der Zeile
+nachgezählt: In vier von fünf Läufen lief das Skript nach dem Prüfbericht kein
+einziges Mal mehr. Das neue Skript rechnet deshalb selbst und hält Energie und
+Salz gegen die ausgegebene Zutatenliste.
+
+Salz muss dabei sein. Was der Koch typischerweise verlangt – mehr Salz, mehr
+Säure – wiegt in Kalorien nichts: „Limettensaft 10 g → 15 g; Salz 1 g → 1,5 g"
+bewegt die Energie um gut eine Kalorie, die Salzzeile um ein Drittel.
+
+`korridor-haelt-die-korrektur-aus` stellt die andere Frage zur selben Stelle:
+ob die Energie die Überarbeitung übersteht. Der Koch sieht die Tabelle nicht
+und kennt das Kalorienziel nicht; verlangt er mehr Öl, rechnet der Skill die
+Tabelle zwar neu, aber ob die neue Zahl noch zum Auftrag passt, steht in keiner
+Zeile.
+
+```bash
+claude plugin eval . --case 'korridor-haelt-die-korrektur-aus' --scaffold \
+  --allow-tools Bash --ablation none --keep-temp
+node evals/pruefe-korridor-nach-korrektur.mjs evals/results/<zeitstempel>/aggregate-result.json
+```
+
+Das Skript rechnet beide Fassungen: die Liste aus dem Prüfauftrag und die aus
+der Endantwort. Mitgezählt wird ein Lauf nur, wenn die Korrektur Mengen
+geändert hat *und* der Entwurf im Korridor lag – lag schon der daneben, ist das
+ein anderer Fehler, und der gehört zu `kcal-korridor`.
+
+**Der Fall ist eine Absicherung, kein Beleg.** Gemessen: fünf Läufe des Falls,
+alle fünf auswertbar, alle im Korridor; dazu sieben auswertbare Läufe aus den
+Verläufen älterer Fälle unter `evals/results`, ebenfalls alle im Korridor. Der
+Skill gleicht von sich aus aus, und zwar sichtbar – der Koch verlangt mehr Öl,
+und in der Endfassung steht „Basmatireis 50 g → 40 g; Erdnussmus 10 g → 8 g;
+Rapsöl 5 g → 10 g". Ein Lauf schreibt es sogar hin: „10 g Rapsöl statt 5 g. Das
+wären 90 kcal mehr und würde die 600 kcal sprengen – ich bin bei seiner
+kalorienneutralen Variante geblieben." Eine Zeile im Skill, die das Nachrechnen
+gegen den Korridor verlangt, hat damit keinen Beleg; der Fall hält fest, dass es
+so bleibt.
+
+Ein Lauf landete auf 630,4 kcal und damit um vier Zehntel außerhalb. Beurteilt
+wird deshalb die gerundete Zahl, wie `kcal-korridor` sie in der Tabelle prüft –
+sonst hinge das Urteil an einer Stelle hinter dem Komma, die in keiner Ausgabe
+steht.
+
+Beide Skripte erkennen Zutaten über eine Liste von Wortstämmen, nicht über
+Sprachverständnis. Sie übersehen, was nicht daraufsteht, und zählen mit, was
 ein Befund nur erwähnt: Im Ablationslauf sah ein Lob auf die verwerteten
-Walnüsse zunächst aus wie ein Vorschlag. Die Quote ist deshalb kein Messwert
-zum Ablesen – das Skript druckt jeden Treffer im Volltext, und wer die Zahl
-benutzt, liest sie.
+Walnüsse zunächst aus wie ein Vorschlag. Die Quoten sind deshalb keine
+Messwerte zum Ablesen – die Skripte drucken jeden Treffer im Volltext, und wer
+die Zahl benutzt, liest ihn.
 
 ### Ein Rezept, nicht zwei
 
@@ -232,7 +287,7 @@ nicht – die Gegenprobe zur Formulierung ist eine interaktive Sitzung, gemessen
 mit demselben Skript. Der Harness kann zwei Fassungen der Zeile nicht
 auseinanderhalten: Wo kein Wartefenster ist, ändert auch keine Formulierung
 etwas. Das ist dieselbe Lage wie bei
-`korrektur-kennzeichnet-neue-zutat`: Die tragfähige Messung liegt außerhalb des
+`pruefer-bleibt-im-vorrat`: Die tragfähige Messung liegt außerhalb des
 Harness, der Fall drinnen hält die Regel an den Skill gebunden.
 
 Als Rezept zählen nur Textblöcke mit *zwei* Tabellenzeilen am Zeilenanfang –
@@ -287,4 +342,31 @@ node evals/pruefe-zufall.mjs evals/results/<zeitstempel>/aggregate-result.json
 
 ```bash
 node --test .claude/skills/rezept/scripts/naehrwerte.test.mjs
+```
+
+Ebenso das Lesen eines ausgegebenen Rezepts. `evals/rezept-lesen.mjs` holt
+Mengen, Namen und Portionen aus der Antwort und sucht zu jeder Schreibweise die
+Katalogzeile; beide Prüfskripte, die selbst rechnen, hängen daran. Wie viel
+daran hängt, zeigt der Anlass der Tests – jeder stammt aus einem Lauf, der
+daran falsch oder unauswertbar wurde:
+
+- „1 TL (5 g) Rapsöl" fiel heraus, weil die Zeile nicht mit der Grammzahl
+  beginnt – 45 kcal, die kalorienreichste Zutat des Rezepts. Ebenso „2 Eier,
+  Größe M (116 g)", wo die Zahl hinter dem Namen steht: Ein Rezept mit 613 kcal
+  sah dadurch aus wie eines mit 435.
+- „20 g (1 EL) rote Currypaste" ergab einen leeren Namen, weil hinter der Menge
+  eine Klammer steht. In einem Lauf fehlten so die vier kalorienreichsten
+  Zutaten, und eine richtige Tabelle sah aus wie eine veraltete: 630 kcal laut
+  Tabelle, 524 laut Liste.
+- „150 ml Wasser" fand über den Präfixtreffer die Wassermelone.
+- „½ TL Gemüsebrühepulver" wiegt in Kalorien nichts, bringt aber fast das ganze
+  Salz mit. Auch das sah aus wie eine veraltete Tabelle, und die Tabelle
+  stimmte.
+- Gelesen wird nur der Abschnitt zwischen Zutatenliste und Zubereitung. Manche
+  Antworten hängen hinter das Rezept einen Vorratsabgleich, und der Prüfauftrag
+  nennt beide Überschriften im Fließtext, bevor er sie als Überschriften
+  schreibt.
+
+```bash
+node --test .claude/skills/rezept/evals/rezept-lesen.test.mjs
 ```

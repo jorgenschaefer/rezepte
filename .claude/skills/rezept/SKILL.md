@@ -12,11 +12,15 @@ Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
 
 Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
+Rechne die Nährwerttabelle mit `scripts/naehrwerte.mjs` aus den Zutatenmengen.
+
 Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
 
 Wähle die Proteinquelle zufällig aus dem Vorrat.
 
-Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste und Zubereitung sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Korrekturen, die eine neue Zutat brauchen, kennzeichne als optional."
+Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Nutze keine Zutaten, die nicht im Vorrat sind."
+
+Ändert eine Korrektur Mengen oder Zutaten, rechne die Tabelle neu.
 
 # Format der Antwort
 
