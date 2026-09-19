@@ -81,6 +81,28 @@ export const SYNONYME = new Map([
   ['vollkornfusilli', 'Vollkornnudeln'],
   ['vollkorn fussili', 'Vollkornnudeln'],
   ['vollkornnudeln', 'Vollkornnudeln'],
+  ['kaisergemüse, tk', 'Kaisergemüse'],
+  ['sojagranulat', 'Soja-Granulat'],
+  ['soja-granulat', 'Soja-Granulat'],
+  ['sojaschnetzel', 'Soja-Schnetzel'],
+  ['soja schnetzel', 'Soja-Schnetzel'],
+  ['mehl, type 550', 'Weizenmehl Type 405 oder 550'],
+  ['balsamico essig', 'Balsamico-Essig'],
+  // Der Vorrat nennt das Produkt, der Katalog die Warengruppe – die Marke
+  // steht dort in der Packungsspalte, nach der nicht gesucht wird.
+  ['vollkorn urtyp', 'Roggenvollkornbrot, ballaststoffreich'],
+  ['grünländer leicht', 'Schnittkäse leicht in Scheiben'],
+  ['kaergarden balance', 'Butter-Rapsöl-Mischung, ungesalzen, fettreduziert'],
+  ['goldmais', 'Mais, Dose'],
+  ['kulturheidelbeeren, tk', 'Heidelbeeren, TK'],
+  ['beeren-mischung, tk', 'Beeren, TK'],
+  ['lachsfilet, zuchtlachs', 'Lachsfilet, TK'],
+  ['tabasco red pepper sauce', 'Gewürze und Scharfes'],
+  ['senf, mittelscharf', 'Senf'],
+  ['rote curry paste', 'Currypaste'],
+  ['gelbe curry paste', 'Currypaste'],
+  ['erdnussmus, rewe bio', 'Erdnussmus'],
+  ['reis, langkorn/basmati', 'Basmatireis'],
 ])
 
 export function istKeineZutat(name) {

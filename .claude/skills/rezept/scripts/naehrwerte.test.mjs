@@ -352,7 +352,7 @@ const VORRAT_ZU_KATALOG = new Map([
   ['Bananen', 'Bananen'],
 ])
 
-test('jede Vorratszutat findet ihre Katalogzeile', () => {
+test('die Vorratszutaten landen in der richtigen Katalogzeile', () => {
   for (const [vorrat, erwartet] of VORRAT_ZU_KATALOG) {
     assert.equal(findeZutat(katalog, vorrat).zutat, erwartet, `„${vorrat}"`)
   }
@@ -370,4 +370,100 @@ test('keine Vorratszutat landet in einer Zeile einer anderen Warengruppe', () =>
     assert.notEqual(findeZutat(katalog, name).zutat, falsch, `„${name}"`)
   }
   assert.throws(() => findeZutat(katalog, 'Wasser'), /keine Zutat/)
+})
+
+// Das Gewürzregal des Vorrats gegen die Sammelzeile des Katalogs. Vorher
+// lösten nur die Wörter auf, die zufällig in ihrer Klammer standen: „Thymian"
+// ja, „Rosmarin" nein, „Pfeffer" ja, „Pfeffer, schwarz" nein.
+test('jedes Gewürz aus dem Vorrat findet die Sammelzeile', () => {
+  const regal = [
+    'Zimtstangen',
+    'Nelken',
+    'Chiliflocken',
+    'Curry',
+    'Italienische Kräuter',
+    'Knoblauch, granuliert',
+    'Koriandersamen, gemahlen',
+    'Kreuzkümmel',
+    'Kurkuma',
+    'Oregano',
+    'Paprika Rosenscharf',
+    'Paprika Edelsüß',
+    'Pfeffer, schwarz',
+    'Pfeffer, weiß',
+    'Kräuter der Provence',
+    'Rosmarin',
+    'Thymian',
+    'Zimt',
+  ]
+
+  for (const gewuerz of regal) {
+    assert.match(findeZutat(katalog, gewuerz).zutat, /^Gewürze und Scharfes/, `„${gewuerz}"`)
+  }
+})
+
+test('Vorratsschreibweisen mit abweichendem Katalognamen lösen auf', () => {
+  const paare = [
+    ['Kaisergemüse, TK', 'Kaisergemüse (Brokkoli, Blumenkohl, Möhren)'],
+    ['Sojagranulat', 'Soja-Granulat, trocken (TVP)'],
+    ['Sojaschnetzel', 'Soja-Schnetzel, trocken (TVP)'],
+    ['Mehl, Type 550', 'Weizenmehl Type 405 oder 550'],
+    ['Balsamico Essig', 'Balsamico-Essig'],
+  ]
+
+  for (const [vorrat, erwartet] of paare) {
+    assert.equal(findeZutat(katalog, vorrat).zutat, erwartet, `„${vorrat}"`)
+  }
+})
+
+// Vollständig statt handverlesen: jede Zeile der eingefrorenen
+// vorratskammer.md muss genau eine Katalogzeile finden. Ohne diesen Test deckt
+// die Zuordnung nur das ab, woran beim Schreiben gedacht wurde.
+//
+// Der Vorrat nennt Produkte („REWE Beste Wahl Kulturheidelbeeren, tiefgekühlt,
+// 500 g"), der Katalog Warengruppen. Was hier abgeräumt wird, ist die
+// Verpackung der Zeile, nicht ihr Name: Klammerkommentar, Grammangabe und das
+// angehängte „vegan".
+function vorratsname(zeile) {
+  return zeile
+    .replace(/\s*\(.*$/, '')
+    .replace(/,?\s*\d+\s*g\b/gi, '')
+    .replace(/\s+vegan\b/i, '')
+    .replace(/,\s*tiefgekühlt/i, ', TK')
+    .trim()
+}
+
+// Zeilen, die der Katalog bewusst nicht führt: Getränke und Aromen ohne
+// nennenswerte Nährwerte. Joghurt 1,5 % ist etwas anderes – dort fehlt die
+// Katalogzeile, und sie gehört nach REWE-Etikett nachgetragen.
+const OHNE_KATALOGZEILE = new Set([
+  'Coke Zero',
+  'Pfefferminztee',
+  'Fencheltee',
+  'Schwarzer Tee',
+  'Nescafe Gold Fertig Kaffee',
+  'FlavDrops Cocos',
+  'FlavDrops Lemon',
+  'Joghurt 1,5%',
+])
+
+test('jede Zeile aus vorratskammer.md findet genau eine Katalogzeile', () => {
+  const vorrat = readFileSync(new URL('../evals/vorratskammer.md', import.meta.url), 'utf8')
+    .split('\n')
+    .filter((z) => z.startsWith('- '))
+    .map((z) => vorratsname(z.slice(2)))
+
+  assert.ok(vorrat.length > 80, 'der eingefrorene Vorrat wurde nicht gelesen')
+
+  const offen = []
+  for (const name of vorrat) {
+    if (OHNE_KATALOGZEILE.has(name)) continue
+    try {
+      findeZutat(katalog, name)
+    } catch (fehler) {
+      offen.push(fehler.message)
+    }
+  }
+
+  assert.deepEqual(offen, [])
 })

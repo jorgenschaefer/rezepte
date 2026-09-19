@@ -280,7 +280,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Ketchup ohne Zuckerzusatz | 400 ml (Heinz Zero) | lang (offen Wochen) | 45 | 1,6 g | 1 g | 8 g | 0,1 g | 0 | 0,1 g | – | 1 EL = 15 g; normaler Ketchup hat 100 kcal, 22 g Zucker und 1,8 g Salz je 100 g |
 | Zitronen-, Limettensaft, Flasche | 200 ml | lang (offen Wochen) | 25 | 0,3 g | 0 | 5,5 g | 0 | 0 | 0 | – | 1 EL = 10 g; Dressing; Vitamin C verbessert die Eisenaufnahme (DGE) |
 | Salz, jodiert und fluoridiert | 500 g | lang | 0 | 0 | 0 | 0 | 0 | 0 | 100 g | – | 1 TL = 5 g; in der Rechnung 1 g je warmem Gericht |
-| Gewürze und Scharfes (Pfeffer, Paprika, Curry, Kreuzkümmel, Kurkuma, Zimt, Oregano, Thymian, Chiliflocken, Tabasco, getrocknete Kräuter) | Grundvorrat | lang | – | – | – | – | – | – | – | – | Würzmenge; DGE: „Runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab" |
+| Gewürze und Scharfes (Pfeffer, Pfeffer, schwarz, Pfeffer, weiß, Paprika Edelsüß, Paprika Rosenscharf, Curry, Kreuzkümmel, Koriandersamen, gemahlen, Kurkuma, Zimt, Zimtstangen, Nelken, Oregano, Thymian, Rosmarin, Italienische Kräuter, Kräuter der Provence, Knoblauch, granuliert, Chiliflocken, Tabasco, getrocknete Kräuter) | Grundvorrat | lang | – | – | – | – | – | – | – | – | Würzmenge; DGE: „Runden Sie Ihr Essen erst mit Kräutern und Gewürzen ab" |
 | Süßstoff flüssig, Erythrit, FlavDrops | 300 ml (ja!), 400 g (Borchers) | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Süßen ohne freie Zucker; nicht rechnen |
 | Zucker | 1 kg | lang | 400 | 0 | 0 | 100 g | 0 | 0 | 0 | – | 1 TL = 4 g; zählt zu den freien Zuckern |
 | Weizenmehl Type 405 oder 550 | 1 kg (REWE Beste Wahl) | lang | 340 | 12 g | 4 g | 69 g | 1 g | 0,1 g | 0 | – | Pfannkuchen, Binden; kein Vollkorn |
