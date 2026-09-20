@@ -6,7 +6,6 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
 Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie aufzufüllen. Sie müssen aber nicht in jedem Rezept vorkommen.
 
-- ja! Brechbohnen 1000g
 - Frosta Gemüse-Mix Italienische Küche 600g
 
 ## Kühlschrank
