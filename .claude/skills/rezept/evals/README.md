@@ -1,6 +1,7 @@
 # Eval-Suite für `rezept`
 
-Zweiundzwanzig Fälle gegen den Skill, jeder mit drei Läufen. Alles auf einmal:
+Zweiundzwanzig Fälle gegen den Skill, jeder mit drei Läufen, dazu sieben
+Nachprüfungen im Verlauf. Alles auf einmal:
 
 ```bash
 bin/run-evals
@@ -9,7 +10,7 @@ bin/run-evals --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
 
 Das Skript führt die Varianten aus, die unten einzeln begründet sind: die
 Unit-Tests, die Suite mit Bash, den Katalogfall ohne Bash, den Zufallsfall mit
-fünf Läufen und die fünf Nachprüfungen im Verlauf. Die Nachprüfungen benutzen
+fünf Läufen und die Nachprüfungen im Verlauf. Die Nachprüfungen benutzen
 die Läufe der Suite mit, statt dieselben Fälle noch einmal durch den Harness zu
 schicken – `evals/nur-einen-fall.mjs` schneidet den passenden Fall aus dem
 Ergebnis heraus. `--verlauf` hängt die einzige Prüfung an, die der Harness
@@ -66,6 +67,7 @@ Datei gehört zu `wochenplan`.
 | `korridor-haelt-die-korrektur-aus` | – | siehe unten |
 | `vorratskammer-regeln` | – | 3 von 3 |
 | `nur-das-ueberarbeitete-rezept` | „Bevor du es ausgibst, lass das fertige Rezept … prüfen" | im Harness nicht messbar, siehe unten |
+| *(alle Rezepte der Suite)* | – | Zuordnung und Energiedichte, siehe unten |
 
 Die oberen dreizehn Zeilen sind Belege: ohne ihre Zeile rot, mit ihr als
 einziger zurückgebauter Zeile wieder grün. Die neun Zeilen mit einem
@@ -301,6 +303,58 @@ Als Rezept zählt ein Textblock mit Nährwerttabelle *und* Zubereitung. An der
 genügt nicht: Die Statuszeile „Jetzt die Prüfung durch den Koch-Subagenten (der
 nur Zutatenliste und Zubereitung sieht)" führt beide Begriffe, aber keine
 Tabelle.
+
+## Die Summe stimmt und die Zutat ist trotzdem falsch
+
+Alle bisherigen Nachprüfungen rechnen Summen nach. Eine Fehlzuordnung verschiebt
+die Summe aber oft gar nicht aus dem Korridor – und `pruefe-tabelle-gegen-liste.mjs`
+löst die Namen über dasselbe `findeZutat` auf wie der Skill. Es hätte die falsche
+Zeile genauso gefunden und bestätigt. **Ein Prüfer, der sich Code mit dem
+Geprüften teilt, ist für dessen Fehler blind.**
+
+Am 20.9.2026 von Hand gefunden, alle im Kalorienkorridor und für jede
+Summenprüfung unsichtbar:
+
+| Zutat im Rezept | fand die Zeile | Folge |
+|---|---|---|
+| „Wasser" | Wassermelone | 45 kcal und 150 g auf der Obst-und-Gemüse-Zeile |
+| „Curry" | Currypaste (rot, gelb) | Fett und Salz, die das Gewürz nicht hat |
+| „Nudeln" | Nudeln aus roten Linsen | 25 g statt 13 g Protein |
+| „Joghurt" | Joghurt griechischer Art 0,2 % | falsche Fettstufe |
+
+`pruefe-zuordnung.mjs` stellt zwei Fragen, beide ohne Modell:
+
+```bash
+claude plugin eval . --scaffold --allow-tools Bash --ablation none --keep-temp
+node evals/pruefe-zuordnung.mjs evals/results/<zeitstempel>/aggregate-result.json
+```
+
+**Die Zuordnung gegen einen zweiten Auflöser.** `findeZutatStreng` nimmt nur,
+was wörtlich in Spalte 1 oder als Kochname von `zutaten.md` steht – keine
+Präfixe, keine Treffer im Wort, kein Plural-n, keine vorangestellte Marke. Wo
+beide Auflöser dieselbe Zeile nennen, ist die Zuordnung zweifach bestätigt. Wo
+nur der lockere etwas findet, hat er geschlossen statt gelesen; das ist kein
+Fehler, aber die Stelle, an der bisher jeder saß. Scheitern beide, bricht der
+Rechner ohnehin hörbar ab – das braucht keinen Prüfer.
+
+Von den vier Fällen oben meldet das heute nur noch „Nudeln": Wasser hat seit dem
+`KEINE_ZUTAT`-Eintrag keine Zeile mehr, „Curry" und „Joghurt" sind seit der
+Umstellung auf Produktnamen mit Kochname eindeutig. Die Prüfung hält fest, dass
+es so bleibt.
+
+**Die Energiedichte.** Energie je Gramm Zutat, plausibel zwischen 0,5 und
+2,5 kcal/g. Das fängt die grobe Klasse ab, die auch der Zuordnungsvergleich
+durchlässt: Wer Gemüse gegen Öl tauscht, trifft die Kalorienzahl und verfehlt
+die Dichte. Der Bratreis vom 20.9. liegt bei 1,40 kcal/g, dasselbe Gericht mit
+70 g Öl statt Gemüse bei 6,58.
+
+**Die Grenzen sind gesetzt, nicht gemessen.** 0,5 und 2,5 stammen aus der
+Anschauung, nicht aus Läufen. Sie gehören an echten Rezepten kalibriert, sobald
+genug Läufe mit `--keep-temp` vorliegen; bis dahin ist die Schwelle die
+schwächste Stelle der Prüfung.
+
+Anders als die übrigen Nachprüfungen hängt diese an keinem einzelnen Fall: Jeder
+Fall gibt ein Rezept aus, also läuft sie über das ganze Suite-Ergebnis.
 
 ## Was der Judge nicht kann
 

@@ -13,8 +13,10 @@
 #      für `naehrwerte-aus-dem-katalog`.
 #   4. Den Zufallsfall mit fünf Läufen: `--runs` gilt ebenfalls suite-weit, und
 #      pruefe-zufall.mjs braucht die fünf aus dem README.
-#   5. Sechs Nachprüfungen, die kein Grader leisten kann, weil sie im Verlauf
-#      stehen statt in der Endantwort.
+#   5. Sieben Nachprüfungen, die kein Grader leisten kann, weil sie im Verlauf
+#      stehen statt in der Endantwort. Sechs davon hängen an je einem Fall;
+#      die Zuordnungsprüfung läuft über alle Rezepte der Suite, weil jeder
+#      Fall eines ausgibt.
 #
 # Die Nachprüfungen benutzen die Läufe aus Schritt 2 mit (über
 # evals/nur-einen-fall.mjs), statt dieselben Fälle noch einmal durch den
@@ -128,6 +130,13 @@ nachpruefung "Tabelle gegen die Liste"   tabelle-passt-zur-zutatenliste    pruef
 nachpruefung "Ein Rezept, nicht zwei"     nur-das-ueberarbeitete-rezept      pruefe-ein-rezept.mjs
 nachpruefung "Tabelle gegen das Skript"   rechnet-mit-dem-skript             pruefe-tabelle.mjs
 nachpruefung "Korridor nach der Korrektur" korridor-haelt-die-korrektur-aus  pruefe-korridor-nach-korrektur.mjs
+
+if [ -f "$SUITE" ]; then
+  pruefe "Zuordnung und Energiedichte" node "$EVALS/pruefe-zuordnung.mjs" "$SUITE"
+else
+  printf '\033[33muebersprungen\033[0m  Zuordnung und Energiedichte – die Suite hat kein Ergebnis geschrieben\n'
+  FEHLER+=("Zuordnung und Energiedichte (kein Suite-Ergebnis)")
+fi
 
 if [ -f "$BASIS/zufall/aggregate-result.json" ]; then
   pruefe "Verteilung der Proteinquelle" node "$EVALS/pruefe-zufall.mjs" "$BASIS/zufall/aggregate-result.json"
