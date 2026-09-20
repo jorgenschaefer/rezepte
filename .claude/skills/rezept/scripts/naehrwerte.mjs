@@ -27,6 +27,10 @@ const SPALTEN = {
   salz: 'Salz',
 }
 
+// Gibt die Zeilen und den Index zurück, über den aufgelöst wird. Ein Name, der
+// zweimal vorkommt, ist ein Fehler im Katalog und kein letzter Gewinner: Wer
+// zwei Zeilen denselben Namen gibt, bekommt keine stille Auswahl, sondern hier
+// einen Abbruch.
 export function leseKatalog(text) {
   const zeilen = text.split('\n')
   const rows = []
@@ -52,13 +56,28 @@ export function leseKatalog(text) {
     rows.push(baueZeile(kopf, zellen))
   }
 
+  rows.index = baueIndex(rows)
+
   return rows
 }
 
-// Rezepte schreiben die Marke mit („REWE Bio Blattspinat"), der Katalog führt
-// die Zutat („Blattspinat, TK").
-export const MARKEN =
-  /^(?:REWE Bio|REWE Beste Wahl|REWE|ja!|Frosta|Bonduelle|Vantastic foods|Harry|Kölln|Barilla|Bamboo Garden|Iglo|Arla|Heinz)\s+/i
+function baueIndex(rows) {
+  const index = new Map()
+
+  for (const zeile of rows) {
+    for (const name of zeile.namen) {
+      const schon = index.get(name)
+      if (schon && schon !== zeile) {
+        throw new Error(
+          `„${name}" steht in zwei Zeilen: ${schon.zutat} und ${zeile.zutat}`,
+        )
+      }
+      index.set(name, zeile)
+    }
+  }
+
+  return index
+}
 
 // Wasser hat keine Katalogzeile und trägt zu keiner Spalte bei. Ohne diesen
 // Eintrag fand „150 ml Wasser" über den Präfixtreffer die Wassermelone – und
@@ -66,65 +85,34 @@ export const MARKEN =
 export const KEINE_ZUTAT =
   /^(?:kochendes |heißes |kaltes |lauwarmes |warmes )?(?:leitungs)?wasser\b/i
 
-// Spalte 1 trägt den exakten REWE-Produktnamen, Spalte 2 den Kochnamen, unter
-// dem Rezepte die Zutat führen – mehrere durch Semikolon getrennt. Gesucht wird
-// über beide, damit „Rapsöl" die Zeile „REWE Bio Rapsöl nativ 500ml" findet.
-function namenVon(zeile) {
-  return zeile.namen
-}
-
 export function istKeineZutat(name) {
   return KEINE_ZUTAT.test(name.trim())
 }
 
-// Die Gegenprobe zu findeZutat: Getroffen wird nur, was wörtlich in Spalte 1
-// oder als Kochname steht. Alles, was der lockere Auflöser erschließt – Präfix,
-// Treffer im Wort, Plural-n, vorangestellte Marke –, lehnt diese Funktion ab.
+// Schlägt nach, statt zu schließen. Getroffen wird nur, was wörtlich als
+// REWE-Produktname, als Kurzform oder als Zweitname im Katalog steht – nach
+// normalisiere(), also ohne Rücksicht auf Groß- und Kleinschreibung.
 //
-// Sinn ist nicht, strenger zu rechnen, sondern unabhängig zu urteilen: Wo die
-// beiden Auflöser auseinandergehen, hat der lockere geschlossen statt gelesen,
-// und genau dort saßen die stillen Fehlgriffe („Wasser" auf der Wassermelone).
-export function findeZutatStreng(katalog, name) {
-  const gesucht = normalisiere(name)
-  const treffer = katalog.filter((r) => r.namen.includes(gesucht))
-
-  if (treffer.length === 1) return treffer[0]
-  if (treffer.length > 1) {
-    throw new Error(
-      `„${name}" steht wörtlich in mehreren Zeilen: ${treffer.map((r) => r.zutat).join(', ')}`,
-    )
-  }
-
-  throw new Error(`„${name}" steht nicht wörtlich in zutaten.md`)
-}
-
+// Vorher erschloss der Auflöser: Präfix, Treffer im Wort, Plural-n,
+// vorangestellte Marke. Das war richtig gedacht – Rezepte sind in
+// Küchendeutsch geschrieben –, hieß aber, dass jede Zuordnung eine
+// Schlussfolgerung sein konnte. Am 20.9.2026 von Hand gefunden, alle im
+// Kalorienkorridor und für jede Summenprüfung unsichtbar: „Wasser" traf die
+// Wassermelone samt 150 g Gutschrift auf Obst und Gemüse, „Curry" die
+// Currypaste mit ihrem Fett und Salz, „Nudeln" die Linsennudeln mit fast
+// doppeltem Protein, „Joghurt" den griechischen.
+//
+// Seit vorratskammer.md die Kurzformen führt und zutaten.md sie als Schlüssel
+// trägt, gibt es nichts mehr zu erschließen: Der Vorrat nennt jede Zutat so,
+// wie der Katalog sie führt. Ein Fehlgriff kann damit nicht mehr still
+// passieren – er bricht ab und nennt den Namen.
 export function findeZutat(katalog, name) {
   if (istKeineZutat(name)) {
     throw new Error(`„${name}" ist keine Zutat aus dem Katalog`)
   }
 
-  const ohneMarke = name.replace(MARKEN, '')
-  const gesucht = normalisiere(ohneMarke)
-
-  const exakt = katalog.filter((r) => namenVon(r).some((n) => n === gesucht))
-  if (exakt.length === 1) return exakt[0]
-
-  // „Rote Zwiebel" im Rezept, „Rote Zwiebeln" im Katalog – der Plural auf -n
-  // ist dieselbe Zutat, nicht eine zweite.
-  for (const kandidat of [gesucht, gesucht.endsWith('n') ? gesucht.slice(0, -1) : `${gesucht}n`]) {
-    for (const treffer of [
-      katalog.filter((r) => namenVon(r).some((n) => n === kandidat)),
-      katalog.filter((r) => namenVon(r).some((n) => trifftAnWortgrenze(n, kandidat, 0))),
-      katalog.filter((r) => namenVon(r).some((n) => findeAnWortgrenze(n, kandidat))),
-    ]) {
-      if (treffer.length === 1) return treffer[0]
-      if (treffer.length > 1) {
-        throw new Error(
-          `„${name}" ist mehrdeutig – es passen: ${treffer.map((r) => r.zutat).join(', ')}`,
-        )
-      }
-    }
-  }
+  const zeile = katalog.index.get(normalisiere(name))
+  if (zeile) return zeile
 
   throw new Error(`„${name}" steht nicht in zutaten.md`)
 }
@@ -190,11 +178,12 @@ function baueZeile(kopf, zellen) {
   // Abschnitte ohne O/G-Spalte liefern hier undefined – kein Obst und Gemüse.
   const hole = (spalte) => zellen[kopf.indexOf(spalte)]
   const obstGemuese = hole('O/G')
-  const kochname = hole('Kochname') ?? ''
+  const kurzform = hole('Kurzform') ?? ''
   const zeile = {
     zutat: zellen[0],
-    kochname,
-    namen: [zellen[0], ...kochname.split(';')]
+    kurzform,
+    rewePackung: hole('REWE-Packung') ?? '',
+    namen: [zellen[0], ...kurzform.split(';')]
       .map((n) => normalisiere(n))
       .filter((n) => n && n !== '---'),
     trockenobst: obstGemuese === TROCKENOBST,
@@ -226,28 +215,6 @@ function teileZeile(zeile) {
     .replace(/\|$/, '')
     .split('|')
     .map((z) => z.trim())
-}
-
-// Ein Treffer zählt nur, wenn er an einer Wortgrenze beginnt und endet.
-// „Curry" traf sonst in „Currypaste" und holte eine Zeile mit Fett und Salz,
-// wo das Gewürzregal gemeint war; „Tofu" traf in „Räuchertofu".
-const WORTZEICHEN = /[\p{L}\p{N}]/u
-
-function trifftAnWortgrenze(text, gesucht, ab) {
-  if (!text.startsWith(gesucht, ab)) return false
-  if (ab > 0 && WORTZEICHEN.test(text[ab - 1])) return false
-
-  const dahinter = text[ab + gesucht.length]
-
-  return dahinter === undefined || !WORTZEICHEN.test(dahinter)
-}
-
-function findeAnWortgrenze(text, gesucht) {
-  for (let ab = text.indexOf(gesucht); ab !== -1; ab = text.indexOf(gesucht, ab + 1)) {
-    if (trifftAnWortgrenze(text, gesucht, ab)) return true
-  }
-
-  return false
 }
 
 function normalisiere(name) {

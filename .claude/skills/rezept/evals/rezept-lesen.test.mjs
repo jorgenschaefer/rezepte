@@ -10,7 +10,6 @@ import {
   istPlausibleDichte,
   ohneGrammangabe,
   traegtNaehrwerte,
-  zuordnungsAbweichungen,
   zutatenliste,
 } from './rezept-lesen.mjs'
 
@@ -158,10 +157,16 @@ test('liest nur den Abschnitt zwischen Zutatenliste und Zubereitung', () => {
 
 // Der Katalog führt „Kidneybohnen, Dose"; Rezepte schreiben „Kidneybohnen aus
 // der Dose". Der Auflöser kürzte bisher nur von vorn.
-test('findet die Katalogzeile auch, wenn hinten etwas angehängt ist', () => {
-  const [posten] = zutatenliste('- 265 g Kidneybohnen aus der Dose, abgetropft')
+// Seit der Katalog über Kurzformen aufgelöst wird, probiert aufloesen nichts
+// mehr durch. Eine Zutat, die nicht bei ihrer Kurzform genannt ist, bleibt ohne
+// Katalogzeile – der Lauf gilt dann als nicht auswertbar statt als richtig
+// zugeordnet. Der Rechner hätte so ein Rezept ohnehin nicht durchgelassen.
+test('ein angehängter Zustand macht den Posten unauswertbar, statt zu raten', () => {
+  const [angehaengt] = zutatenliste('- 265 g Kidneybohnen aus der Dose, abgetropft')
+  assert.equal(aufloesen(angehaengt).katalogname, null)
 
-  assert.equal(aufloesen(posten).katalogname, 'ja! Kidney-Bohnen rot 255g')
+  const [kurzform] = zutatenliste('- 255 g Kidneybohnen')
+  assert.equal(aufloesen(kurzform).katalogname, 'ja! Kidney-Bohnen rot 255g')
 })
 
 // Der Prüfauftrag kündigt an: „Hier Zutatenliste und Zubereitung:" – und
@@ -205,18 +210,6 @@ test('überspringt eine Klammer zwischen Menge und Name', () => {
 
   assert.equal(posten.gramm, 20)
   assert.equal(posten.name, 'Bamboo Garden Rote Curry Paste')
-})
-
-test('meldet, wo der strenge Auflöser anders urteilt als der lockere', () => {
-  const abweichungen = zuordnungsAbweichungen([
-    { name: 'Möhren', gramm: 60 },
-    { name: 'Zwiebel', gramm: 50 },
-  ])
-
-  assert.equal(abweichungen.length, 1)
-  assert.equal(abweichungen[0].name, 'Zwiebel')
-  assert.equal(abweichungen[0].locker, 'REWE Bio Zwiebeln rot 500g')
-  assert.equal(abweichungen[0].streng, null)
 })
 
 test('die Energiedichte eines gekochten Gerichts liegt im plausiblen Band', () => {

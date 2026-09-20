@@ -1,334 +1,182 @@
-# Zutatenkatalog – REWE-Packungen, Haltbarkeit, Nährwerte
+# Zutatenkatalog – REWE-Produkte, Kurzformen, Nährwerte
 
-Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk „im Lieferservice nicht gelistet" gibt es im Markt, die Packung ist die übliche), jeweils die gängigste Größe der Eigenmarken (ja!, REWE Beste Wahl, REWE Bio) oder des marktüblichen Markenprodukts. Nährwerte je 100 g, gerundet – bei Trockenware trocken, bei Konserven abgetropft, bei Fleisch und Fisch roh. kcal, Protein und Ballaststoffe sind übliche Tabellenwerte. Fett und Salz stammen bei Markenprodukten und Konserven vom REWE-Etikett (Stand 5. September 2026), Kohlenhydrate und gesättigte Fettsäuren ebenso (Stand 10. September 2026), bei Rohware jeweils aus Tabellenwerten; wo Marken stark abweichen, steht die Abweichung in Klammern. **Ballaststoffe sind in den Kohlenhydraten nicht enthalten** – die EU-Kennzeichnung führt sie getrennt, und der Katalog übernimmt das. Wer eine Zeile gegenrechnet, setzt deshalb kcal ≈ 4·Kohlenhydrate + 4·Protein + 9·Fett + 2·Ballaststoffe an, nicht die Formel ohne den letzten Summanden. Die Spalte „Saison" bei Obst und Gemüse nennt die Erntezeit in Deutschland oder, wo vermerkt, in Europa; „Lager" heißt aus deutscher Lagerware erhältlich. Für die Wochenplanung reicht diese Genauigkeit. Ein Gedankenstrich heißt: für diese Spalte gibt es in dieser Zeile keinen Wert, sie wird nicht mitgerechnet – und zwar nur die Spalte, in der er steht. Bei Brühe, Sojasauce, Currypaste und Senf stehen die Gedankenstriche bei Energie, Protein, Ballaststoffen und Kohlenhydraten, weil das Würzmengen sind; was dort als Zahl steht, zählt normal mit – bei Currypaste 2 g Fett, bei Senf 4 g Fett und das Salz aller vier Zeilen. Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und **sie allein entscheidet, ob eine Zeile zur DGE-Gruppe „Obst und Gemüse" zählt** – nicht die Abschnittsüberschrift und nicht der Hinweistext. `ja` heißt: 110 g sind eine Portion. `Trockenobst`: 25 g sind eine Portion. Der Gedankenstrich heißt hier nicht „kein Wert", sondern „zählt nicht". Die Zahlen und der Zuschnitt der Gruppe stammen aus `dge-wochenbilanz.md`: Kräuter, Pilze, Trockenfrüchte und Säfte gehören dazu, Hülsenfrüchte dagegen bilden eine eigene Gruppe mit eigenem Ziel – Erbsen, Edamame und Bohnen aus dem Abschnitt „Hülsenfrüchte, Tofu" zählen deshalb nicht mit, grüne Bohnen als Gemüse schon. Knoblauch, Ingwer und Zitronen stehen als Würzmengen auf `–`, Kräuter dagegen auf `ja`, weil die DGE sie ausdrücklich zur Gruppe zählt.
+Dieser Katalog führt genau die Produkte, die in `vorratskammer.md` stehen. Dazu sechs Zeilen ohne Vorratsposten, die der Eval-Fall `zwei-listen-im-ordner` braucht; sie sind in der Hinweisspalte als solche markiert.
 
-**Haltbarkeitsklassen** (entscheiden, wie viel einer Packung in der Woche verplant sein muss):
+**Die Kurzform ist der Schlüssel.** Spalte 1 trägt den REWE-Produktnamen, Spalte 2 die Kurzform – den Namen, unter dem `vorratskammer.md` das Produkt führt und ein Rezept es nennt. Folgen weitere Namen durch Semikolon, sind das Zweitnamen: Ein Rezept darf sie verwenden, `vorratskammer.md` nicht, dort steht immer die Kurzform. Aufgelöst wird **wörtlich** – `scripts/naehrwerte.mjs` schlägt nach und schließt nichts. Was nicht wörtlich als Produktname, Kurzform oder Zweitname dasteht, bricht ab, statt auf der ähnlichsten Zeile zu landen.
 
-- **frisch** – innerhalb der Woche verbrauchen: Brot, offene Milchprodukte, Fleisch, Fisch, Salat, Beeren, Pilze, Blattgemüse.
-- **Wochen** – hält ungeöffnet 2–4 Wochen im Kühlschrank oder Keller: Eier, Käse, Butter, Tofu, Wurzelgemüse, Kohl, Kartoffeln, Äpfel, Zitrusfrüchte.
-- **lang** – Monate: Tiefkühlware, Trockenware, Konserven, Nüsse, Öl.
+Nährwerte je 100 g, gerundet – bei Trockenware trocken, bei Konserven abgetropft, bei Fleisch und Fisch roh.
+
+**Die Spalte „Quelle"** sagt, woher die Zahlen einer Zeile stammen:
+
+- `Etikett <Datum>` – die Etikettspalten sind an diesem Tag von der REWE-Produktseite abgelesen. Das sind **Fett, ges. FS, Kohlenhydrate und Salz**. kcal, Protein und Ballaststoffe bleiben auch in diesen Zeilen übliche Tabellenwerte, sofern die Hinweisspalte nichts anderes sagt.
+- `Katalog` – für dieses Produkt gibt REWE keine Nährwerte her; alle Zahlen der Zeile sind Tabellenschätzung. Weicht eine Marke stark ab, steht die Abweichung in Klammern.
+
+**Ballaststoffe sind in den Kohlenhydraten nicht enthalten** – die EU-Kennzeichnung führt sie getrennt, und der Katalog übernimmt das. Wer eine Zeile gegenrechnet, setzt deshalb kcal ≈ 4·Kohlenhydrate + 4·Protein + 9·Fett + 2·Ballaststoffe an, nicht die Formel ohne den letzten Summanden.
+
+Ein Gedankenstrich heißt: für diese Spalte gibt es in dieser Zeile keinen Wert, sie wird nicht mitgerechnet – und zwar nur die Spalte, in der er steht. Bei Brühe, Sojasauce, Currypaste und Senf stehen die Gedankenstriche bei Energie, Protein, Ballaststoffen und Kohlenhydraten, weil das Würzmengen sind; was dort als Zahl steht, zählt normal mit – bei Currypaste 2 g Fett, bei Senf 4 g Fett und das Salz aller vier Zeilen.
+
+Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und **sie allein entscheidet, ob eine Zeile zur DGE-Gruppe „Obst und Gemüse" zählt** – nicht die Abschnittsüberschrift und nicht der Hinweistext. `ja` heißt: 110 g sind eine Portion. `Trockenobst`: 25 g sind eine Portion. Der Gedankenstrich heißt hier nicht „kein Wert", sondern „zählt nicht". Die Zahlen und der Zuschnitt der Gruppe stammen aus `dge-wochenbilanz.md`: Kräuter, Pilze, Trockenfrüchte und Säfte gehören dazu, Hülsenfrüchte dagegen bilden eine eigene Gruppe mit eigenem Ziel. Knoblauch und Zitronen stehen als Würzmengen auf `–`, Kräuter dagegen auf `ja`, weil die DGE sie ausdrücklich zur Gruppe zählt.
 
 **Umrechnungen:** Nudeln, Reis, Bulgur, Couscous, Quinoa gekocht ≈ 2,3 × Trockengewicht. Hülsenfrüchte gekocht = 1,8 × getrocknet (DGE-Faktor); rote Linsen eher 2,5 ×. Eine Dose Bohnen oder Kichererbsen (400 g Füllmenge) hat rund 255–265 g Abtropfgewicht.
 
 ## Brot und Backwaren
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| Roggenvollkornbrot, abgepackt | Roggenvollkornbrot, abgepackt | 500 g (ja!, Harry) | frisch | 200 | 6 g | 8 g | 38 g | 1,8 g | 0,3 g | 1,0 g | Scheibe 50 g; angebrochen 5–7 Tage |
-| Harry Vollkorn Urtyp 500g | Roggenvollkornbrot, ballaststoffreich; Vollkornbrot | 500 g (Harry Vollkorn Urtyp) | frisch | 194 | 5,4 g | 9,3 g | 36 g | 1,1 g | 0,2 g | 1,0 g | Etikett 8.9.2026; Scheibe 50 g; 4,8 g Ballaststoffe je 100 kcal – bestes Verhältnis im Sortiment; Roggenvollkorn zuerst, ohne Zuckerzusatz; Etikett REWE 20.9.2026 |
-| Vollkornbrot mit Saaten (Sonnenkern, Korn-an-Korn) | Vollkornbrot mit Saaten (Sonnenkern, Korn-an-Korn) | 500 g (Harry 1688) | frisch | 230 | 8 g | 8 g | 30 g | 7 g | 1,0 g | 1,0 g | Scheibe 50 g |
-| Dinkelvollkornbrot | Dinkelvollkornbrot | 300 g (Harry Vital+) | frisch | 210 | 8 g | 8 g | 28 g | 5,5 g | 0,6 g | 1,0 g | Scheibe 40 g |
-| Dinkelbrot mit Sonnenblumenkernen | Dinkelbrot mit Sonnenblumenkernen | 400 g (Harry) | frisch | 275 | 11 g | 6,5 g | 36 g | 8 g | 0,8 g | 1,0 g | Scheibe 40 g; kein Vollkorn |
-| Vollkorntoast | Vollkorntoast | 500 g (Harry) | frisch | 240 | 9 g | 6 g | 42 g | 4 g | 0,4 g | 1,0 g | Scheibe 25 g; lässt sich einfrieren |
-| Vollkornbrötchen | Vollkornbrötchen | 6 Stück 510–570 g (REWE Beste Wahl, Actipan) | frisch | 230 | 9 g | 7 g | 38,9 g | 5 g | 0,8 g | 1,1 g | Brötchen 85–95 g; einfrierbar |
-| Knäckebrot Vollkorn Roggen | Knäckebrot Vollkorn Roggen | 260 g (Wasa) | lang | 330 | 9 g | 15 g | 60 g | 1,5 g | 0,4 g | 1,2 g | Scheibe 11 g |
-| Pumpernickel | Pumpernickel | 250 g (Mestemacher) | lang | 190 | 5 g | 8 g | 32,6 g | 1 g | 0,3 g | 0,7 g | Scheibe 40 g |
-| Vollkorn-Tortillas | Vollkorn-Tortillas | 6 Stück 350 g (Old El Paso), 496 g (ja!) | lang | 300 | 9 g | 6 g | 47,8 g | 6 g | 1,1 g | 1,1 g | Wrap 58 g |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Harry Vollkorn Urtyp 500g | Roggenvollkornbrot; Roggenvollkornbrot, ballaststoffreich; Vollkornbrot | 500 g (Harry Vollkorn Urtyp) | 194 | 5,4 g | 9,3 g | 36 g | 1,1 g | 0,2 g | 1,0 g | Etikett 20.9.2026 | Scheibe 50 g; 4,8 g Ballaststoffe je 100 kcal – bestes Verhältnis im Sortiment; Roggenvollkorn zuerst, ohne Zuckerzusatz |
 
 ## Getreide, Kartoffeln
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| ja! Zarte Haferflocken 500g | Haferflocken | 500 g | lang | 372 | 13,5 g | 9,7 g | 58,7 g | 7 g | 1,3 g | 0 | Portion 50–60 g; Vollkorn; Etikett REWE 20.9.2026; Ballaststoffe vom Etikett der Packung |
-| Haferkleie | Haferkleie | 500 g (REWE Bio), 250 g (Kölln) | lang | 350 | 17 g | 15 g | 55 g | 7 g | 1,4 g | 0 | 2 EL = 20 g |
-| Müsli ohne Zuckerzusatz | Müsli ohne Zuckerzusatz | 500 g (Kölln) | lang | 360 | 10 g | 9 g | 64 g | 6 g | 2,8 g | 0,1 g | Portion 50 g |
-| Barilla Integrale Vollkorn Fusilli 500g | Vollkornnudeln; Vollkorn-Fusilli; Vollkornfusilli | 500 g (Barilla Integrale, REWE Bio) | lang | 347 | 13 g | 8 g | 64 g | 2,5 g | 0,5 g | 0,013 g | Portion 80 g trocken; Vollkorn; Etikett REWE 20.9.2026 |
-| Nudeln aus roten Linsen | Nudeln aus roten Linsen | 250 g (REWE Bio) | lang | 340 | 25 g | 6 g | 50 g | 1,7 g | 0,4 g | 0 | Portion 80 g trocken |
-| Naturreis (Vollkornreis) | Naturreis (Vollkornreis) | 1 kg (Oryza, REWE Bio) | lang | 350 | 7,5 g | 3 g | 69 g | 2,5 g | 0,5 g | 0 | Portion 60–70 g trocken; Vollkorn |
-| ja! Parboiled Spitzenreis Langkornreis 1kg | Langkornreis; Reis; Parboiled-Reis | 1 kg | lang | 351 | 8 g | 1,8 g | 75,5 g | 1,5 g | 0,5 g | 0,01 g | Portion 60 g trocken; Etikett REWE 20.9.2026; Parboiled, kein Vollkorn |
-| Bulgur | Bulgur | 500 g (REWE Bio, Ahama) | lang | 340 | 12 g | 8 g | 67,2 g | 1,5 g | 0,4 g | 0 | Portion 70 g trocken; Vollkorn |
-| Couscous | Couscous | 500 g (REWE Bio, Müller's Mühle) | lang | 350 | 12 g | 5 g | 70 g | 1,5 g | 0,4 g | 0 | Portion 70 g trocken |
-| Quinoa | Quinoa | 500 g (REWE Bio) | lang | 370 | 14 g | 7 g | 64 g | 6 g | 0,8 g | 0 | Portion 60–70 g trocken |
-| Dinkel, ganzes Korn | Dinkel, ganzes Korn | 500 g (Alnatura, Davert; im Lieferservice nicht gelistet) | lang | 340 | 14 g | 9 g | 61 g | 2,5 g | 0,4 g | 0 | Portion 60–70 g trocken; Vollkorn; DGE-Alternative zu Reis; 30–40 min, über Nacht eingeweicht 15 min |
-| Grünkern | Grünkern | 500 g (Alnatura, Davert; im Lieferservice nicht gelistet) | lang | 340 | 12 g | 9 g | 63 g | 2,5 g | 0,6 g | 0 | Portion 60–70 g trocken; Vollkorn; DGE-Alternative zu Reis; geschrotet für Bratlinge |
-| Goldhirse | Goldhirse | 800 g (REWE Bio) | lang | 370 | 11 g | 3 g | 71 g | 4 g | 0,8 g | 0 | Portion 60–70 g trocken; 15 min |
-| Weizenvollkornmehl | Weizenvollkornmehl | 1 kg (REWE Bio) | lang | 325 | 11 g | 10 g | 60 g | 2,4 g | 0,3 g | 0 | Pfannkuchen, Bratlinge; Vollkorn |
-| Kartoffeln, festkochend | Kartoffeln, festkochend | 650 g Drillinge (REWE Bio), 1 kg, 1,5 kg (REWE Beste Wahl), 2,5 kg | Wochen | 70 | 2 g | 2 g | 15 g | 0,1 g | 0 | 0 | Portion 250 g; kleinste Packung nehmen, die den Bedarf deckt |
-| Süßkartoffel | Süßkartoffel | Stück ca. 500 g | Wochen | 85 | 1,5 g | 3 g | 18 g | 0,1 g | 0 | 0,1 g | Portion 200–250 g |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| ja! Zarte Haferflocken 500g | Haferflocken | 500 g | 372 | 13,5 g | 9,7 g | 58,7 g | 7 g | 1,3 g | 0 | Etikett 20.9.2026 | Portion 50–60 g; Vollkorn; Ballaststoffe vom Etikett der Packung |
+| Barilla Integrale Vollkorn Fusilli 500g | Vollkornnudeln; Vollkorn-Fusilli; Vollkornfusilli | 500 g (Barilla Integrale, REWE Bio) | 347 | 13 g | 8 g | 64 g | 2,5 g | 0,5 g | 0,013 g | Etikett 20.9.2026 | Portion 80 g trocken; Vollkorn |
+| ja! Parboiled Spitzenreis Langkornreis 1kg | Langkornreis; Reis; Parboiled-Reis | 1 kg | 351 | 8 g | 1,8 g | 75,5 g | 1,5 g | 0,5 g | 0,01 g | Etikett 20.9.2026 | Portion 60 g trocken; Parboiled, kein Vollkorn |
 
 ## Hülsenfrüchte, Tofu
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| REWE Bio Rote Linsen 500g | Rote Linsen | 500 g (REWE Bio, Müller's Mühle) | lang | 341 | 25,5 g | 12,5 g | 50 g | 1,5 g | 0,3 g | 0,01 g | Portion 80–120 g trocken; ohne Einweichen, 10 min; Etikett REWE 20.9.2026 |
-| Tellerlinsen, Berglinsen, trocken | Tellerlinsen, Berglinsen, trocken | 500 g (Müller's Mühle) | lang | 330 | 24 g | 17 g | 50 g | 1,5 g | 0,4 g | 0 | Portion 80 g trocken; 25–30 min |
-| Beluga-Linsen, trocken | Beluga-Linsen, trocken | 500 g (REWE Bio) | lang | 330 | 26 g | 12 g | 44 g | 1,5 g | 0,3 g | 0 | Portion 80 g trocken |
-| Kichererbsen, trocken | Kichererbsen, trocken | 500 g (REWE Bio) | lang | 320 | 19 g | 12 g | 49 g | 6 g | 1,1 g | 0 | über Nacht einweichen |
-| Kichererbsen, Dose | Kichererbsen, Dose | 400 g, abgetropft 265 g (Bonduelle, REWE Bio 215 g) | lang | 120 | 7 g | 5,5 g | 15 g | 2,2 g | 0,2 g | 0,6 g | Dose = 1 Hauptgericht oder 2 Beilagen |
-| ja! Kidney-Bohnen rot 255g | Kidneybohnen | 400 g, abgetropft 255–265 g (ja!, REWE Bio, Bonduelle) | lang | 95 | 6,9 g | 6,5 g | 12 g | 0,7 g | 0 | 0,27 g | Dose = 1 Hauptgericht; Etikett REWE 20.9.2026; Abtropfgewicht 255 g |
-| REWE Beste Wahl Schwarze Bohnen 400g | Schwarze Bohnen | 400 g, abgetropft ca. 240 g (REWE Beste Wahl) | lang | 100 | 7 g | 7 g | 9,5 g | 1,2 g | 0,2 g | 0,3 g | Dose = 1 Hauptgericht; Tabellenwert; im Lieferservice nicht gelistet |
-| Weiße Bohnen, Dose | Weiße Bohnen, Dose | 420 g, abgetropft ca. 250 g (REWE Beste Wahl, Bonduelle) | lang | 95 | 6,5 g | 6 g | 13 g | 1 g | 0 | 0,3 g | |
-| Braune Linsen, Dose | Braune Linsen, Dose | abgetropft 265 g (REWE Beste Wahl, Bonduelle) | lang | 90 | 7 g | 5 g | 11 g | 0,5 g | 0 | 0,6 g | |
-| Erbsen, Dose | Erbsen, Dose | abgetropft 230–280 g (REWE Bio, Bonduelle) | lang | 70 | 5 g | 5 g | 8 g | 0,5 g | 0,2 g | 0,6 g | |
-| REWE Bio pflanzlich Tofu Natur 2x200g | Tofu natur | 2 × 200 g (REWE Bio, Berief), 200 g (Taifun) | Wochen | 146 | 15 g | 1 g | 1,8 g | 8,5 g | 1,3 g | 0,03 g | Packung 200 g = 1 Portion; Etikett REWE 20.9.2026; Portion 200 g |
-| REWE Bio pflanzlich Räucher-Tofu 2x175g | Räuchertofu | 200 g (Taifun), 2 × 175 g (REWE Bio) | Wochen | 188 | 20,7 g | 2,5 g | 1,3 g | 10,6 g | 1,8 g | 0,85 g | Packung = 1 Portion; Etikett REWE 20.9.2026; Portion 175 g |
-| Tempeh | Tempeh | 200 g (REWE Bio) | Wochen | 170 | 19 g | 6 g | 3,2 g | 9 g | 1,3 g | 0 | Packung = 1 Portion |
-| Vantastic foods Soja-Granulat vegan 300g | Soja-Granulat; Sojagranulat | 300 g (Vantastic foods) | lang | 322 | 49 g | 8,8 g | 27 g | 1,2 g | 0,3 g | 0,01 g | Etikett 8.9.2026; Portion 30–40 g trocken, in der 2,5-fachen Menge Brühe 10 min quellen; Etikett REWE 20.9.2026 |
-| Vantastic foods Soja Schnetzel vegan 250g | Soja-Schnetzel; Sojaschnetzel | 250 g (Vantastic foods) | lang | 322 | 49 g | 8,8 g | 27 g | 1,2 g | 0,3 g | 0,01 g | Etikett 8.9.2026; identische Werte wie das Granulat, nur gröbere Stücke; Etikett REWE 20.9.2026 |
-| Edamame, TK, ohne Schote | Edamame, TK, ohne Schote | 300 g (REWE Bio), 500 g | lang | 120 | 11 g | 5 g | 8,6 g | 4,7 g | 2,2 g | 0 | |
-| Erbsen, TK | Erbsen, TK | 450 g (REWE Bio), 1 kg (ja!) | lang | 80 | 5,5 g | 5 g | 8 g | 0,5 g | 0,2 g | 0 | Hülsenfrucht, kein Gemüse |
-| Hummus natur | Hummus natur | 175 g (Noa), 200 g (REWE Bio) | frisch (offen 3 Tage) | 330 | 6,4 g | 4 g | 9 g | 29 g | 2,5 g | 1,5 g | 30 g je Scheibe Brot; Hülsenfrucht-Aufstrich im Sinn der DGE; 60 g ≈ ⅓ Portion Hülsenfrüchte |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| REWE Bio Rote Linsen 500g | Rote Linsen | 500 g (REWE Bio, Müller's Mühle) | 341 | 25,5 g | 12,5 g | 50 g | 1,5 g | 0,3 g | 0,01 g | Etikett 20.9.2026 | Portion 80–120 g trocken; ohne Einweichen, 10 min |
+| Kichererbsen, Dose | Kichererbsen, Dose | 400 g, abgetropft 265 g (Bonduelle, REWE Bio 215 g) | 120 | 7 g | 5,5 g | 15 g | 2,2 g | 0,2 g | 0,6 g | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier; Dose = 1 Hauptgericht oder 2 Beilagen |
+| ja! Kidney-Bohnen rot 255g | Kidneybohnen | 400 g, abgetropft 255–265 g (ja!, REWE Bio, Bonduelle) | 95 | 6,9 g | 6,5 g | 12 g | 0,7 g | 0 | 0,27 g | Etikett 20.9.2026 | Dose = 1 Hauptgericht; Abtropfgewicht 255 g |
+| REWE Beste Wahl Schwarze Bohnen 400g | Schwarze Bohnen | 400 g, abgetropft ca. 240 g (REWE Beste Wahl) | 100 | 7 g | 7 g | 9,5 g | 1,2 g | 0,2 g | 0,3 g | Katalog | Dose = 1 Hauptgericht; im Lieferservice nicht gelistet |
+| REWE Bio pflanzlich Tofu Natur 2x200g | Tofu natur | 2 × 200 g (REWE Bio, Berief), 200 g (Taifun) | 146 | 15 g | 1 g | 1,8 g | 8,5 g | 1,3 g | 0,03 g | Etikett 20.9.2026 | Packung 200 g = 1 Portion; Portion 200 g |
+| REWE Bio pflanzlich Räucher-Tofu 2x175g | Räuchertofu | 200 g (Taifun), 2 × 175 g (REWE Bio) | 188 | 20,7 g | 2,5 g | 1,3 g | 10,6 g | 1,8 g | 0,85 g | Etikett 20.9.2026 | Packung = 1 Portion; Portion 175 g |
+| Tempeh | Tempeh | 200 g (REWE Bio) | 170 | 19 g | 6 g | 3,2 g | 9 g | 1,3 g | 0 | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier; Packung = 1 Portion |
+| Vantastic foods Soja-Granulat vegan 300g | Soja-Granulat; Sojagranulat | 300 g (Vantastic foods) | 322 | 49 g | 8,8 g | 27 g | 1,2 g | 0,3 g | 0,01 g | Etikett 20.9.2026 | Portion 30–40 g trocken, in der 2,5-fachen Menge Brühe 10 min quellen |
+| Vantastic foods Soja Schnetzel vegan 250g | Soja-Schnetzel; Sojaschnetzel | 250 g (Vantastic foods) | 322 | 49 g | 8,8 g | 27 g | 1,2 g | 0,3 g | 0,01 g | Etikett 20.9.2026 | identische Werte wie das Granulat, nur gröbere Stücke |
 
 ## Gemüse, frisch
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Saison | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|---|---|
-| Paprika | Paprika | Stück ca. 250 g; Mix 500 g | frisch | 30 | 1 g | 2 g | 5 g | 0,3 g | 0 | 0 | ja | Jul–Okt | hält 7–10 Tage |
-| Tomaten (Rispen, Cherry) | Tomaten (Rispen, Cherry) | 500 g; Cherry 250–400 g | frisch | 20 | 1 g | 1 g | 3 g | 0,2 g | 0 | 0 | ja | Jul–Okt | |
-| REWE Bio Gurke 1 Stück | Salatgurke; Gurke | 1 Stück ca. 400 g | frisch | 12 | 0,6 g | 0,5 g | 2 g | 0,2 g | 0 | 0 | ja | Jun–Sep | Tabellenwert (REWE nennt für Frischware keine Werte) |
-| Zucchini | Zucchini | Stück ca. 300 g; 500 g (REWE Bio) | frisch | 20 | 1,5 g | 1 g | 2 g | 0,3 g | 0,1 g | 0 | ja | Jun–Okt | hält 7–10 Tage |
-| Aubergine | Aubergine | 1 Stück ca. 300 g | frisch | 20 | 1 g | 3 g | 2 g | 0,2 g | 0 | 0 | ja | Jul–Sep | |
-| Brokkoli | Brokkoli | 500 g; 300 g (REWE Bio) | frisch | 30 | 3 g | 3 g | 2,5 g | 0,2 g | 0 | 0 | ja | Jun–Okt | 3–5 Tage |
-| Blumenkohl | Blumenkohl | 1 Kopf ca. 500–800 g | frisch | 25 | 2,5 g | 3 g | 2,5 g | 0,3 g | 0,1 g | 0 | ja | Jun–Okt | |
-| Champignons | Champignons | 250 g; 400 g (weiß) | frisch | 20 | 3 g | 2 g | 0,6 g | 0,3 g | 0 | 0 | ja | ganzjährig | 3–5 Tage |
-| Blattspinat, frisch | Blattspinat, frisch | 100 g (Babyspinat); 450 g (REWE Beste Wahl) | frisch | 20 | 2,5 g | 2,5 g | 0,6 g | 0,3 g | 0,1 g | 0,2 g | ja | Apr–Jun, Sep–Nov | 2–3 Tage |
-| Romana-Salatherzen | Romana-Salatherzen | 3 Stück ca. 300 g | frisch | 15 | 1,3 g | 1,5 g | 1,5 g | 0,2 g | 0 | 0 | ja | Mai–Okt | |
-| Eisbergsalat | Eisbergsalat | 1 Kopf ca. 500 g | frisch | 15 | 1 g | 1 g | 2 g | 0,2 g | 0 | 0 | ja | Jun–Okt | hält 7 Tage |
-| Rucola | Rucola | 125 g; 80 g (REWE Bio) | frisch | 25 | 2,5 g | 1,6 g | 2 g | 0,7 g | 0,1 g | 0,1 g | ja | Apr–Okt | 2–3 Tage |
-| REWE Bio Möhren 1kg | Möhren; Karotte; Karotten; Möhre | 1 kg; Snackmöhren 250 g | Wochen | 35 | 1 g | 3 g | 6,5 g | 0,2 g | 0 | 0,1 g | ja | Jun–Nov, Lager ganzjährig | Möhre ca. 80 g; Tabellenwert (REWE nennt für Frischware keine Werte) |
-| Zwiebeln | Zwiebeln | 500 g im Netz, 1 kg (Bahde) | Wochen | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | ja | Lager ganzjährig | Zwiebel ca. 80 g |
-| REWE Bio Zwiebeln rot 500g | Rote Zwiebeln; Rote Zwiebel | 500 g im Netz | Wochen | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | ja | Lager ganzjährig | Tabellenwert (REWE nennt für Frischware keine Werte) |
-| Knoblauch 200g im Netz | Knoblauch | 100–200 g im Netz | Wochen | – | – | – | – | – | – | – | – | – | Würzmenge; Würzmenge |
-| Ingwer | Ingwer | ca. 100 g | Wochen | – | – | – | – | – | – | – | – | Import | Würzmenge |
-| Porree | Porree | 1 Stange ca. 300 g | Wochen | 30 | 2 g | 2,5 g | 3,3 g | 0,3 g | 0 | 0 | ja | Jul–Mär | |
-| Kohlrabi | Kohlrabi | 1 Stück ca. 350 g | Wochen | 25 | 2 g | 1,5 g | 3,7 g | 0,1 g | 0 | 0 | ja | Mai–Okt | |
-| Weißkohl, Spitzkohl | Weißkohl, Spitzkohl | Kopf ca. 1–1,5 kg | Wochen | 25 | 1,3 g | 3 g | 4 g | 0,2 g | 0 | 0 | ja | Jun–Feb, Lager | angeschnitten 1 Woche |
-| Chinakohl | Chinakohl | Kopf ca. 1 kg | Wochen | 15 | 1,2 g | 1,5 g | 1,2 g | 0,3 g | 0 | 0 | ja | Aug–Feb | |
-| Rote Bete, gekocht, vakuumiert | Rote Bete, gekocht, vakuumiert | 500 g | Wochen | 45 | 1,5 g | 2,5 g | 8,5 g | 0,1 g | 0 | 0,2 g | ja | Jul–Mär | |
-| Hokkaido-Kürbis | Hokkaido-Kürbis | Stück ca. 1 kg | Wochen | 60 | 1,5 g | 2,5 g | 11 g | 0,5 g | 0,1 g | 0 | ja | Sep–Dez | mit Schale essbar |
-| Feldsalat | Feldsalat | 150 g | frisch (2–3 Tage) | 15 | 1,8 g | 1,5 g | 0,7 g | 0,4 g | 0,1 g | 0 | ja | Okt–Mär | Folat, Eisen, Calcium (DGE) |
-| Grünkohl | Grünkohl | 500 g Beutel frisch; TK 450 g (iglo; im Lieferservice nicht gelistet) | frisch (3 Tage), TK lang | 45 | 4 g | 4 g | 1 g | 1 g | 0,2 g | 0 | ja | Nov–Feb | Calcium- und Folatquelle (DGE); Portion 200 g |
-| Fenchel | Fenchel | Knolle ca. 250 g | Wochen | 25 | 2,4 g | 3 g | 2,8 g | 0,3 g | 0 | 0,1 g | ja | Jun–Okt | roh in Salat oder gebraten |
-| Staudensellerie | Staudensellerie | 1 Staude ca. 400 g (Bio) | Wochen | 15 | 1,2 g | 1,5 g | 2,2 g | 0,2 g | 0 | 0,2 g | ja | Jul–Nov | Rohkost, Suppe |
-| Lauchzwiebeln | Lauchzwiebeln | Bund ca. 100 g | frisch (5 Tage) | 30 | 1,8 g | 2 g | 4,5 g | 0,3 g | 0 | 0 | ja | Mai–Okt | Salat, Pfanne |
-| Avocado | Avocado | 1 Stück ca. 150 g (REWE Bio) | Wochen (reif 2 Tage) | 160 | 2 g | 4 g | 0,4 g | 15 g | 2,1 g | 0 | ja | Import | Fettquelle; DGE-Speisepläne: höchstens einmal je Woche |
-| Kräuter, frisch (Petersilie, Basilikum, Koriander, Schnittlauch) | Kräuter, frisch (Petersilie, Basilikum, Koriander, Schnittlauch) | Bund ca. 30 g oder Topf | frisch (3–5 Tage) | – | – | – | – | – | – | – | ja | Topf ganzjährig | Würzmenge |
-| Zitronen | Zitronen | 500 g im Netz | Wochen | – | – | – | – | – | – | – | – | Import | Würzmenge |
-| Gewürzgurken | Gewürzgurken | 360 g (Kühne) | lang (offen Wochen) | 30 | 0,9 g | 1,3 g | 4,9 g | 0,2 g | 0,1 g | 1,6 g | ja | ganzjährig | Brotbelag; salzreich |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| REWE Bio Gurke 1 Stück | Salatgurke; Gurke | 1 Stück ca. 400 g | 12 | 0,6 g | 0,5 g | 2 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte |
+| Aubergine | Aubergine | 1 Stück ca. 300 g | 20 | 1 g | 3 g | 2 g | 0,2 g | 0 | 0 | ja | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier |
+| Champignons | Champignons | 250 g; 400 g (weiß) | 20 | 3 g | 2 g | 0,6 g | 0,3 g | 0 | 0 | ja | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier; 3–5 Tage |
+| REWE Bio Möhren 1kg | Möhren; Karotte; Karotten; Möhre | 1 kg; Snackmöhren 250 g | 35 | 1 g | 3 g | 6,5 g | 0,2 g | 0 | 0,1 g | ja | Katalog | Möhre ca. 80 g; REWE nennt für Frischware keine Werte |
+| REWE Bio Zwiebeln rot 500g | Rote Zwiebeln; Rote Zwiebel | 500 g im Netz | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte |
+| Knoblauch 200g im Netz | Knoblauch | 100–200 g im Netz | – | – | – | – | – | – | – | – | Katalog | Würzmenge |
 
 ## Gemüse, tiefgekühlt
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|---|
-| ja! Kaisergemüse 1kg | Kaisergemüse | 1 kg (ja!) | lang | 38 | 2,4 g | 2,1 g | 5 g | 0,5 g | 0,1 g | 0,04 g | ja | Portion 200 g; Etikett REWE 20.9.2026 |
-| Brokkoli, TK | Brokkoli, TK | 300 g (REWE Bio) | lang | 30 | 3 g | 3 g | 2,5 g | 0,3 g | 0,1 g | 0 | ja | |
-| Blumenkohl, TK | Blumenkohl, TK | 1 kg (ja!) | lang | 25 | 2,5 g | 3 g | 2,5 g | 0,3 g | 0,1 g | 0 | ja | |
-| REWE Bio Blattspinat 600g | Blattspinat, TK; Blattspinat | 600 g (REWE Bio), 500 g (Iglo) | lang | 17 | 2,5 g | 2 g | 0,6 g | 0,1 g | 0 | 0,05 g | ja | Etikett 8.9.2026 (REWE Bio); Iglo 22 kcal, 3 g Protein, 0,5 g Fett und deklariert 603 µg Vitamin A und 52 µg Folat je 100 g; portionierbar; nicht mit Rahm- oder Würzspinat verwechseln; Etikett REWE 20.9.2026 |
-| Rosenkohl, TK | Rosenkohl, TK | 300 g (REWE Bio) | lang | 40 | 4,5 g | 4 g | 3,4 g | 0,3 g | 0,1 g | 0 | ja | |
-| ja! Brechbohnen 1000g | Brechbohnen; Grüne Bohnen | 1 kg | lang | 29 | 2 g | 3 g | 3,7 g | 0,1 g | 0,1 g | 0,03 g | ja | Gemüse, keine Hülsenfrucht-Portion; Etikett REWE 20.9.2026; Ballaststoffe Tabellenwert (nicht deklariert) |
-| REWE Beste Wahl Wok-Mix 750g | Wok-Mix | 750 g (REWE Beste Wahl) | lang | 45 | 3 g | 2,5 g | 5,8 g | 0,5 g | 0 | 0,03 g | ja | Etikett 8.9.2026; 10 Sorten: Mungobohnenkeime 26 %, Kaiserschoten, Porree, Möhren, Erbsen, Bambus, Black Fungus, Wirsing, Pastinake, Paprika; ohne Öl und Sauce; Etikett REWE 20.9.2026 |
-| Gemüsemix ohne Sauce, TK | Gemüsemix ohne Sauce, TK | 600 g (Frosta Lieblings Gemüse Mix) | lang | 40 | 2,5 g | 3 g | 5 g | 0,4 g | 0,1 g | 0,1 g | ja | |
-| Frosta Gemüse-Mix Italienische Küche 600g | Gemüse-Mix Italienische Küche | 600 g (Frosta) | lang | 30 | 1,5 g | 2,3 g | 4,1 g | 0,3 g | 0,1 g | 0,04 g | ja | Etikett 8.9.2026; mit 0,04 g Salz je 100 g ungewürzt; Etikett REWE 20.9.2026 |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| ja! Kaisergemüse 1kg | Kaisergemüse | 1 kg (ja!) | 38 | 2,4 g | 2,1 g | 5 g | 0,5 g | 0,1 g | 0,04 g | ja | Etikett 20.9.2026 | Portion 200 g |
+| REWE Bio Blattspinat 600g | Blattspinat, TK; Blattspinat | 600 g (REWE Bio), 500 g (Iglo) | 17 | 2,5 g | 2 g | 0,6 g | 0,1 g | 0 | 0,05 g | ja | Etikett 20.9.2026 | REWE Bio; Iglo 22 kcal, 3 g Protein, 0,5 g Fett und deklariert 603 µg Vitamin A und 52 µg Folat je 100 g; portionierbar; nicht mit Rahm- oder Würzspinat verwechseln |
+| REWE Beste Wahl Wok-Mix 750g | Wok-Mix | 750 g (REWE Beste Wahl) | 45 | 3 g | 2,5 g | 5,8 g | 0,5 g | 0 | 0,03 g | ja | Etikett 20.9.2026 | 10 Sorten: Mungobohnenkeime 26 %, Kaiserschoten, Porree, Möhren, Erbsen, Bambus, Black Fungus, Wirsing, Pastinake, Paprika; ohne Öl und Sauce |
+| Frosta Gemüse-Mix Italienische Küche 600g | Gemüse-Mix Italienisch; Gemüse-Mix Italienische Küche | 600 g (Frosta) | 30 | 1,5 g | 2,3 g | 4,1 g | 0,3 g | 0,1 g | 0,04 g | ja | Etikett 20.9.2026 | mit 0,04 g Salz je 100 g ungewürzt |
 
 ## Obst
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Saison | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|---|---|
-| Apfel Pink Lady 1 kg | Äpfel; Apfel | 1 kg | Wochen | 55 | 0,3 g | 2 g | 12 g | 0,3 g | 0 | 0 | ja | Aug–Nov, Lager bis Apr | Apfel ca. 180 g; Tabellenwert (REWE nennt für Frischware keine Werte) |
-| REWE Beste Wahl Banane ca. 200g | Bananen; Banane | Stück ca. 200 g, einzeln | frisch | 90 | 1,2 g | 2 g | 20 g | 0,2 g | 0,1 g | 0 | ja | Import | 4–6 Tage, grün kaufen; Tabellenwert (REWE nennt für Frischware keine Werte) |
-| Orangen | Orangen | 1 kg; 1,5 kg im Netz | Wochen | 45 | 1 g | 2 g | 9 g | 0,2 g | 0 | 0 | ja | Nov–Mär (Europa) | Orange ca. 200 g |
-| Mandarinen | Mandarinen | 750 g im Netz | Wochen | 50 | 0,8 g | 1,7 g | 10,5 g | 0,3 g | 0 | 0 | ja | Nov–Jan | Stück ca. 60 g |
-| Birnen | Birnen | 500 g (REWE Bio); 1 kg | frisch | 55 | 0,5 g | 3 g | 12 g | 0,3 g | 0 | 0 | ja | Aug–Nov | Birne ca. 180 g |
-| Kiwi | Kiwi | Stück ca. 80 g, einzeln | Wochen | 55 | 1 g | 2 g | 10 g | 0,6 g | 0 | 0 | ja | Nov–Mär (Europa) | |
-| Trauben, kernlos | Trauben, kernlos | 500 g | frisch | 70 | 0,7 g | 1,5 g | 16 g | 0,3 g | 0,1 g | 0 | ja | Aug–Okt (Europa) | |
-| Heidelbeeren, frisch | Heidelbeeren, frisch | 300 g; 500 g | frisch | 45 | 0,6 g | 3 g | 7 g | 0,6 g | 0 | 0 | ja | Jun–Sep | 3–5 Tage |
-| Erdbeeren, frisch | Erdbeeren, frisch | 500 g (REWE Beste Wahl) | frisch (2 Tage) | 35 | 0,7 g | 2 g | 6 g | 0,4 g | 0 | 0 | ja | Mai–Jul | |
-| Himbeeren, frisch | Himbeeren, frisch | 125 g | frisch (1–2 Tage) | 35 | 1,3 g | 5 g | 4,8 g | 0,3 g | 0 | 0 | ja | Jun–Sep | |
-| Nektarinen, Pfirsiche | Nektarinen, Pfirsiche | 350 g (REWE Bio), lose | frisch (3–5 Tage) | 45 | 0,9 g | 2 g | 9 g | 0,1 g | 0 | 0 | ja | Jun–Sep (Europa) | Stück ca. 130 g |
-| Pflaumen, Zwetschgen | Pflaumen, Zwetschgen | 500 g (REWE Bio) | frisch (4–6 Tage) | 50 | 0,6 g | 1,7 g | 10 g | 0,2 g | 0 | 0 | ja | Jul–Okt | |
-| Wassermelone | Wassermelone | Mini ca. 2 kg | Wochen (angeschnitten 3 Tage) | 30 | 0,6 g | 0,3 g | 7 g | 0,2 g | 0 | 0 | ja | Jun–Sep (Europa) | Portion 250 g |
-| ja! Beeren-Mischung 750g | Beeren, TK; Beerenmischung | 500 g (REWE Beste Wahl, ja! Beeren-Mischung); Brombeeren 300 g (REWE Bio) | lang | 58 | 1 g | 4 g | 11,5 g | 0,4 g | 0 | 0 | ja | ganzjährig | Portion 100 g; Himbeeren 5 g Ballaststoffe; reine Heidelbeeren siehe eigene Zeile; Etikett REWE 20.9.2026; Protein und Ballaststoffe Tabellenwert |
-| REWE Beste Wahl Kulturheidelbeeren 500g | Heidelbeeren, TK; Heidelbeeren | 500 g (REWE Beste Wahl Kulturheidelbeeren) | lang | 52 | 0,7 g | 2,4 g | 11 g | 0 | 0 | 0 | ja | ganzjährig | Etikett 8.9.2026; Portion 125 g; weniger Ballaststoffe als die Beeren-Mischung; Etikett REWE 20.9.2026 |
-| Mango, TK, gewürfelt | Mango, TK, gewürfelt | 500 g (REWE Beste Wahl), 300 g (REWE Bio) | lang | 60 | 0,6 g | 1,7 g | 16 g | 0,4 g | 0,1 g | 0 | ja | ganzjährig | |
-| Datteln, entsteint | Datteln, entsteint | 200 g, 500 g (Seeberger) | lang | 290 | 2 g | 8 g | 66 g | 0,5 g | 0,1 g | 0 | Trockenobst | ganzjährig |  |
-| Sultaninen | Sultaninen | 200 g (REWE Bio), 500 g (Seeberger) | lang | 300 | 2,5 g | 5 g | 68 g | 0,5 g | 0,2 g | 0 | Trockenobst | ganzjährig |  |
-| Aprikosen, getrocknet | Aprikosen, getrocknet | 125 g, 200 g (Seeberger) | lang | 275 | 4,8 g | 8 g | 55 g | 0,5 g | 0,1 g | 0 | Trockenobst | ganzjährig | Kaliumquelle der DGE-Speisepläne |
-| Pflaumen, getrocknet | Pflaumen, getrocknet | 150 g (Farmer's Snack Bio), 250 g (Seeberger) | lang | 240 | 2 g | 7 g | 54 g | 0 | 0 | 0 | Trockenobst | ganzjährig | Kalium |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Apfel Pink Lady 1 kg | Äpfel; Apfel | 1 kg | 55 | 0,3 g | 2 g | 12 g | 0,3 g | 0 | 0 | ja | Katalog | Apfel ca. 180 g; REWE nennt für Frischware keine Werte |
+| REWE Beste Wahl Banane ca. 200g | Bananen; Banane | Stück ca. 200 g, einzeln | 90 | 1,2 g | 2 g | 20 g | 0,2 g | 0,1 g | 0 | ja | Katalog | 4–6 Tage, grün kaufen; REWE nennt für Frischware keine Werte |
+| ja! Beeren-Mischung 750g | Beeren, TK; Beerenmischung | 500 g (REWE Beste Wahl, ja! Beeren-Mischung); Brombeeren 300 g (REWE Bio) | 58 | 1 g | 4 g | 11,5 g | 0,4 g | 0 | 0 | ja | Etikett 20.9.2026 | Portion 100 g; Himbeeren 5 g Ballaststoffe; reine Heidelbeeren siehe eigene Zeile; Protein und Ballaststoffe Tabellenwert |
+| REWE Beste Wahl Kulturheidelbeeren 500g | Heidelbeeren, TK; Heidelbeeren | 500 g (REWE Beste Wahl Kulturheidelbeeren) | 52 | 0,7 g | 2,4 g | 11 g | 0 | 0 | 0 | ja | Etikett 20.9.2026 | Portion 125 g; weniger Ballaststoffe als die Beeren-Mischung |
 
 ## Nüsse, Samen, Nussmus
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| Walnusskerne | Walnusskerne | 150 g (REWE Beste Wahl), 200 g (REWE Bio) | lang | 660 | 15 g | 6 g | 6,1 g | 65 g | 6,5 g | 0 | Portion 25 g |
-| REWE Bio Mandeln 200g | Mandeln | 200 g (Seeberger, REWE Bio) | lang | 618 | 24 g | 11 g | 5,7 g | 53 g | 4,1 g | 0,01 g | Portion 25 g; Etikett REWE 20.9.2026 |
-| Haselnusskerne | Haselnusskerne | 200 g (ja!, Seeberger) | lang | 640 | 14 g | 8 g | 6 g | 62 g | 5,3 g | 0 | |
-| Cashewkerne | Cashewkerne | 200 g (Seeberger), 250 g (REWE Bio) | lang | 570 | 18 g | 3 g | 22 g | 44 g | 9,3 g | 0 | |
-| Erdnüsse, ungesalzen | Erdnüsse, ungesalzen | 200 g (REWE Beste Wahl) | lang | 590 | 26 g | 8 g | 9,5 g | 48 g | 7 g | 0 | |
-| Studentenfutter | Studentenfutter | 200 g (REWE Bio) | lang | 480 | 12 g | 6 g | 33,7 g | 33 g | 2,7 g | 0 | |
-| REWE Bio Leinsamen geschrotet 400g | Leinsamen, geschrotet; Leinsamen | 400 g (REWE Bio) | lang | 509 | 21,1 g | 27,7 g | 2,3 g | 40 g | 4,7 g | 0,02 g | 1 EL = 10 g; Etikett REWE 20.9.2026 |
-| Chiasamen | Chiasamen | 250–300 g (REWE Bio, Seeberger) | lang | 450 | 20 g | 34 g | 2,9 g | 31 g | 3,8 g | 0 | 1 EL = 10 g |
-| Sonnenblumenkerne | Sonnenblumenkerne | 500 g (REWE Bio, Maryland) | lang | 580 | 22 g | 6 g | 2,6 g | 50 g | 7,1 g | 0 | |
-| Kürbiskerne | Kürbiskerne | 200 g (REWE Bio) | lang | 560 | 30 g | 6 g | 3 g | 46 g | 8,7 g | 0 | |
-| REWE Bio Erdnussmus 250g | Erdnussmus; Erdnussbutter | 250 g (REWE Bio), 350 g (Zentis) | lang | 593 | 25,8 g | 8,5 g | 7,6 g | 49,2 g | 11 g | 0,05 g | 1 EL = 15 g; Etikett REWE 20.9.2026 |
-| Mandelmus | Mandelmus | 250 g (REWE Bio) | lang | 620 | 22 g | 10 g | 3,2 g | 50 g | 4,2 g | 0 | |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| REWE Bio Mandeln 200g | Mandeln | 200 g (Seeberger, REWE Bio) | 618 | 24 g | 11 g | 5,7 g | 53 g | 4,1 g | 0,01 g | Etikett 20.9.2026 | Portion 25 g |
+| REWE Bio Leinsamen geschrotet 400g | Leinsamen, geschrotet; Leinsamen | 400 g (REWE Bio) | 509 | 21,1 g | 27,7 g | 2,3 g | 40 g | 4,7 g | 0,02 g | Etikett 20.9.2026 | 1 EL = 10 g |
+| REWE Bio Erdnussmus 250g | Erdnussmus; Erdnussbutter | 250 g (REWE Bio), 350 g (Zentis) | 593 | 25,8 g | 8,5 g | 7,6 g | 49,2 g | 11 g | 0,05 g | Etikett 20.9.2026 | 1 EL = 15 g |
 
 ## Milch und Milchprodukte
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| Milch 1,5 % | Milch 1,5 % | 1 l (frisch oder H-Milch) | frisch (H-Milch ungeöffnet lang) | 47 | 3,4 g | 0 | 5 g | 1,5 g | 1 g | 0,1 g | Portion 250 ml; offen 3–4 Tage |
-| ja! Fettarmer Joghurt mild 1,5% Fett 500g | Naturjoghurt 1,5 %; Joghurt 1,5 % | 500 g (ja!, Weihenstephan), 1 kg (REWE Beste Wahl) | frisch | 62 | 5,3 g | 0 | 6,3 g | 1,5 g | 1 g | 0,2 g | Etikett ja! 19.9.2026; Portion 150 g; offen 5–7 Tage; Etikett REWE 20.9.2026 |
-| Naturjoghurt 3,5–3,8 % | Naturjoghurt 3,5–3,8 % | 500 g (REWE Bio), 150 g Becher | frisch | 65 | 4 g | 0 | 4,8 g | 3,5 g | 2,5 g | 0,2 g | |
-| Joghurt griechischer Art 0,2 % | Joghurt griechischer Art 0,2 % | 450 g (Fage Total) | frisch | 57 | 10 g | 0 | 4 g | 0,2 g | 0,1 g | 0,1 g | |
-| Skyr natur | Skyr natur | 450 g (Arla), 400 g (REWE Bio) | frisch | 63 | 11 g | 0 | 4 g | 0,2 g | 0,1 g | 0,1 g | |
-| ja! Speisequark Magerstufe 500g | Magerquark | 500 g | frisch | 67 | 12,3 g | 0 | 4,1 g | 0,2 g | 0,1 g | 0,1 g | offen 5–7 Tage; Etikett REWE 20.9.2026 |
-| Speisequark 20 % | Speisequark 20 % | 250 g | frisch | 110 | 12 g | 0 | 3,5 g | 5 g | 3,2 g | 0,1 g | |
-| REWE Beste Wahl High Protein Quarkcreme 200g | High Protein Quarkcreme; Quarkcreme | 200 g (REWE Beste Wahl) | frisch | 68 | 12,3 g | 0,2 g | 3,5 g | 0,5 g | 0,4 g | 0,14 g | Packung = 136 kcal, 25 g Protein; Etikett; Zutatenliste auf Verdickungsmittel und Süßstoffe prüfen; Etikett REWE 20.9.2026; alle vier Sorten 67–70 kcal |
-| Hüttenkäse (körniger Frischkäse) | Hüttenkäse (körniger Frischkäse) | 200 g (Gervais, REWE Bio), 300 g | frisch | 100 | 12 g | 0 | 1,5 g | 3 g | 2,1 g | 0,9 g | |
-| Frischkäse Doppelrahmstufe | Frischkäse Doppelrahmstufe | 175 g (REWE Bio) | frisch | 268 | 5,4 g | 0 | 3 g | 26 g | 17 g | 0,7 g | Etikett 10.9.2026; 30 g je Scheibe Brot |
-| Frischkäse, Philadelphia Original | Frischkäse, Philadelphia Original | 195 g (Philadelphia) | frisch | 226 | 5,4 g | 0,2 g | 4,3 g | 21 g | 14 g | 0,75 g | Etikett 10.9.2026; 30 g je Scheibe Brot |
-| Frischkäse leicht | Frischkäse leicht | 175 g (Philadelphia so leicht) | frisch | 87 | 11 g | 0,4 g | 4,9 g | 2,5 g | 1,7 g | 0,85 g | Etikett 10.9.2026 |
-| Frischkäse, Magerstufe | Frischkäse, Magerstufe | 200 g (Exquisa Fitline) | frisch | 62 | 10,4 g | 0 | 3,5 g | 0,2 g | 0,1 g | 0,65 g | Etikett 10.9.2026; magerste Streichfähige im Sortiment |
-| Buttermilch | Buttermilch | 500 g (REWE Bio), 1 l (Hansano) | frisch | 37 | 3,5 g | 0 | 4 g | 0,5 g | 0,3 g | 0,1 g | |
-| Kefir | Kefir | 500 g (REWE Bio) | frisch | 55 | 3,4 g | 0 | 4 g | 1,5 g | 0,9 g | 0,1 g | |
-| Gouda, Stück | Gouda, Stück | 250 g (REWE Bio), 325–375 g (Frico) | Wochen | 350 | 24 g | 0 | 0 | 31 g | 22 g | 1,6 g | Portion 30 g |
-| Gouda, Emmentaler, Bergkäse in Scheiben | Gouda, Emmentaler, Bergkäse in Scheiben | 150–200 g | Wochen | 370 | 26 g | 0 | 0 | 29 g | 20 g | 1,5 g (Emmentaler 1,0 g) | Scheibe 25–30 g |
-| Grünländer Leicht Scheiben 140g | Schnittkäse leicht in Scheiben; Schnittkäse | 140 g (Grünländer Leicht) | Wochen | 280 | 31 g | 0 | 0,5 g | 17 g | 11 g | 0,8 g | Etikett 8.9.2026; Scheibe 25–30 g; Calcium 1000 mg je 100 g deklariert, 30 g = 300 mg; salzärmster Schnittkäse im Sortiment; Etikett REWE 20.9.2026 |
-| Cheddar in Scheiben | Cheddar in Scheiben | 130–200 g | Wochen | 400 | 25 g | 0 | 0,1 g | 35 g | 21 g | 1,8 g | |
-| Parmesan, Grana Padano | Parmesan, Grana Padano | 150–200 g Stück; 60 g gerieben | Wochen | 390 | 33 g | 0 | 0 | 29 g | 19 g | 1,6 g | 10 g je Portion Nudeln |
-| Mozzarella | Mozzarella | 125 g (Galbani) | Wochen (offen 2 Tage) | 250 | 18 g | 0 | 2 g | 17 g | 13 g | 0,7 g | Kugel = 1 Portion |
-| Feta, Schafskäse | Feta, Schafskäse | 180–200 g (REWE Bio, Salakis) | Wochen (offen 5 Tage) | 270 | 15 g | 0 | 0,7 g | 23 g | 17 g | 2,8 g | |
-| Harzer Käse | Harzer Käse | 200 g (ja!, Kleehof) | Wochen | 125 | 30 g | 0 | 0,1 g | 0,5 g | 0,3 g | 3,4 g | proteindichtester Käse |
-| Reibekäse leicht, 30 % Fett i. Tr. | Reibekäse leicht, 30 % Fett i. Tr. | 250 g (ja!) | Wochen (offen 1 Woche) | 265 | 28 g | 0 | 2 g | 16 g | 10 g | 1,5 g | DGE-Tipp „Schnittkäse mit max. 30 % Fett"; Auflauf, Nudeln, 20 g je Portion |
-| Ziegenfrischkäse | Ziegenfrischkäse | 2 × 60 g (Bettine), 150 g | frisch | 275 | 16,5 g | 0 | 3,1 g | 22 g | 17 g | 0,8 g | 30 g je Scheibe Brot |
-| Camembert | Camembert | 250 g (Le Rustique), 125 g (REWE Beste Wahl) | Wochen (offen 5 Tage) | 270 | 21 g | 0 | 1 g | 20 g | 14 g | 1,6 g | Portion 30 g |
-| Ricotta | Ricotta | 250 g (Galbani) | frisch (offen 3 Tage) | 165 | 8 g | 0 | 6 g | 12 g | 8,3 g | 0,4 g | Aufstrich, Pasta, Pfannkuchenfüllung |
-| Saure Sahne | Saure Sahne | 200 g (REWE Bio, Frankenland 10 %) | frisch (offen 5 Tage) | 115 | 3 g | 0 | 3,3 g | 10 g | 6,6 g | 0,1 g | Etikett REWE 18.9.2026; Dip, Suppe, Ofenkartoffel |
-| Schmand | Schmand | 200 g (Schwälbchen, Frankenland, 24 %) | frisch (offen 5 Tage) | 240 | 2,7 g | 0 | 3,4 g | 24 g | 15,6 g | 0,1 g | Etikett REWE 18.9.2026; Dip, Suppe, Ofenkartoffel; 2,4 × so fett wie saure Sahne und mit 15,6 g gesättigten Fettsäuren der Posten, an dem gekürzt wird |
-| Schlagsahne 30 % | Schlagsahne 30 % | 200 g, 500 g (Hansano) | frisch (offen 3 Tage) | 295 | 2,5 g | 0 | 3,2 g | 30 g | 22 g | 0,1 g | 2 EL = 30 g für Saucen |
-| Kakaopulver, schwach entölt | Kakaopulver, schwach entölt | 100 g (Dr. Oetker), 250 g | lang | 365 | 20 g | 28 g | 8,9 g | 21 g | 13 g | 0,1 g | 1 TL = 5 g in Quark oder Porridge; ohne Zucker |
-| Butter | Butter | 250 g | Wochen | 740 | 0,7 g | 0 | 0,6 g | 82 g | 52 g | 0,1 g | 10 g je Scheibe Brot |
-| Sojadrink natur, mit Calcium | Sojadrink natur, mit Calcium | 1 l (REWE Bio pflanzlich, Alpro) | lang (offen 5 Tage) | 40 | 3,3 g | 0,5 g | 0 | 1,8 g | 0,3 g | 0,1 g | einzige Milchalternative mit vergleichbarem Protein |
-| Haferdrink | Haferdrink | 1 l | lang (offen 5 Tage) | 45 | 1 g | 1 g | 6,5 g | 1,1 g | 0,2 g | 0,1 g | zählt nicht als Milchportion |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| ja! Fettarmer Joghurt mild 1,5% Fett 500g | Naturjoghurt 1,5 %; Joghurt 1,5 % | 500 g (ja!, Weihenstephan), 1 kg (REWE Beste Wahl) | 62 | 5,3 g | 0 | 6,3 g | 1,5 g | 1 g | 0,2 g | Etikett 20.9.2026 | Etikett ja! 19.9.2026; Portion 150 g; offen 5–7 Tage |
+| ja! Speisequark Magerstufe 500g | Magerquark | 500 g | 67 | 12,3 g | 0 | 4,1 g | 0,2 g | 0,1 g | 0,1 g | Etikett 20.9.2026 | offen 5–7 Tage |
+| REWE Beste Wahl High Protein Quarkcreme 200g | Quarkcreme; High Protein Quarkcreme | 200 g (REWE Beste Wahl) | 68 | 12,3 g | 0,2 g | 3,5 g | 0,5 g | 0,4 g | 0,14 g | Etikett 20.9.2026 | Packung = 136 kcal, 25 g Protein; Etikett; Zutatenliste auf Verdickungsmittel und Süßstoffe prüfen; alle vier Sorten 67–70 kcal |
+| Grünländer Leicht Scheiben 140g | Grünländer Leicht; Schnittkäse leicht in Scheiben; Schnittkäse | 140 g (Grünländer Leicht) | 280 | 31 g | 0 | 0,5 g | 17 g | 11 g | 0,8 g | Etikett 20.9.2026 | Scheibe 25–30 g; Calcium 1000 mg je 100 g deklariert, 30 g = 300 mg; salzärmster Schnittkäse im Sortiment |
+| Feta, Schafskäse | Feta, Schafskäse | 180–200 g (REWE Bio, Salakis) | 270 | 15 g | 0 | 0,7 g | 23 g | 17 g | 2,8 g | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier |
 
 ## Eier
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| REWE Beste Wahl Respeggt Eier Freilandhaltung 10 Stück | Eier, Größe M; Eier; Ei | 6 oder 10 Stück (REWE Beste Wahl, Bio) | Wochen | 155 | 13 g | 0 | 0,6 g | 9 g | 2,7 g | 0,3 g | Ei 58 g = 90 kcal, 7,5 g Protein; Tabellenwert (REWE nennt für Eier keine Werte); Ei 58 g = 90 kcal |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| REWE Beste Wahl Respeggt Eier Freilandhaltung 10 Stück | Eier, Größe M; Eier; Ei | 6 oder 10 Stück (REWE Beste Wahl, Bio) | 155 | 13 g | 0 | 0,6 g | 9 g | 2,7 g | 0,3 g | Katalog | Ei 58 g = 90 kcal, 7,5 g Protein; REWE nennt für Eier keine Werte; Ei 58 g = 90 kcal |
 
 ## Fisch
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| Lachsfilet, frisch | Lachsfilet, frisch | 250 g, 2 Portionen (Deutsche See, REWE Bio) | frisch (1–2 Tage) | 200 | 20 g | 0 | 0 | 13 g | 3,3 g | 0,1 g | Portion 120 g; Rest einfrieren |
-| ja! Lachsfilet 250g | Lachsfilet, TK; Lachsfilet | 250 g, 2 Stück à 125 g (ja!) | lang | 244 | 20 g | 0 | 0,5 g | 18 g | 2,6 g | 0,2 g | Portion 125 g = 305 kcal, 25 g Protein, 22,5 g Fett; fettreicher Fisch, ≈ 3 g EPA + DHA je Portion (geschätzt); Etikett REWE Online, 6. September 2026; Etikett REWE 20.9.2026; Portion 125 g |
-| Wildlachsfilet, TK (Oncorhynchus gorbuscha oder keta, Nordost-Pazifik) | Wildlachsfilet, TK (Oncorhynchus gorbuscha oder keta, Nordost-Pazifik) | 2 × 125 g (ja!) | lang | 100 | 19,7 g | 0 | 0 | 2,3 g | 1 g | 0,13 g | Portion 125 g = 124 kcal, 25 g Protein, 2,9 g Fett; magerer Proteinträger, ≈ 0,4 g EPA + DHA je Portion (geschätzt), kein Omega-3-Lieferant; Etikett REWE Online, 6. September 2026 |
-| Alaska-Seelachsfilet, TK | Alaska-Seelachsfilet, TK | 400 g (REWE Beste Wahl) | lang | 80 | 17 g | 0 | 0,5 g | 1 g | 0,4 g | 0,2 g | 3 Portionen |
-| Kabeljaufilet, TK | Kabeljaufilet, TK | 320 g (Followfood) | lang | 80 | 18 g | 0 | 0 | 0,7 g | 0,2 g | 0,2 g | |
-| Forelle, ganz | Forelle, ganz | 2 Stück 500 g (REWE Beste Wahl) | frisch | 105 | 19 g | 0 | 0 | 3 g | 0,7 g | 0,1 g | |
-| Räucherlachs | Räucherlachs | 100 g | frisch | 180 | 22 g | 0 | 0 | 11 g | 2,1 g | 2,5 g | Brotbelag 50 g |
-| Forellenfilet, geräuchert | Forellenfilet, geräuchert | 100 g (Krone), 125 g | frisch (offen 2 Tage) | 145 | 23 g | 0 | 0 | 5,6 g | 1,3 g | 2,0 g | Brotbelag 50 g = knapp ½ Fischportion |
-| Makrele, geräuchert | Makrele, geräuchert | Stück ca. 250 g (Frischetheke; im Lieferservice nicht gelistet) | frisch (3 Tage) | 300 | 20 g | 0 | 0 | 24 g | 4,6 g | 2,0 g | fettreicher Fisch (DGE); 120 g = 1 Portion |
-| Sardinen in Öl, Dose | Sardinen in Öl, Dose | 103–125 g, abgetropft ca. 85 g (Delamaris, Nixe) | lang | 210 | 22 g | 0 | 0 | 13 g | 1,3 g | 1,4 g | Dose ≈ ¾ Portion; fettreicher Fisch; Calcium aus den Gräten |
-| Thunfisch in eigenem Saft, Dose | Thunfisch in eigenem Saft, Dose | 130–140 g, abgetropft ca. 100 g | lang | 110 | 25 g | 0 | 0 | 1 g | 0,3 g | 0,5–1 g | Dose = 1 Portion |
-| Heringsfilets in Sauce, Dose | Heringsfilets in Sauce, Dose | 200 g (Appel, Hawesta) | lang | 200 | 14 g | 0 | 8,6 g | 14 g | 2,2 g | 1,8 g | |
-| Matjes | Matjes | 200 g (Nordsee) | frisch | 250 | 15 g | 0 | 1,4 g | 18 g | 3 g | 4,1 g | |
-| Garnelen, TK | Garnelen, TK | 250–300 g (REWE Bio, REWE Beste Wahl) | lang | 85 | 20 g | 0 | 0 | 1 g | 0,3 g | 1,0 g | |
-| Fischstäbchen, TK | Fischstäbchen, TK | 450 g, 15 Stück | lang | 210 | 12 g | 1 g | 19 g | 9 g | 1 g | 0,8 g | Stäbchen 30 g; verarbeitet |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| ja! Lachsfilet 250g | Lachsfilet, TK; Lachsfilet | 250 g, 2 Stück à 125 g (ja!) | 244 | 20 g | 0 | 0,5 g | 18 g | 2,6 g | 0,2 g | Etikett 20.9.2026 | Portion 125 g = 305 kcal, 25 g Protein, 22,5 g Fett; fettreicher Fisch, ≈ 3 g EPA + DHA je Portion (geschätzt); Etikett REWE Online, 6. September 2026; Portion 125 g |
 
 ## Fleisch und Wurst
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| Hähnchenbrustfilet | Hähnchenbrustfilet | ca. 320–400 g, 2 Stück (REWE Bio, Einfach Bio) | frisch (2 Tage) | 105 | 23 g | 0 | 0,5 g | 1,5 g | 0,3 g | 0,1 g | Portion 120–150 g; Rest einfrieren |
-| Putenbrust, Putengeschnetzeltes | Putenbrust, Putengeschnetzeltes | ca. 350–400 g (REWE Bio, Wilhelm Brandenburg) | frisch (2 Tage) | 105 | 24 g | 0 | 0,5 g | 1 g | 0 | 0,1 g | |
-| Rinderhackfleisch | Rinderhackfleisch | 250 g, 400 g (REWE Bio), 500 g (Wilhelm Brandenburg) | frisch (1 Tag) | 230 | 19 g | 0 | 0 | 16 g | 7 g | 0,2 g | 2 Portionen à 120 g aus 250 g |
-| Hackfleisch gemischt | Hackfleisch gemischt | 400 g, 500 g | frisch (1 Tag) | 250 | 18 g | 0 | 0 | 19 g | 7,5 g | 0,2 g | |
-| Schweinefilet | Schweinefilet | 260 g (REWE Bio), ca. 500 g (ja!) | frisch (2 Tage) | 105 | 22 g | 0 | 0,5 g | 2 g | 2 g | 0,1 g | |
-| Rinderhüftsteak | Rinderhüftsteak | 200 g (REWE Bio) | frisch (2 Tage) | 120 | 22 g | 0 | 0,5 g | 3,5 g | 2 g | 0,1 g | |
-| Hähnchenbrust, Putenbrust als Aufschnitt | Hähnchenbrust, Putenbrust als Aufschnitt | 100 g (Gutfried, Herta) | frisch (offen 3 Tage) | 105 | 21 g | 0 | 0,5 g | 1,5 g | 0,5 g | 2,2 g | Wurstportion 30 g |
-| Kochschinken | Kochschinken | 100–150 g | frisch (offen 3 Tage) | 110 | 20 g | 0 | 0,5 g | 3 g | 1 g | 2,3 g | |
-| Geflügelsalami | Geflügelsalami | 200 g (Wiltmann) | Wochen | 309 | 24 g | 0 | 1 g | 23 g | 9 g | 4,0 g | Etikett 10.9.2026; Wurstportion 30 g |
-| Salami | Salami | 250 g (Pick) | Wochen | 524 | 25 g | 0 | 0,5 g | 47 g | 19 g | 4,2 g | Etikett 10.9.2026; Wurstportion 30 g |
-| Leberwurst, fein | Leberwurst, fein | 125 g (Rügenwalder Mühle) | frisch (offen 5 Tage) | 310 | 14 g | 0 | 0,7 g | 28 g | 11 g | 1,9 g | Wurstportion 30 g; Abendbrot in den DGE-Speiseplänen |
-| Geflügel-Wiener | Geflügel-Wiener | 200 g (REWE Bio, Wiesenhof) | Wochen (ungeöffnet) | 230 | 13 g | 0 | 1 g | 19 g | 5 g | 2,3 g | |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Hähnchenbrustfilet | Hähnchenbrustfilet | ca. 320–400 g, 2 Stück (REWE Bio, Einfach Bio) | 105 | 23 g | 0 | 0,5 g | 1,5 g | 0,3 g | 0,1 g | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier; Portion 120–150 g; Rest einfrieren |
 
 ## Öle und Fette
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| REWE Bio Rapsöl nativ 500ml | Rapsöl | 500 ml (REWE Bio), 750 ml (Rapso) | lang | 900 | 0 | 0 | 0 | 100 g | 7,6 g | 0 | 1 EL = 10 g; Standardöl der DGE; Etikett REWE 20.9.2026 (828 kcal je 100 ml, mit Dichte 0,92 auf 100 g gerechnet) |
-| REWE Bio Natives Olivenöl 750ml | Olivenöl nativ extra; Olivenöl | 500 ml | lang | 896 | 0 | 0 | 0 | 99,6 g | 16,3 g | 0 | Etikett REWE 20.9.2026 (824 kcal je 100 ml, mit Dichte 0,92 auf 100 g gerechnet) |
-| Leinöl | Leinöl | 250 ml (REWE Bio) | lang (offen 4 Wochen, kühl) | 900 | 0 | 0 | 0 | 100 g | 9,2 g | 0 | nur kalt |
-| Margarine, halbfett | Margarine, halbfett | 450 g (Lätta) | Wochen | 360 | 0 | 0 | 1,4 g | 39 g | 11 g | 0,5 g | |
-| Butter-Rapsöl-Mischung | Butter-Rapsöl-Mischung | 350 g (Arla Kaergarden), 400 g (Kerrygold extra) | Wochen | 589 | 0,5 g | 0 | 0,5 g | 65 g | 34 g | 1,0 g | Etikett 10.9.2026; streichfähig |
-| Butter-Rapsöl-Mischung, ungesalzen | Butter-Rapsöl-Mischung, ungesalzen | 200 g (Arla Kaergarden Ungesalzen), 250/400 g (Kerrygold extra ungesalzen) | Wochen | 589 | 0,5 g | 0 | 0,5 g | 65 g | 34 g | 0,01 g | Etikett REWE 13.9.2026; streichfähig; salzfrei, aber 34 g gesättigte Fettsäuren (Kerrygold extra ungesalzen 35 g, Salz 0,02 g) |
-| Arla Kaergarden Balance Ungesalzen aus Butter & Rapsöl 200g | Butter-Rapsöl-Mischung, ungesalzen, fettreduziert; Kaergarden Balance | 200 g (Arla Kaergarden Balance Ungesalzen) | Wochen | 515 | 0,3 g | 0 | 0,3 g | 57 g | 19 g | 0,01 g | Etikett REWE 13.9.2026; streichfähig; salzfrei und mit 19 g gesättigten Fettsäuren gut die Hälfte der normalen Mischung – aber immer noch fast doppelt so viel wie halbfette Margarine (11 g) bei 155 kcal mehr je 100 g; Etikett REWE 20.9.2026 |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| REWE Bio Rapsöl nativ 500ml | Rapsöl | 500 ml (REWE Bio), 750 ml (Rapso) | 900 | 0 | 0 | 0 | 100 g | 7,6 g | 0 | Etikett 20.9.2026 | 1 EL = 10 g; Standardöl der DGE; 828 kcal je 100 ml, mit Dichte 0,92 auf 100 g gerechnet |
+| REWE Bio Natives Olivenöl 750ml | Olivenöl nativ extra; Olivenöl | 500 ml | 896 | 0 | 0 | 0 | 99,6 g | 16,3 g | 0 | Etikett 20.9.2026 | 824 kcal je 100 ml, mit Dichte 0,92 auf 100 g gerechnet |
+| Arla Kaergarden Balance Ungesalzen aus Butter & Rapsöl 200g | Butter-Rapsöl-Mischung; Butter-Rapsöl-Mischung, ungesalzen, fettreduziert; Kaergarden Balance | 200 g (Arla Kaergarden Balance Ungesalzen) | 515 | 0,3 g | 0 | 0,3 g | 57 g | 19 g | 0,01 g | Etikett 20.9.2026 | streichfähig; salzfrei und mit 19 g gesättigten Fettsäuren gut die Hälfte der normalen Mischung – aber immer noch fast doppelt so viel wie halbfette Margarine (11 g) bei 155 kcal mehr je 100 g |
 
 ## Konserven, Vorrat, Würze
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|---|
-| ja! Tomaten passiert 500g | Passierte Tomaten | 500 g | lang (offen 3 Tage) | 34 | 1,7 g | 1,4 g | 5 g | 0,3 g | 0 | 0,3 g | ja | Etikett REWE 20.9.2026 |
-| Stückige Tomaten, Dose | Stückige Tomaten, Dose | 400 g | lang | 25 | 1,2 g | 1 g | 3,5 g | 0,2 g | 0 | 0,2 g | ja | |
-| Oro di Parma Tomatenmark 3fach konzentriert 200g | Tomatenmark | 200 g Tube | lang (offen Wochen) | 113 | 5,9 g | 3,5 g | 18 g | 0,6 g | 0,1 g | 1,0 g | ja | 1 EL = 15 g; Etikett REWE 20.9.2026 |
-| Bonduelle Goldmais 140g | Mais, Dose; Mais | abgetropft 140 g oder 285 g | lang | 80 | 2,9 g | 3,8 g | 10,8 g | 1,9 g | 0,5 g | 0,4 g | ja | Etikett REWE 20.9.2026; Abtropfgewicht 140 g |
-| Kokosmilch, vollfett | Kokosmilch, vollfett | 400 ml (REWE Beste Wahl cremig) | lang (offen 3 Tage) | 183 | 1,5 g | 0 | 3,1 g | 18 g | 16,7 g | 0 | – | Etikett REWE 18.9.2026 |
-| Kokosmilch, fettreduziert | Kokosmilch, fettreduziert | 400 ml (REWE Beste Wahl, REWE Bio) | lang (offen 3 Tage) | 118 | 1 g | 0,5 g | 1,3 g | 12 g | 10,7 g | 0 | – | Etikett REWE 18.9.2026; spart je Dose rund 26 g gesättigte Fettsäuren |
-| Oliven, ohne Stein | Oliven, ohne Stein | 135–180 g | lang (offen Wochen) | 150 | 1 g | 3 g | 1 g | 14 g | 2 g | 3,0 g | – | |
-| Sauerkraut | Sauerkraut | 400 g (REWE Beste Wahl), 650 g (REWE Bio) | lang (offen 1 Woche) | 20 | 1,5 g | 3 g | 1,9 g | 0,5 g | 0,1 g | 1,2 g | ja | |
-| REWE Bio Gemüsebrühe 140g | Gemüsebrühe, Pulver; Gemüsebrühe; Gemüsebrühepulver; Brühpulver; Gemüsebrühe-Pulver | 140 g (REWE Bio) | lang | – | – | – | – | – | – | ≈ 50 g | – | 1 TL = 5 g ≈ 2,5 g Salz; Tabellenwert für das Pulver; Etikett nennt 10 kcal und 1,1 g Salz je 100 ml zubereiteter Brühe |
-| Kikkoman Sojasauce 250ml | Sojasauce | 250 ml | lang | – | – | – | – | 0 | – | 16,9 g | – | 1 EL (15 ml) ≈ 2,5 g Salz; Etikett REWE 20.9.2026 je 100 ml: 77 kcal, 10 g Eiweiß, 3,2 g KH |
-| Bamboo Garden Rote Curry Paste 125g | Rote Currypaste | 125 g | lang (offen Wochen) | 116 | 2,3 g | 3,2 g | 18,1 g | 3,1 g | 0,4 g | 5,9 g | – | 1 EL = 20 g; Etikett REWE 20.9.2026 |
-| Bamboo Garden Gelbe Curry-Paste vegan 125g | Gelbe Currypaste | 125 g | lang (offen Wochen) | 178 | 2,2 g | 3,3 g | 8,1 g | 14,6 g | 1,2 g | 13,3 g | – | 1 EL = 20 g; Etikett REWE 20.9.2026; deutlich fett- und salzreicher als die rote |
-| Löwensenf Bio Mittelscharf Tube 200ml | Senf | 200 ml | lang | – | – | – | – | 5,8 g | 0,8 g | 4,0 g | – | Etikett REWE 20.9.2026 je 100 ml: 105 kcal, 6 g Eiweiß, 3,6 g KH |
-| Kühne Weißwein-Essig 500ml | Weißweinessig | 500 ml | lang | 25 | 0 | 0 | 1 g | 0 | 0 | 0 | – | 1 EL = 10 g; Dressing; Etikett REWE 20.9.2026 je 100 ml |
-| REWE Bio Aceto Balsamico 500ml | Balsamico-Essig; Balsamico | 500 ml | lang | 102 | 0,4 g | 0,1 g | 20,7 g | 0 | 0 | 0,07 g | – | 1 EL = 10 g; die Crema hat 226 kcal und 48 g Zucker je 100 ml; Etikett REWE 20.9.2026 je 100 ml |
-| Tahin (Sesammus) | Tahin (Sesammus) | 300 ml (Biozentrale), 250 g (REWE Bio) | lang | 695 | 24 g | 8 g | 10 g | 62 g | 10 g | 0,4 g | – | 1 EL = 15 g; Hummus, Dressing; zählt zu Nüssen und Samen |
-| Pesto Genovese | Pesto Genovese | 190 g (Barilla), 130 g (REWE Bio) | lang (offen 1 Woche) | 490 | 4,7 g | 3 g | 11 g | 47 g | 5,3 g | 3,2 g | – | 1 EL = 20 g; fett- und salzreiches Fertigprodukt |
-| Konfitüre, Fruchtaufstrich | Konfitüre, Fruchtaufstrich | 370 g (Bonne Maman), 250 g (REWE Bio Fruchtaufstrich) | lang (offen Wochen) | 240 | 0,4 g | 1 g | 59 g | 0 | 0 | 0 | – | 1 TL = 10 g; zählt zu den freien Zuckern; DGE-Speisepläne 25 g zum Frühstück |
-| Heinz Tomato Ketchup Zero 220ml | Ketchup ohne Zuckerzusatz; Ketchup | 400 ml (Heinz Zero) | lang (offen Wochen) | 44 | 1,6 g | 1 g | 5,4 g | 0,1 g | 0 | 0,05 g | – | 1 EL = 15 g; normaler Ketchup hat 100 kcal, 22 g Zucker und 1,8 g Salz je 100 g; Etikett REWE 20.9.2026; Ballaststoffe Tabellenwert |
-| REWE Bio Limettensaft 250ml | Limettensaft | 250 ml | lang (offen Wochen) | 28 | 0 | 0 | 1,7 g | 0 | 0 | 0,08 g | – | 1 EL = 10 g; Etikett REWE 20.9.2026 je 100 ml |
-| REWE Bio Zitronensaft 0,25l | Zitronensaft | 250 ml | lang (offen Wochen) | 27 | 0,4 g | 0 | 1,7 g | 0,1 g | 0 | 0 | – | 1 EL = 10 g; Etikett REWE 20.9.2026 je 100 ml |
-| Bad Reichenhaller Marken-Jodsalz 500g | Salz, jodiert; Salz | 500 g | lang | 0 | 0 | 0 | 0 | 0 | 0 | 100 g | – | 1 TL = 5 g; in der Rechnung 1 g je warmem Gericht; Etikett REWE 20.9.2026; jodiert, ohne Fluorid |
-| REWE Beste Wahl Chiliflocken | Chiliflocken | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Basilikum gerebelt | Basilikum | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Curry | Curry | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Italienische Kräuter | Italienische Kräuter | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Knoblauch granuliert | Knoblauch, granuliert | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Koriander gemahlen | Koriandersamen, gemahlen; Koriander | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Kreuzkümmel gemahlen | Kreuzkümmel | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Kurkuma gemahlen | Kurkuma | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Oregano gerebelt | Oregano | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Paprika Edelsüß gemahlen | Paprika Edelsüß | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Paprika Rosenscharf gemahlen | Paprika Rosenscharf | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Pfeffer schwarz gemahlen | Pfeffer, schwarz; Pfeffer | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Pfeffer weiß gemahlen | Pfeffer, weiß | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Kräuter der Provence | Kräuter der Provence | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Rosmarin gerebelt | Rosmarin | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Thymian gerebelt | Thymian | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Zimt gemahlen | Zimt | Streuer | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| Ostmann Zimtstangen | Zimtstangen | Glas | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| Ostmann Nelken ganz | Nelken | Glas | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| Tabasco Pfeffersauce Rot 60ml | Tabasco | 60 ml | lang | 46 | 1 g | – | 1,6 g | 0,7 g | 0,2 g | 1,8 g | – | Würzmenge; Etikett REWE 20.9.2026 je 100 ml |
-| ja! Erythrit 500g | Erythrit | 500 g | lang | 0 | 0 | 0 | 100 g | 0 | 0 | 0 | – | Etikett REWE 20.9.2026; Zuckeralkohol, liefert keine Energie |
-| ja! Süßstoff flüssig 300ml | Süßstoff flüssig | 300 ml | lang | – | – | – | – | – | – | – | – | Würzmenge; REWE nennt keine Nährwerte |
-| ja! Raffinade-Zucker 1kg | Zucker | 1 kg | lang | 400 | 0 | 0 | 100 g | 0 | 0 | 0 | – | 1 TL = 4 g; zählt zu den freien Zuckern; Etikett REWE 20.9.2026 |
-| REWE Bio Weizenmehl Type 550 1kg | Weizenmehl Type 550; Weizenmehl; Mehl, Type 550 | 1 kg | lang | 347 | 10,6 g | 4 g | 72 g | 1,1 g | 0,2 g | 0,01 g | – | Pfannkuchen, Binden; kein Vollkorn; Etikett REWE 20.9.2026; Ballaststoffe Tabellenwert |
-| Mondamin Feine Speisestärke 400g | Speisestärke | 400 g (Mondamin) | lang | 355 | 0,5 g | 1 g | 86 g | 0,5 g | 0,1 g | 0,01 g | – | 1 EL = 10 g; Binden; Etikett REWE 20.9.2026 |
-| Dr. Oetker Original Backin 160g | Backpulver | 160 g, 10 Beutel | lang | – | – | – | – | – | – | – | – | Beutel 16 g; REWE nennt keine Nährwerte |
-| REWE Beste Wahl Natron 50g | Natron | 50 g | lang | – | – | – | – | – | – | – | – | REWE nennt keine Nährwerte |
-| Biozentrale Bio Superfood Flohsamenschalen 175g | Flohsamenschalen | 175 g (Biozentrale), 250 g (REWE Bio) | lang | 206 | 3 g | 85 g | 3,6 g | 1,1 g | 0,1 g | 0,28 g | – | 1 TL = 5 g ≈ 4 g Ballaststoffe; in Quark oder Porridge, dazu viel trinken; Etikett REWE 20.9.2026 |
-| Langnese Flotte Biene Bio-Blütenhonig 250g | Honig | 250 g, 500 g | lang | 310 | 0 | 0 | 76 g | 0 | 0 | 0 | – | 1 TL = 8 g; Tabellenwert; REWE veröffentlicht für Honig keine Nährwerte (geprüft 20.9.2026 an drei Sorten) |
-| ESN Designer Whey Protein Almond Coconut 300g | Proteinpulver, Whey; Proteinpulver | 300 g (ESN, More) | lang | 379 | 76 g | 0 | 6,7 g | 5,6 g | 3,6 g | 0,9 g | – | 30 g = 115 kcal, 22 g Protein; kein DGE-Lebensmittel, nur auf Wunsch; Etikett REWE 20.9.2026 |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| ja! Tomaten passiert 500g | Passierte Tomaten | 500 g | 34 | 1,7 g | 1,4 g | 5 g | 0,3 g | 0 | 0,3 g | ja | Etikett 20.9.2026 |  |
+| Oro di Parma Tomatenmark 3fach konzentriert 200g | Tomatenmark | 200 g Tube | 113 | 5,9 g | 3,5 g | 18 g | 0,6 g | 0,1 g | 1,0 g | ja | Etikett 20.9.2026 | 1 EL = 15 g |
+| Bonduelle Goldmais 140g | Mais, Dose; Mais | abgetropft 140 g oder 285 g | 80 | 2,9 g | 3,8 g | 10,8 g | 1,9 g | 0,5 g | 0,4 g | ja | Etikett 20.9.2026 | Abtropfgewicht 140 g |
+| REWE Bio Gemüsebrühe 140g | Gemüsebrühe, Pulver; Gemüsebrühe; Gemüsebrühepulver; Brühpulver; Gemüsebrühe-Pulver | 140 g (REWE Bio) | – | – | – | – | – | – | ≈ 50 g | – | Katalog | 1 TL = 5 g ≈ 2,5 g Salz; Tabellenwert für das Pulver; Etikett nennt 10 kcal und 1,1 g Salz je 100 ml zubereiteter Brühe |
+| Kikkoman Sojasauce 250ml | Sojasauce | 250 ml | – | – | – | – | 0 | – | 16,9 g | – | Etikett 20.9.2026 | 1 EL (15 ml) ≈ 2,5 g Salz; Etikettwerte je 100 ml: 77 kcal, 10 g Eiweiß, 3,2 g KH |
+| Bamboo Garden Rote Curry Paste 125g | Rote Currypaste | 125 g | 116 | 2,3 g | 3,2 g | 18,1 g | 3,1 g | 0,4 g | 5,9 g | – | Etikett 20.9.2026 | 1 EL = 20 g |
+| Bamboo Garden Gelbe Curry-Paste vegan 125g | Gelbe Currypaste | 125 g | 178 | 2,2 g | 3,3 g | 8,1 g | 14,6 g | 1,2 g | 13,3 g | – | Etikett 20.9.2026 | 1 EL = 20 g; deutlich fett- und salzreicher als die rote |
+| Löwensenf Bio Mittelscharf Tube 200ml | Senf | 200 ml | – | – | – | – | 5,8 g | 0,8 g | 4,0 g | – | Etikett 20.9.2026 | Etikettwerte je 100 ml: 105 kcal, 6 g Eiweiß, 3,6 g KH |
+| Kühne Weißwein-Essig 500ml | Weißweinessig | 500 ml | 25 | 0 | 0 | 1 g | 0 | 0 | 0 | – | Etikett 20.9.2026 | 1 EL = 10 g; Dressing; Etikettwerte je 100 ml |
+| REWE Bio Aceto Balsamico 500ml | Balsamico-Essig; Balsamico | 500 ml | 102 | 0,4 g | 0,1 g | 20,7 g | 0 | 0 | 0,07 g | – | Etikett 20.9.2026 | 1 EL = 10 g; die Crema hat 226 kcal und 48 g Zucker je 100 ml; Etikettwerte je 100 ml |
+| Heinz Tomato Ketchup Zero 220ml | Ketchup Zero; Ketchup ohne Zuckerzusatz; Ketchup | 400 ml (Heinz Zero) | 44 | 1,6 g | 1 g | 5,4 g | 0,1 g | 0 | 0,05 g | – | Etikett 20.9.2026 | 1 EL = 15 g; normaler Ketchup hat 100 kcal, 22 g Zucker und 1,8 g Salz je 100 g; Ballaststoffe Tabellenwert |
+| REWE Bio Limettensaft 250ml | Limettensaft | 250 ml | 28 | 0 | 0 | 1,7 g | 0 | 0 | 0,08 g | – | Etikett 20.9.2026 | 1 EL = 10 g; Etikettwerte je 100 ml |
+| REWE Bio Zitronensaft 0,25l | Zitronensaft | 250 ml | 27 | 0,4 g | 0 | 1,7 g | 0,1 g | 0 | 0 | – | Etikett 20.9.2026 | 1 EL = 10 g; Etikettwerte je 100 ml |
+| Bad Reichenhaller Marken-Jodsalz 500g | Salz, jodiert; Salz | 500 g | 0 | 0 | 0 | 0 | 0 | 0 | 100 g | – | Etikett 20.9.2026 | 1 TL = 5 g; in der Rechnung 1 g je warmem Gericht; jodiert, ohne Fluorid |
+| REWE Beste Wahl Chiliflocken | Chiliflocken | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Basilikum gerebelt | Basilikum | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Curry | Curry | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Italienische Kräuter | Italienische Kräuter | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Knoblauch granuliert | Knoblauch, granuliert | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Koriander gemahlen | Koriander gemahlen; Koriandersamen, gemahlen; Koriander | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Kreuzkümmel gemahlen | Kreuzkümmel | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Kurkuma gemahlen | Kurkuma | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Oregano gerebelt | Oregano | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Paprika Edelsüß gemahlen | Paprika Edelsüß | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Paprika Rosenscharf gemahlen | Paprika Rosenscharf | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Pfeffer schwarz gemahlen | Pfeffer, schwarz; Pfeffer | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Pfeffer weiß gemahlen | Pfeffer, weiß | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Kräuter der Provence | Kräuter der Provence | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Rosmarin gerebelt | Rosmarin | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Thymian gerebelt | Thymian | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Zimt gemahlen | Zimt | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| Ostmann Zimtstangen | Zimtstangen | Glas | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| Ostmann Nelken ganz | Nelken | Glas | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| Tabasco Pfeffersauce Rot 60ml | Tabasco | 60 ml | 46 | 1 g | – | 1,6 g | 0,7 g | 0,2 g | 1,8 g | – | Etikett 20.9.2026 | Würzmenge; Etikettwerte je 100 ml |
+| ja! Erythrit 500g | Erythrit | 500 g | 0 | 0 | 0 | 100 g | 0 | 0 | 0 | – | Etikett 20.9.2026 | Zuckeralkohol, liefert keine Energie |
+| ja! Süßstoff flüssig 300ml | Süßstoff flüssig | 300 ml | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt keine Nährwerte |
+| ja! Raffinade-Zucker 1kg | Zucker | 1 kg | 400 | 0 | 0 | 100 g | 0 | 0 | 0 | – | Etikett 20.9.2026 | 1 TL = 4 g; zählt zu den freien Zuckern |
+| REWE Bio Weizenmehl Type 550 1kg | Weizenmehl Type 550; Weizenmehl; Mehl, Type 550 | 1 kg | 347 | 10,6 g | 4 g | 72 g | 1,1 g | 0,2 g | 0,01 g | – | Etikett 20.9.2026 | Pfannkuchen, Binden; kein Vollkorn; Ballaststoffe Tabellenwert |
+| Mondamin Feine Speisestärke 400g | Speisestärke | 400 g (Mondamin) | 355 | 0,5 g | 1 g | 86 g | 0,5 g | 0,1 g | 0,01 g | – | Etikett 20.9.2026 | 1 EL = 10 g; Binden |
+| Dr. Oetker Original Backin 160g | Backpulver | 160 g, 10 Beutel | – | – | – | – | – | – | – | – | Katalog | Beutel 16 g; REWE nennt keine Nährwerte |
+| REWE Beste Wahl Natron 50g | Natron | 50 g | – | – | – | – | – | – | – | – | Katalog | REWE nennt keine Nährwerte |
+| Biozentrale Bio Superfood Flohsamenschalen 175g | Flohsamenschalen | 175 g (Biozentrale), 250 g (REWE Bio) | 206 | 3 g | 85 g | 3,6 g | 1,1 g | 0,1 g | 0,28 g | – | Etikett 20.9.2026 | 1 TL = 5 g ≈ 4 g Ballaststoffe; in Quark oder Porridge, dazu viel trinken |
+| Langnese Flotte Biene Bio-Blütenhonig 250g | Honig | 250 g, 500 g | 310 | 0 | 0 | 76 g | 0 | 0 | 0 | – | Katalog | 1 TL = 8 g; REWE veröffentlicht für Honig keine Nährwerte (geprüft 20.9.2026 an drei Sorten) |
+| ESN Designer Whey Protein Almond Coconut 300g | Proteinpulver; Proteinpulver, Whey | 300 g (ESN, More) | 379 | 76 g | 0 | 6,7 g | 5,6 g | 3,6 g | 0,9 g | – | Etikett 20.9.2026 | 30 g = 115 kcal, 22 g Protein; kein DGE-Lebensmittel, nur auf Wunsch |
+| FlavDrops Cocos | FlavDrops Cocos | 30 ml, 50 ml | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | Würzmenge, einige Tropfen; kein DGE-Lebensmittel |
+| FlavDrops Lemon | FlavDrops Lemon | 30 ml, 50 ml | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | Würzmenge, einige Tropfen; kein DGE-Lebensmittel |
 
 ## Getränke
 
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|---|
-| Orangensaft | Orangensaft | 1 l (REWE Beste Wahl) | lang (offen 5 Tage) | 45 | 0,7 g | 0 | 8,5 g | 0,2 g | 0 | 0 | ja | Glas 200 ml; DGE: 2 Gläser je Woche |
-| Apfelsaft naturtrüb | Apfelsaft naturtrüb | 1 l | lang (offen 5 Tage) | 45 | 0,1 g | 0 | 11 g | 0,1 g | 0 | 0 | ja | |
-| Tomatensaft | Tomatensaft | 1 l | lang (offen 5 Tage) | 20 | 1 g | 1 g | 3 g | 0,5 g | 0 | 0,6 g | ja |  |
-| Mineralwasser, calciumreich (> 150 mg/l) | Mineralwasser, calciumreich (> 150 mg/l) | 6 × 1,5 l (Gerolsteiner Medium, 348 mg Calcium/l) | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | DGE: calciumreiches Mineralwasser zählt als Calciumquelle; DGE-Speisepläne 300 ml/Tag |
-| Kaffee, Tee, ungesüßt | Kaffee, Tee, ungesüßt | – | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | zählen zu den 1,5 l; laut DGE 3–4 Tassen |
-| Light-Getränke (Cola Zero) | Light-Getränke (Cola Zero) | 1 l; 6 × 0,5 l | lang | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | zählen zu den 1,5 l; DGE: „weniger empfehlenswert" wegen Süß-, Farb- und Aromastoffen |
-
-## Diskretorisches
-
-Kein Teil des DGE-Ernährungskreises; laut DGE „gelegentlich in kleinen Mengen", in den DGE-Speiseplänen bis 8 % der Energie.
-
-| Zutat | Kochname | REWE-Packung | Haltbarkeit | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Einheit / Hinweis |
-|---| --- |---|---|---|---|---|---|---|---|---|---|
-| Bitterschokolade 70–85 % | Bitterschokolade 70–85 % | 100 g (Lindt Excellence, REWE Bio) | lang | 610 | 7 g | 10 g | 33 g | 48 g | 29 g | 0 | Portion 15–20 g; Kaliumquelle der DGE-Speisepläne; eine Tafel über die Woche |
-| Haferkekse | Haferkekse | 300 g (REWE Bio Hafercookies) | lang | 490 | 7,6 g | 6 g | 59 g | 23,5 g | 11,6 g | 0,6 g | 2 Kekse ≈ 25 g |
+| Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Quelle | Einheit / Hinweis |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Coke Zero | Coke Zero | 1 l; 6 × 0,5 l | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | zählt zu den 1,5 l Flüssigkeit; DGE: „weniger empfehlenswert" wegen Süß-, Farb- und Aromastoffen |
+| Pfefferminztee | Pfefferminztee | 20 Beutel | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | aufgebrüht und ungesüßt; zählt zu den 1,5 l Flüssigkeit |
+| Fencheltee | Fencheltee | 20 Beutel | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | aufgebrüht und ungesüßt; zählt zu den 1,5 l Flüssigkeit |
+| Schwarzer Tee | Schwarzer Tee | 20 Beutel | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | aufgebrüht und ungesüßt; zählt zu den 1,5 l Flüssigkeit |
+| Nescafe Gold Fertig Kaffee | Nescafé Gold | 200 g Glas | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | aufgebrüht und ungesüßt; zählt zu den 1,5 l Flüssigkeit; als Pulver eine Würzmenge |

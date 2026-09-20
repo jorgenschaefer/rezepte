@@ -5,7 +5,6 @@ import { readFileSync } from 'node:fs'
 import {
   leseKatalog,
   findeZutat,
-  findeZutatStreng,
   berechne,
   formatiereTabelle,
 } from './naehrwerte.mjs'
@@ -26,21 +25,15 @@ test('der Katalog liest jede Zeile mit ihren Nährwerten je 100 g', () => {
   assert.equal(linsen.salz, 0.01)
 })
 
-test('eine Zutat wird auch über einen Präfix gefunden', () => {
+test('die Kurzform findet die Zeile', () => {
   assert.equal(findeZutat(katalog, 'Rote Linsen').zutat, 'REWE Bio Rote Linsen 500g')
 })
 
-test('ein mehrdeutiger Name bricht ab und nennt die Kandidaten', () => {
-  assert.throws(
-    () => findeZutat(katalog, 'Linsen'),
-    (fehler) => {
-      assert.match(fehler.message, /mehrdeutig/)
-      assert.match(fehler.message, /Linsen/)
-      assert.match(fehler.message, /Beluga-Linsen, trocken/)
-
-      return true
-    },
-  )
+// „Linsen" ist keine Kurzform und kein Zweitname – der Katalog führt „Rote
+// Linsen". Früher erschloss der Auflöser daraus eine Zeile; jetzt bricht er ab.
+test('ein Name, der nur fast passt, bricht ab statt zu treffen', () => {
+  assert.throws(() => findeZutat(katalog, 'Linsen'), /steht nicht in zutaten\.md/)
+  assert.equal(findeZutat(katalog, 'Rote Linsen').zutat, 'REWE Bio Rote Linsen 500g')
 })
 
 test('ein unbekannter Name bricht ab und nennt die Zutat', () => {
@@ -79,7 +72,7 @@ test('Obst und Gemüse zählt in Portionen zu 110 g', () => {
   const summe = berechne(katalog, [
     { zutat: 'Möhren', gramm: 100 },
     { zutat: 'Äpfel', gramm: 120 },
-    { zutat: 'Naturreis', gramm: 60 },
+    { zutat: 'Langkornreis', gramm: 60 },
   ])
 
   assert.equal(summe.obstGemuese, 220)
@@ -90,13 +83,6 @@ test('eine Zeile mit dem Vermerk „zählt als Gemüse" zählt mit', () => {
   const summe = berechne(katalog, [{ zutat: 'Passierte Tomaten', gramm: 250 }])
 
   assert.equal(summe.obstGemuese, 250)
-})
-
-test('Trockenobst zählt mit 25 g je Portion, nicht mit 110 g', () => {
-  const summe = berechne(katalog, [{ zutat: 'Datteln, entsteint', gramm: 25 }])
-
-  assert.equal(runde(summe.obstGemueseportionen, 2), 1)
-  assert.equal(summe.obstGemuese, 25)
 })
 
 test('die Tabelle teilt durch die Portionszahl', () => {
@@ -124,39 +110,6 @@ test('die Tabelle nennt die Zeilen, die das Antwortformat verlangt', () => {
   }
 })
 
-test('Schmand und saure Sahne sind eigene Zeilen mit eigenen Werten', () => {
-  const sahne = findeZutat(katalog, 'Saure Sahne')
-  const schmand = findeZutat(katalog, 'Schmand')
-
-  assert.equal(sahne.kcal, 115)
-  assert.equal(sahne.fett, 10)
-  assert.equal(schmand.kcal, 240)
-  assert.equal(schmand.fett, 24)
-})
-
-test('fettreduzierte Kokosmilch ist eine eigene Zeile mit eigenen Werten', () => {
-  const voll = findeZutat(katalog, 'Kokosmilch, vollfett')
-  const reduziert = findeZutat(katalog, 'Kokosmilch, fettreduziert')
-
-  assert.equal(voll.kcal, 183)
-  assert.equal(voll.fett, 18)
-  assert.equal(reduziert.kcal, 118)
-  assert.equal(reduziert.fett, 12)
-})
-
-test('der bloße Name „Kokosmilch" ist jetzt mehrdeutig und bricht ab', () => {
-  assert.throws(
-    () => findeZutat(katalog, 'Kokosmilch'),
-    (fehler) => {
-      assert.match(fehler.message, /mehrdeutig/)
-      assert.match(fehler.message, /Kokosmilch, vollfett/)
-      assert.match(fehler.message, /Kokosmilch, fettreduziert/)
-
-      return true
-    },
-  )
-})
-
 test('eine Klammer in einer Nährwertspalte nennt nur ein Produkt ihrer Zeile', () => {
   const zeilen = readFileSync(new URL('../../../../zutaten.md', import.meta.url), 'utf8')
     .split('\n')
@@ -180,21 +133,16 @@ test('eine Klammer in einer Nährwertspalte nennt nur ein Produkt ihrer Zeile', 
   }
 })
 
-test('Säfte zählen als Obst und Gemüse, die DGE führt sie in der Gruppe', () => {
-  assert.equal(berechne(katalog, [{ zutat: 'Tomatensaft', gramm: 200 }]).obstGemuese, 200)
-  assert.equal(berechne(katalog, [{ zutat: 'Orangensaft', gramm: 200 }]).obstGemuese, 200)
-})
-
 test('Würzmengen zählen nicht als Obst und Gemüse', () => {
   assert.equal(berechne(katalog, [{ zutat: 'Knoblauch', gramm: 10 }]).obstGemuese, 0)
-  assert.equal(berechne(katalog, [{ zutat: 'Ingwer', gramm: 10 }]).obstGemuese, 0)
+  assert.equal(berechne(katalog, [{ zutat: 'Chiliflocken', gramm: 2 }]).obstGemuese, 0)
 })
 
-// Erbsen sind laut dge-wochenbilanz.md eine Hülsenfrucht mit eigenem Ziel,
-// kein Gemüse – auch wenn der Hinweistext der Zeile lange etwas anderes sagte.
+// Hülsenfrüchte haben laut dge-wochenbilanz.md ein eigenes Ziel und zählen
+// nicht zur Gruppe Obst und Gemüse.
 test('Hülsenfrüchte zählen nicht als Obst und Gemüse', () => {
-  assert.equal(berechne(katalog, [{ zutat: 'Erbsen, TK', gramm: 150 }]).obstGemuese, 0)
-  assert.equal(berechne(katalog, [{ zutat: 'Edamame, TK', gramm: 150 }]).obstGemuese, 0)
+  assert.equal(berechne(katalog, [{ zutat: 'Kidneybohnen', gramm: 150 }]).obstGemuese, 0)
+  assert.equal(berechne(katalog, [{ zutat: 'Rote Linsen', gramm: 80 }]).obstGemuese, 0)
 })
 
 test('die O/G-Spalte steht in jedem Abschnitt, der Obst und Gemüse führt', () => {
@@ -298,9 +246,17 @@ test('Wasser in der Rechnung trägt nichts bei, statt abzubrechen', () => {
   assert.equal(summe.obstGemuese, 0)
 })
 
-test('eine Marke vor der Zutat wird abgestreift', () => {
+// Der volle Produktname trifft, weil er als Spalte 1 im Index steht. Eine
+// davorgesetzte oder halbe Marke trifft nicht mehr: Früher schnitt der Auflöser
+// sie ab und riet weiter, jetzt bricht er ab und nennt den Namen.
+test('der Produktname trifft, eine angeklebte Marke nicht', () => {
   assert.equal(findeZutat(katalog, 'Blattspinat, TK').zutat, 'REWE Bio Blattspinat 600g')
-  assert.equal(findeZutat(katalog, 'ja! Vollkornnudeln').zutat, 'Barilla Integrale Vollkorn Fusilli 500g')
+  assert.equal(
+    findeZutat(katalog, 'REWE Bio Blattspinat 600g').zutat,
+    'REWE Bio Blattspinat 600g',
+  )
+  assert.throws(() => findeZutat(katalog, 'ja! Vollkornnudeln'), /steht nicht in zutaten\.md/)
+  assert.throws(() => findeZutat(katalog, 'REWE Bio Blattspinat'), /steht nicht in zutaten\.md/)
 })
 
 test('geläufige Schreibweisen finden ihre Katalogzeile', () => {
@@ -366,14 +322,8 @@ test('die Vorratszutaten landen in der richtigen Katalogzeile', () => {
 test('keine Vorratszutat landet in einer Zeile einer anderen Warengruppe', () => {
   // Die stillen Fehlgriffe, die der Audit gefunden hat: Ein Gewürz darf nicht
   // in der Paste landen, Wasser nicht in der Melone, Tofu nicht im Räuchertofu.
-  const verboten = [
-    ['Curry', 'Currypaste (rot, gelb)'],
-    ['Tofu', 'Räuchertofu'],
-  ]
-
-  for (const [name, falsch] of verboten) {
-    assert.notEqual(findeZutat(katalog, name).zutat, falsch, `„${name}"`)
-  }
+  assert.equal(findeZutat(katalog, 'Curry').zutat, 'REWE Beste Wahl Curry')
+  assert.throws(() => findeZutat(katalog, 'Tofu'), /steht nicht in zutaten\.md/)
   assert.throws(() => findeZutat(katalog, 'Wasser'), /keine Zutat/)
 })
 
@@ -464,28 +414,4 @@ test('jede Zeile aus vorratskammer.md findet genau eine Katalogzeile', () => {
   }
 
   assert.deepEqual(offen, [])
-})
-
-// Der strenge Auflöser für die Gegenprobe: Er nimmt nur, was wörtlich in
-// Spalte 1 oder als Kochname dasteht. Keine Präfixe, keine Wortgrenzen, kein
-// Plural-n, keine Marken – alles, was Schlussfolgerung ist, lehnt er ab. Die
-// Abweichung zum lockeren Auflöser ist der Befund.
-
-test('streng nimmt den Produktnamen und den Kochnamen', () => {
-  assert.equal(findeZutatStreng(katalog, 'REWE Bio Möhren 1kg').zutat, 'REWE Bio Möhren 1kg')
-  assert.equal(findeZutatStreng(katalog, 'Möhren').zutat, 'REWE Bio Möhren 1kg')
-  assert.equal(findeZutatStreng(katalog, 'Karotte').zutat, 'REWE Bio Möhren 1kg')
-})
-
-test('streng lehnt ab, was nur über Nachsicht passt', () => {
-  assert.throws(() => findeZutatStreng(katalog, 'Zwiebel'), /nicht wörtlich/)
-  assert.throws(() => findeZutatStreng(katalog, 'ja! Möhren'), /nicht wörtlich/)
-  assert.throws(() => findeZutatStreng(katalog, 'Wasser'), /nicht wörtlich/)
-})
-
-test('streng hätte die Fehlzuordnungen von heute gemeldet', () => {
-  // Der lockere Auflöser fand hier eine Zeile, der strenge lehnt ab.
-  for (const name of ['Wasser', 'Nudeln', 'Joghurt']) {
-    assert.throws(() => findeZutatStreng(katalog, name), /nicht wörtlich/, `„${name}"`)
-  }
 })

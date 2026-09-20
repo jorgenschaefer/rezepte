@@ -4,17 +4,16 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
 ## Kühlschrank
 
-- Räuchertofu 175 g (nur als ganze Packung verwenden)
-- Eier
+- Räuchertofu (nur als ganze Packung verwenden)
+- Eier, Größe M
 
 ## Tiefkühlfach
 
-- REWE Bio Blattspinat, tiefgekühlt, 600 g
-- ja! Brechbohnen, tiefgekühlt
+- Blattspinat, TK
 
 ## Küchenschrank
 
-- Reis, Langkorn/Basmati
+- Langkornreis
 - Rote Linsen
 - Haferflocken
 - Salz, jodiert

@@ -24,7 +24,7 @@ graders:
     weight: 1
     criteria: |
       Der Vorrat für diesen Lauf enthält ausschließlich:
-      Räuchertofu, Eier, Blattspinat (TK), Brechbohnen (TK), Reis
+      Räuchertofu, Eier, Blattspinat (TK), Langkornreis
       (Langkorn/Basmati), rote Linsen, Haferflocken, Salz, Rapsöl, Kreuzkümmel,
       Kurkuma, schwarzer Pfeffer. Wasser zählt nicht als Zutat.
 

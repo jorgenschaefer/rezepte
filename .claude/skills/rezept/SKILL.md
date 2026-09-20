@@ -14,7 +14,7 @@ Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
 Rechne die Nährwerttabelle mit `scripts/naehrwerte.mjs` aus den Zutatenmengen.
 
-Kannst du eine Zutat in `zutaten.md` nicht eindeutig zuordnen – weil es mehrere oder keine passenden Zutaten gibt – brich ab und gib die Zutat aus, die du nicht eindeutig zuordnen konntest.
+Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem auch `vorratskammer.md` sie führt. Aufgelöst wird wörtlich: Findet `zutaten.md` eine Zutat nicht, brich ab und gib die Zutat aus, die du nicht zuordnen konntest.
 
 Wähle die Proteinquelle zufällig aus dem Vorrat.
 

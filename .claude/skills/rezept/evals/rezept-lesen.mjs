@@ -10,16 +10,15 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
   KEINE_ZUTAT,
-  MARKEN,
   findeZutat,
-  findeZutatStreng,
   istKeineZutat,
   leseKatalog,
 } from '../scripts/naehrwerte.mjs'
 
-// Marken und Wasser stehen in scripts/naehrwerte.mjs, damit der Rechner des
-// Skills und dieses Auswerteskript dieselben benutzen. Die Schreibweisen der
-// Rezepte stehen als Kochname in zutaten.md – Daten statt Tabelle im Code.
+// Wasser steht in scripts/naehrwerte.mjs, damit der Rechner des Skills und
+// dieses Auswerteskript dieselbe Liste benutzen. Die Namen, unter denen Rezepte
+// eine Zutat nennen dürfen, stehen als Kurzform und Zweitnamen in zutaten.md –
+// Daten statt Tabelle im Code.
 
 const hier = dirname(fileURLToPath(import.meta.url))
 
@@ -186,51 +185,18 @@ export function salzAus(text) {
   return treffer ? Number(treffer[1].replace(',', '.')) : null
 }
 
-// Sucht die Katalogzeile zu einer Schreibweise aus dem Rezept. Der Reihe nach:
-// wie geschrieben, ohne Marke, ohne das jeweils erste Wort, ohne Plural-n.
-// Findet nichts davon eine eindeutige Zeile, bleibt katalogname leer und der
-// Lauf gilt als nicht auswertbar – lieber kein Urteil als ein falsches.
+// Sucht die Katalogzeile zu einer Schreibweise aus dem Rezept. Seit der
+// Katalog über Kurzformen aufgelöst wird, gibt es nichts zu probieren: Ein
+// Rezept, das eine Zutat nicht bei ihrer Kurzform oder einem Zweitnamen nennt,
+// hätte den Rechner gar nicht erst passiert. Findet sich keine Zeile, bleibt
+// katalogname leer und der Lauf gilt als nicht auswertbar – lieber kein Urteil
+// als ein falsches.
 export function aufloesen(posten) {
-  const versuche = []
-  const roh = posten.name
-  versuche.push(roh)
-
-  const ohneMarke = roh.replace(MARKEN, '')
-  if (ohneMarke !== roh) versuche.push(ohneMarke)
-
-  for (const kandidat of [roh, ohneMarke]) {
-    const woerter = kandidat.split(/\s+/)
-    // Von vorn kürzen fängt „rote Currypaste" ab, von hinten „Kidneybohnen aus
-    // der Dose" – der Katalog führt sie als „Kidneybohnen, Dose".
-    for (let i = 1; i < woerter.length; i++) versuche.push(woerter.slice(i).join(' '))
-    for (let i = woerter.length - 1; i > 0; i--) versuche.push(woerter.slice(0, i).join(' '))
+  try {
+    return { ...posten, katalogname: findeZutat(katalog, posten.name).zutat }
+  } catch {
+    return { ...posten, katalogname: null }
   }
-
-  for (const kandidat of [...versuche]) {
-    if (kandidat.endsWith('n')) versuche.push(kandidat.slice(0, -1))
-    else versuche.push(`${kandidat}n`)
-  }
-
-  // „Blattspinat" allein ist mehrdeutig – der Katalog führt ihn frisch und als
-  // TK. Der Zustand steht hinter dem Komma und klärt es.
-  const zustand = (posten.volltext ?? '').toLowerCase()
-  if (/tiefgek|\bTK\b/i.test(zustand)) {
-    for (const kandidat of [...versuche]) versuche.push(`${kandidat}, TK`)
-  }
-  if (zustand.includes('frisch')) {
-    for (const kandidat of [...versuche]) versuche.push(`${kandidat}, frisch`)
-  }
-
-  for (const kandidat of versuche) {
-    if (!kandidat) continue
-    try {
-      return { ...posten, katalogname: findeZutat(katalog, kandidat).zutat }
-    } catch {
-      // weiterprobieren
-    }
-  }
-
-  return { ...posten, katalogname: null }
 }
 
 // Trägt diese Katalogzeile etwas bei, das in der Tabelle auftaucht? Energie und
@@ -243,36 +209,6 @@ export function traegtNaehrwerte(katalogname) {
   return Boolean(zeile) && ((zeile.kcal ?? 0) > 0 || (zeile.salz ?? 0) > 0)
 }
 
-// Die Gegenprobe zur Zuordnung. Der lockere Auflöser erschließt – Präfix,
-// Treffer im Wort, Plural-n, Marke davor –, der strenge liest nur, was
-// dasteht. Wo beide dieselbe Zeile nennen, ist die Zuordnung zweifach
-// bestätigt; wo sie auseinandergehen, hat der lockere geraten.
-//
-// Die Fehlgriffe, die das am 20.9.2026 aufgedeckt hätte: „Wasser" auf der
-// Wassermelone, „Curry" auf der Currypaste, „Nudeln" auf den Linsennudeln.
-// Alle drei lagen im Kalorienkorridor und waren für jede Summenprüfung
-// unsichtbar.
-export function zuordnungsAbweichungen(posten) {
-  const abweichungen = []
-
-  for (const p of posten) {
-    if (istKeineZutat(p.name)) continue
-
-    const locker = versuche(() => findeZutat(katalog, p.name))
-    const streng = versuche(() => findeZutatStreng(katalog, p.name))
-    if (locker !== streng) abweichungen.push({ name: p.name, locker, streng })
-  }
-
-  return abweichungen
-}
-
-function versuche(fn) {
-  try {
-    return fn().zutat
-  } catch {
-    return null
-  }
-}
 
 // Energie je Gramm Zutat. Ein gekochtes Gericht liegt zwischen gut einem
 // halben und gut zwei kcal je Gramm; darunter ist es Suppe, darüber ist etwas

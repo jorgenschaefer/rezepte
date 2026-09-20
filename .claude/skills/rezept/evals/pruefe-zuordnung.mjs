@@ -1,31 +1,20 @@
-// Prüft, ob die Zutaten eines Rezepts auf der richtigen Katalogzeile landen –
-// und ob die Energiedichte des Gerichts überhaupt plausibel ist.
+// Prüft, ob die Energiedichte eines Gerichts überhaupt plausibel ist.
 //
-// Warum das die vorhandenen Prüfungen nicht abdecken: Sie rechnen alle Summen
-// nach. Eine Fehlzuordnung verschiebt die Summe aber oft gar nicht aus dem
-// Korridor, und `pruefe-tabelle-gegen-liste.mjs` löst die Namen über dasselbe
-// `findeZutat` auf wie der Skill – es würde die falsche Zeile genauso finden
-// und bestätigen. Ein Prüfer, der sich Code mit dem Geprüften teilt, ist für
-// dessen Fehler blind.
+// Die Gegenprobe der Zuordnung, die hier einmal danebenstand, ist entfallen.
+// Sie verglich den lockeren Auflöser mit dem strengen und meldete, wo die
+// beiden auseinandergingen – dort saß jeder stille Fehlgriff. Seit
+// vorratskammer.md die Kurzformen führt und zutaten.md sie als Schlüssel
+// trägt, gibt es nur noch einen Auflöser, und der schlägt wörtlich nach. Eine
+// Zuordnung kann damit nicht mehr Schlussfolgerung sein: Sie trifft, oder der
+// Rechner bricht ab und nennt den Namen. Ein Vergleich zweier Auflöser wäre
+// jetzt der Vergleich eines Auflösers mit sich selbst.
 //
-// Am 20.9.2026 von Hand gefunden, alle im Kalorienkorridor und für jede
-// Summenprüfung unsichtbar: „Wasser" traf die Wassermelone (45 kcal und 150 g
-// Gutschrift auf Obst und Gemüse), „Curry" die Currypaste, „Nudeln" die
-// Linsennudeln, „Joghurt" den griechischen.
+// Warum die Summenprüfungen die Energiedichte nicht abdecken: Sie rechnen alle
+// Summen nach. Wer Gemüse gegen Öl vertauscht, trifft die Kalorienzahl und
+// verfehlt die Dichte; wer Trockenware mit Kochgewicht verwechselt, ebenso. Ein
+// gekochtes Gericht liegt zwischen 0,5 und 2,5 kcal je Gramm Zutat.
 //
-// Zwei Prüfungen, beide ohne Modell:
-//
-// 1. Gegenprobe der Zuordnung. `findeZutatStreng` nimmt nur, was wörtlich in
-//    Spalte 1 oder als Kochname steht; `findeZutat` erschließt darüber hinaus.
-//    Wo beide dieselbe Zeile nennen, ist die Zuordnung zweifach bestätigt. Wo
-//    sie auseinandergehen, hat der lockere geschlossen statt gelesen – das ist
-//    kein Fehler, aber die Stelle, an der bisher jeder Fehler saß.
-//
-// 2. Energiedichte. Ein gekochtes Gericht liegt zwischen 0,5 und 2,5 kcal je
-//    Gramm Zutat. Wer Gemüse gegen Öl vertauscht, trifft die Kalorienzahl und
-//    verfehlt die Dichte; wer Trockenware mit Kochgewicht verwechselt, ebenso.
-//
-// Beide melden Verdacht, nicht Schuld: Die Ausgabe nennt jeden Treffer im
+// Die Prüfung meldet Verdacht, nicht Schuld: Die Ausgabe nennt jeden Treffer im
 // Volltext, und wer die Zahl benutzt, liest ihn. Das ist dieselbe Regel wie bei
 // `pruefe-vorrat-im-befund.mjs`.
 //
@@ -39,7 +28,6 @@ import {
   energiedichte,
   istPlausibleDichte,
   istRezept,
-  zuordnungsAbweichungen,
   zutatenliste,
 } from './rezept-lesen.mjs'
 
@@ -50,7 +38,6 @@ if (!datei) {
 }
 
 let rezepte = 0
-let mitAbweichung = 0
 let ausserhalbDerDichte = 0
 let ohneRezept = 0
 
@@ -69,18 +56,7 @@ for (const lauf of laeufeAus(datei)) {
 
   rezepte++
   const posten = zutatenliste(antwort.text).mitGramm
-  const abweichungen = zuordnungsAbweichungen(posten)
   const dichte = energiedichte(posten)
-
-  if (abweichungen.length > 0) {
-    mitAbweichung++
-    console.log(`\n${lauf.name}: ${abweichungen.length} Zutat(en) nur über Nachsicht zugeordnet`)
-    for (const a of abweichungen) {
-      console.log(`  „${a.name}"`)
-      console.log(`     locker: ${a.locker ?? '– nichts gefunden'}`)
-      console.log(`     streng: ${a.streng ?? '– steht so nicht im Katalog'}`)
-    }
-  }
 
   if (!istPlausibleDichte(dichte)) {
     ausserhalbDerDichte++
@@ -90,9 +66,8 @@ for (const lauf of laeufeAus(datei)) {
 }
 
 console.log(
-  `\n${rezepte} Rezepte, ${mitAbweichung} mit unsicherer Zuordnung, ` +
-    `${ausserhalbDerDichte} außerhalb der Energiedichte` +
+  `\n${rezepte} Rezepte, ${ausserhalbDerDichte} außerhalb der Energiedichte` +
     (ohneRezept ? `, ${ohneRezept} Läufe ohne erkennbares Rezept` : ''),
 )
 
-process.exit(mitAbweichung > 0 || ausserhalbDerDichte > 0 ? 1 : 0)
+process.exit(ausserhalbDerDichte > 0 ? 1 : 0)

@@ -6,34 +6,32 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
 Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie aufzufüllen. Sie müssen aber nicht in jedem Rezept vorkommen.
 
-- ja! Brechbohnen, tiefgekühlt
-- Frosta Gemüse-Mix Italienische Küche, tiefgekühlt
-- Walnusskerne
+- Gemüse-Mix Italienisch
 
 ## Neu
 
-- Harry Vollkorn Urtyp
+- Roggenvollkornbrot
 - Grünländer Leicht
-- REWE Bio Blattspinat, tiefgekühlt, 600 g
+- Blattspinat, TK
 - Salatgurke
 - Äpfel
-- Erdnussmus, REWE Bio
-- Kaergarden Balance 200 g
+- Erdnussmus
+- Butter-Rapsöl-Mischung
 
 ## Kühlschrank
 
 ### Tür
 
-- Eier
+- Eier, Größe M
 
 - Tomatenmark
-- Senf, mittelscharf
-- Bamboo Garden Rote Curry Paste
-- Bamboo Garden Gelbe Curry Paste
+- Senf
+- Rote Currypaste
+- Gelbe Currypaste
 
-- Ketchup (Heinz Zero)
+- Ketchup Zero (Heinz Zero)
 - Sojasauce
-- Tabasco Red Pepper Sauce
+- Tabasco
 
 - Coke Zero
 - Limettensaft
@@ -41,43 +39,43 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 
 ### Hauptfach
 
-- REWE Beste Wahl High Protein Quarkcreme (nur als Nachspeise)
-- Räuchertofu 175 g (nur als ganze Packung verwenden)
-- Tofu Natur 200 g (nur als ganze Packung verwenden)
-- Joghurt 1,5% (nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
-- Magerquark 500 g
+- Quarkcreme (nur als Nachspeise)
+- Räuchertofu (nur als ganze Packung verwenden)
+- Tofu natur (nur als ganze Packung verwenden)
+- Naturjoghurt 1,5 % (nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
+- Magerquark
 
 ### Gemüsefach
 
 - Rote Zwiebeln
 - Knoblauch
-- Karotten
+- Möhren
 
 ## Tiefkühlfach
 
-- Kaisergemüse, tiefgekühlt
-- REWE Beste Wahl Wok-Mix, tiefgekühlt
-- REWE Beste Wahl Kulturheidelbeeren, tiefgekühlt
-- ja! Beeren-Mischung, tiefgekühlt
-- ja! Lachsfilet 250 g, Zuchtlachs (nur als Portion von 125 g verwenden)
+- Kaisergemüse
+- Wok-Mix
+- Heidelbeeren, TK
+- Beeren, TK
+- Lachsfilet, TK (nur als Portion von 125 g verwenden)
 
 ## Küchenschrank
 
 - Miso-Paste, hell
 
-- Bonduelle Goldmais (Dose) 140g (nur als ganze Dose verwenden)
+- Mais, Dose (Dose) 140g (nur als ganze Dose verwenden)
 - Kidneybohnen (Dose) 265 g (nur als ganze Dose verwenden)
 - Schwarze Bohnen (Dose) 240 g (nur als ganze Dose verwenden)
-- Passierte Tomaten 500 g (nur als ganze oder halbe Packung verwenden; wenn du die halbe Packung nutzt, sollten es entweder zwei Portionen werden oder der nächste Tag muss den Rest aufbrauchen)
+- Passierte Tomaten (nur als ganze oder halbe Packung verwenden; wenn du die halbe Packung nutzt, sollten es entweder zwei Portionen werden oder der nächste Tag muss den Rest aufbrauchen)
 
-- Vantastic foods Soja-Granulat vegan
-- Vantastic foods Soja Schnetzel vegan
+- Soja-Granulat
+- Soja-Schnetzel
 - Salz, jodiert
 - Speisestärke
 - Backpulver
 - Natron
 - Zucker
-- Mehl, Type 550
+- Weizenmehl Type 550
 
 - Erythrit
 - Süßstoff flüssig
@@ -87,10 +85,10 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Mandeln
 - Flohsamenschalen
 - Haferflocken
-- Gemüsebrühe
+- Gemüsebrühe, Pulver
 - Rote Linsen
-- Reis, Langkorn/Basmati (zukünftig: Natur)
-- Vollkorn Fussili
+- Langkornreis (zukünftig: Natur)
+- Vollkornnudeln
 
 ## Gewürzregal
 
@@ -102,7 +100,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Curry
 - Italienische Kräuter
 - Knoblauch, granuliert
-- Koriandersamen, gemahlen
+- Koriander gemahlen
 - Kreuzkümmel
 - Kurkuma
 - Oregano
@@ -120,12 +118,12 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Pfefferminztee
 - Fencheltee
 - Schwarzer Tee
-- Nescafe Gold Fertig Kaffee
+- Nescafé Gold
 
 - FlavDrops Cocos
 - FlavDrops Lemon
 
-- Olivenöl
+- Olivenöl nativ extra
 - Rapsöl
 - Weißweinessig
-- Balsamico Essig
+- Balsamico-Essig

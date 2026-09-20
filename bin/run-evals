@@ -4,8 +4,11 @@
 # .claude/skills/rezept/evals/README.md dokumentiert. Ein einzelnes
 # `claude plugin eval .` deckt sie nicht ab:
 #
-#   1. Die Unit-Tests der Rechnung und des Rezeptlesers – ohne Modell, ohne
-#      Kosten.
+#   1. Die Zuordnung Vorrat -> Katalog und die Unit-Tests der Rechnung und des
+#      Rezeptlesers – ohne Modell, ohne Kosten. Die Zuordnung steht bewusst
+#      zuerst: Eine Kurzform, die keine Katalogzeile trifft, lässt jedes Rezept
+#      abbrechen, und das soll nach einer Sekunde auffallen statt nach 22
+#      Modellläufen.
 #   2. Die Suite mit Bash. Deckt 21 der 22 Fälle ab.
 #   3. Den Katalogfall ohne Bash: `--allow-tools Bash` gilt suite-weit, und mit
 #      Bash liest das Modell `zutaten.md` über scripts/naehrwerte.mjs, wo der
@@ -85,6 +88,7 @@ pruefe() {
 cd "$SKILL" || exit 1
 
 melde "1/5  Unit-Tests"
+pruefe "Vorrat gegen Katalog" node "$EVALS/pruefe-vorrat-gegen-katalog.mjs"
 pruefe "naehrwerte.test.mjs" node --test "$SKILL/scripts/naehrwerte.test.mjs"
 pruefe "rezept-lesen.test.mjs" node --test "$EVALS/rezept-lesen.test.mjs"
 
@@ -132,10 +136,10 @@ nachpruefung "Tabelle gegen das Skript"   rechnet-mit-dem-skript             pru
 nachpruefung "Korridor nach der Korrektur" korridor-haelt-die-korrektur-aus  pruefe-korridor-nach-korrektur.mjs
 
 if [ -f "$SUITE" ]; then
-  pruefe "Zuordnung und Energiedichte" node "$EVALS/pruefe-zuordnung.mjs" "$SUITE"
+  pruefe "Energiedichte" node "$EVALS/pruefe-zuordnung.mjs" "$SUITE"
 else
-  printf '\033[33muebersprungen\033[0m  Zuordnung und Energiedichte – die Suite hat kein Ergebnis geschrieben\n'
-  FEHLER+=("Zuordnung und Energiedichte (kein Suite-Ergebnis)")
+  printf '\033[33muebersprungen\033[0m  Energiedichte – die Suite hat kein Ergebnis geschrieben\n'
+  FEHLER+=("Energiedichte (kein Suite-Ergebnis)")
 fi
 
 if [ -f "$BASIS/zufall/aggregate-result.json" ]; then

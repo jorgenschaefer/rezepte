@@ -322,29 +322,27 @@ Summenprüfung unsichtbar:
 | „Nudeln" | Nudeln aus roten Linsen | 25 g statt 13 g Protein |
 | „Joghurt" | Joghurt griechischer Art 0,2 % | falsche Fettstufe |
 
-`pruefe-zuordnung.mjs` stellt zwei Fragen, beide ohne Modell:
+Diese Klasse von Fehlern gibt es nicht mehr. `vorratskammer.md` führt seit der
+Umstellung Kurzformen, `zutaten.md` trägt sie als Schlüssel, und
+`scripts/naehrwerte.mjs` schlägt wörtlich nach, statt zu erschließen: kein
+Präfix, kein Treffer im Wort, kein Plural-n, keine vorangestellte Marke. Eine
+Zutat trifft ihre Zeile, oder der Rechner bricht ab und nennt den Namen. „Wasser"
+hat seit dem `KEINE_ZUTAT`-Eintrag ohnehin keine Zeile; „Curry", „Nudeln" und
+„Joghurt" treffen jetzt entweder die richtige Zeile oder gar keine.
+
+Was die Zuordnung offen hält, prüft dafür `pruefe-vorrat-gegen-katalog.mjs` –
+modellfrei und noch vor jedem Lauf, siehe unten.
+
+`pruefe-zuordnung.mjs` stellt deshalb nur noch eine Frage, ohne Modell:
 
 ```bash
 claude plugin eval . --scaffold --allow-tools Bash --ablation none --keep-temp
 node evals/pruefe-zuordnung.mjs evals/results/<zeitstempel>/aggregate-result.json
 ```
 
-**Die Zuordnung gegen einen zweiten Auflöser.** `findeZutatStreng` nimmt nur,
-was wörtlich in Spalte 1 oder als Kochname von `zutaten.md` steht – keine
-Präfixe, keine Treffer im Wort, kein Plural-n, keine vorangestellte Marke. Wo
-beide Auflöser dieselbe Zeile nennen, ist die Zuordnung zweifach bestätigt. Wo
-nur der lockere etwas findet, hat er geschlossen statt gelesen; das ist kein
-Fehler, aber die Stelle, an der bisher jeder saß. Scheitern beide, bricht der
-Rechner ohnehin hörbar ab – das braucht keinen Prüfer.
-
-Von den vier Fällen oben meldet das heute nur noch „Nudeln": Wasser hat seit dem
-`KEINE_ZUTAT`-Eintrag keine Zeile mehr, „Curry" und „Joghurt" sind seit der
-Umstellung auf Produktnamen mit Kochname eindeutig. Die Prüfung hält fest, dass
-es so bleibt.
-
 **Die Energiedichte.** Energie je Gramm Zutat, plausibel zwischen 0,5 und
-2,5 kcal/g. Das fängt die grobe Klasse ab, die auch der Zuordnungsvergleich
-durchlässt: Wer Gemüse gegen Öl tauscht, trifft die Kalorienzahl und verfehlt
+2,5 kcal/g. Das fängt die grobe Klasse ab, die keine Summenprüfung sieht: Wer
+Gemüse gegen Öl tauscht, trifft die Kalorienzahl und verfehlt
 die Dichte. Der Bratreis vom 20.9. liegt bei 1,40 kcal/g, dasselbe Gericht mit
 70 g Öl statt Gemüse bei 6,58.
 
@@ -389,6 +387,37 @@ claude plugin eval . --case 'haushaltsuebliche*' --runs 5 --scaffold \
   --allow-tools Bash --ablation none --keep-temp
 node evals/pruefe-zufall.mjs evals/results/<zeitstempel>/aggregate-result.json
 ```
+
+## Der Vorrat ist das Schlüsselverzeichnis des Katalogs
+
+`vorratskammer.md` führt Kurzformen – „Reis", „Räuchertofu", „Chiliflocken" –,
+und `zutaten.md` trägt dieselbe Kurzform in Spalte 2 neben dem REWE-Produktnamen.
+Das ist keine Bequemlichkeit, sondern die Bedingung dafür, dass
+`scripts/naehrwerte.mjs` wörtlich nachschlagen darf, statt zu erschließen.
+
+Die Verbindung zerfällt still: Wer einkauft und eine Katalogzeile vergisst,
+merkt es erst, wenn das nächste Rezept abbricht.
+`pruefe-vorrat-gegen-katalog.mjs` hält sie, ohne Modell und in einer Sekunde:
+
+```bash
+node .claude/skills/rezept/evals/pruefe-vorrat-gegen-katalog.mjs
+```
+
+| Invariante | Fehler, den sie fängt |
+|---|---|
+| Jeder Vorratsposten trifft genau eine Katalogzeile | eingekauft, Zeile vergessen |
+| Der Vorrat nennt die Kurzform, nicht einen Zweitnamen | zwei Dateien, zwei Namen für dieselbe Zeile |
+| Kurzformen und Zweitnamen sind über den Katalog eindeutig | zwei Zeilen streiten sich um einen Namen; `leseKatalog` bricht dann schon beim Lesen ab |
+| Nennt der Vorrat eine Packungsgröße, führt der Katalog sie auch | Packung gewechselt, nur eine Datei nachgezogen |
+
+Die Gegenrichtung wird **nicht** geprüft: Der Katalog darf Zeilen ohne
+Vorratsposten führen. Der Fall `zwei-listen-im-ordner` lebt davon – seine sechs
+Kellerzutaten stehen im Katalog und nicht im Vorrat, damit ein Rezept, das sie
+nimmt, nicht abbricht, sondern sichtbar an der genannten Liste vorbeikocht.
+
+`bin/run-evals` ruft die Prüfung als erstes auf, noch vor den Unit-Tests: Eine
+gebrochene Invariante lässt jeden der 22 Fälle scheitern, und das soll nach
+einer Sekunde auffallen statt nach einer vollen Suite.
 
 ## Die Rechnung selbst
 

@@ -17,7 +17,7 @@ const FAMILIEN = {
   Hülsenfrüchte: ['Rote Linsen', 'Kidneybohnen', 'Schwarze Bohnen'],
   Ei: ['Eier'],
   Milchprodukt: ['Magerquark', 'Grünländer', 'Quarkcreme'],
-  Nuss: ['Erdnussmus', 'Walnusskerne', 'Mandeln'],
+  Nuss: ['Erdnussmus', 'Mandeln'],
 }
 
 const ergebnis = JSON.parse(readFileSync(process.argv[2], 'utf8'))
