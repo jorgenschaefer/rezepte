@@ -442,8 +442,8 @@ daran falsch oder unauswertbar wurde:
   Zutaten, und eine richtige Tabelle sah aus wie eine veraltete: 630 kcal laut
   Tabelle, 524 laut Liste.
 - „150 ml Wasser" fand über den Präfixtreffer die Wassermelone.
-- „½ TL Gemüsebrühepulver" wiegt in Kalorien nichts, bringt aber fast das ganze
-  Salz mit. Auch das sah aus wie eine veraltete Tabelle, und die Tabelle
+- „½ TL Gemüsebrühepulver" wiegt in Kalorien fast nichts, bringt aber fast das
+  ganze Salz mit. Auch das sah aus wie eine veraltete Tabelle, und die Tabelle
   stimmte.
 - Gelesen wird nur der Abschnitt zwischen Zutatenliste und Zubereitung. Manche
   Antworten hängen hinter das Rezept einen Vorratsabgleich, und der Prüfauftrag

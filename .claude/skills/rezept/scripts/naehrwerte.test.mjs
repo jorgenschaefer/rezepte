@@ -61,11 +61,62 @@ test('mehrere Zutaten werden aufaddiert', () => {
 })
 
 test('ein Gedankenstrich zählt nicht mit, die Zahl daneben schon', () => {
-  const summe = berechne(katalog, [{ zutat: 'Gemüsebrühe, Pulver', gramm: 5 }])
+  const summe = berechne(katalog, [{ zutat: 'Natron', gramm: 2 }])
 
   assert.equal(summe.kcal, 0)
   assert.equal(summe.protein, 0)
-  assert.equal(runde(summe.salz, 2), 2.5)
+  assert.equal(runde(summe.salz, 2), 1.37)
+})
+
+// Sojasauce, Senf und Brühpulver standen bei der Energie auf einem
+// Gedankenstrich, weil es Würzmengen sind – und zählten damit still als null.
+// Ein Wok mit 2 EL Sojasauce verlor so gut 20 kcal, immer nach unten. Der
+// Gedankenstrich bleibt die Schreibweise für „kein Wert"; diese drei Zeilen
+// haben aber einen.
+test('Würzmengen mit Energie zählen ihre Energie mit', () => {
+  assert.equal(runde(berechne(katalog, [{ zutat: 'Sojasauce', gramm: 15 }]).kcal), 12)
+  assert.equal(runde(berechne(katalog, [{ zutat: 'Senf', gramm: 5 }]).kcal), 5)
+  assert.equal(runde(berechne(katalog, [{ zutat: 'Gemüsebrühe, Pulver', gramm: 5 }]).kcal), 9)
+})
+
+// Das Etikett der Sojasauce nennt 10 g Eiweiß je 100 ml: Bei 2 EL ist das
+// keine Rundungsstelle mehr, sondern 3 g Protein.
+test('die Sojasauce bringt ihr Protein mit', () => {
+  const summe = berechne(katalog, [{ zutat: 'Sojasauce', gramm: 30 }])
+
+  assert.equal(runde(summe.protein, 1), 3)
+  assert.equal(runde(summe.salz, 2), 5.07)
+})
+
+// Welche Zeilen ohne Energie auskommen, ist eine Entscheidung und kein
+// Versehen: Gewürze, Backtriebmittel und Süßstoff nennt REWE ohne Nährwerte,
+// Knoblauch und Wasser tragen nichts bei. Wer eine Zeile ergänzt und die
+// kcal-Spalte leer lässt, zählt sie still als null – dieser Test macht daraus
+// eine bewusste Zeile mehr in der Liste.
+test('nur diese Zeilen haben keine Energie', () => {
+  const ohneEnergie = katalog.filter((zeile) => zeile.kcal === null).map((zeile) => zeile.zutat)
+
+  assert.deepEqual(ohneEnergie.sort(), [
+    'Dr. Oetker Original Backin 160g',
+    'Knoblauch 200g im Netz',
+    'REWE Beste Wahl Basilikum gerebelt 14g',
+    'REWE Beste Wahl Chiliflocken geschrotet 26g',
+    'REWE Beste Wahl Italienische Kräuter 13g',
+    'REWE Beste Wahl Knoblauch granuliert 52g',
+    'REWE Beste Wahl Koriander gemahlen 32g',
+    'REWE Beste Wahl Kräuter der Provence Gewürzmischung 16g',
+    'REWE Beste Wahl Kreuzkümmel gemahlen 35g',
+    'REWE Beste Wahl Kurkuma gemahlen 37g',
+    'REWE Beste Wahl Natron 50g',
+    'REWE Beste Wahl Oregano gerebelt 11g',
+    'REWE Beste Wahl Paprika edelsüß gemahlen 39g',
+    'REWE Beste Wahl Pfeffer schwarz gemahlen 41g',
+    'REWE Beste Wahl Pfeffer weiß gemahlen 45g',
+    'REWE Beste Wahl Rosmarin geschnitten 24g',
+    'REWE Beste Wahl Thymian gerebelt 16g',
+    'REWE Beste Wahl Zimt gemahlen 28g',
+    'ja! Süßstoff flüssig 300ml',
+  ].sort())
 })
 
 test('Obst und Gemüse zählt in Portionen zu 110 g', () => {

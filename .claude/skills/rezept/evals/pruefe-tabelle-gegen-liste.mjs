@@ -32,8 +32,8 @@
 //
 // Zutaten ohne Grammangabe – „2 Zehen Knoblauch", „schwarzer Pfeffer" – tragen
 // im Katalog zu beidem nichts bei und werden übergangen. Eine Ausnahme sind die
-// Würzmengen mit Salz: „½ TL Gemüsebrühepulver" wiegt in Kalorien nichts und
-// bringt fast das ganze Salz mit. Gemessen an einem alten Verlauf sah das aus
+// Würzmengen mit Salz: „½ TL Gemüsebrühepulver" wiegt in Kalorien fast nichts
+// und bringt fast das ganze Salz mit. Gemessen an einem alten Verlauf sah das aus
 // wie eine veraltete Tabelle – 2,2 g laut Tabelle, 1,0 g laut Liste –, und die
 // Tabelle stimmte. Solche Läufe sind nicht auswertbar, ebenso die mit einer
 // Zutat, die der Katalog nicht oder nicht eindeutig kennt; lieber kein Urteil

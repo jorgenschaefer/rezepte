@@ -200,10 +200,12 @@ export function aufloesen(posten) {
 }
 
 // Trägt diese Katalogzeile etwas bei, das in der Tabelle auftaucht? Energie und
-// Salz gehen getrennte Wege: Würzmengen stehen bei der Energie auf einem
-// Gedankenstrich und bringen trotzdem Salz mit – Brühpulver, Sojasauce,
-// Currypaste, Senf. Eine solche Zutat ohne Grammangabe macht jede Rechnung
-// über sie unbrauchbar.
+// Salz gehen getrennte Wege: Natron steht bei der Energie auf einem
+// Gedankenstrich und bringt trotzdem Salz mit. Eine solche Zutat ohne
+// Grammangabe macht jede Rechnung über sie unbrauchbar.
+//
+// Brühpulver, Sojasauce und Senf gehörten hier dazu, bis zutaten.md ihnen die
+// Etikettwerte gab. Sie bleiben Würzmengen, zählen aber jetzt mit beidem.
 export function traegtNaehrwerte(katalogname) {
   const zeile = katalog.find((k) => k.zutat === katalogname)
   return Boolean(zeile) && ((zeile.kcal ?? 0) > 0 || (zeile.salz ?? 0) > 0)
