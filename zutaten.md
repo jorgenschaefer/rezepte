@@ -310,7 +310,7 @@ Packungsgrößen: REWE Online, Stand 6. September 2026 (Zeilen mit dem Vermerk �
 | Dr. Oetker Original Backin 160g | Backpulver | 160 g, 10 Beutel | lang | – | – | – | – | – | – | – | – | Beutel 16 g; REWE nennt keine Nährwerte |
 | REWE Beste Wahl Natron 50g | Natron | 50 g | lang | – | – | – | – | – | – | – | – | REWE nennt keine Nährwerte |
 | Biozentrale Bio Superfood Flohsamenschalen 175g | Flohsamenschalen | 175 g (Biozentrale), 250 g (REWE Bio) | lang | 206 | 3 g | 85 g | 3,6 g | 1,1 g | 0,1 g | 0,28 g | – | 1 TL = 5 g ≈ 4 g Ballaststoffe; in Quark oder Porridge, dazu viel trinken; Etikett REWE 20.9.2026 |
-| Langnese Flotte Biene Bio-Blütenhonig 250g | Honig | 250 g, 500 g | lang | 310 | 0 | 0 | 76 g | 0 | 0 | 0 | – | 1 TL = 8 g; Tabellenwert; Etikett noch nicht geholt |
+| Langnese Flotte Biene Bio-Blütenhonig 250g | Honig | 250 g, 500 g | lang | 310 | 0 | 0 | 76 g | 0 | 0 | 0 | – | 1 TL = 8 g; Tabellenwert; REWE veröffentlicht für Honig keine Nährwerte (geprüft 20.9.2026 an drei Sorten) |
 | ESN Designer Whey Protein Almond Coconut 300g | Proteinpulver, Whey; Proteinpulver | 300 g (ESN, More) | lang | 379 | 76 g | 0 | 6,7 g | 5,6 g | 3,6 g | 0,9 g | – | 30 g = 115 kcal, 22 g Protein; kein DGE-Lebensmittel, nur auf Wunsch; Etikett REWE 20.9.2026 |
 
 ## Getränke
