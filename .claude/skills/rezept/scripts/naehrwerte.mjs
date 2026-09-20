@@ -77,6 +77,27 @@ export function istKeineZutat(name) {
   return KEINE_ZUTAT.test(name.trim())
 }
 
+// Die Gegenprobe zu findeZutat: Getroffen wird nur, was wörtlich in Spalte 1
+// oder als Kochname steht. Alles, was der lockere Auflöser erschließt – Präfix,
+// Treffer im Wort, Plural-n, vorangestellte Marke –, lehnt diese Funktion ab.
+//
+// Sinn ist nicht, strenger zu rechnen, sondern unabhängig zu urteilen: Wo die
+// beiden Auflöser auseinandergehen, hat der lockere geschlossen statt gelesen,
+// und genau dort saßen die stillen Fehlgriffe („Wasser" auf der Wassermelone).
+export function findeZutatStreng(katalog, name) {
+  const gesucht = normalisiere(name)
+  const treffer = katalog.filter((r) => r.namen.includes(gesucht))
+
+  if (treffer.length === 1) return treffer[0]
+  if (treffer.length > 1) {
+    throw new Error(
+      `„${name}" steht wörtlich in mehreren Zeilen: ${treffer.map((r) => r.zutat).join(', ')}`,
+    )
+  }
+
+  throw new Error(`„${name}" steht nicht wörtlich in zutaten.md`)
+}
+
 export function findeZutat(katalog, name) {
   if (istKeineZutat(name)) {
     throw new Error(`„${name}" ist keine Zutat aus dem Katalog`)

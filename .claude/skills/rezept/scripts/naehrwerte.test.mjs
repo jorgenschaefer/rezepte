@@ -2,7 +2,13 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 
-import { leseKatalog, findeZutat, berechne, formatiereTabelle } from './naehrwerte.mjs'
+import {
+  leseKatalog,
+  findeZutat,
+  findeZutatStreng,
+  berechne,
+  formatiereTabelle,
+} from './naehrwerte.mjs'
 
 const katalog = leseKatalog(
   readFileSync(new URL('../../../../zutaten.md', import.meta.url), 'utf8'),
@@ -458,4 +464,28 @@ test('jede Zeile aus vorratskammer.md findet genau eine Katalogzeile', () => {
   }
 
   assert.deepEqual(offen, [])
+})
+
+// Der strenge Auflöser für die Gegenprobe: Er nimmt nur, was wörtlich in
+// Spalte 1 oder als Kochname dasteht. Keine Präfixe, keine Wortgrenzen, kein
+// Plural-n, keine Marken – alles, was Schlussfolgerung ist, lehnt er ab. Die
+// Abweichung zum lockeren Auflöser ist der Befund.
+
+test('streng nimmt den Produktnamen und den Kochnamen', () => {
+  assert.equal(findeZutatStreng(katalog, 'REWE Bio Möhren 1kg').zutat, 'REWE Bio Möhren 1kg')
+  assert.equal(findeZutatStreng(katalog, 'Möhren').zutat, 'REWE Bio Möhren 1kg')
+  assert.equal(findeZutatStreng(katalog, 'Karotte').zutat, 'REWE Bio Möhren 1kg')
+})
+
+test('streng lehnt ab, was nur über Nachsicht passt', () => {
+  assert.throws(() => findeZutatStreng(katalog, 'Zwiebel'), /nicht wörtlich/)
+  assert.throws(() => findeZutatStreng(katalog, 'ja! Möhren'), /nicht wörtlich/)
+  assert.throws(() => findeZutatStreng(katalog, 'Wasser'), /nicht wörtlich/)
+})
+
+test('streng hätte die Fehlzuordnungen von heute gemeldet', () => {
+  // Der lockere Auflöser fand hier eine Zeile, der strenge lehnt ab.
+  for (const name of ['Wasser', 'Nudeln', 'Joghurt']) {
+    assert.throws(() => findeZutatStreng(katalog, name), /nicht wörtlich/, `„${name}"`)
+  }
 })
