@@ -184,6 +184,32 @@ test('eine Klammer in einer Nährwertspalte nennt nur ein Produkt ihrer Zeile', 
   }
 })
 
+// Die Gewichtsklassen für Eier sind mit Schale definiert: M ist 53 bis unter
+// 63 g (VO 589/2008), die Schale davon gut 10 %. Die Nährwerte der Zeile sind
+// wie überall im Katalog die des essbaren Anteils – 155 kcal je 100 g Ei ohne
+// Schale. Beides zusammenzurechnen ist der Fehler, den die Zeile lange machte:
+// Sie nannte 58 g je Stück, also das Schalengewicht, und kam damit auf 90 statt
+// 81 kcal. Ein Rezept mit zwei Eiern wies 20 kcal zu viel aus.
+//
+// Deshalb die Untergrenze der Klasse als Prüfstein: Ein Stückgewicht ab 53 g
+// kann nur mit Schale gemeint sein.
+test('das Stückgewicht der Eier meint den essbaren Anteil, nicht die Schale', () => {
+  const zeile = findeZutat(katalog, 'Eier')
+  const hinweis = hinweisVon(zeile.zutat)
+
+  const essbar = /(\d+) g essbar/.exec(hinweis)
+  assert.ok(essbar, `die Eierzeile nennt kein essbares Stückgewicht: „${hinweis}"`)
+
+  const gramm = Number(essbar[1])
+  assert.ok(gramm < 53, `${gramm} g je Ei ist das Gewicht mit Schale, nicht das essbare`)
+
+  // Und was die Zeile je Stück verspricht, muss zu ihren 100-g-Werten passen.
+  const [, kcal] = /= (\d+) kcal/.exec(hinweis)
+  const [, protein] = /(\d+(?:,\d)?) g Protein/.exec(hinweis)
+  assert.equal(Number(kcal), Math.round((zeile.kcal * gramm) / 100))
+  assert.equal(protein.replace(',', '.'), ((zeile.protein * gramm) / 100).toFixed(1))
+})
+
 test('Würzmengen zählen nicht als Obst und Gemüse', () => {
   assert.equal(berechne(katalog, [{ zutat: 'Knoblauch', gramm: 10 }]).obstGemuese, 0)
   assert.equal(berechne(katalog, [{ zutat: 'Chiliflocken', gramm: 2 }]).obstGemuese, 0)
@@ -272,6 +298,18 @@ function leseTabellen() {
   }
 
   return tabellen
+}
+
+// Die Hinweisspalte einer Zeile – leseKatalog liest sie nicht, sie trägt keine
+// Nährwerte. Für das Stückgewicht ist sie trotzdem die Quelle: Dort steht, mit
+// wie viel Gramm ein Rezept ein Stück ansetzt.
+function hinweisVon(zutat) {
+  for (const { kopf, zeilen } of leseTabellen()) {
+    const zellen = zeilen.find((z) => z[0] === zutat)
+    if (zellen) return zellen[kopf.indexOf('Einheit / Hinweis')]
+  }
+
+  return ''
 }
 
 function runde(zahl, stellen = 0) {

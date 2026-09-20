@@ -436,7 +436,8 @@ daran falsch oder unauswertbar wurde:
 - „1 TL (5 g) Rapsöl" fiel heraus, weil die Zeile nicht mit der Grammzahl
   beginnt – 45 kcal, die kalorienreichste Zutat des Rezepts. Ebenso „2 Eier,
   Größe M (116 g)", wo die Zahl hinter dem Namen steht: Ein Rezept mit 613 kcal
-  sah dadurch aus wie eines mit 435.
+  sah dadurch aus wie eines mit 435. Die 116 g waren das Gewicht mit Schale;
+  der Katalog nennt je Ei inzwischen 52 g essbar.
 - „20 g (1 EL) rote Currypaste" ergab einen leeren Namen, weil hinter der Menge
   eine Klammer steht. In einem Lauf fehlten so die vier kalorienreichsten
   Zutaten, und eine richtige Tabelle sah aus wie eine veraltete: 630 kcal laut

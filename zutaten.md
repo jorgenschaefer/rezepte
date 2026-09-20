@@ -100,7 +100,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 
 | Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| REWE Beste Wahl Respeggt Eier Freilandhaltung 10 Stück | Eier, Größe M; Eier; Ei | 6 oder 10 Stück (REWE Beste Wahl, Bio) | 155 | 13 g | 0 | 0,6 g | 9 g | 2,7 g | 0,3 g | Katalog | Ei 58 g = 90 kcal, 7,5 g Protein; REWE nennt für Eier keine Werte; Ei 58 g = 90 kcal |
+| REWE Beste Wahl Respeggt Eier Freilandhaltung 10 Stück | Eier, Größe M; Eier; Ei | 6 oder 10 Stück (REWE Beste Wahl, Bio) | 155 | 13 g | 0 | 0,6 g | 9 g | 2,7 g | 0,3 g | Katalog | Ei Größe M 58 g mit Schale, 52 g essbar = 81 kcal, 6,8 g Protein – mit dem essbaren Anteil rechnen, zwei Eier sind 104 g; Klasse M ist 53 bis unter 63 g mit Schale, die Schale gut 10 %; REWE nennt für Eier keine Werte |
 
 ## Fisch
 

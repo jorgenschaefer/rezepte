@@ -118,6 +118,11 @@ test('erkennt, ob eine Zutat ohne Grammangabe Nährwerte trägt', () => {
 // „2 Eier, Größe M (116 g)" trägt die Grammzahl hinter dem Namen, nicht davor.
 // Die Zeile fiel ganz heraus: 116 g Ei sind rund 180 kcal, und ein Rezept mit
 // 613 kcal sah dadurch wie eines mit 435 kcal aus.
+//
+// Die 116 g stehen hier so, wie sie im Verlauf standen – es ist das Gewicht
+// mit Schale, das der Katalog damals je Stück nannte. Er rechnet inzwischen
+// mit 52 g essbar je Ei, also 104 g für zwei. Geprüft wird an dieser Stelle
+// der Leser und nicht der Katalog, deshalb bleibt die Zeile im Original.
 test('liest die Grammangabe auch hinter dem Namen', () => {
   const [posten] = zutatenliste('- 2 Eier, Größe M (116 g), roh, zimmerwarm')
 
