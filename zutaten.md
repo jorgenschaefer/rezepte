@@ -138,25 +138,25 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | REWE Bio Limettensaft 250ml | Limettensaft | 250 ml | 28 | 0 | 0 | 1,7 g | 0 | 0 | 0,08 g | – | Etikett 20.9.2026 | 1 EL = 10 g; Etikettwerte je 100 ml |
 | REWE Bio Zitronensaft 0,25l | Zitronensaft | 250 ml | 27 | 0,4 g | 0 | 1,7 g | 0,1 g | 0 | 0 | – | Etikett 20.9.2026 | 1 EL = 10 g; Etikettwerte je 100 ml |
 | Bad Reichenhaller Marken-Jodsalz 500g | Salz, jodiert; Salz | 500 g | 0 | 0 | 0 | 0 | 0 | 0 | 100 g | – | Etikett 20.9.2026 | 1 TL = 5 g; in der Rechnung 1 g je warmem Gericht; jodiert, ohne Fluorid |
-| REWE Beste Wahl Chiliflocken | Chiliflocken | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Basilikum gerebelt | Basilikum | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Curry | Curry | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Italienische Kräuter | Italienische Kräuter | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Knoblauch granuliert | Knoblauch, granuliert | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Koriander gemahlen | Koriander gemahlen; Koriandersamen, gemahlen; Koriander | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Kreuzkümmel gemahlen | Kreuzkümmel | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Kurkuma gemahlen | Kurkuma | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Oregano gerebelt | Oregano | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Paprika Edelsüß gemahlen | Paprika Edelsüß | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Paprika Rosenscharf gemahlen | Paprika Rosenscharf | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Pfeffer schwarz gemahlen | Pfeffer, schwarz; Pfeffer | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Pfeffer weiß gemahlen | Pfeffer, weiß | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Kräuter der Provence | Kräuter der Provence | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Rosmarin gerebelt | Rosmarin | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Thymian gerebelt | Thymian | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| REWE Beste Wahl Zimt gemahlen | Zimt | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| Ostmann Zimtstangen | Zimtstangen | Glas | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
-| Ostmann Nelken ganz | Nelken | Glas | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt für Gewürze keine Nährwerte; Name nach Schema, nicht einzeln geprüft |
+| REWE Beste Wahl Chiliflocken geschrotet 26g | Chiliflocken | 26 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Basilikum gerebelt 14g | Basilikum | 14 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Curry | Curry | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; **Name unbestätigt** – am 20.9.2026 gesucht, REWE führt unter dieser Marke nur „Curry Vadouvan gemahlen 39g". Welches Glas im Regal steht, ist offen |
+| REWE Beste Wahl Italienische Kräuter 13g | Italienische Kräuter | 13 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Knoblauch granuliert 52g | Knoblauch, granuliert | 52 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Koriander gemahlen 32g | Koriander gemahlen; Koriandersamen, gemahlen; Koriander | 32 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Kreuzkümmel gemahlen 35g | Kreuzkümmel | 35 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Kurkuma gemahlen 37g | Kurkuma | 37 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Oregano gerebelt 11g | Oregano | 11 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Paprika edelsüß gemahlen 39g | Paprika Edelsüß | 39 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Paprika Rosenscharf gemahlen | Paprika Rosenscharf | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; **Name unbestätigt** – am 20.9.2026 gesucht, REWE führt rosenscharfes Paprikapulver nur von Ostmann, Edora und Fuchs. Welches Glas im Regal steht, ist offen |
+| REWE Beste Wahl Pfeffer schwarz gemahlen 41g | Pfeffer, schwarz; Pfeffer | 41 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Pfeffer weiß gemahlen 45g | Pfeffer, weiß | 45 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Kräuter der Provence Gewürzmischung 16g | Kräuter der Provence | 16 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Rosmarin gerebelt | Rosmarin | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; **Name unbestätigt** – am 20.9.2026 gesucht, REWE führt gerebelten Rosmarin unter dieser Marke nicht. Welches Glas im Regal steht, ist offen |
+| REWE Beste Wahl Thymian gerebelt 16g | Thymian | 16 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| REWE Beste Wahl Zimt gemahlen 28g | Zimt | 28 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
+| Ostmann Zimtstangen | Zimtstangen | 4 Stück | 317 | 3,9 g | 24,4 g | 56 g | 3,2 g | 0,9 g | 0,08 g | – | Etikett 20.9.2026 | Würzmenge, meist mitgekocht und entfernt |
+| Ostmann Nelken ganz 25g | Nelken | 25 g | 414 | 6 g | 9,6 g | 52 g | 20 g | 6,1 g | 0,5 g | – | Etikett 20.9.2026 | Würzmenge, meist mitgekocht und entfernt |
 | Tabasco Pfeffersauce Rot 60ml | Tabasco | 60 ml | 46 | 1 g | – | 1,6 g | 0,7 g | 0,2 g | 1,8 g | – | Etikett 20.9.2026 | Würzmenge; Etikettwerte je 100 ml |
 | ja! Erythrit 500g | Erythrit | 500 g | 0 | 0 | 0 | 100 g | 0 | 0 | 0 | – | Etikett 20.9.2026 | Zuckeralkohol, liefert keine Energie |
 | ja! Süßstoff flüssig 300ml | Süßstoff flüssig | 300 ml | – | – | – | – | – | – | – | – | Katalog | Würzmenge; REWE nennt keine Nährwerte |
@@ -164,7 +164,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | REWE Bio Weizenmehl Type 550 1kg | Weizenmehl Type 550; Weizenmehl; Mehl, Type 550 | 1 kg | 347 | 10,6 g | 4 g | 72 g | 1,1 g | 0,2 g | 0,01 g | – | Etikett 20.9.2026 | Pfannkuchen, Binden; kein Vollkorn; Ballaststoffe Tabellenwert |
 | Mondamin Feine Speisestärke 400g | Speisestärke | 400 g (Mondamin) | 355 | 0,5 g | 1 g | 86 g | 0,5 g | 0,1 g | 0,01 g | – | Etikett 20.9.2026 | 1 EL = 10 g; Binden |
 | Dr. Oetker Original Backin 160g | Backpulver | 160 g, 10 Beutel | – | – | – | – | – | – | – | – | Katalog | Beutel 16 g; REWE nennt keine Nährwerte |
-| REWE Beste Wahl Natron 50g | Natron | 50 g | – | – | – | – | – | – | – | – | Katalog | REWE nennt keine Nährwerte |
+| REWE Beste Wahl Natron 50g | Natron | 50 g | – | – | – | – | – | – | 68,5 g | – | Katalog | REWE nennt für dieses Produkt keine Werte; das Salzäquivalent stammt vom Etikett des Kaiser Natron (20.9.2026) und ist dieselbe Substanz – ½ TL (2 g) sind rund 1,4 g Salz, ein Drittel des Tagesziels |
 | Biozentrale Bio Superfood Flohsamenschalen 175g | Flohsamenschalen | 175 g (Biozentrale), 250 g (REWE Bio) | 206 | 3 g | 85 g | 3,6 g | 1,1 g | 0,1 g | 0,28 g | – | Etikett 20.9.2026 | 1 TL = 5 g ≈ 4 g Ballaststoffe; in Quark oder Porridge, dazu viel trinken |
 | Langnese Flotte Biene Bio-Blütenhonig 250g | Honig | 250 g, 500 g | 310 | 0 | 0 | 76 g | 0 | 0 | 0 | – | Katalog | 1 TL = 8 g; REWE veröffentlicht für Honig keine Nährwerte (geprüft 20.9.2026 an drei Sorten) |
 | ESN Designer Whey Protein Almond Coconut 300g | Proteinpulver; Proteinpulver, Whey | 300 g (ESN, More) | 379 | 76 g | 0 | 6,7 g | 5,6 g | 3,6 g | 0,9 g | – | Etikett 20.9.2026 | 30 g = 115 kcal, 22 g Protein; kein DGE-Lebensmittel, nur auf Wunsch |
@@ -175,7 +175,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 
 | Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Quelle | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Coke Zero | Coke Zero | 1 l; 6 × 0,5 l | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | zählt zu den 1,5 l Flüssigkeit; DGE: „weniger empfehlenswert" wegen Süß-, Farb- und Aromastoffen |
+| Coca-Cola Zero Sugar 1l | Coke Zero | 1 l; 6 × 0,5 l | 1 | 0 | 0 | 0 | 0 | 0 | 0,05 g | – | Etikett 20.9.2026 | Etikettwerte je 100 ml; zählt zu den 1,5 l Flüssigkeit; DGE: „weniger empfehlenswert" wegen Süß-, Farb- und Aromastoffen |
 | Pfefferminztee | Pfefferminztee | 20 Beutel | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | aufgebrüht und ungesüßt; zählt zu den 1,5 l Flüssigkeit |
 | Fencheltee | Fencheltee | 20 Beutel | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | aufgebrüht und ungesüßt; zählt zu den 1,5 l Flüssigkeit |
 | Schwarzer Tee | Schwarzer Tee | 20 Beutel | 0 | 0 | 0 | 0 | 0 | 0 | 0 | – | Katalog | aufgebrüht und ungesüßt; zählt zu den 1,5 l Flüssigkeit |

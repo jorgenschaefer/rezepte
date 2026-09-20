@@ -352,9 +352,22 @@ test('jedes Gewürz aus dem Vorrat findet seine eigene Zeile', () => {
     'Zimt',
   ]
 
+  // Jedes Glas hat seine eigene Zeile – früher deckte eine Sammelzeile alles ab.
+  const zeilen = regal.map((gewuerz) => findeZutat(katalog, gewuerz).zutat)
+  assert.equal(new Set(zeilen).size, regal.length, 'zwei Gewürze teilen sich eine Zeile')
+
+  // Die meisten sind Würzmengen ohne Nährwerte: REWE nennt für sie keine.
+  // Zimtstangen und Nelken sind die Ausnahme – ihre Etiketten führen welche,
+  // nachgesehen am 20.9.2026. Wer die Liste erweitert, sieht hier, dass das
+  // eine geprüfte Ausnahme ist und kein vergessener Wert.
+  const mitEtikett = new Set(['Zimtstangen', 'Nelken'])
   for (const gewuerz of regal) {
     const zeile = findeZutat(katalog, gewuerz)
-    assert.equal(zeile.kcal, null, `„${gewuerz}" soll eine Würzmenge ohne Energie sein`)
+    if (mitEtikett.has(gewuerz)) {
+      assert.ok(zeile.kcal > 0, `„${gewuerz}" trägt Etikettwerte`)
+    } else {
+      assert.equal(zeile.kcal, null, `„${gewuerz}" soll eine Würzmenge ohne Energie sein`)
+    }
   }
 })
 
