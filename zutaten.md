@@ -140,7 +140,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | Bad Reichenhaller Marken-Jodsalz 500g | Salz, jodiert; Salz | 500 g | 0 | 0 | 0 | 0 | 0 | 0 | 100 g | – | Etikett 20.9.2026 | 1 TL = 5 g; in der Rechnung 1 g je warmem Gericht; jodiert, ohne Fluorid |
 | REWE Beste Wahl Chiliflocken geschrotet 26g | Chiliflocken | 26 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Basilikum gerebelt 14g | Basilikum | 14 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
-| REWE Beste Wahl Curry | Curry | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; **Name unbestätigt** – am 20.9.2026 gesucht, REWE führt unter dieser Marke nur „Curry Vadouvan gemahlen 39g". Welches Glas im Regal steht, ist offen |
+| Ostmann Curry 30g | Curry | 30 g | 377 | 12,9 g | 17,6 g | 43,9 g | 12,7 g | 1,4 g | 0,28 g | – | Etikett 20.9.2026 | Würzmenge; 1 TL = 2 g |
 | REWE Beste Wahl Italienische Kräuter 13g | Italienische Kräuter | 13 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Knoblauch granuliert 52g | Knoblauch, granuliert | 52 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Koriander gemahlen 32g | Koriander gemahlen; Koriandersamen, gemahlen; Koriander | 32 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
@@ -148,11 +148,11 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | REWE Beste Wahl Kurkuma gemahlen 37g | Kurkuma | 37 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Oregano gerebelt 11g | Oregano | 11 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Paprika edelsüß gemahlen 39g | Paprika Edelsüß | 39 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
-| REWE Beste Wahl Paprika Rosenscharf gemahlen | Paprika Rosenscharf | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; **Name unbestätigt** – am 20.9.2026 gesucht, REWE führt rosenscharfes Paprikapulver nur von Ostmann, Edora und Fuchs. Welches Glas im Regal steht, ist offen |
+| Ostmann Paprika rosenscharf 35g | Paprika Rosenscharf | 35 g | 358 | 14,8 g | 20,9 g | 34,9 g | 13 g | 2,1 g | 0,08 g | – | Etikett 20.9.2026 | Würzmenge; 1 TL = 2 g |
 | REWE Beste Wahl Pfeffer schwarz gemahlen 41g | Pfeffer, schwarz; Pfeffer | 41 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Pfeffer weiß gemahlen 45g | Pfeffer, weiß | 45 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Kräuter der Provence Gewürzmischung 16g | Kräuter der Provence | 16 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
-| REWE Beste Wahl Rosmarin gerebelt | Rosmarin | Streuer | – | – | – | – | – | – | – | – | Katalog | Würzmenge; **Name unbestätigt** – am 20.9.2026 gesucht, REWE führt gerebelten Rosmarin unter dieser Marke nicht. Welches Glas im Regal steht, ist offen |
+| REWE Beste Wahl Rosmarin geschnitten 24g | Rosmarin | 24 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Thymian gerebelt 16g | Thymian | 16 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Zimt gemahlen 28g | Zimt | 28 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | Ostmann Zimtstangen | Zimtstangen | 4 Stück | 317 | 3,9 g | 24,4 g | 56 g | 3,2 g | 0,9 g | 0,08 g | – | Etikett 20.9.2026 | Würzmenge, meist mitgekocht und entfernt |

@@ -270,7 +270,7 @@ test('geläufige Schreibweisen finden ihre Katalogzeile', () => {
 // gemeint war.
 
 test('ein Gewürz trifft die Gewürzzeile, nicht die gleichnamige Paste', () => {
-  assert.equal(findeZutat(katalog, 'Curry').zutat, 'REWE Beste Wahl Curry')
+  assert.equal(findeZutat(katalog, 'Curry').zutat, 'Ostmann Curry 30g')
   assert.equal(findeZutat(katalog, 'Rote Currypaste').zutat, 'Bamboo Garden Rote Curry Paste 125g')
 })
 
@@ -322,7 +322,7 @@ test('die Vorratszutaten landen in der richtigen Katalogzeile', () => {
 test('keine Vorratszutat landet in einer Zeile einer anderen Warengruppe', () => {
   // Die stillen Fehlgriffe, die der Audit gefunden hat: Ein Gewürz darf nicht
   // in der Paste landen, Wasser nicht in der Melone, Tofu nicht im Räuchertofu.
-  assert.equal(findeZutat(katalog, 'Curry').zutat, 'REWE Beste Wahl Curry')
+  assert.equal(findeZutat(katalog, 'Curry').zutat, 'Ostmann Curry 30g')
   assert.throws(() => findeZutat(katalog, 'Tofu'), /steht nicht in zutaten\.md/)
   assert.throws(() => findeZutat(katalog, 'Wasser'), /keine Zutat/)
 })
@@ -360,7 +360,7 @@ test('jedes Gewürz aus dem Vorrat findet seine eigene Zeile', () => {
   // Zimtstangen und Nelken sind die Ausnahme – ihre Etiketten führen welche,
   // nachgesehen am 20.9.2026. Wer die Liste erweitert, sieht hier, dass das
   // eine geprüfte Ausnahme ist und kein vergessener Wert.
-  const mitEtikett = new Set(['Zimtstangen', 'Nelken'])
+  const mitEtikett = new Set(['Zimtstangen', 'Nelken', 'Curry', 'Paprika Rosenscharf'])
   for (const gewuerz of regal) {
     const zeile = findeZutat(katalog, gewuerz)
     if (mitEtikett.has(gewuerz)) {
