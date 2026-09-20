@@ -35,8 +35,8 @@ diesem Ordner, damit ein Fall nicht davon abhängt, was heute im Kühlschrank
 liegt; `zutaten.md` kommt aus dem Projekt. Zwei Fälle
 bringen einen eigenen Vorrat mit: `vorratskammer-klein.md` (schmal, als Falle
 für Zutaten von außerhalb) und `vorratskammer-miso.md` (enthält eine Zutat, die
-`zutaten.md` nicht kennt). `praeferenzen.md` liegt bewusst nicht dabei: Die
-Datei gehört zu `wochenplan`.
+`zutaten.md` nicht kennt). Mehr liegt nicht dabei: Was der Skill nicht liest,
+gehört nicht ins Arbeitsverzeichnis.
 
 ## Was ein Fall belegt und was er absichert
 

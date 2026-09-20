@@ -5,10 +5,8 @@
 # liegt; der Katalog kommt aus dem Projekt, weil die Fälle gegen die echten
 # Nährwerte rechnen.
 #
-# praeferenzen.md liegt bewusst nicht dabei: Die Datei gehört zu wochenplan,
-# rezept liest sie nicht, und im Lauf lasen die Modelle sie trotzdem – samt
-# Tageskalorienziel und Ausschlüssen, die in diesen Fällen nichts zu suchen
-# haben.
+# Mehr nicht: Was der Skill nicht liest, gehört nicht ins Arbeitsverzeichnis –
+# im Lauf lasen die Modelle sonst mit, was dort herumlag.
 set -euo pipefail
 
 evals=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
