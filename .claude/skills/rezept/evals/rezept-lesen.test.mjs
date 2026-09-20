@@ -4,7 +4,15 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 
-import { aufloesen, ohneGrammangabe, traegtNaehrwerte, zutatenliste } from './rezept-lesen.mjs'
+import {
+  aufloesen,
+  energiedichte,
+  istPlausibleDichte,
+  ohneGrammangabe,
+  traegtNaehrwerte,
+  zuordnungsAbweichungen,
+  zutatenliste,
+} from './rezept-lesen.mjs'
 
 test('liest Menge und Name einer gewöhnlichen Zeile', () => {
   const [posten] = zutatenliste('- 240 g schwarze Bohnen (1 Dose), abgetropft')
@@ -197,4 +205,36 @@ test('überspringt eine Klammer zwischen Menge und Name', () => {
 
   assert.equal(posten.gramm, 20)
   assert.equal(posten.name, 'Bamboo Garden Rote Curry Paste')
+})
+
+test('meldet, wo der strenge Auflöser anders urteilt als der lockere', () => {
+  const abweichungen = zuordnungsAbweichungen([
+    { name: 'Möhren', gramm: 60 },
+    { name: 'Zwiebel', gramm: 50 },
+  ])
+
+  assert.equal(abweichungen.length, 1)
+  assert.equal(abweichungen[0].name, 'Zwiebel')
+  assert.equal(abweichungen[0].locker, 'REWE Bio Zwiebeln rot 500g')
+  assert.equal(abweichungen[0].streng, null)
+})
+
+test('die Energiedichte eines gekochten Gerichts liegt im plausiblen Band', () => {
+  // Bratreis von heute: 633 kcal auf 476 g Zutaten.
+  const dichte = energiedichte([
+    { name: 'Langkornreis', gramm: 55 },
+    { name: 'Eier', gramm: 116 },
+    { name: 'Wok-Mix', gramm: 200 },
+    { name: 'Rote Zwiebeln', gramm: 60 },
+    { name: 'Rapsöl', gramm: 10 },
+    { name: 'Erdnussmus', gramm: 10 },
+  ])
+
+  assert.ok(dichte > 1.2 && dichte < 1.6, `unerwartete Dichte ${dichte}`)
+  assert.ok(istPlausibleDichte(dichte))
+})
+
+test('reines Öl fällt aus dem Band, gekochtes Gemüse auch', () => {
+  assert.equal(istPlausibleDichte(energiedichte([{ name: 'Rapsöl', gramm: 100 }])), false)
+  assert.equal(istPlausibleDichte(energiedichte([{ name: 'Wok-Mix', gramm: 400 }])), false)
 })

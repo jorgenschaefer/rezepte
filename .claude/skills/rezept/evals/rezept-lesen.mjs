@@ -12,6 +12,8 @@ import {
   KEINE_ZUTAT,
   MARKEN,
   findeZutat,
+  findeZutatStreng,
+  istKeineZutat,
   leseKatalog,
 } from '../scripts/naehrwerte.mjs'
 
@@ -239,4 +241,69 @@ export function aufloesen(posten) {
 export function traegtNaehrwerte(katalogname) {
   const zeile = katalog.find((k) => k.zutat === katalogname)
   return Boolean(zeile) && ((zeile.kcal ?? 0) > 0 || (zeile.salz ?? 0) > 0)
+}
+
+// Die Gegenprobe zur Zuordnung. Der lockere Auflöser erschließt – Präfix,
+// Treffer im Wort, Plural-n, Marke davor –, der strenge liest nur, was
+// dasteht. Wo beide dieselbe Zeile nennen, ist die Zuordnung zweifach
+// bestätigt; wo sie auseinandergehen, hat der lockere geraten.
+//
+// Die Fehlgriffe, die das am 20.9.2026 aufgedeckt hätte: „Wasser" auf der
+// Wassermelone, „Curry" auf der Currypaste, „Nudeln" auf den Linsennudeln.
+// Alle drei lagen im Kalorienkorridor und waren für jede Summenprüfung
+// unsichtbar.
+export function zuordnungsAbweichungen(posten) {
+  const abweichungen = []
+
+  for (const p of posten) {
+    if (istKeineZutat(p.name)) continue
+
+    const locker = versuche(() => findeZutat(katalog, p.name))
+    const streng = versuche(() => findeZutatStreng(katalog, p.name))
+    if (locker !== streng) abweichungen.push({ name: p.name, locker, streng })
+  }
+
+  return abweichungen
+}
+
+function versuche(fn) {
+  try {
+    return fn().zutat
+  } catch {
+    return null
+  }
+}
+
+// Energie je Gramm Zutat. Ein gekochtes Gericht liegt zwischen gut einem
+// halben und gut zwei kcal je Gramm; darunter ist es Suppe, darüber ist etwas
+// vertauscht. Die Prüfung fängt die grobe Klasse ab, die der Korridor nicht
+// sieht: Wer Gemüse gegen Öl tauscht, trifft die Summe und verfehlt die Dichte.
+const DICHTE_MIN = 0.5
+const DICHTE_MAX = 2.5
+
+export function energiedichte(posten) {
+  let kcal = 0
+  let gramm = 0
+
+  for (const p of posten) {
+    if (istKeineZutat(p.name)) continue
+    const zeile = versucheZeile(() => findeZutat(katalog, p.name))
+    if (!zeile) continue
+    kcal += (zeile.kcal ?? 0) * (p.gramm / 100)
+    gramm += p.gramm
+  }
+
+  return gramm === 0 ? 0 : kcal / gramm
+}
+
+function versucheZeile(fn) {
+  try {
+    return fn()
+  } catch {
+    return null
+  }
+}
+
+export function istPlausibleDichte(dichte) {
+  return dichte >= DICHTE_MIN && dichte <= DICHTE_MAX
 }
