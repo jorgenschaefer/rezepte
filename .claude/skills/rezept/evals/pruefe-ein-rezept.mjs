@@ -36,77 +36,99 @@
 // selbst, und dort blockiert der Agent-Aufruf ohnehin. Bleibt der
 // Sitzungsverlauf, und der ist der einzige Ort, an dem das doppelte Rezept
 // je gefallen ist.
-import { readFileSync, existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const pfad = process.argv[2]
-if (!pfad) {
-  console.error('Aufruf: node pruefe-ein-rezept.mjs <aggregate-result.json|verlauf.jsonl>')
-  process.exit(2)
+// Kein Rezept im Verlauf heißt nicht „grün", sondern „nichts zu prüfen". Ein
+// leeres Grün wäre schlimmer als gar keine Prüfung: Es sagt, der asynchrone
+// Weg sei in Ordnung, obwohl niemand hingesehen hat.
+const NICHTS_ZU_PRUEFEN = 3
+
+if (istAufruf()) hauptprogramm()
+
+function istAufruf() {
+  return Boolean(process.argv[1]) && fileURLToPath(import.meta.url) === resolve(process.argv[1])
 }
 
-const laeufe = pfad.endsWith('.jsonl') ? [{ name: pfad, tracePath: pfad }] : ausHarness(pfad)
-
-let gezaehlt = 0
-let doppelt = 0
-
-for (const lauf of laeufe) {
-  if (!lauf.tracePath || !existsSync(lauf.tracePath)) {
-    console.error(`${lauf.name}: kein Verlauf unter diesem Pfad`)
-    continue
+function hauptprogramm() {
+  const pfad = process.argv[2]
+  if (!pfad) {
+    console.error('Aufruf: node pruefe-ein-rezept.mjs <verlauf.jsonl>')
+    process.exit(2)
+  }
+  if (!existsSync(pfad)) {
+    console.error(`Kein Verlauf unter diesem Pfad: ${pfad}`)
+    process.exit(2)
   }
 
-  const rezepte = rezeptbloecke(lauf.tracePath)
-  gezaehlt++
-  if (rezepte.length > 1) doppelt++
+  const antworten = antwortenMitRezepten(leseVerlauf(pfad))
+  if (antworten.length === 0) {
+    console.log('Keine Rezepte in diesem Verlauf – nichts zu prüfen.')
+    process.exit(NICHTS_ZU_PRUEFEN)
+  }
 
-  console.log(`${lauf.name}: ${rezepte.length} Rezept(e)`)
-  if (rezepte.length > 1) {
-    for (const [i, block] of rezepte.entries()) {
-      console.log(`  ${i + 1}. ${block.replace(/\s+/g, ' ').slice(0, 120)}`)
+  const doppelte = antworten.filter((antwort) => antwort.rezepte.length > 1)
+  for (const [nummer, antwort] of antworten.entries()) {
+    console.log(`Antwort ${nummer + 1}: ${antwort.rezepte.length} Rezept(e)`)
+    if (antwort.rezepte.length > 1) {
+      for (const [i, block] of antwort.rezepte.entries()) {
+        console.log(`  ${i + 1}. ${block.replace(/\s+/g, ' ').slice(0, 120)}`)
+      }
     }
   }
+
+  console.log(`\n${antworten.length} Antworten mit Rezept, ${doppelte.length} davon mit mehr als einem`)
+  process.exit(doppelte.length === 0 ? 0 : 1)
 }
 
-console.log(`\n${gezaehlt} Läufe, ${doppelt} davon mit mehr als einem Rezept`)
-process.exit(doppelt === 0 ? 0 : 1)
+// Eine Antwort ist, was auf eine Nutzernachricht folgt. Das Fenster muss so
+// eng sein: Über den ganzen Verlauf zu zählen meldet zwei Aufträge derselben
+// Sitzung als doppeltes Rezept, und das ist keins.
+export function antwortenMitRezepten(eintraege) {
+  const antworten = []
+  let laufend = null
 
-function ausHarness(datei) {
-  const ergebnis = JSON.parse(readFileSync(datei, 'utf8'))
-  return ergebnis.cases.flatMap((fall) =>
-    fall.arms.with.map((lauf, nummer) => ({
-      name: `${fall.name} Lauf ${nummer + 1}`,
-      tracePath: lauf.tracePath,
-    })),
-  )
-}
-
-function rezeptbloecke(datei) {
-  const bloecke = []
-
-  for (const zeile of readFileSync(datei, 'utf8').split('\n')) {
-    let eintrag
-    try {
-      eintrag = JSON.parse(zeile)
-    } catch {
+  for (const eintrag of eintraege) {
+    const nachricht = eintrag?.message
+    if (nachricht?.role === 'user') {
+      laufend = null
       continue
     }
-
-    const nachricht = eintrag.message
     if (nachricht?.role !== 'assistant') continue
     // In manchen Verläufen ist `content` ein String statt einer Blockliste.
     if (!Array.isArray(nachricht.content)) continue
 
     for (const block of nachricht.content) {
-      if (block?.type !== 'text') continue
-      if (
-        /^\s*\|\s*Energie\s*\|/m.test(block.text) &&
-        /^\s*\|\s*Protein\s*\|/m.test(block.text) &&
-        /ubereitung/.test(block.text)
-      ) {
-        bloecke.push(block.text)
+      if (block?.type !== 'text' || !istRezept(block.text)) continue
+      if (!laufend) {
+        laufend = { rezepte: [] }
+        antworten.push(laufend)
       }
+      laufend.rezepte.push(block.text)
     }
   }
 
-  return bloecke
+  return antworten
+}
+
+function istRezept(text) {
+  return (
+    /^\s*\|\s*Energie\s*\|/m.test(text) &&
+    /^\s*\|\s*Protein\s*\|/m.test(text) &&
+    /ubereitung/.test(text)
+  )
+}
+
+function leseVerlauf(datei) {
+  return readFileSync(datei, 'utf8')
+    .split('\n')
+    .map((zeile) => {
+      try {
+        return JSON.parse(zeile)
+      } catch {
+        return null
+      }
+    })
+    .filter(Boolean)
 }

@@ -81,7 +81,17 @@ pruefe "Suite" node "$EVALS/suite.mjs"
 
 if [ -n "$VERLAUF" ]; then
   melde "Zusatz  Asynchroner Weg im Sitzungsverlauf"
-  pruefe "Ein Rezept, nicht zwei (interaktiv)" node "$EVALS/pruefe-ein-rezept.mjs" "$VERLAUF"
+  # Ein Verlauf ohne Rezept ist nicht grün, sondern ungeprüft. Das Skript
+  # sagt das mit Code 3, damit hier kein leeres „ok" steht.
+  node "$EVALS/pruefe-ein-rezept.mjs" "$VERLAUF"
+  case $? in
+    0) printf '\033[32mok\033[0m       Ein Rezept, nicht zwei (interaktiv)\n' ;;
+    3) printf '\033[33moffen\033[0m    Ein Rezept, nicht zwei – dieser Verlauf enthält keins\n' ;;
+    *)
+      printf '\033[31mfehler\033[0m   Ein Rezept, nicht zwei (interaktiv)\n'
+      FEHLER+=("Ein Rezept, nicht zwei (interaktiv)")
+      ;;
+  esac
 fi
 
 melde "Ergebnis"
