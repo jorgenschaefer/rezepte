@@ -78,6 +78,29 @@ export function ohneGrammangabe(text) {
   return zerlege(text).ohneGramm
 }
 
+// Die Schritte der Zubereitung, in ihrer Reihenfolge und ohne ihre Nummer.
+// Ein Schritt endet erst, wo der nächste anfängt: Fortsetzungszeilen gehören
+// dazu, der Nachsatz hinter der Liste nicht.
+export function zubereitung(text) {
+  const anfang = /^[#*\s]*Zubereitung\b/im.exec(text)
+  const teil = anfang ? text.slice(anfang.index + anfang[0].length) : text
+
+  const schritte = []
+  for (const zeile of teil.split('\n')) {
+    const nummer = /^\s*\d+[.)]\s+(.*)$/.exec(zeile)
+    if (nummer) {
+      schritte.push(nummer[1].trim())
+      continue
+    }
+    // Eine Fortsetzung ist eingerückt oder folgt unmittelbar; eine Leerzeile
+    // beendet den Schritt, damit der Nachsatz hinter der Liste draußen bleibt.
+    if (schritte.length > 0 && zeile.trim() !== '' && /^\s/.test(zeile)) {
+      schritte[schritte.length - 1] += ` ${zeile.trim()}`
+    }
+  }
+  return schritte
+}
+
 // Länger als das ist kein Zutatenname, sondern ein Satz über die Zutat.
 const NAME_HOECHSTENS = 40
 

@@ -10,6 +10,7 @@ import {
   istPlausibleDichte,
   ohneGrammangabe,
   traegtNaehrwerte,
+  zubereitung,
   zutatenliste,
 } from './rezept-lesen.mjs'
 
@@ -310,4 +311,20 @@ test('meldet eine Zutatenzeile ohne Grammzahl als unlesbar', () => {
 
   assert.equal(ohne.length, 1)
   assert.equal(ohne[0].name, 'Eier')
+})
+
+test('liest die Zubereitung als nummerierte Schritte', () => {
+  const schritte = zubereitung(
+    ['**Zubereitung:**', '', '1. Wasser aufkochen.', '2. Nudeln hineingeben.', '', 'Ein Nachsatz.'].join('\n'),
+  )
+
+  assert.deepEqual(schritte, ['Wasser aufkochen.', 'Nudeln hineingeben.'])
+})
+
+// Ein Schritt kann über mehrere Zeilen gehen; was ihm folgt, ohne mit einer
+// Nummer anzufangen, gehört zu ihm.
+test('hält einen Schritt zusammen, der über zwei Zeilen geht', () => {
+  const schritte = zubereitung(['**Zubereitung:**', '1. Erst dies,', '   dann das.', '2. Fertig.'].join('\n'))
+
+  assert.deepEqual(schritte, ['Erst dies, dann das.', 'Fertig.'])
 })
