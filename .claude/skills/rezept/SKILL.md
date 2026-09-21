@@ -24,9 +24,7 @@ Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der 
 
 Ändert eine Korrektur Mengen oder Zutaten, rechne die Tabelle neu.
 
-Ein Kochtipp ändert Handgriffe, keine Auswahl. Bringt er eine Zutat mit, steht sie in `vorratskammer.md` und kommt mit Grammangabe; trägt er das Rezept aus dem Kalorienziel, lass ihn weg. Widerspricht der Koch einem Tipp, gilt der Tipp: Was auf dem Teller war, schlägt, was aus dem Text folgt.
-
-Sagt dir jemand später, wie das Gericht geworden ist – „das war wässrig", „mit etwas Erythrit war es besser" –, dann schreib das als Spiegelpunkt in `kochtipps.md`: ein Satz, der den Handgriff nennt und wogegen er hilft. Zeig den Punkt einmal, bevor du ihn schreibst, und frag nach, wenn zur selben Sache schon einer dasteht.
+Gibt es im Nachgang Feedback zum Rezept, positiv wie negativ, identifiziere eine Änderung, die das Rezept direkt besser gemacht hätte. Füge eine entsprechende Notiz als Spiegelpunkt in `kochtipps.md` ein, damit zukünftige Rezepte direkt besser werden.
 
 # Format der Antwort
 
