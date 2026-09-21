@@ -5,7 +5,6 @@ jedes davon.
 
 ```bash
 ./test.sh
-./test.sh --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
 ```
 
 ## Aufbau und Kriterium sind zwei verschiedene Dinge
@@ -127,12 +126,6 @@ die Haushaltsgrößen einer Zutat in der Hinweisspalte des Katalogs stehen.
 
 ## Was die Suite nicht abdeckt
 
-Den asynchronen Weg. Läuft der Prüf-Koch im Hintergrund, kann zwischen Aufruf
-und Befund ein Entwurf fallen, und das Rezept steht zweimal da. Im Lauf
-blockiert der Agent-Aufruf, dort kann das nicht passieren. Dafür `--verlauf`
-mit dem Verlauf einer interaktiven Sitzung; `pruefe-ein-rezept.mjs` liest ihn
-direkt.
-
-Und die Gegenrichtung des Prüf-Kochs: dass er eine gültige Zutat für neu hält
+Die Gegenrichtung des Prüf-Kochs: dass er eine gültige Zutat für neu hält
 und der Skill sie streicht. Das fertige Rezept ist dann sauber, es fehlt nur
 etwas – kein Vorratsprüfer sieht das.
