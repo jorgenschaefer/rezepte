@@ -1,8 +1,8 @@
 schema_version: "1.0"
 name: kochtipps-wirken
 description: >
-  Belegt die Zeile „Lies kochtipps.md und arbeite ein, was zu diesem Gericht passt". Der
-  Auftrag setzt Soja-Schnetzel, weil die Proteinquelle sonst zufällig fällt und
+  Belegt die Zeile „Lies kochtipps.md und arbeite ein, was zu diesem Gericht
+  passt". Der Auftrag setzt Soja-Schnetzel, weil die Proteinquelle sonst zufällig fällt und
   kein Tipp zuverlässig greifen könnte.
 
   Was dieser Fall NICHT belegt, und warum: Er zeigt nicht, dass die Skillzeile
