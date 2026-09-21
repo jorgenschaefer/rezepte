@@ -39,6 +39,11 @@ Gibt es im Nachgang Feedback zum Rezept, positiv wie negativ, identifiziere eine
 - **Zutatenliste:**
   - Mengen in Gramm oder haushaltsüblichen Maßen.
   - Zu jeder Zutat der Zustand, in dem sie verarbeitet wird (z. B. „60 g Karotte, in dünnen Scheiben“).
-- **Zubereitung:** Schritt-für-Schritt-Anleitung, kurz und präzise.
+- **Zubereitung:** Eine nummerierte Liste. Ein Schritt, ein Vorgang, in der Reihenfolge, in der gehandelt wird.
+  - Ein Schritt trägt höchstens einen Vorgang an einem Gefäß oder am Brett. Zutaten, die in einem Zug in dasselbe Gefäß kommen, sind ein Vorgang; Zwiebel schneiden und Möhre schneiden sind zwei.
+  - Eine Dauer steht am Ende ihres Schritts. Nach ihr kommt im selben Schritt nichts mehr: „Den Topf zudecken und 15 Minuten quellen lassen“ ist ein Schritt, „…quellen lassen, dann vom Herd ziehen und 8 Minuten stehen lassen, zum Schluss auflockern“ sind drei.
+  - Kein Schritt terminiert etwas in seinem Inneren. Schreib kein „in den letzten 30 Sekunden“, kein „kurz bevor es fertig ist“, kein „währenddessen“ – was eine eigene Zeit hat, ist ein eigener Schritt.
+  - Kein Schritt verweist auf einen späteren. Der Schritt, der ein Gefäß nach einer Wartezeit wieder aufnimmt, nennt die vergangene Wartezeit und den Schritt, der sie gestartet hat: „Nach den 10 Minuten aus Schritt 7: 200 g Blattspinat einrühren“. Was in der Wartezeit erledigt wird, steht als eigene Schritte dazwischen.
+  - Was ein Schritt voraussetzt und was nicht so aus der Packung kommt – heißes Wasser, eingeweichte, ausgedrückte oder geröstete Zutaten –, stellt ein früherer Schritt her.
   - Nenne in jedem Schritt die Menge jeder Zutat erneut, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“.
-  - Ein Kochtipp aus `kochtipps.md` wird zum Handgriff im Schritt; seine Begründung bleibt in der Datei.
+  - Ein Kochtipp aus `kochtipps.md` wird zum Handgriff im Schritt; seine Begründung bleibt in der Datei. Ein Tipp, der keinen Handgriff beschreibt, sondern eine Warnung ist („nicht zu früh salzen“), bestimmt, wo und wie ein Schritt steht, und wird kein eigener Schritt.

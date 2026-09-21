@@ -100,8 +100,16 @@ Kein Punkt zeigt nach vorn.
 - **AC-1** Jeder Punkt der Zubereitung nennt genau einen Vorgang. *(C-1)*
 - **AC-2** Die Punkte stehen in der Reihenfolge, in der sie getan werden. Kein
   Punkt verweist auf einen späteren. *(C-1, C-2)*
-- **AC-3** Eine Wartezeit ist ein eigener Punkt und nennt ihre Dauer. *(C-2,
-  C-3, teilweise)*
+- **AC-3** Eine Dauer steht am Ende ihres Punktes; nach ihr kommt im selben
+  Punkt nichts mehr. *(C-2, C-3, teilweise)*
+
+  Ursprünglich stand hier „Warten ist ein eigener Punkt und nennt seine Dauer".
+  Die Messung am 2026-09-21 hat das widerlegt: „Den Topf zudecken und 15
+  Minuten quellen lassen" verletzt die alte Fassung und ist trotzdem richtig –
+  Zudecken und Liegenlassen sind eine Bewegung. Was der Intent belegt, ist der
+  andere Fall: „…12 Minuten quellen lassen, dann vom Herd ziehen und weitere 8
+  Minuten stehen lassen, zum Schluss auflockern". Was hinter der ersten Dauer
+  steht, wird übersehen. Darauf ist AC-3 jetzt geschnitten.
 - **AC-4** Ein Punkt terminiert nichts in seinem Inneren. Es gibt keine
   Zeitangabe, die einen zweiten, nicht eigenständigen Handgriff innerhalb
   desselben Punktes fällig stellt – „in den letzten 30 Sekunden", „kurz bevor es
@@ -122,8 +130,9 @@ Kein Punkt zeigt nach vorn.
 - **AC-10** Ein Kochtipp aus `kochtipps.md`, der keinen eigenen Handgriff
   beschreibt, sondern eine Warnung ist („nicht zu früh salzen"), bestimmt, wo
   und wie ein Punkt steht, und wird kein eigener Punkt. *(C-1)*
-- **AC-11** Ein Eval-Fall prüft AC-1, AC-4 und AC-7 an einem Rezept, bei dem
-  zwei Gefäße gleichzeitig auf dem Herd stehen. *(C-1, C-3, C-4)*
+- ~~**AC-11** Ein Eval-Fall prüft AC-1, AC-4 und AC-7 an einem Rezept, bei dem
+  zwei Gefäße gleichzeitig auf dem Herd stehen.~~ **Zurückgezogen am
+  2026-09-21**, siehe `Open concerns`.
 
 ## Edge cases
 
@@ -231,9 +240,33 @@ Kein Punkt zeigt nach vorn.
   Ragout vom 2026-09-21 sind beide Zweitopf-Fälle, das ist also kein Randfall.
   Ob es weh tut, entscheidet sich an den ersten Rezepten in der neuen Form; tut
   es weh, ist das der Moment für eine Lösung, die die Zeit angeht.
-- **AC-11 ist Prüfarbeit, keine Eigenschaft des fertigen Rezepts.** Es steht
-  hier, weil `SOLUTION_gerichte-werden-nicht-besser.md` es mit AC-10 genauso
-  hält. Wer die Tickets schneidet, darf es dorthin verschieben.
+- **AC-11 ist zurückgezogen: Die Form ist nicht maschinell prüfbar.** Der Fall
+  wurde gebaut und gemessen. Rot 0,22, grün 0,33 und nach einer zweiten Eichung
+  grün 0,44 – nicht, weil die Regeln nicht wirken, sondern weil die Richter
+  falsch urteilten. Sie lasen „5 Minuten braten, bis das Schmelzwasser
+  verdampft ist" als zweiten Handgriff nach der Dauer und zählten eine
+  durchgehend laufende Pfanne als Gefäß, das ohne Rückbezug wieder aufgenommen
+  wird. Beide Male war das Rezept richtig und das Urteil falsch.
+
+  Abgebrochen wurde nach der dritten Fassung der Richter, weil ab dort an den
+  Richtern gedreht worden wäre, bis sie zustimmen – derselbe Fehler, den
+  `evals/schritte-nennen-mengen` in seiner Beschreibung festhält. Entschieden
+  vom Eigner der Bedingungen am 2026-09-21.
+
+  Was die Suite dennoch trägt: `keine-versteckte-frist` als Regex war der
+  einzige Grader, der sauber trennte – im roten Lauf schlug er in einem von
+  drei Läufen an, im grünen in keinem. Wer den Fall später wieder aufnimmt,
+  fängt dort an und lässt die Richter weg.
+
+  Der Nachweis, dass die Regeln wirken, ruht damit auf dem Vergleich der
+  Rezepttexte selbst, nicht auf einer Zahl. Rot: „60 g Reis aufkochen,
+  zugedeckt 12 Minuten quellen lassen, dann vom Herd ziehen und weitere 8
+  Minuten stehen lassen, zum Schluss auflockern" – ein Schritt, drei Zeiten.
+  Grün: dieselbe Sache als drei nummerierte Schritte, mit „Nach den 12 Minuten
+  aus Schritt 8:" als Rückbezug. Ergebnisse unter
+  `evals/results/rot-ein-vorgang-je-punkt`,
+  `gruen-ein-vorgang-je-punkt` und `gruen-ein-vorgang-je-punkt-2` (nicht
+  eingecheckt, `evals/results/` ist ignoriert).
 - **Ob AC-8 in der Praxis trennscharf ist.** „Ein Vorgang an einem Gefäß" ist am
   Beispiel klar und in Grenzfällen nicht – Punkt 9 („anbraten und dabei rühren")
   liegt bewusst auf der Kante. Entschieden wird das an den ersten fünf Rezepten.
