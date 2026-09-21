@@ -1,0 +1,75 @@
+schema_version: "1.0"
+name: handwerk-wirkt
+description: >
+  Belegt die Zeile „Stehen Zutaten und Mengen fest, lies handwerk.md". Der
+  Auftrag setzt Soja-Schnetzel, weil die Proteinquelle sonst zufällig fällt und
+  kein Tipp zuverlässig greifen könnte.
+
+  Was dieser Fall NICHT belegt, und warum: Er zeigt nicht, dass die Skillzeile
+  das Lesen auslöst. Zwei Rotmessungen gegen unverändertes SKILL.md haben das
+  am 2026-09-21 widerlegt. Die erste prüfte „Soja-Schnetzel ausdrücken" und kam
+  auf 0,83 – das Ausdrücken ist gewöhnliches Kochwissen, das jedes Modell von
+  sich aus aufschreibt. Die zweite prüfte die zwölf Minuten, die nirgends sonst
+  stehen als in handwerk.md – zutaten.md nennt ausdrücklich „10 min quellen" –
+  und kam wieder auf 0,83: Die Zahl stand in allen drei Läufen im Rezept. Das
+  Modell findet die Datei im Arbeitsverzeichnis und liest sie aus eigenem
+  Antrieb, genau wie der Kommentar in evals/scaffold.sh es vorhersagt.
+
+  Was er belegt, ist die Form und die Verlässlichkeit. Der zweite Grader fiel
+  in der Rotmessung in einem von drei Läufen durch: Ohne Anweisung landet der
+  Tipp mal als Schritt, mal als Notiz. Das ist dasselbe Beweismuster, das
+  unbekannte-zutat-bricht-ab führt – ohne die Zeile 2 von 3, mit ihr 3 von 3.
+
+  Den Nachweis, den Modellneugier nicht nachmachen kann, führt
+  pruefe-lesereihenfolge.mjs: Wer die Datei aus Neugier gleich zu Beginn liest,
+  fällt dort durch; nur wer sie nach scripts/naehrwerte.mjs liest, besteht.
+
+  Die dritte Zeile der Fixture – Tofu wenden – hat in diesem Rezept nichts zu
+  suchen. Dass sie nicht anschlägt, prüft der Fall nicht: Die Zuordnung ist
+  semantisch und im Entwurf als Kosten verbucht.
+
+  Gemessen am 2026-09-21: ohne die Skillzeilen 0,83 (1 / 1 / 0,5), mit ihnen
+  0,83 (1 / 1 / 0,5). Der Fall belegt die Zeilen also nicht – er hält fest, dass
+  der Tipp ankommt und als Handgriff ankommt. Ergebnisse unter
+  evals/results/rot-handwerk-wirkt-2 und gruen-handwerk-wirkt-2.
+
+  Eine Zwischenfassung stand bei 0,50, und die ist der Grund für den heutigen
+  Wortlaut der Formatzeile. Sie hieß „steht als gewöhnlicher Schritt da, nicht
+  als Notiz" und machte den Tipp damit zum Objekt: Das Modell übernahm daraufhin
+  den ganzen Spiegelpunkt samt Begründung – „12 Minuten quellen lassen – nach
+  10 Minuten sind sie innen noch trocken". Die Begründung im Schritt ist genau
+  der Hinweis, den dieser Grader durchfallen lässt. Seit die Zeile „wird zum
+  Handgriff im Schritt; seine Begründung bleibt in der Datei" heißt, steht sie
+  nicht mehr da. Wer die Zeile wieder anfasst, misst diesen Fall nach.
+tags: [handwerk]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /rezept 600 kcal mit Soja-Schnetzel
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Bash]
+runs: 3
+graders:
+  - type: regex
+    name: zwoelf-minuten-aus-der-datei
+    weight: 1
+    pattern: "(?:[Qq]uellen|quillt|quellen lassen)[^\\n]{0,60}12\\s*(?:Minuten|min)|12\\s*(?:Minuten|min)[^\\n]{0,60}(?:quellen|Quellen)"
+    match: contains
+  - type: llm
+    name: tipp-steht-als-schritt
+    weight: 1
+    criteria: |
+      Sieh dir die Zubereitung an – die nummerierten Schritte.
+
+      Die Soja-Schnetzel müssen dort zwölf Minuten quellen, und zwar als
+      gewöhnlicher Arbeitsschritt in der Sprache des Rezepts, mit der Menge,
+      die der Schritt ohnehin nennt: „60 g Soja-Schnetzel mit 150 ml Brühe
+      übergießen und 12 Minuten quellen lassen".
+
+      Durchgefallen, wenn die zwölf Minuten zwar vorkommen, aber als Notiz,
+      Hinweis, Fußnote, eigener Abschnitt oder mit einer Formulierung wie
+      „angewandter Tipp:", „aus handwerk.md" oder „Kochtipp:" gekennzeichnet
+      sind. Durchgefallen auch, wenn der Schritt die Menge nicht nennt.
+
+      Bestanden, wenn es ein Schritt wie jeder andere ist.

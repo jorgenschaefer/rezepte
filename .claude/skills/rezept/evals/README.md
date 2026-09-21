@@ -1,6 +1,6 @@
 # Eval-Suite für `rezept`
 
-Zweiundzwanzig Fälle gegen den Skill, jeder mit drei Läufen, dazu sieben
+Dreiundzwanzig Fälle gegen den Skill, jeder mit drei Läufen, dazu sieben
 Nachprüfungen im Verlauf. Alles auf einmal:
 
 ```bash
@@ -38,6 +38,14 @@ für Zutaten von außerhalb) und `vorratskammer-miso.md` (enthält eine Zutat, d
 `zutaten.md` nicht kennt). Mehr liegt nicht dabei: Was der Skill nicht liest,
 gehört nicht ins Arbeitsverzeichnis.
 
+Ein dritter Fall bringt eine eigene Datei mit: `handwerk-wirkt` legt
+`evals/handwerk.md` dazu. **Die übrigen zweiundzwanzig laufen absichtlich ohne
+sie** – sie sind der leere Pfad, auf dem der Skill ein Rezept schreibt wie
+zuvor. Wer die Datei „der Vollständigkeit halber" in `evals/scaffold.sh`
+nachträgt, nimmt diesen Nachweis weg und hängt jedem Lauf einen Zusatzschritt
+und womöglich eine Zusatzzutat an – `kcal-korridor`, `keine-punktlandung` und
+die Energiedichtegrenzen in `pruefe-zuordnung.mjs` bekommen das zu spüren.
+
 ## Was ein Fall belegt und was er absichert
 
 | Fall | Zeile im Skill | ohne die Zeile |
@@ -54,6 +62,7 @@ gehört nicht ins Arbeitsverzeichnis.
 | `zutaten-mit-zustand` | „Zu jeder Zutat der Zustand …" | 0 von 3 |
 | `haushaltsuebliche-mengen` | „Mengen in Gramm oder haushaltsüblichen Maßen." | 2 von 3 |
 | `schritte-nennen-mengen` | „Nenne in jedem Schritt die Menge jeder Zutat erneut …" | 2 von 3 |
+| `handwerk-wirkt` | „Stehen Zutaten und Mengen fest, lies `handwerk.md` …" | 0,83 – ebenso viel wie mit, siehe unten |
 | `pruefung-vor-der-ausgabe` | „Lass das fertige Rezept von einem Subagenten prüfen …" | 0 von 3 |
 | `pruefer-bleibt-im-vorrat` | „Nutze keine Zutaten, die nicht im Vorrat sind." | siehe unten |
 | `tabelle-passt-zur-zutatenliste` | „Ändert eine Korrektur Mengen oder Zutaten, rechne …" | siehe unten |
@@ -87,6 +96,45 @@ einem von acht Läufen summierte die Vorwärtsrechnung auf glatte 600 kcal, weil
 `naehrwerte.mjs` die Energie auf ganze kcal rundet. Der Fall sucht die
 systematische Punktlandung, nicht den Zufallstreffer – ein einzelner roter Lauf
 ist erst dann ein Befund, wenn er sich wiederholt.
+
+## Was eine Datei im Arbeitsverzeichnis von selbst bewirkt
+
+`handwerk-wirkt` sollte belegen, dass die Lesezeile im Skill die Kochtipps ins
+Rezept bringt. Zwei Rotmessungen gegen unverändertes `SKILL.md` haben das am
+2026-09-21 widerlegt, und die zweite ist die lehrreiche.
+
+Der erste Zuschnitt prüfte „Soja-Schnetzel ausdrücken" und kam ohne die Zeile
+auf 0,83 von 1. Naheliegender Verdacht: Das Ausdrücken ist gewöhnliches
+Kochwissen, das ein Modell von sich aus aufschreibt. Also ein Merkmal suchen,
+das niemand erraten kann – die Fixture sagt „genau 12 Minuten quellen", während
+`zutaten.md` in der Hinweisspalte ausdrücklich „10 min quellen" nennt. Wer die
+Vorgabe liest, schreibt zehn; zwölf steht allein in `handwerk.md`.
+
+Der zweite Zuschnitt kam wieder auf 0,83. Die zwölf Minuten standen in **allen
+drei Läufen** im Rezept, ohne dass eine Zeile im Skill danach verlangt hätte.
+Das Modell findet die Datei im Arbeitsverzeichnis und liest sie aus eigenem
+Antrieb – genau das, wovor der Kommentar in `evals/scaffold.sh` warnt.
+
+Die Grünmessung bestätigt das: Mit den drei Zeilen steht der Fall bei denselben
+0,83. Sie leisten hier nichts, was das Modell nicht ohnehin täte – wohl aber
+etwas, das dieser Fall nicht sieht, nämlich *wann* gelesen wird.
+
+Eine Zwischenfassung der Formatzeile stand sogar bei 0,50. Sie hieß „steht als
+gewöhnlicher Schritt da, nicht als Notiz" und machte den Tipp damit zum Objekt:
+Das Modell übernahm den ganzen Spiegelpunkt samt Begründung – „12 Minuten
+quellen lassen – nach 10 Minuten sind sie innen noch trocken". Das ist ein Preis
+des Spiegelpunkt-Formats, in dem Handgriff und Begründung in einem Satz stehen:
+Der Skill muss sie beim Einweben trennen, und die Zeile muss das sagen.
+
+Daraus folgen zwei Dinge. Erstens belegt der Fall nicht den Zugang, sondern die
+**Form und die Verlässlichkeit**: Der zweite Grader fiel in der Rotmessung in
+einem von drei Läufen durch, ohne Anweisung landet der Tipp mal als Schritt,
+mal als Notiz. Zweitens ist das kein Messartefakt, sondern eine Aussage über
+den Skill: Im echten Projekt liegt `handwerk.md` ebenso im Arbeitsverzeichnis.
+Den Nachweis, den Modellneugier nicht nachmachen kann, führt deshalb die
+Lesereihenfolge im Verlauf – wer die Datei zu Beginn liest, hat die Auswahl
+schon gesehen; nur wer sie nach `scripts/naehrwerte.mjs` liest, kann sie nicht
+beeinflusst haben.
 
 ## Die Regel steht nicht nur in SKILL.md
 
@@ -416,7 +464,7 @@ Kellerzutaten stehen im Katalog und nicht im Vorrat, damit ein Rezept, das sie
 nimmt, nicht abbricht, sondern sichtbar an der genannten Liste vorbeikocht.
 
 `bin/run-evals` ruft die Prüfung als erstes auf, noch vor den Unit-Tests: Eine
-gebrochene Invariante lässt jeden der 22 Fälle scheitern, und das soll nach
+gebrochene Invariante lässt jeden der 23 Fälle scheitern, und das soll nach
 einer Sekunde auffallen statt nach einer vollen Suite.
 
 ## Die Rechnung selbst

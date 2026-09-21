@@ -18,9 +18,13 @@ Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem au
 
 Wähle die Proteinquelle zufällig aus dem Vorrat.
 
+Stehen Zutaten und Mengen fest, lies `handwerk.md` und arbeite die Kochtipps ein, die zu diesem Gericht passen.
+
 Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Nutze keine Zutaten, die nicht im Vorrat sind."
 
 Ändert eine Korrektur Mengen oder Zutaten, rechne die Tabelle neu.
+
+Ein Kochtipp ändert Handgriffe, keine Auswahl. Bringt er eine Zutat mit, steht sie in `vorratskammer.md` und kommt mit Grammangabe; trägt er das Rezept aus dem Kalorienziel, lass ihn weg.
 
 # Format der Antwort
 
@@ -37,3 +41,4 @@ Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der 
   - Zu jeder Zutat der Zustand, in dem sie verarbeitet wird (z. B. „60 g Karotte, in dünnen Scheiben“).
 - **Zubereitung:** Schritt-für-Schritt-Anleitung, kurz und präzise.
   - Nenne in jedem Schritt die Menge jeder Zutat erneut, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“.
+  - Ein Kochtipp aus `handwerk.md` wird zum Handgriff im Schritt; seine Begründung bleibt in der Datei.

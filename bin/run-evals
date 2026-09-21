@@ -7,9 +7,9 @@
 #   1. Die Zuordnung Vorrat -> Katalog und die Unit-Tests der Rechnung und des
 #      Rezeptlesers – ohne Modell, ohne Kosten. Die Zuordnung steht bewusst
 #      zuerst: Eine Kurzform, die keine Katalogzeile trifft, lässt jedes Rezept
-#      abbrechen, und das soll nach einer Sekunde auffallen statt nach 22
+#      abbrechen, und das soll nach einer Sekunde auffallen statt nach 23
 #      Modellläufen.
-#   2. Die Suite mit Bash. Deckt 21 der 22 Fälle ab.
+#   2. Die Suite mit Bash. Deckt 22 der 23 Fälle ab.
 #   3. Den Katalogfall ohne Bash: `--allow-tools Bash` gilt suite-weit, und mit
 #      Bash liest das Modell `zutaten.md` über scripts/naehrwerte.mjs, wo der
 #      Read-Zähler des Falls nicht mehr anschlägt. Nur dieser zweite Lauf zählt
@@ -92,7 +92,7 @@ pruefe "Vorrat gegen Katalog" node "$EVALS/pruefe-vorrat-gegen-katalog.mjs"
 pruefe "naehrwerte.test.mjs" node --test "$SKILL/scripts/naehrwerte.test.mjs"
 pruefe "rezept-lesen.test.mjs" node --test "$EVALS/rezept-lesen.test.mjs"
 
-melde "2/5  Suite mit Bash (22 Fälle)"
+melde "2/5  Suite mit Bash (23 Fälle)"
 pruefe "suite" claude plugin eval . \
   --scaffold --allow-tools Bash --ablation none \
   --keep-temp --no-publish --output-dir "$BASIS/suite"
