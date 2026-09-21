@@ -4,8 +4,8 @@ Vier Aufbauten, zwölf erzeugte Rezepte, und die Prüfer aus `pruefer/` gegen
 jedes davon.
 
 ```bash
-bin/run-evals
-bin/run-evals --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
+./test.sh
+./test.sh --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
 ```
 
 ## Aufbau und Kriterium sind zwei verschiedene Dinge

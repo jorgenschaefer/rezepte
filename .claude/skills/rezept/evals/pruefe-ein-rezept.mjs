@@ -29,7 +29,7 @@
 // tut er bislang nur in der interaktiven Sitzung. Deren Verlauf liegt unter
 // ~/.claude/projects/<projekt>/<sitzung>.jsonl.
 //
-// Aufruf: bin/run-evals --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
+// Aufruf: ./test.sh --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
 //         node evals/pruefe-ein-rezept.mjs <verlauf.jsonl>
 //
 // Der Weg über den Harness ist entfallen: Die Suite erzeugt ihre Rezepte

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Erzeugt die Rezepte und schreibt den Befund. Aufgerufen von bin/run-evals.
+// Erzeugt die Rezepte und schreibt den Befund. Aufgerufen von test.sh.
 import { mkdir, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'

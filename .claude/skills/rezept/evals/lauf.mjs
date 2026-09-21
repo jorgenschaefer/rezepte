@@ -1,6 +1,6 @@
 // Führt die Suite aus: erzeugt Rezepte und hält die Prüfer dagegen.
 //
-// Das ersetzt `claude plugin eval` samt der fünf Aufrufe, die bin/run-evals
+// Das ersetzt `claude plugin eval` samt der fünf Aufrufe, die das Laufskript
 // früher aneinanderreihte. Der Harness deckelt die Parallelität bei 8, und die
 // Suite braucht alle Läufe nebeneinander: Die Wanduhr ist dann der längste
 // Einzellauf statt der Summe. Ein Fall mehr kostet damit keine Zeit.
