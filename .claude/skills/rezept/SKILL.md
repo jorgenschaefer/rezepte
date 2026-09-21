@@ -18,7 +18,7 @@ Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem au
 
 Wähle die Proteinquelle zufällig aus dem Vorrat.
 
-Lies `handwerk.md` und arbeite die Kochtipps ein, die zu diesem Gericht passen.
+Lies `kochtipps.md` und arbeite ein, was zu diesem Gericht passt.
 
 Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Nutze keine Zutaten, die nicht im Vorrat sind."
 
@@ -26,7 +26,7 @@ Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der 
 
 Ein Kochtipp ändert Handgriffe, keine Auswahl. Bringt er eine Zutat mit, steht sie in `vorratskammer.md` und kommt mit Grammangabe; trägt er das Rezept aus dem Kalorienziel, lass ihn weg. Widerspricht der Koch einem Tipp, gilt der Tipp: Was auf dem Teller war, schlägt, was aus dem Text folgt.
 
-Sagt dir jemand später, wie das Gericht geworden ist – „das war wässrig", „mit etwas Erythrit war es besser" –, dann schreib das als Spiegelpunkt in `handwerk.md`: ein Satz, der den Handgriff nennt und wogegen er hilft. Zeig den Punkt einmal, bevor du ihn schreibst, und frag nach, wenn zur selben Sache schon einer dasteht.
+Sagt dir jemand später, wie das Gericht geworden ist – „das war wässrig", „mit etwas Erythrit war es besser" –, dann schreib das als Spiegelpunkt in `kochtipps.md`: ein Satz, der den Handgriff nennt und wogegen er hilft. Zeig den Punkt einmal, bevor du ihn schreibst, und frag nach, wenn zur selben Sache schon einer dasteht.
 
 # Format der Antwort
 
@@ -43,4 +43,4 @@ Sagt dir jemand später, wie das Gericht geworden ist – „das war wässrig", 
   - Zu jeder Zutat der Zustand, in dem sie verarbeitet wird (z. B. „60 g Karotte, in dünnen Scheiben“).
 - **Zubereitung:** Schritt-für-Schritt-Anleitung, kurz und präzise.
   - Nenne in jedem Schritt die Menge jeder Zutat erneut, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“.
-  - Ein Kochtipp aus `handwerk.md` wird zum Handgriff im Schritt; seine Begründung bleibt in der Datei.
+  - Ein Kochtipp aus `kochtipps.md` wird zum Handgriff im Schritt; seine Begründung bleibt in der Datei.

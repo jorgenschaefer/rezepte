@@ -10,17 +10,17 @@ Der Mensch kann benennen, worin eine spätere Runde besser war; ein Grader kann
 es nicht, weil keine Runde aufgezeichnet wird. AC-7 trägt C-2, ohne zu
 behaupten, sie zu messen.
 
-Pfade: `handwerk.md` liegt im Projektwurzelverzeichnis, neben
+Pfade: `kochtipps.md` liegt im Projektwurzelverzeichnis, neben
 `vorratskammer.md` und `zutaten.md`. Alle Pfade unter `evals/` und `scripts/`
 sind relativ zu `.claude/skills/rezept/`.
 
 ## Approach
 
-`handwerk.md` ist eine Reihe von Spiegelpunkten. Keine Tabelle, keine Spalten,
+`kochtipps.md` ist eine Reihe von Spiegelpunkten. Keine Tabelle, keine Spalten,
 kein Schlüssel:
 
 ```markdown
-# Handwerk
+# Kochtipps
 
 Kochtipps aus eigener Erfahrung – was schiefging und was geholfen hat. Der
 Skill liest sie, wenn er ein Rezept schreibt.
@@ -34,14 +34,14 @@ Skill liest sie, wenn er ein Rezept schreibt.
 Jeder Punkt ist ein ganzer Satz und trägt beides: was zu tun ist und wogegen.
 Das „sonst werden sie wässrig" ist der Befund vom Teller – er braucht keine
 eigene Spalte, er steht im Nebensatz. Ohne Schlüssel gibt es nichts zu pflegen:
-keine Kurzform in `handwerk.md`, die verwaisen kann, keine Invariante, die eine
+keine Kurzform in `kochtipps.md`, die verwaisen kann, keine Invariante, die eine
 Umbenennung nachzieht. Der Skill liest die Datei ganz und wendet an, was auf das
 entstehende Gericht passt.
 
 ### Was ein Tipp darf und was nicht
 
 **Wann gelesen wird, ist gleichgültig.** Ein früherer Entwurf ließ den Skill
-`handwerk.md` erst nach der Zufallswahl und der Rechnung lesen, damit kein Tipp
+`kochtipps.md` erst nach der Zufallswahl und der Rechnung lesen, damit kein Tipp
 die Auswahl beeinflussen kann. Diese Reihenfolge ist am 2026-09-21 gefallen:
 Dass ein Tipp die Auswahl nicht anfasst, steht bereits als Regel im Skill
 (AC-9), und eine zweite Absicherung derselben Sache verbot einem Koch, vor dem
@@ -119,9 +119,9 @@ danach neu zu messen.
 
 ### Was die Eval-Suite bekommt
 
-Ein eigener Fall bringt seine `handwerk.md` selbst mit, über ein Fall-Scaffold,
+Ein eigener Fall bringt seine `kochtipps.md` selbst mit, über ein Fall-Scaffold,
 das nach dem `exec` auf `../scaffold.sh` eine eingefrorene Fixture
-`evals/handwerk.md` kopiert – das Muster von `unbekannte-zutat-bricht-ab` und
+`evals/kochtipps.md` kopiert – das Muster von `unbekannte-zutat-bricht-ab` und
 `zwei-listen-im-ordner`. Der gemeinsame `evals/scaffold.sh` bleibt unangetastet:
 Läge die Datei für alle zweiundzwanzig Fälle bereit, brächte jeder Lauf einen
 Zusatzschritt und womöglich eine Zusatzzutat mit und geriete an `kcal-korridor`,
@@ -138,13 +138,13 @@ Mitzuziehen sind `evals/README.md` (Fallzahl und Belegtabelle) und
 
 ## Behaviour
 
-- **AC-1** Der Skill liest `handwerk.md` ganz, nachdem Zutatenliste und Mengen
+- **AC-1** Der Skill liest `kochtipps.md` ganz, nachdem Zutatenliste und Mengen
   feststehen, und wendet die Punkte an, die auf das entstehende Gericht passen.
   *(C-1)*
 - **AC-2** Ein angewandter Punkt erscheint im Rezept als Teil eines
   Zubereitungsschritts, in der Sprache des Rezepts und mit der Menge, die der
   Schritt ohnehin nennt – nicht als Liste, Notiz oder Anhang. *(C-1)*
-- **AC-3** ~~Im Sitzungsverlauf steht der Lesezugriff auf `handwerk.md` nach
+- **AC-3** ~~Im Sitzungsverlauf steht der Lesezugriff auf `kochtipps.md` nach
   dem Aufruf von `scripts/naehrwerte.mjs`.~~ **Gestrichen am 2026-09-21.** Die
   Reihenfolge sollte verhindern, dass ein Tipp die Auswahl beeinflusst – das
   verbietet aber schon AC-9 unmittelbar. Sie war ein zweites Schloss an
@@ -163,7 +163,7 @@ Mitzuziehen sind `evals/README.md` (Fallzahl und Belegtabelle) und
 - **AC-7** Jeder Punkt nennt, wogegen er hilft. Für eine Zutat lässt sich damit
   benennen, was beim ersten Mal schiefging und was das Rezept heute anders
   macht. Geprüft wird das vom Koch, nicht von einem Grader. *(C-2)*
-- **AC-8** Fehlt `handwerk.md` oder ist sie leer, entsteht das Rezept wie heute.
+- **AC-8** Fehlt `kochtipps.md` oder ist sie leer, entsteht das Rezept wie heute.
   Kein Abbruch, kein Hinweis. *(C-1)*
 - **AC-9** Ein Punkt entfernt keine Zutat und beeinflusst nicht, welche
   Proteinquelle gewählt wird. Bringt er eine Zutat mit, steht sie in
@@ -171,7 +171,7 @@ Mitzuziehen sind `evals/README.md` (Fallzahl und Belegtabelle) und
   Ausgabe mit `scripts/naehrwerte.mjs` neu gerechnet. Trüge der Punkt das Rezept
   aus dem kcal-Korridor, wird er nicht angewandt. *(C-1, Constraint 1)*
 - **AC-10** Ein eigener Eval-Fall bringt über sein Fall-Scaffold eine
-  eingefrorene `evals/handwerk.md` mit, erzwingt per Prompt die betroffene Zutat
+  eingefrorene `evals/kochtipps.md` mit, erzwingt per Prompt die betroffene Zutat
   und weist den daraus folgenden Schritt im Rezept nach. Der gemeinsame
   `evals/scaffold.sh` bleibt unverändert. *(C-1)*
 
@@ -199,11 +199,11 @@ Mitzuziehen sind `evals/README.md` (Fallzahl und Belegtabelle) und
 - Keine Ausschlussliste. Kein Punkt entfernt je eine Zutat aus der
   Kandidatenmenge.
 - Kein neuer Leser für `zutaten.md`. Der Katalog wird weiterhin allein von
-  `scripts/naehrwerte.mjs` gelesen; `handwerk.md` enthält keine Schlüssel, die
+  `scripts/naehrwerte.mjs` gelesen; `kochtipps.md` enthält keine Schlüssel, die
   gegen ihn aufzulösen wären.
 - Keine Änderung am Wortlaut einer bestehenden Zeile in `SKILL.md`.
 - Kein zweiter Skill und kein Aufrufwort für Rückmeldungen.
-- Keine Struktur in `handwerk.md`: keine Tabelle, keine Spalten, keine
+- Keine Struktur in `kochtipps.md`: keine Tabelle, keine Spalten, keine
   Kategorien, kein Schlüssel.
 
 ## Accepted tradeoffs

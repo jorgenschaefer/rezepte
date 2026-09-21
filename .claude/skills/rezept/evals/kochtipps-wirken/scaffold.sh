@@ -6,4 +6,4 @@ set -euo pipefail
 
 evals=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 "$evals/scaffold.sh"
-cp "$evals/handwerk.md" .
+cp "$evals/kochtipps.md" .

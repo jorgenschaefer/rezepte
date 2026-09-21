@@ -1,4 +1,4 @@
-# Handwerk
+# Kochtipps
 
 Kochtipps aus eigener Erfahrung – was schiefging und was geholfen hat. Der
 Skill liest sie, wenn er ein Rezept schreibt.

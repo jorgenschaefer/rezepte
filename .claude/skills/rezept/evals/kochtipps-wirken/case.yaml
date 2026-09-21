@@ -1,7 +1,7 @@
 schema_version: "1.0"
-name: handwerk-wirkt
+name: kochtipps-wirken
 description: >
-  Belegt die Zeile „Lies handwerk.md und arbeite die Kochtipps ein". Der
+  Belegt die Zeile „Lies kochtipps.md und arbeite ein, was zu diesem Gericht passt". Der
   Auftrag setzt Soja-Schnetzel, weil die Proteinquelle sonst zufällig fällt und
   kein Tipp zuverlässig greifen könnte.
 
@@ -10,7 +10,7 @@ description: >
   am 2026-09-21 widerlegt. Die erste prüfte „Soja-Schnetzel ausdrücken" und kam
   auf 0,83 – das Ausdrücken ist gewöhnliches Kochwissen, das jedes Modell von
   sich aus aufschreibt. Die zweite prüfte die zwölf Minuten, die nirgends sonst
-  stehen als in handwerk.md – zutaten.md nennt ausdrücklich „10 min quellen" –
+  stehen als in kochtipps.md – zutaten.md nennt ausdrücklich „10 min quellen" –
   und kam wieder auf 0,83: Die Zahl stand in allen drei Läufen im Rezept. Das
   Modell findet die Datei im Arbeitsverzeichnis und liest sie aus eigenem
   Antrieb, genau wie der Kommentar in evals/scaffold.sh es vorhersagt.
@@ -30,7 +30,7 @@ description: >
   Gemessen am 2026-09-21: ohne die Skillzeilen 0,83 (1 / 1 / 0,5), mit ihnen
   0,83 (1 / 1 / 0,5). Der Fall belegt die Zeilen also nicht – er hält fest, dass
   der Tipp ankommt und als Handgriff ankommt. Ergebnisse unter
-  evals/results/rot-handwerk-wirkt-2 und gruen-handwerk-wirkt-2.
+  evals/results/rot-kochtipps-wirken-2 und gruen-kochtipps-wirken-2.
 
   Eine Zwischenfassung stand bei 0,50, und die ist der Grund für den heutigen
   Wortlaut der Formatzeile. Sie hieß „steht als gewöhnlicher Schritt da, nicht
@@ -40,7 +40,7 @@ description: >
   der Hinweis, den dieser Grader durchfallen lässt. Seit die Zeile „wird zum
   Handgriff im Schritt; seine Begründung bleibt in der Datei" heißt, steht sie
   nicht mehr da. Wer die Zeile wieder anfasst, misst diesen Fall nach.
-tags: [handwerk]
+tags: [kochtipps]
 context:
   scaffold_script: scaffold.sh
 execution:
@@ -68,7 +68,7 @@ graders:
 
       Durchgefallen, wenn die zwölf Minuten zwar vorkommen, aber als Notiz,
       Hinweis, Fußnote, eigener Abschnitt oder mit einer Formulierung wie
-      „angewandter Tipp:", „aus handwerk.md" oder „Kochtipp:" gekennzeichnet
+      „angewandter Tipp:", „aus kochtipps.md" oder „Kochtipp:" gekennzeichnet
       sind. Durchgefallen auch, wenn der Schritt die Menge nicht nennt.
 
       Bestanden, wenn es ein Schritt wie jeder andere ist.

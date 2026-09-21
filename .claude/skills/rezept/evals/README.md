@@ -38,8 +38,8 @@ für Zutaten von außerhalb) und `vorratskammer-miso.md` (enthält eine Zutat, d
 `zutaten.md` nicht kennt). Mehr liegt nicht dabei: Was der Skill nicht liest,
 gehört nicht ins Arbeitsverzeichnis.
 
-Ein dritter Fall bringt eine eigene Datei mit: `handwerk-wirkt` legt
-`evals/handwerk.md` dazu. **Die übrigen zweiundzwanzig laufen absichtlich ohne
+Ein dritter Fall bringt eine eigene Datei mit: `kochtipps-wirken` legt
+`evals/kochtipps.md` dazu. **Die übrigen zweiundzwanzig laufen absichtlich ohne
 sie** – sie sind der leere Pfad, auf dem der Skill ein Rezept schreibt wie
 zuvor. Wer die Datei „der Vollständigkeit halber" in `evals/scaffold.sh`
 nachträgt, nimmt diesen Nachweis weg und hängt jedem Lauf einen Zusatzschritt
@@ -62,7 +62,7 @@ die Energiedichtegrenzen in `pruefe-zuordnung.mjs` bekommen das zu spüren.
 | `zutaten-mit-zustand` | „Zu jeder Zutat der Zustand …" | 0 von 3 |
 | `haushaltsuebliche-mengen` | „Mengen in Gramm oder haushaltsüblichen Maßen." | 2 von 3 |
 | `schritte-nennen-mengen` | „Nenne in jedem Schritt die Menge jeder Zutat erneut …" | 2 von 3 |
-| `handwerk-wirkt` | „Lies `handwerk.md` und arbeite die Kochtipps ein …" | 0,83 – ebenso viel wie mit, siehe unten |
+| `kochtipps-wirken` | „Lies `kochtipps.md` und arbeite ein, was passt …" | 0,83 – ebenso viel wie mit, siehe unten |
 | `pruefung-vor-der-ausgabe` | „Lass das fertige Rezept von einem Subagenten prüfen …" | 0 von 3 |
 | `pruefer-bleibt-im-vorrat` | „Nutze keine Zutaten, die nicht im Vorrat sind." | siehe unten |
 | `tabelle-passt-zur-zutatenliste` | „Ändert eine Korrektur Mengen oder Zutaten, rechne …" | siehe unten |
@@ -99,7 +99,7 @@ ist erst dann ein Befund, wenn er sich wiederholt.
 
 ## Was eine Datei im Arbeitsverzeichnis von selbst bewirkt
 
-`handwerk-wirkt` sollte belegen, dass die Lesezeile im Skill die Kochtipps ins
+`kochtipps-wirken` sollte belegen, dass die Lesezeile im Skill die Kochtipps ins
 Rezept bringt. Zwei Rotmessungen gegen unverändertes `SKILL.md` haben das am
 2026-09-21 widerlegt, und die zweite ist die lehrreiche.
 
@@ -108,7 +108,7 @@ auf 0,83 von 1. Naheliegender Verdacht: Das Ausdrücken ist gewöhnliches
 Kochwissen, das ein Modell von sich aus aufschreibt. Also ein Merkmal suchen,
 das niemand erraten kann – die Fixture sagt „genau 12 Minuten quellen", während
 `zutaten.md` in der Hinweisspalte ausdrücklich „10 min quellen" nennt. Wer die
-Vorgabe liest, schreibt zehn; zwölf steht allein in `handwerk.md`.
+Vorgabe liest, schreibt zehn; zwölf steht allein in `kochtipps.md`.
 
 Der zweite Zuschnitt kam wieder auf 0,83. Die zwölf Minuten standen in **allen
 drei Läufen** im Rezept, ohne dass eine Zeile im Skill danach verlangt hätte.
@@ -131,11 +131,11 @@ Daraus folgen zwei Dinge. Erstens belegt der Fall nicht den Zugang, sondern die
 **Form**: Der zweite Grader fiel in der Rotmessung in einem von drei Läufen
 durch, ohne Anweisung landet der Tipp mal als Schritt, mal als Notiz. Zweitens
 ist das kein Messartefakt, sondern eine Aussage über den Skill: Im echten
-Projekt liegt `handwerk.md` ebenso im Arbeitsverzeichnis, und ein Modell, das
+Projekt liegt `kochtipps.md` ebenso im Arbeitsverzeichnis, und ein Modell, das
 seine Notizen von selbst liest, tut nichts Falsches.
 
 Ein Prüfskript für die Lesereihenfolge stand hier kurz und ist wieder
-verschwunden. Es hätte verlangt, dass der Skill `handwerk.md` erst nach
+verschwunden. Es hätte verlangt, dass der Skill `kochtipps.md` erst nach
 `scripts/naehrwerte.mjs` liest – gemessen war sogar, dass ohne Skillzeile alle
 drei Läufe zu früh lasen. Nur: Dass ein Tipp die Auswahl nicht kippt, sagt
 schon die Zeile „Ein Kochtipp ändert Handgriffe, keine Auswahl". Die
@@ -294,7 +294,7 @@ die Zahl benutzt, liest ihn.
 
 ### Was in die Kochtipps zurückfließt – von Hand geprüft
 
-Das Fortschreiben von `handwerk.md` deckt kein Fall ab, und das hat zwei
+Das Fortschreiben von `kochtipps.md` deckt kein Fall ab, und das hat zwei
 Gründe, die sich nicht wegprogrammieren lassen. Der Skill trägt
 `disable-model-invocation: true`, wird also nur auf Zuruf gestartet; und
 Schreiben braucht Werkzeuge, die in keinem `allowed_tools`-Satz dieser Suite
@@ -307,7 +307,7 @@ Schritt:
 2. Danach im Gespräch sagen, wie es geworden ist – „das war sehr wässrig".
 3. Der Skill zeigt **genau einen** Spiegelpunkt, bevor er schreibt. Zeigt er
    keinen, oder schreibt er ungefragt, ist die Zeile im Skill wirkungslos.
-4. `handwerk.md` trägt danach genau einen Punkt mehr, und der Punkt nennt
+4. `kochtipps.md` trägt danach genau einen Punkt mehr, und der Punkt nennt
    beides: den Handgriff und wogegen er hilft.
 5. Steht schon ein Punkt zur selben Sache, fragt der Skill einmal nach, statt
    einen zweiten danebenzustellen.
