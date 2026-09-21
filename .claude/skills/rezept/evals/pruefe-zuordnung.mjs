@@ -55,7 +55,7 @@ for (const lauf of laeufeAus(datei)) {
   }
 
   rezepte++
-  const posten = zutatenliste(antwort.text).mitGramm
+  const posten = zutatenliste(antwort.text)
   const dichte = energiedichte(posten)
 
   if (!istPlausibleDichte(dichte)) {
