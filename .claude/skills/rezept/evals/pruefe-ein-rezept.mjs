@@ -29,10 +29,13 @@
 // tut er bislang nur in der interaktiven Sitzung. Deren Verlauf liegt unter
 // ~/.claude/projects/<projekt>/<sitzung>.jsonl.
 //
-// Aufruf: claude plugin eval . --case 'nur-das-ueberarbeitete*' --scaffold \
-//           --allow-tools Bash --keep-temp
-//         node evals/pruefe-ein-rezept.mjs evals/results/<zeitstempel>/aggregate-result.json
-//         node evals/pruefe-ein-rezept.mjs ~/.claude/projects/<projekt>/<sitzung>.jsonl
+// Aufruf: bin/run-evals --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
+//         node evals/pruefe-ein-rezept.mjs <verlauf.jsonl>
+//
+// Der Weg über den Harness ist entfallen: Die Suite erzeugt ihre Rezepte
+// selbst, und dort blockiert der Agent-Aufruf ohnehin. Bleibt der
+// Sitzungsverlauf, und der ist der einzige Ort, an dem das doppelte Rezept
+// je gefallen ist.
 import { readFileSync, existsSync } from 'node:fs'
 
 const pfad = process.argv[2]
@@ -48,7 +51,7 @@ let doppelt = 0
 
 for (const lauf of laeufe) {
   if (!lauf.tracePath || !existsSync(lauf.tracePath)) {
-    console.error(`${lauf.name}: kein Verlauf – mit --keep-temp laufen lassen`)
+    console.error(`${lauf.name}: kein Verlauf unter diesem Pfad`)
     continue
   }
 

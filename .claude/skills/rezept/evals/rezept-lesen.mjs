@@ -1,10 +1,10 @@
 // Liest ein ausgegebenes Rezept: Zutatenliste, Portionen, Tabellenwerte – und
 // löst die Schreibweisen des Rezepts gegen zutaten.md auf.
 //
-// Das stand zuerst in pruefe-tabelle-gegen-liste.mjs. Seit ein zweites Skript
-// dieselbe Zutatenliste nachrechnet (pruefe-korridor-nach-korrektur.mjs),
-// liegt es hier: Zwei Kopien der Auflösungsregeln driften auseinander, und
-// dann misst jedes Skript etwas anderes.
+// Das stand zuerst in einem einzelnen Prüfskript. Seit mehrere Prüfer unter
+// pruefer/ dieselbe Zutatenliste lesen - Tabelle, Schritte, Vorrat, Portionen,
+// Mengen, Dichte -, liegt es hier: Zwei Kopien der Auflösungsregeln driften
+// auseinander, und dann misst jeder Prüfer etwas anderes.
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
