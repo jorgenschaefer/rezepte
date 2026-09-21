@@ -236,3 +236,37 @@ test('reines Öl fällt aus dem Band, gekochtes Gemüse auch', () => {
   assert.equal(istPlausibleDichte(energiedichte([{ name: 'Rapsöl', gramm: 100 }])), false)
   assert.equal(istPlausibleDichte(energiedichte([{ name: 'Wok-Mix', gramm: 400 }])), false)
 })
+
+// „1 TL Speisestärke (3 g)" trägt ihr Maß vor dem Namen und ihre Grammzahl
+// dahinter. Der Leser streifte bisher nur die Zahl ab und ließ das Maß im
+// Namen stehen – „TL Speisestärke" trifft keine Katalogzeile, und die Zeile
+// zählte als nicht auswertbar. Zwei Nachprüfungen brachen deshalb am
+// 2026-09-20 mit Code 2 ab, obwohl kein Rezept etwas falsch gemacht hatte.
+test('streift das Haushaltsmaß ab, wenn die Grammzahl hinter dem Namen steht', () => {
+  const [posten] = zutatenliste('- 1 TL Speisestärke (3 g)')
+
+  assert.equal(posten.gramm, 3)
+  assert.equal(posten.name, 'Speisestärke')
+})
+
+test('liest die Zehe Knoblauch als Knoblauch', () => {
+  const [posten] = zutatenliste('- 1 Zehe Knoblauch (5 g)')
+
+  assert.equal(posten.gramm, 5)
+  assert.equal(posten.name, 'Knoblauch')
+})
+
+test('liest den Esslöffel Limettensaft als Limettensaft', () => {
+  const [posten] = zutatenliste('- 1 EL Limettensaft (10 g)')
+
+  assert.equal(posten.gramm, 10)
+  assert.equal(posten.name, 'Limettensaft')
+})
+
+// Gegenprobe: Ein Wort vor der Klammer, das kein Maß ist, bleibt im Namen.
+test('behält den Namen, wenn vor der Klammer kein Maß steht', () => {
+  const [posten] = zutatenliste('- 2 Eier, Größe M (116 g), roh')
+
+  assert.equal(posten.gramm, 116)
+  assert.equal(posten.name, 'Eier')
+})

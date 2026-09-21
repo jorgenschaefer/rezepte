@@ -120,7 +120,7 @@ function zerlege(text) {
       vorn
         ? volltext.replace(/^\s*\)?\s*/, '')
         : hinten
-          ? rest.slice(0, rest.indexOf('(')).replace(ZAHL_VORNE, '')
+          ? ohneMengeVorn(rest.slice(0, rest.indexOf('(')))
           : volltext.slice(mass ? mass[0].length : 0),
     )
 
@@ -137,6 +137,15 @@ function zerlege(text) {
 
 // Die Stückzahl am Zeilenanfang: „2 Eier" -> „Eier".
 const ZAHL_VORNE = /^[\d.,½¼¾\/-]+\s*/
+
+// Steht die Grammzahl hinter dem Namen, trägt die Zeile ihre Menge trotzdem
+// vorn: „1 Zehe Knoblauch (5 g)". Abzustreifen ist dann das ganze Haushaltsmaß
+// und nicht nur die Zahl – „Zehe Knoblauch" trifft keine Katalogzeile, und die
+// Zeile fiele als nicht auswertbar aus jeder Nachprüfung.
+function ohneMengeVorn(text) {
+  const mass = MASSE.exec(text)
+  return mass ? text.slice(mass[0].length) : text.replace(ZAHL_VORNE, '')
+}
 
 function benenne(text) {
   // Eine Klammer gleich hinter der Menge ist das Haushaltsmaß – „20 g (1 EL)
