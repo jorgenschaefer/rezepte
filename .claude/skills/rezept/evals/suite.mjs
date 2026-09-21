@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 // Erzeugt die Rezepte und schreibt den Befund. Aufgerufen von bin/run-evals.
+import { mkdir, writeFile } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import { fasseZusammen, werteAus } from './befund.mjs'
 import { fuehreSuiteAus } from './lauf.mjs'
+
+const hier = dirname(fileURLToPath(import.meta.url))
 
 const GRUEN = '\u001b[32m'
 const ROT = '\u001b[31m'
@@ -45,6 +51,44 @@ console.log()
 console.log(
   `   ${laeufe.length} Erzeugungen, Wanduhr ${wanduhr} s, langsamster Lauf ${langsamster} s, ${kosten.toFixed(2)} $`,
 )
+
+// Der Befund gehört auf die Platte, nicht nur auf den Bildschirm: Wer einen
+// Lauf im Hintergrund startet, hat sonst nichts in der Hand.
+const wohin = join(hier, 'results', new Date().toISOString().replace(/[:.]/g, '-'))
+await mkdir(wohin, { recursive: true })
+await writeFile(
+  join(wohin, 'befund.json'),
+  JSON.stringify(
+    {
+      begonnen: new Date(begonnen).toISOString(),
+      wanduhr,
+      langsamster,
+      kosten,
+      laeufe: laeufe.map((l) => ({
+        aufbau: l.aufbau.name,
+        nummer: l.nummer,
+        sekunden: l.sekunden,
+        kosten: l.kosten,
+        ordner: l.ordner,
+        fehler: l.fehler,
+        antwort: l.antwort,
+      })),
+      kriterien: zeilen.map((z) => ({
+        name: z.name,
+        urteil: z.urteil,
+        gesamt: z.gesamt,
+        rote: z.rote.map((r) => ({
+          aufbau: r.lauf?.aufbau.name ?? null,
+          nummer: r.lauf?.nummer ?? null,
+          befund: r.befund,
+        })),
+      })),
+    },
+    null,
+    2,
+  ),
+)
+console.log(`   Befund: ${wohin}/befund.json`)
 
 process.exit(rot > 0 ? 1 : 0)
 

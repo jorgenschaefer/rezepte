@@ -328,3 +328,12 @@ test('hält einen Schritt zusammen, der über zwei Zeilen geht', () => {
 
   assert.deepEqual(schritte, ['Erst dies, dann das.', 'Fertig.'])
 })
+
+// „30 g Naturjoghurt 1,5 %" trägt ein Komma mitten in der Zahl. Es am Komma
+// abzuschneiden macht daraus „Naturjoghurt 1", und das trifft keine
+// Katalogzeile – im Lauf sah das aus wie eine Zutat, die nicht im Vorrat steht.
+test('schneidet den Namen nicht am Dezimalkomma ab', () => {
+  const [posten] = zutatenliste('- 30 g Naturjoghurt 1,5 %')
+
+  assert.equal(posten.name, 'Naturjoghurt 1,5 %')
+})

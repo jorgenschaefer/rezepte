@@ -199,7 +199,9 @@ function benenne(text) {
   // Eine Klammer gleich hinter der Menge ist das Haushaltsmaß – „20 g (1 EL)
   // Currypaste". Der Name kommt danach.
   const ohneMass = text.replace(/^\s*(?:\([^)]*\)\s*)+/, '')
-  return ohneMass.split(/[(,]|\snach\s/)[0].trim()
+  // Ein Komma zwischen zwei Ziffern gehört zur Zahl, nicht zum Satz:
+  // „Naturjoghurt 1,5 %" heißt nicht „Naturjoghurt 1".
+  return ohneMass.split(/\(|(?<!\d),|,(?!\d)|\snach\s/)[0].trim()
 }
 
 export function gleich(a, b) {
