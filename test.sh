@@ -12,9 +12,21 @@
 #   ./test.sh
 #   ./test.sh --verlauf ~/.claude/projects/<projekt>/<sitzung>.jsonl
 #
-# Nicht abgedeckt: der asynchrone Weg. Läuft der Prüfer im Hintergrund, kann
-# zwischen Aufruf und Befund ein Entwurf fallen und das Rezept steht zweimal
-# da. Dafür `--verlauf` mit dem Verlauf einer interaktiven Sitzung.
+# `--verlauf` hängt eine Frage an, die die Suite nicht stellen kann: ob das
+# Rezept zweimal in der Antwort steht – einmal vor dem Prüf-Koch und einmal
+# überarbeitet danach. Wer kocht, hat dann zwei Fassungen untereinander und
+# muss raten, welche gilt.
+#
+# In der Suite kann das nicht passieren: Dort blockiert der Aufruf des
+# Prüfers, und zwischen Aufruf und Befund passt kein Entwurf. Gefallen ist
+# der Fehler in einer interaktiven Sitzung, wo der Prüfer im Hintergrund
+# startet und das Modell derweil weiterschreibt.
+#
+# Gelegenheit ist also: Du hast dir im Chat ein Rezept schreiben lassen. Häng
+# hinterher den Verlauf dieser Sitzung an – er liegt unter
+# ~/.claude/projects/<projekt>/<sitzung>.jsonl, die zuletzt geänderte Datei
+# ist die laufende Sitzung. Ohne die Option läuft der Rest unverändert, diese
+# eine Frage bleibt dann ungestellt.
 set -uo pipefail
 
 WURZEL="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
