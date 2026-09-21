@@ -128,3 +128,18 @@ die Haushaltsgrößen einer Zutat in der Hinweisspalte des Katalogs stehen.
 Die Gegenrichtung des Prüf-Kochs: dass er eine gültige Zutat für neu hält
 und der Skill sie streicht. Das fertige Rezept ist dann sauber, es fehlt nur
 etwas – kein Vorratsprüfer sieht das.
+
+Und ob die Mengen sich abmessen lassen. „63 g Linsen“ muss man auf das Gramm
+wiegen, wo sonst ein Löffel oder eine Packung reicht. Das prüfte
+`haushaltsuebliche-mengen`, gestrichen am 2026-09-21: Seine Befunde – „12 g
+Limettensaft“ statt der 10 oder 15 eines Löffels – waren den Aufwand im Skill
+nicht wert.
+
+Dieses Kriterium und `keine-punktlandung` hießen früher, sie fingen das
+„Rückwärtsrechnen auf eine Zielsumme“. Das war die falsche Beschreibung. Passt
+die Tabelle zur Zutatenliste und liegt die Energie im Korridor, ist das Rezept
+richtig; wierum gerechnet wurde, sieht man ihm weder an noch muss man es. Übrig
+bleibt als echter Verlust nur die Abmessbarkeit. Was man sonst befürchten
+könnte, steht anderswo: Mengen, die eine Packung anbrechen, fängt
+`portionsregeln`; Proportionen, die zugunsten der Zielzahl kippen, fängt
+`energiedichte`.
