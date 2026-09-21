@@ -30,7 +30,7 @@ Gibt es im Nachgang Feedback zum Rezept, positiv wie negativ, identifiziere eine
 
 - **Titel:** Ein griffiger Name
 - **Portionen:** Anzahl (Standard: 1).
-- **Zeit:**
+- **Zeit:** Aktive Arbeitszeit und Gesamtzeit, beide genannt, auch wenn sie gleich sind – „20 min aktiv, 55 min gesamt“. Die aktive Zeit auf 5 Minuten gerundet. Die Gesamtzeit deckt jede Wartezeit, die ein Schritt nennt.
 - **Kochgeschirr:**
   - Was davon gleichzeitig läuft (z. B. „1 Topf und 1 Pfanne, parallel“).
 - **Nährwerte pro Portion:**
