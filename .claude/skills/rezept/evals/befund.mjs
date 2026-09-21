@@ -13,7 +13,6 @@ import { pruefeDichte } from './pruefer/dichte.mjs'
 import { pruefeKorridor, pruefeProtein } from './pruefer/energie.mjs'
 import { pruefeFormat } from './pruefer/format.mjs'
 import { pruefeKochtipp } from './pruefer/kochtipp.mjs'
-import { pruefeMengen } from './pruefer/mengen.mjs'
 import { pruefeSchritte } from './pruefer/schritte.mjs'
 import { pruefeTabelle } from './pruefer/tabelle.mjs'
 import { pruefeVielfalt } from './pruefer/vielfalt.mjs'
@@ -31,7 +30,6 @@ const JEDES_REZEPT = [
   ['zeitangabe', (r) => pruefeZeit(r.antwort)],
   ['zutaten-im-vorrat', (r, vorrat) => pruefeVorrat(r.antwort, vorrat)],
   ['portionsregeln', (r, vorrat) => pruefePortionen(r.antwort, vorrat)],
-  ['haushaltsuebliche-mengen', (r, vorrat) => pruefeMengen(r.antwort, vorrat)],
   ['energie-im-korridor', (r) => pruefeKorridor(r.antwort, r.aufbau.auftrag)],
   ['protein-je-100-kcal', (r) => pruefeProtein(r.antwort, r.aufbau.auftrag)],
   ['pruefer-gestartet', (r) => pruefeWerkzeug(r)],

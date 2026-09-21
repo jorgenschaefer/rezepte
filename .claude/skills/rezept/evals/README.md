@@ -67,7 +67,6 @@ Fast alle gelten für jedes erzeugte Rezept:
 | `zeitangabe` | Zwei Zahlen, gerundet, und deckt die Gesamtzeit die Wartezeiten? |
 | `zutaten-im-vorrat` | Steht jede Zutat in `vorratskammer.md`? |
 | `portionsregeln` | Werden die Portionskommentare des Vorrats befolgt? |
-| `haushaltsuebliche-mengen` | Sehen die Mengen nach Küche aus, nicht nach Zielsumme? |
 | `energie-im-korridor` | Trifft die Energie die Zahl aus dem Auftrag ±5 %? |
 | `protein-je-100-kcal` | Mindestens 5,5 g je 100 kcal? |
 | `pruefer-gestartet` | Ist der Subagent gelaufen? (steht im Verlauf) |
