@@ -665,3 +665,21 @@ nennen beide Zahlen, und der Lachs-Aufbau schreibt „20 min aktiv, 50 min
 gesamt" mit einer Wartezeit von 35 Minuten in Schritt 1. Und der Kochtipp kommt
 an: Die 35 Minuten Auftauen stehen in allen drei Lachsrezepten, obwohl der
 Prüf-Koch in einem Lauf ausdrücklich 6–8 Stunden empfahl.
+
+## Nachtrag: Rückverweise sind ausgenommen
+
+Jorgen, 2026-09-21, nach dem ersten Lauf: Die Menge gehört zur **ersten
+Verwendung** einer Zutat. Ein späterer Schritt, der auf etwas zurückverweist,
+das schon in der Pfanne liegt, braucht sie nicht mehr.
+
+`SKILL.md` Zeile 48 sagt das jetzt so; vorher verlangte sie die Menge „in jedem
+Schritt erneut". Prüfer und Skill messen damit wieder dasselbe.
+
+Der Preis, vorher benannt: Öl, das in einem späteren Schritt ein zweites Mal in
+die Pfanne kommt, ist ein Nachguss und keine Rückschau — am Text lässt sich das
+nicht unterscheiden. Dieser Fall wird nicht mehr gefangen, und er war der, für
+den `schritte-nennen-mengen` ursprünglich gebaut wurde.
+
+Wirkung: Alle 22 Rezepte unter `fixtures/` sind grün, vorher vier rot. Der
+Prüfer beißt weiter, wo eine Zutat bei ihrer ersten Verwendung ohne Zahl
+dasteht.

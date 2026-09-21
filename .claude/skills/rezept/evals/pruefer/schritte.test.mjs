@@ -36,11 +36,22 @@ test('verlangt die Menge nur bei der ersten Nennung im Schritt', () => {
   assert.equal(befund.urteil, 'gruen')
 })
 
-// Jeder Schritt fängt von vorn an: Wer in Schritt 3 Öl nachgießt, nennt dort
-// wieder, wie viel. Sonst muss man nach oben blättern.
-test('verlangt die Menge in jedem Schritt erneut', () => {
+// Ein späterer Schritt verweist auf etwas, das schon in der Pfanne liegt -
+// „Das Lachsfilet mit Salz würzen". Die Menge steht dann längst vor Augen, und
+// sie dort zu verlangen wäre Wiederholung ohne Gewinn.
+test('verlangt die Menge nicht mehr, wenn die Zutat schon eingeführt ist', () => {
   const befund = pruefeSchritte(
-    rezept(['- 10 g Rapsöl'], ['1. 5 g Rapsöl erhitzen.', '2. Das restliche Rapsöl zugeben.']),
+    rezept(['- 10 g Rapsöl'], ['1. 10 g Rapsöl erhitzen.', '2. Das restliche Rapsöl zugeben.']),
+  )
+
+  assert.equal(befund.urteil, 'gruen')
+})
+
+// Die erste Verwendung muss sie tragen, auch wenn sie spät kommt: Bis dahin
+// steht die Menge nur oben in der Liste.
+test('verlangt die Menge bei der ersten Verwendung, auch in einem späten Schritt', () => {
+  const befund = pruefeSchritte(
+    rezept(['- 10 g Rapsöl'], ['1. Wasser aufkochen.', '2. Das Rapsöl erhitzen.']),
   )
 
   assert.equal(befund.urteil, 'rot')

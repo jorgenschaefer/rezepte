@@ -2,6 +2,17 @@
 // erhitzen", nicht „Rapsöl in der Pfanne erhitzen". Wer am Herd steht, soll
 // nicht nach oben blättern müssen.
 //
+// Verlangt wird das bei der **ersten Verwendung** einer Zutat. Ein späterer
+// Schritt, der auf etwas zurückverweist, das schon in der Pfanne liegt - „Das
+// Lachsfilet mit Salz würzen" -, braucht die Zahl nicht mehr: Sie liegt vor
+// Augen. Gemessen am ersten Lauf der neuen Suite traf das fünf von neun
+// Rezepten und jedes Mal diese Sorte.
+//
+// Der Preis, benannt und von Jorgen am 2026-09-21 entschieden: Öl, das in
+// Schritt 5 ein zweites Mal in die Pfanne kommt, ist ein Nachguss und keine
+// Rückschau - unterscheiden lässt sich das am Text nicht. Dieser Fall wird
+// nicht mehr gefangen; er war der, für den die Regel ursprünglich gebaut war.
+//
 // Das ersetzt den Fall schritte-nennen-mengen, der die Regel per Regex an einer
 // einzigen Ölzeile prüfte und dafür einen eigenen Auftrag brauchte, in dem das
 // Öl zweimal in die Pfanne kommt. Hier gilt sie für jede Zutat in jedem Rezept.
@@ -40,10 +51,14 @@ export function pruefeSchritte(text) {
   }
 
   const verstoesse = []
+  const eingefuehrt = new Set()
   for (const [nummer, schritt] of schritte.entries()) {
     for (const zutat of zutaten) {
       const stelle = ersteNennung(schritt, zutat.name)
       if (stelle === null) continue
+      if (eingefuehrt.has(zutat.name)) continue
+
+      eingefuehrt.add(zutat.name)
       if (nenntMenge(schritt, stelle, zutat, zutaten)) continue
       verstoesse.push({ schritt: nummer + 1, zutat: zutat.name })
     }
