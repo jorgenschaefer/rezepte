@@ -292,6 +292,30 @@ Walnüsse zunächst aus wie ein Vorschlag. Die Quoten sind deshalb keine
 Messwerte zum Ablesen – die Skripte drucken jeden Treffer im Volltext, und wer
 die Zahl benutzt, liest ihn.
 
+### Was in die Kochtipps zurückfließt – von Hand geprüft
+
+Das Fortschreiben von `handwerk.md` deckt kein Fall ab, und das hat zwei
+Gründe, die sich nicht wegprogrammieren lassen. Der Skill trägt
+`disable-model-invocation: true`, wird also nur auf Zuruf gestartet; und
+Schreiben braucht Werkzeuge, die in keinem `allowed_tools`-Satz dieser Suite
+stehen. Der Harness kann die Rückmeldung nach dem Essen nicht nachstellen.
+
+Ungedeckt heißt hier dokumentiert ungedeckt. Die Handprüfung, Schritt für
+Schritt:
+
+1. Interaktiv `/rezept` laufen lassen.
+2. Danach im Gespräch sagen, wie es geworden ist – „das war sehr wässrig".
+3. Der Skill zeigt **genau einen** Spiegelpunkt, bevor er schreibt. Zeigt er
+   keinen, oder schreibt er ungefragt, ist die Zeile im Skill wirkungslos.
+4. `handwerk.md` trägt danach genau einen Punkt mehr, und der Punkt nennt
+   beides: den Handgriff und wogegen er hilft.
+5. Steht schon ein Punkt zur selben Sache, fragt der Skill einmal nach, statt
+   einen zweiten danebenzustellen.
+6. Einen Punkt löschen und `grep` über das Projekt: Danach verweist nichts mehr
+   auf ihn. Es gibt keinen abgeleiteten Zustand, der nachzuziehen wäre – das
+   ist der Grund, warum eine Zeile in dieser Datei nie gepflegt, sondern nur
+   angelegt oder gelöscht wird.
+
 ### Ein Rezept, nicht zwei
 
 Aus derselben Ecke kam die Beobachtung, der Skill gebe das Rezept zweimal aus:
