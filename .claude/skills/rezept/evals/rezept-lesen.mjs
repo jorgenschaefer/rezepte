@@ -49,7 +49,12 @@ const GRAMM_STATT_MASS = /^[\d½¼¾][^()]{0,8}\((\d+(?:[.,]\d+)?)\s*g\)/
 // „2 Eier, Größe M (116 g), roh" – der Name steht vor der Klammer. Ein „à" in
 // der Klammer meint ein Stück und nicht die Zeile; damit lässt sich nicht
 // rechnen, die Zeile zählt dann zu ohneGrammangabe.
-const GRAMM_HINTEN = /^[\d½¼¾][^()]{0,30}?\((?!à)[^()]*?(\d+(?:[.,]\d+)?)\s*g\)/
+//
+// Hinter der Zahl darf in der Klammer noch etwas stehen: „(104 g essbar)",
+// „(156 g essbarer Anteil)". Beides meint die ganze Zeile. Ohne das fielen
+// Eierzeilen durch jedes Raster – gemessen an evals/fixtures vier von 22
+// Rezepten, die sich dadurch 160 bis 240 kcal zu arm rechneten.
+const GRAMM_HINTEN = /^[\d½¼¾][^()]{0,30}?\((?!à)[^()]*?(\d+(?:[.,]\d+)?)\s*g\b[^()]*\)/
 
 const MASSE = /^[\d.,½¼¾\/-]+\s*(?:TL|EL|ml|Msp\.?|Prise[n]?|Zehe[n]?|Stück|Bund|Scheibe[n]?|Blatt|Stange[n]?|Dose[n]?|Handvoll|Spritzer|Kopf)\s+/i
 
@@ -111,7 +116,14 @@ function zerlege(text) {
     const gramm = vorn ?? hinten
     const mass = MASSE.exec(rest)
     const zahllos = !/\d/.test(rest) && !/[.:;]/.test(rest) && rest.length <= NAME_HOECHSTENS
-    if (!gramm && !mass && !zahllos) continue
+    // Eine Zeile, die mit einer Zahl anfängt und deren Name im Katalog steht,
+    // ist eine Zutatenzeile, auch ohne Gramm und ohne bekanntes Maß – „3 Eier,
+    // Größe M, verquirlt". Sie darf nicht verschwinden: Nicht zu rechnen heißt,
+    // das Urteil über die Gesamtenergie auszusetzen, nicht die Zutat zu
+    // vergessen. Den Katalog zu fragen grenzt zugleich sauberer ab als jedes
+    // Muster: „1 Topf und 1 Pfanne, parallel" steht dort nicht.
+    const bekannt = !gramm && !mass && !zahllos && ZAHL_AM_ANFANG.test(rest) && imKatalog(rest)
+    if (!gramm && !mass && !zahllos && !bekannt) continue
 
     // Steht die Grammzahl vorn, ist der Name das, was dahinter kommt; steht sie
     // hinter dem Namen, das davor – ohne die Zahl, mit der die Zeile anfängt.
@@ -121,7 +133,7 @@ function zerlege(text) {
         ? volltext.replace(/^\s*\)?\s*/, '')
         : hinten
           ? ohneMengeVorn(rest.slice(0, rest.indexOf('(')))
-          : volltext.slice(mass ? mass[0].length : 0),
+          : ohneMengeVorn(volltext),
     )
 
     if (!name || name.length > NAME_HOECHSTENS) continue
@@ -137,6 +149,19 @@ function zerlege(text) {
 
 // Die Stückzahl am Zeilenanfang: „2 Eier" -> „Eier".
 const ZAHL_VORNE = /^[\d.,½¼¾\/-]+\s*/
+const ZAHL_AM_ANFANG = /^[\d½¼¾]/
+
+// Trifft der Name dieser Zeile eine Katalogzeile? Nur dafür, um eine Zeile ohne
+// Gramm und ohne Maß von Kochgeschirr zu unterscheiden.
+function imKatalog(rest) {
+  const name = benenne(ohneMengeVorn(rest))
+  if (!name || name.length > NAME_HOECHSTENS) return false
+  try {
+    return Boolean(findeZutat(katalog, name))
+  } catch {
+    return false
+  }
+}
 
 // Steht die Grammzahl hinter dem Namen, trägt die Zeile ihre Menge trotzdem
 // vorn: „1 Zehe Knoblauch (5 g)". Abzustreifen ist dann das ganze Haushaltsmaß

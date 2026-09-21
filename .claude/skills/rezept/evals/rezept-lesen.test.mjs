@@ -270,3 +270,44 @@ test('behält den Namen, wenn vor der Klammer kein Maß steht', () => {
   assert.equal(posten.gramm, 116)
   assert.equal(posten.name, 'Eier')
 })
+
+// Eine Zutatenzeile, die weder gelesen noch als unlesbar gemeldet wird, ist die
+// gefährlichste Sorte: Die Rechnung über die Liste geht dann um die fehlende
+// Zutat zu tief, und nichts weist darauf hin. Gemessen an den Rezepten unter
+// evals/fixtures traf das jede Eierzeile – vier von 22 Rezepten rechneten sich
+// dadurch 160 bis 240 kcal zu arm, was wie eine falsche Tabelle aussah.
+test('verliert keine Zeile stillschweigend', () => {
+  const liste = [
+    '**Zutatenliste:**',
+    '- 90 g Langkornreis, trocken',
+    '- 2 Eier, Größe M (104 g essbar), verquirlt',
+    '- 3 Eier, Größe M, verquirlt',
+    '- 1,5 EL Rapsöl',
+    '',
+    '**Zubereitung:**',
+  ].join('\n')
+
+  const gelesen = zutatenliste(liste).length + ohneGrammangabe(liste).length
+
+  assert.equal(gelesen, 4)
+})
+
+// Die Grammzahl in der Klammer meint hier den essbaren Anteil der ganzen
+// Menge – anders als bei „2 Scheiben Vollkornbrot (à 45 g)", wo sie eine
+// Scheibe meint. Das „à" ist der Unterschied.
+test('liest den essbaren Anteil aus der Klammer als ganze Menge', () => {
+  const [posten] = zutatenliste('- 2 Eier, Größe M (104 g essbar), verquirlt')
+
+  assert.equal(posten.gramm, 104)
+  assert.equal(posten.name, 'Eier')
+})
+
+// Ohne Grammzahl ist die Zeile nicht zu rechnen, aber sie muss auftauchen:
+// Drei Eier wiegen mehr als jedes Gewürz, und ein Urteil über die Gesamtenergie
+// darf sie nicht übergehen.
+test('meldet eine Zutatenzeile ohne Grammzahl als unlesbar', () => {
+  const ohne = ohneGrammangabe('- 3 Eier, Größe M, verquirlt')
+
+  assert.equal(ohne.length, 1)
+  assert.equal(ohne[0].name, 'Eier')
+})
