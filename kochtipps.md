@@ -13,3 +13,4 @@ Was hier steht, entfernt nie eine Zutat aus der Auswahl. Das tut allein
 `vorratskammer.md`.
 
 - Soja-Schnetzel nach dem Quellen kräftig ausdrücken, sonst werden sie wässrig.
+- Kleine Nussmengen in der kalten Pfanne aufsetzen und rösten, bis sie duften, sonst verbrennen sie, lange bevor die Zeitangabe um ist.
