@@ -29,7 +29,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Rote Currypaste
 - Gelbe Currypaste
 
-- Ketchup Zero (Heinz Zero)
+- Ketchup Zero
 - Sojasauce
 - Tabasco
 
@@ -40,8 +40,8 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 ### Hauptfach
 
 - Quarkcreme (nur als Nachspeise)
-- Räuchertofu (nur als ganze Packung verwenden)
-- Tofu natur (nur als ganze Packung verwenden)
+- Räuchertofu (nur als ganze 175-g-Portion verwenden)
+- Tofu natur (nur als ganze 200-g-Portion verwenden)
 - Naturjoghurt 1,5 % (nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
 - Magerquark
 
@@ -62,10 +62,9 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 ## Küchenschrank
 
 - Miso-Paste, hell
-
-- Mais, Dose (Dose) 140g (nur als ganze Dose verwenden)
-- Kidneybohnen (Dose) 265 g (nur als ganze Dose verwenden)
-- Schwarze Bohnen (Dose) 240 g (nur als ganze Dose verwenden)
+- Mais, Dose (nur als ganze Dose verwenden)
+- Kidneybohnen (nur als ganze Dose verwenden)
+- Schwarze Bohnen (nur als ganze Dose verwenden)
 - Passierte Tomaten (nur als ganze oder halbe Packung verwenden; wenn du die halbe Packung nutzt, sollten es entweder zwei Portionen werden oder der nächste Tag muss den Rest aufbrauchen)
 
 - Soja-Granulat
@@ -87,7 +86,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Haferflocken
 - Gemüsebrühe, Pulver
 - Rote Linsen
-- Langkornreis (zukünftig: Natur)
+- Langkornreis (zukünftig: REWE Bio Naturreis Spitzen-Langkorn 1kg)
 - Vollkornnudeln
 
 ## Gewürzregal
