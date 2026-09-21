@@ -619,3 +619,49 @@ gleichzeitig wären rund 191 s gewesen. Nach dem Einwand entschieden.
 
 Die Aufteilung ist die günstigere der beiden möglichen: Die zwei langsamsten
 Aufbauten in derselben Welle kosten 337 s, getrennt 376 s.
+
+---
+
+# Erster Lauf der neuen Suite, 2026-09-21
+
+Zwölf Erzeugungen, **11,67 $**, langsamster Einzellauf **205 s**. Wanduhr als
+Summe der Wellenmaxima: 205 s + 157 s ≈ **362 s**. C-1 (unter 5 Minuten) wird
+damit um rund eine Minute verfehlt — die Folge der Entscheidung für zwei Wellen
+statt zwölf gleichzeitiger Läufe, wie vorher festgehalten. Zum Vergleich: Der
+Lauf vom 20.09. brauchte 85 Erzeugungen, 11534 s und 74,20 $.
+
+| Aufbau | Läufe | Zeiten |
+|---|---|---|
+| grundauftrag | 3 | 169, 141, 129 s |
+| ohne-zahl | 3 | 190, 205, 141 s |
+| lachs | 3 | 114, 157, 147 s |
+| miso | 3 | 41, 38, 26 s (Abbruch, kein Rezept) |
+
+Von vierzehn Kriterien sind **zwölf grün**:
+
+`erzeugung`, `format`, `tabelle-gegen-liste`, `energiedichte`, `zeitangabe`,
+`zutaten-im-vorrat`, `portionsregeln`, `energie-im-korridor`,
+`protein-je-100-kcal`, `pruefer-gestartet`, `kochtipp-kommt-an`,
+`bricht-bei-unbekannter-zutat-ab`, `vielfalt-der-proteinquellen`.
+
+Zwei Befunde, beide echt:
+
+- **`haushaltsuebliche-mengen`, 1 von 9:** 72 g Langkornreis — weder durch fünf
+  teilbar noch eine Packungsmenge. Genau das, wofür die Regel da ist.
+- **`mengen-in-den-schritten`, 5 von 9:** Immer dieselbe Sorte — „Das
+  Lachsfilet mit Salz würzen" in einem Schritt, nachdem es in einem früheren
+  mit seiner Menge genannt wurde. `SKILL.md` Zeile 48 verlangt das strenger als
+  die Rezepte es tun: „Nenne in jedem Schritt die Menge jeder Zutat erneut."
+
+Der zweite Befund ist die offene Frage des Umbaus. Entweder der Skill hält sich
+künftig an seine eigene Zeile 48 — dann geht das Kriterium von selbst auf grün
+—, oder Rückverweise auf etwas, das schon in der Pfanne liegt, werden
+ausgenommen. Letzteres kostet den Fall, für den die Regel gebaut wurde: Öl, das
+zweimal in die Pfanne kommt, braucht beim zweiten Mal wieder seine Zahl. Das
+ist Jorgens Entscheidung, nicht die des Prüfers.
+
+Was der Lauf nebenbei belegt hat: Die neue Zeitregel greift — alle neun Rezepte
+nennen beide Zahlen, und der Lachs-Aufbau schreibt „20 min aktiv, 50 min
+gesamt" mit einer Wartezeit von 35 Minuten in Schritt 1. Und der Kochtipp kommt
+an: Die 35 Minuten Auftauen stehen in allen drei Lachsrezepten, obwohl der
+Prüf-Koch in einem Lauf ausdrücklich 6–8 Stunden empfahl.
