@@ -1,7 +1,7 @@
 schema_version: "1.0"
 name: handwerk-wirkt
 description: >
-  Belegt die Zeile „Stehen Zutaten und Mengen fest, lies handwerk.md". Der
+  Belegt die Zeile „Lies handwerk.md und arbeite die Kochtipps ein". Der
   Auftrag setzt Soja-Schnetzel, weil die Proteinquelle sonst zufällig fällt und
   kein Tipp zuverlässig greifen könnte.
 
@@ -20,9 +20,8 @@ description: >
   Tipp mal als Schritt, mal als Notiz. Das ist dasselbe Beweismuster, das
   unbekannte-zutat-bricht-ab führt – ohne die Zeile 2 von 3, mit ihr 3 von 3.
 
-  Den Nachweis, den Modellneugier nicht nachmachen kann, führt
-  pruefe-lesereihenfolge.mjs: Wer die Datei aus Neugier gleich zu Beginn liest,
-  fällt dort durch; nur wer sie nach scripts/naehrwerte.mjs liest, besteht.
+  Dass ein Tipp die Auswahl nicht kippt, hält die Skillzeile „Ein Kochtipp
+  ändert Handgriffe, keine Auswahl" fest – nicht dieser Fall.
 
   Die dritte Zeile der Fixture – Tofu wenden – hat in diesem Rezept nichts zu
   suchen. Dass sie nicht anschlägt, prüft der Fall nicht: Die Zuordnung ist

@@ -62,7 +62,7 @@ die Energiedichtegrenzen in `pruefe-zuordnung.mjs` bekommen das zu spüren.
 | `zutaten-mit-zustand` | „Zu jeder Zutat der Zustand …" | 0 von 3 |
 | `haushaltsuebliche-mengen` | „Mengen in Gramm oder haushaltsüblichen Maßen." | 2 von 3 |
 | `schritte-nennen-mengen` | „Nenne in jedem Schritt die Menge jeder Zutat erneut …" | 2 von 3 |
-| `handwerk-wirkt` | „Stehen Zutaten und Mengen fest, lies `handwerk.md` …" | 0,83 – ebenso viel wie mit, siehe unten |
+| `handwerk-wirkt` | „Lies `handwerk.md` und arbeite die Kochtipps ein …" | 0,83 – ebenso viel wie mit, siehe unten |
 | `pruefung-vor-der-ausgabe` | „Lass das fertige Rezept von einem Subagenten prüfen …" | 0 von 3 |
 | `pruefer-bleibt-im-vorrat` | „Nutze keine Zutaten, die nicht im Vorrat sind." | siehe unten |
 | `tabelle-passt-zur-zutatenliste` | „Ändert eine Korrektur Mengen oder Zutaten, rechne …" | siehe unten |
@@ -116,8 +116,9 @@ Das Modell findet die Datei im Arbeitsverzeichnis und liest sie aus eigenem
 Antrieb – genau das, wovor der Kommentar in `evals/scaffold.sh` warnt.
 
 Die Grünmessung bestätigt das: Mit den drei Zeilen steht der Fall bei denselben
-0,83. Sie leisten hier nichts, was das Modell nicht ohnehin täte – wohl aber
-etwas, das dieser Fall nicht sieht, nämlich *wann* gelesen wird.
+0,83. In dieser Umgebung leisten sie nichts, was das Modell nicht ohnehin täte.
+Sie stehen trotzdem da, denn die Umgebung des Evals ist nicht jede: Sie sagen,
+was mit einem Tipp geschieht, und nicht bloß, dass es ihn gibt.
 
 Eine Zwischenfassung der Formatzeile stand sogar bei 0,50. Sie hieß „steht als
 gewöhnlicher Schritt da, nicht als Notiz" und machte den Tipp damit zum Objekt:
@@ -127,14 +128,19 @@ des Spiegelpunkt-Formats, in dem Handgriff und Begründung in einem Satz stehen:
 Der Skill muss sie beim Einweben trennen, und die Zeile muss das sagen.
 
 Daraus folgen zwei Dinge. Erstens belegt der Fall nicht den Zugang, sondern die
-**Form und die Verlässlichkeit**: Der zweite Grader fiel in der Rotmessung in
-einem von drei Läufen durch, ohne Anweisung landet der Tipp mal als Schritt,
-mal als Notiz. Zweitens ist das kein Messartefakt, sondern eine Aussage über
-den Skill: Im echten Projekt liegt `handwerk.md` ebenso im Arbeitsverzeichnis.
-Den Nachweis, den Modellneugier nicht nachmachen kann, führt deshalb die
-Lesereihenfolge im Verlauf – wer die Datei zu Beginn liest, hat die Auswahl
-schon gesehen; nur wer sie nach `scripts/naehrwerte.mjs` liest, kann sie nicht
-beeinflusst haben.
+**Form**: Der zweite Grader fiel in der Rotmessung in einem von drei Läufen
+durch, ohne Anweisung landet der Tipp mal als Schritt, mal als Notiz. Zweitens
+ist das kein Messartefakt, sondern eine Aussage über den Skill: Im echten
+Projekt liegt `handwerk.md` ebenso im Arbeitsverzeichnis, und ein Modell, das
+seine Notizen von selbst liest, tut nichts Falsches.
+
+Ein Prüfskript für die Lesereihenfolge stand hier kurz und ist wieder
+verschwunden. Es hätte verlangt, dass der Skill `handwerk.md` erst nach
+`scripts/naehrwerte.mjs` liest – gemessen war sogar, dass ohne Skillzeile alle
+drei Läufe zu früh lasen. Nur: Dass ein Tipp die Auswahl nicht kippt, sagt
+schon die Zeile „Ein Kochtipp ändert Handgriffe, keine Auswahl". Die
+Reihenfolge war ein zweites Schloss an derselben Tür, und sie hätte einem Koch
+verboten, vor dem Kochen in seine eigenen Notizen zu sehen.
 
 ## Die Regel steht nicht nur in SKILL.md
 

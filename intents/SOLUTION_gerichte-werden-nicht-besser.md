@@ -40,11 +40,12 @@ entstehende Gericht passt.
 
 ### Was ein Tipp darf und was nicht
 
-**Gelesen wird nach der Auswahl.** Der Skill liest `handwerk.md` erst, wenn
-Zutaten und Mengen feststehen – nach der Zufallswahl der Proteinquelle, nach dem
-Lauf von `scripts/naehrwerte.mjs`. Zum Zeitpunkt der Auswahl hat er die Datei
-nicht gesehen. Das ist der Schutz von Constraint 2, und er ist strukturell, nicht
-statistisch.
+**Wann gelesen wird, ist gleichgültig.** Ein früherer Entwurf ließ den Skill
+`handwerk.md` erst nach der Zufallswahl und der Rechnung lesen, damit kein Tipp
+die Auswahl beeinflussen kann. Diese Reihenfolge ist am 2026-09-21 gefallen:
+Dass ein Tipp die Auswahl nicht anfasst, steht bereits als Regel im Skill
+(AC-9), und eine zweite Absicherung derselben Sache verbot einem Koch, vor dem
+Kochen in seine eigenen Notizen zu sehen.
 
 **Ein Tipp darf die Proteinquelle zubereiten, aber nicht wählen.** „Soja-
 Schnetzel ausdrücken" ist gültig und ist der einzige belegte Fall des Intents.
@@ -143,11 +144,13 @@ Mitzuziehen sind `evals/README.md` (Fallzahl und Belegtabelle) und
 - **AC-2** Ein angewandter Punkt erscheint im Rezept als Teil eines
   Zubereitungsschritts, in der Sprache des Rezepts und mit der Menge, die der
   Schritt ohnehin nennt – nicht als Liste, Notiz oder Anhang. *(C-1)*
-- **AC-3** Im Sitzungsverlauf steht der Lesezugriff auf `handwerk.md` nach dem
-  Aufruf von `scripts/naehrwerte.mjs`. Die Reihenfolge ist der Nachweis, dass
-  kein Punkt die Auswahl beeinflusst hat; geprüft wird sie wie in
-  `evals/pruefe-ein-rezept.mjs` am Verlauf, nicht an einer Verteilung.
-  *(Constraint 2)*
+- **AC-3** ~~Im Sitzungsverlauf steht der Lesezugriff auf `handwerk.md` nach
+  dem Aufruf von `scripts/naehrwerte.mjs`.~~ **Gestrichen am 2026-09-21.** Die
+  Reihenfolge sollte verhindern, dass ein Tipp die Auswahl beeinflusst – das
+  verbietet aber schon AC-9 unmittelbar. Sie war ein zweites Schloss an
+  derselben Tür und hätte einem Koch verboten, vor dem Kochen in seine eigenen
+  Notizen zu sehen. Das Prüfskript ist wieder entfernt; gemessen war immerhin,
+  dass ohne die Skillzeile alle drei Läufe die Datei zu Beginn lasen.
 - **AC-4** Eine Rückmeldung zum gekochten Gericht, im Gespräch nach dem Rezept
   und ohne eigenen Aufruf, erzeugt einen Spiegelpunkt, der vor dem Schreiben
   einmal gezeigt wird. Es wird nach keiner Note, keiner Skala und keiner
@@ -256,8 +259,9 @@ Mitzuziehen sind `evals/README.md` (Fallzahl und Belegtabelle) und
 - **Zwei Eval-Arme zum Nachweis, dass die Auswahl unberührt bleibt.** Fünf Läufe
   gegen fünf sind keine Statistik – `evals/README.md` beziffert den Bedarf auf
   etwa dreißig je Arm, und `evals/pruefe-zufall.mjs` kennt keinen zweiten Arm.
-  Ersetzt durch AC-3, das die Lesereihenfolge im Verlauf prüft statt eine
-  Verteilung.
+  Ein Ersatz über die Lesereihenfolge im Verlauf stand kurz und ist mit AC-3
+  gefallen. Die Zufallswahl ist damit nicht durch eine Messung abgesichert,
+  sondern durch die Regel in AC-9.
 - **Ausschlussliste nach dem Muster `praeferenzen.md`.** Von Constraint 1
   erschlagen; hätte den einzigen belegten Fall nie gefangen.
 

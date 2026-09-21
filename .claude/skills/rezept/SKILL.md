@@ -18,7 +18,7 @@ Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem au
 
 Wähle die Proteinquelle zufällig aus dem Vorrat.
 
-Stehen Zutaten und Mengen fest, lies `handwerk.md` und arbeite die Kochtipps ein, die zu diesem Gericht passen.
+Lies `handwerk.md` und arbeite die Kochtipps ein, die zu diesem Gericht passen.
 
 Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Nutze keine Zutaten, die nicht im Vorrat sind."
 
