@@ -8,7 +8,7 @@ Erstelle ein Rezept.
 
 Das Rezept sollte ungefähr 600 kcal erreichen.
 
-Das Rezept sollte mindestens 5,5 g Protein je 100 kcal erreichen – bei 600 kcal also 33 g.
+Das Rezept sollte mindestens 6 g Protein je 100 kcal erreichen – bei 600 kcal also 36 g.
 
 Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
 

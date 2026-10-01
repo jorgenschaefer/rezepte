@@ -14,9 +14,9 @@ import { energieAus } from '../rezept-lesen.mjs'
 
 const STANDARD_KCAL = 600
 const KORRIDOR = 0.05
-// Jorgens Ziel: bei 600 kcal mindestens 33 g. Die DGE-Pläne liegen mit
+// Jorgens Ziel: bei 600 kcal mindestens 36 g. Die DGE-Pläne liegen mit
 // 3,8-4,3 g je 100 kcal darunter (dge-wochenbilanz.md).
-const PROTEIN_JE_100_KCAL = 5.5
+const PROTEIN_JE_100_KCAL = 6
 
 const ZAHL_IM_AUFTRAG = /(\d+)\s*kcal/i
 

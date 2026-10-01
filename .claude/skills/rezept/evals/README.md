@@ -68,7 +68,7 @@ Fast alle gelten für jedes erzeugte Rezept:
 | `zutaten-im-vorrat` | Steht jede Zutat in `vorratskammer.md`? |
 | `portionsregeln` | Werden die Portionskommentare des Vorrats befolgt? |
 | `energie-im-korridor` | Trifft die Energie die Zahl aus dem Auftrag ±5 %? |
-| `protein-je-100-kcal` | Mindestens 5,5 g je 100 kcal? |
+| `protein-je-100-kcal` | Mindestens 6 g je 100 kcal? |
 | `pruefer-gestartet` | Ist der Subagent gelaufen? (steht im Verlauf) |
 
 Dazu zwei, die eine Lage brauchen, und eines über alle Rezepte zusammen:

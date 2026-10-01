@@ -38,19 +38,19 @@ test('legt den Korridor um die Zahl aus dem Auftrag', () => {
   assert.equal(pruefeKorridor(rezept(600), '/rezept 450 kcal mit Lachs').urteil, 'rot')
 })
 
-// 5,5 g je 100 kcal: bei 600 kcal mindestens 33 g.
+// 6 g je 100 kcal: bei 600 kcal mindestens 36 g.
 test('nimmt genug Protein an', () => {
-  assert.equal(pruefeProtein(rezept(600, 33), '/rezept 600 kcal').urteil, 'gruen')
+  assert.equal(pruefeProtein(rezept(600, 36), '/rezept 600 kcal').urteil, 'gruen')
 })
 
 test('meldet zu wenig Protein', () => {
-  const befund = pruefeProtein(rezept(600, 28), '/rezept 600 kcal')
+  const befund = pruefeProtein(rezept(600, 34), '/rezept 600 kcal')
 
   assert.equal(befund.urteil, 'rot')
-  assert.match(befund.grund, /33/)
+  assert.match(befund.grund, /36/)
 })
 
 test('skaliert die Untergrenze mit der Zielenergie', () => {
-  assert.equal(pruefeProtein(rezept(450, 25), '/rezept 450 kcal mit Lachs').urteil, 'gruen')
-  assert.equal(pruefeProtein(rezept(450, 20), '/rezept 450 kcal mit Lachs').urteil, 'rot')
+  assert.equal(pruefeProtein(rezept(450, 27), '/rezept 450 kcal mit Lachs').urteil, 'gruen')
+  assert.equal(pruefeProtein(rezept(450, 26), '/rezept 450 kcal mit Lachs').urteil, 'rot')
 })
