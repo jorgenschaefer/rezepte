@@ -123,4 +123,3 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Rapsöl
 - Weißweinessig
 - Balsamico-Essig
-
