@@ -29,7 +29,6 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 
 ### Hauptfach
 
-- Quarkcreme (200 g; nur als Nachspeise)
 - Räuchertofu (2×175 g; nur als ganze 175-g-Portion verwenden)
 - Tofu natur (2×200 g; nur als ganze 200-g-Portion verwenden)
 - Naturjoghurt 1,5 % (500 g; nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
