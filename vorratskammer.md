@@ -79,7 +79,7 @@ Diese Zutaten "must go", sollten also bald genutzt werden. Ich plane nicht, sie 
 - Haferflocken
 - Gemüsebrühe, Pulver
 - Rote Linsen
-- Langkornreis (zukünftig: REWE Bio Naturreis Spitzen-Langkorn 1kg)
+- Naturreis (REWE Bio Naturreis Spitzen-Langkorn 1kg)
 - Vollkornnudeln
 - Erdnussmus
 

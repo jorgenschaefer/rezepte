@@ -34,6 +34,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | ja! Zarte Haferflocken 500g | Haferflocken | 500 g | 372 | 13,5 g | 9,7 g | 58,7 g | 7 g | 1,3 g | 0 | Etikett 20.9.2026 | Portion 50–60 g; Vollkorn; Ballaststoffe vom Etikett der Packung |
 | Barilla Integrale Vollkorn Fusilli 500g | Vollkornnudeln; Vollkorn-Fusilli; Vollkornfusilli | 500 g (Barilla Integrale, REWE Bio) | 347 | 13 g | 8 g | 64 g | 2,5 g | 0,5 g | 0,013 g | Etikett 20.9.2026 | Portion 80 g trocken; Vollkorn |
 | ja! Parboiled Spitzenreis Langkornreis 1kg | Langkornreis; Reis; Parboiled-Reis | 1 kg | 351 | 8 g | 1,8 g | 75,5 g | 1,5 g | 0,5 g | 0,01 g | Etikett 20.9.2026 | Portion 60 g trocken; Parboiled, kein Vollkorn |
+| REWE Bio Naturreis Spitzen-Langkorn 1kg | Naturreis | 1 kg | 363 | 7,8 g | 2,2 g | 75,8 g | 2,3 g | 0,7 g | 0,03 g | Etikett 2.10.2026 | Portion 60 g trocken; Vollkorn; kcal und Protein vom Etikett, Ballaststoffe Tabellenwert (REWE gibt keine an) |
 
 ## Hülsenfrüchte, Tofu
 
