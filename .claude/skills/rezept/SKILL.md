@@ -14,7 +14,7 @@ Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
 
 Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
-Rechne die Nährwerttabelle mit `scripts/naehrwerte.mjs` aus den Zutatenmengen.
+Rechne die Nährwerttabelle mit `scripts/naehrwerte.mjs` aus den Zutatenmengen. Der Pfad gilt relativ zum Ordner dieses Skills, nicht zum Projektordner: `node .claude/skills/rezept/scripts/naehrwerte.mjs`, die Zutaten als Zeilen „Zutat | Gramm" auf stdin.
 
 Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem auch `vorratskammer.md` sie führt. Aufgelöst wird wörtlich: Findet `zutaten.md` eine Zutat nicht, brich ab und gib die Zutat aus, die du nicht zuordnen konntest.
 
