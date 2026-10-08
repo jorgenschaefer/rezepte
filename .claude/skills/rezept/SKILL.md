@@ -26,7 +26,7 @@ Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der 
 
 Ändert eine Korrektur Mengen oder Zutaten, rechne die Tabelle neu.
 
-Gibt es im Nachgang Feedback zum Rezept, positiv wie negativ, identifiziere eine Änderung, die das Rezept direkt besser gemacht hätte. Füge eine entsprechende Notiz als Spiegelpunkt in `kochtipps.md` ein, damit zukünftige Rezepte direkt besser werden.
+Gibt es im Nachgang Feedback zum Rezept, positiv wie negativ, identifiziere eine Änderung, die das Rezept direkt besser gemacht hätte. Füge eine entsprechende Notiz als Spiegelpunkt in `kochtipps.md` ein, damit zukünftige Rezepte direkt besser werden. Die Notiz muss ohne das Rezept verständlich sein: Sie nennt die Regel mit Mengen und begründet sie allgemein, so wie der Leser sie beim nächsten Gericht braucht. Sie verweist nicht auf das Rezept, seinen Namen oder seine Mengen.
 
 # Format der Antwort
 
