@@ -74,7 +74,7 @@ Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 - Rote Linsen
 - Naturreis (REWE Bio Naturreis Spitzen-Langkorn 1kg)
 - Vollkornnudeln
-- Erdnussmus
+- Erdnussmus (als Brotbelag, nicht als Soßengrundlage)
 
 ## Gewürzregal
 
