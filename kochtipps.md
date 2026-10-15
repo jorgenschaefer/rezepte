@@ -26,3 +26,12 @@ zum Gericht passt.
   schmeckt die Soße fade: Quark bringt kaum Eigengeschmack mit, und der Senf
   gibt Würze und bindet die Soße. Zitronensaft oder andere Säure erst über
   das angerichtete Gericht geben, denn Säure lässt Quark zusätzlich ausflocken.
+- Ein Eintopf aus Hülsenfrüchten, etwa ein Dal aus roten Linsen oder ein
+  Bohneneintopf, braucht für eine Portion zum Schluss rund 2 EL Essig, zum
+  Beispiel Weißweinessig, und 1 TL Erythrit oder ½ TL Honig. 1 EL
+  Zitrussaft reicht nicht: Zerkochte Hülsenfrüchte sind stärkereich und
+  mild, sie schlucken Säure und Würze, und das Gericht schmeckt erdig und
+  flach. Die Säure hebt die Gewürze, die Süße fängt die Schärfe der Säure
+  und des Tomatenmarks ab. Beides erst ganz am Ende vom Herd einrühren,
+  denn Säure lässt Hülsenfrüchte, die noch kochen, hart bleiben. Tabasco
+  zum Nachschärfen auf den Tisch stellen.
