@@ -42,3 +42,13 @@ zum Gericht passt.
   nicht in Gemüse, Soße und Reis über. Wer die Sojasauce kürzt, weil der
   Tofu schon salzig ist, bekommt ein fades Gericht mit würzigen
   Tofustückchen. 1 TL Currypaste verliert sich in so viel Gemüse und Reis.
+- Reis immer nach der Quellmethode garen, nie in viel Wasser kochen und
+  abgießen wie Nudeln. Für Naturreis die 2,5-fache Wassermenge nehmen,
+  also 75 ml für 30 g und 150 ml für 60 g, dazu 1 Prise Salz. Alles
+  zusammen aufkochen, dann zugedeckt bei kleinster Hitze 25 Minuten garen.
+  Danach vom Herd ziehen und zugedeckt 10 Minuten ruhen lassen, ohne den
+  Deckel zu heben. Im offenen Wasser saugen sich die Körner voll und platzen
+  auf, bevor der Kern gar ist, und der Reis wird labbrig. Beim Abgießen
+  gehen außerdem Salz und Eigengeschmack mit dem Wasser weg. Bei der
+  Quellmethode nimmt der Reis genau so viel Wasser auf, wie er braucht, und
+  bleibt körnig.
