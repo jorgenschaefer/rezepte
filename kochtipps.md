@@ -35,3 +35,10 @@ zum Gericht passt.
   und des Tomatenmarks ab. Beides erst ganz am Ende vom Herd einrühren,
   denn Säure lässt Hülsenfrüchte, die noch kochen, hart bleiben. Tabasco
   zum Nachschärfen auf den Tisch stellen.
+- Bei Räuchertofu die Würze der Soße nicht kürzen, und für eine Portion
+  Wok-Gemüse von rund 250 g samt Tofu 2 TL Rote Currypaste (10 g) nehmen,
+  nicht 1 TL. Die Paste kurz im Fett anbraten, bevor die Soße mit 1 EL
+  Sojasauce dazukommt. Das Salz des Räuchertofus steckt im Würfel und geht
+  nicht in Gemüse, Soße und Reis über. Wer die Sojasauce kürzt, weil der
+  Tofu schon salzig ist, bekommt ein fades Gericht mit würzigen
+  Tofustückchen. 1 TL Currypaste verliert sich in so viel Gemüse und Reis.
