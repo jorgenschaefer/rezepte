@@ -31,7 +31,7 @@ attempts:  0
 
 > **AC-9** Die Notizen sind nicht bindend. Lehnt der Skill im Verlauf einen Vorschlag des Prüf-Kochs ab, begründet er das nicht allein mit einer Notiz.
 
-> **AC-10** Abgesehen vom Absatz aus AC-7 bleibt das Rezeptformat unverändert, und `./test.sh` läuft grün.
+> **AC-10** Abgesehen vom Absatz aus AC-7 bleibt das Rezeptformat unverändert, und die Unit-Tests aus `./test.sh` laufen grün.
 
 > **AC-11** Im Eval-Aufbau `lachs` enthält `kochnotizen.md` einen Eintrag mit einem Lachsrezept, das den Lachs 30 Minuten auftauen lässt, und der Rückmeldung „Nach 30 Minuten war der Lachs innen noch gefroren.“ Jedes erzeugte Rezept dieses Aufbaus lässt den Lachs länger als 30 Minuten auftauen und hat einen Absatz aus AC-7, der diesen Eintrag nennt.
 
@@ -60,7 +60,7 @@ Was es heute gibt:
 
 - `.claude/skills/rezept/SKILL.md`: Zeile 23 lässt `kochtipps.md` lesen, Zeile 29 lässt aus Feedback eine allgemeine Regel mit Mengen in `kochtipps.md` schreiben, Zeile 51 regelt, wie ein Tipp in die Zubereitung kommt. Zeile 25 startet den Prüf-Koch, Zeile 27 lässt die Tabelle nach einer Korrektur neu rechnen.
 - `kochtipps.md` im Projektordner mit den bisherigen Tipps. `README.md` Zeile 18 beschreibt sie.
-- Evals unter `.claude/skills/rezept/evals/`: Nur der Aufbau `lachs` in `aufbauten.mjs` (Feld `kochtipps: true`) bekommt von `lauf.mjs` die Datei `evals/kochtipps.md` ins Arbeitsverzeichnis; die übrigen Aufbauten belegen damit den Fall ohne Datei, und den soll der Skill weiter vertragen. `pruefer/kochtipp.mjs` (mit `kochtipp.test.mjs`) sucht in den Schritten die 35 Minuten Auftauen aus dem alten Tipp; `befund.mjs` hängt ihn als Kriterium `kochtipp-kommt-an` an den Lachs-Aufbau. `evals/README.md` beschreibt Aufbau und Kriterium.
+- Evals unter `.claude/skills/rezept/evals/`: Nur der Aufbau `lachs` in `aufbauten.mjs` (Feld `kochtipps: true`) bekommt von `lauf.mjs` die Datei `evals/kochtipps.md` ins Arbeitsverzeichnis; die übrigen Aufbauten laufen ohne die Datei. `pruefer/kochtipp.mjs` (mit `kochtipp.test.mjs`) sucht in den Schritten die 35 Minuten Auftauen aus dem alten Tipp; `befund.mjs` hängt ihn als Kriterium `kochtipp-kommt-an` an den Lachs-Aufbau. `evals/README.md` beschreibt Aufbau und Kriterium.
 - Die Prüfer lesen die Zubereitung über `zubereitung()` in `rezept-lesen.mjs` (nummerierte Zeilen ab „Zubereitung“) und die übrigen Abschnitte über eigene Muster; ein Absatz unter dem Rezept ist für sie neu. `zubereitung()` hängt jede eingerückte Zeile an den letzten Schritt, auch hinter einer Leerzeile – eingerückte Zeilen im Absatz „Aus den Kochnotizen:“ zählten so als Zubereitung.
 - Die Memory-Notiz `rezept-frage-ist-kein-feedback` liegt außerhalb des Repositorys; die Session, die diese Tickets geschrieben hat, löscht sie bei der Übergabe.
 
