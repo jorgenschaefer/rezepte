@@ -3,8 +3,8 @@ criteria:  CRITERIA.md
 closes:    
 advances:  
 after:     
-status:    ready
-attempts:  0
+status:    done
+attempts:  1
 ---
 
 ## Build
@@ -33,3 +33,28 @@ Ticket 02 baut auf dem Check-Befehl auf und benennt die Prüfer-Tests um; der Be
 Alles an `kochtipps.md`, `kochnotizen.md`, `SKILL.md` und den Evals ist Ticket 02.
 
 ## Left standing
+**Review-Befunde, nicht behoben**
+- Nit (beide Runden): `./test.sh` Schritt 1 meldet nicht mehr jeden Teil einzeln. `check/check.sh` hört mit `set -e` beim ersten Fehler auf: Schlagen Vorrat gegen Katalog und ein Unit-Test zugleich fehl, sieht man erst den zweiten, wenn der erste behoben ist. Das bleibt so, weil das Ticket erlaubt, dass Schritt 1 den Check-Befehl aufruft, und ein zweiter Lauf etwa eine Sekunde kostet. Der Kopfkommentar von `check.sh` sagt das.
+- Nit: In `check/` sind die Kommentare, die Ausgabe („Struktur: … Regeln, … Verstöße“) und die Regelnamen in den Tests deutsch, die Bezeichner und Testnamen englisch. Das Repository hat schon zwei Konventionen: `rechner/` ist ganz englisch, der Skill ganz deutsch. Ich habe die Bezeichner nach dem Standard englisch gehalten und Kommentare und Ausgabe nach `test.sh` deutsch. Die Konvention fürs ganze Repository legt der Entwickler fest.
+
+**Fixes nach der letzten Review**
+- Nit 1, zweite Runde: Das `.claude/`-Muster in `check.sh` nimmt jetzt `.js` und `.mjs` (`'.claude/**/*.test.{js,mjs}'`), wie das erste Muster.
+- Nit 3, zweite Runde: Die Überschrift von Schritt 1 in `test.sh` heißt jetzt „1/2  Ohne Modell“ statt „1/2  Unit-Tests“, weil der Schritt auch Vorrat gegen Katalog und den strukturellen Check umfasst. Das ändert, was `./test.sh` ausgibt.
+
+**Nicht ausgeführte Checks**
+- `./test.sh` habe ich nicht ganz laufen lassen, weil Schritt 2 das kostenpflichtige `claude` aufruft. Schritt 1 lief über eine Kopie ohne Schritt 2: grün, „Alles grün.“, Exit 0.
+
+**Nachweise ohne automatischen Test**
+- Dass `check/check.sh` bei jedem Fehler mit einem Exit-Code ungleich null endet, prüft kein Test; ein Test, der den Befehl aufruft, würde sich selbst mit aufrufen. Ich habe jeden der drei Teile einmal von Hand scheitern lassen und danach zurückgesetzt: ein Posten in `vorratskammer.md`, den der Katalog nicht kennt, ein fehlschlagender Test unter `rechner/`, einer unter `.claude/` und eine Regel mit einem Verstoß in `check/structure.mjs`. Jedes Mal Exit 1.
+- Dass die Muster dieselben Testdateien finden wie die bisherige Liste: 150 Tests, wie beim bisherigen Befehl, dazu die 4 Tests unter `check/`. Die zweite Review hat nachgezählt: Keine Datei läuft doppelt.
+
+**Teuer umzukehrende Entscheidungen**
+- Der Befehl ist `./check/check.sh`. Er steht in `CLAUDE.md`, im README und in `test.sh`.
+- Die Form einer Regel, gegen die Ticket 02 Regeln schreiben wird: `{ name, check(root) }`, wobei `check` die Liste der Verstöße als Strings liefert. Die Regeln stehen in `RULES` in `check/structure.mjs`.
+- Die Tests werden über die Muster `'**/*.test.{js,mjs}'` und `'.claude/**/*.test.{js,mjs}'` gefunden. Eine Testdatei läuft also nur, wenn sie auf `.test.js` oder `.test.mjs` endet. `node --test` ohne Muster übergeht `.claude/`, deshalb das zweite Muster.
+
+**Abweichungen**
+- `./test.sh` verhält sich nicht ganz unverändert. Schritt 1 ruft jetzt den Check-Befehl auf, wie es der Kontext des Tickets erlaubt. Dadurch laufen dort zusätzlich die Tests unter `rechner/` und `check/` und der strukturelle Check mit. Schritt 1 meldet nur noch eine Zeile „Check-Befehl“ statt vier, und seine Überschrift hat sich geändert (siehe oben).
+
+**Namen nicht aus dem Glossar** (es gibt kein `UBIQUITOUS_LANGUAGE.md`)
+- Ordner `check/`, `check/structure.mjs`, `RULES`, `findViolations`, `runStructureCheck`, in der Ausgabe „Struktur“, „Regeln“, „Verstöße“.

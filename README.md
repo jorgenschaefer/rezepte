@@ -18,6 +18,7 @@ Everything inside the project – the skill, the data, the evals – is in Germa
 | `kochtipps.md` | Cooking tips learned from feedback. The skill reads them and appends to them. |
 | `dge-wochenbilanz.md` | Weekly food-group amounts according to the German Nutrition Society (DGE), with sources. |
 | `rechner/` | A small energy and BMI calculator in the browser. |
+| `check/` | The check command: everything testable without a model. |
 
 ## Using the skill
 
@@ -29,13 +30,22 @@ Open Claude Code in this directory and run:
 
 The skill is only invoked explicitly (`disable-model-invocation: true`).
 
+## Checks
+
+```bash
+./check/check.sh
+```
+
+Everything that needs no model, in about a second: the pantry against the
+catalogue, all unit tests, and the structural check in `check/structure.mjs`.
+
 ## Evals
 
 ```bash
 ./test.sh
 ```
 
-This first runs the unit tests (no model, no cost), then the suite: four
+This first runs `./check/check.sh` (no model, no cost), then the suite: four
 setups, twelve generated recipes in two waves of six, each checked by the
 graders in `evals/pruefer/` – format, table against ingredient list, energy
 density, protein, timing, pantry rules and more. The suite drives the `claude`

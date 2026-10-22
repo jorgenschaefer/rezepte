@@ -2,10 +2,11 @@
 #
 # Führt die Eval-Suite für den Skill `rezept` aus.
 #
-#   1. Die Unit-Tests der Rechnung, des Rezeptlesers und der Prüfer – ohne
-#      Modell, ohne Kosten. Dazu die Zuordnung Vorrat -> Katalog: Eine
-#      Kurzform, die keine Katalogzeile trifft, lässt jedes Rezept abbrechen,
-#      und das soll nach einer Sekunde auffallen statt nach zwölf Modellläufen.
+#   1. Der Check-Befehl (check/check.sh) – ohne Modell, ohne Kosten: alle
+#      Unit-Tests, der strukturelle Check und die Zuordnung Vorrat -> Katalog.
+#      Eine Kurzform, die keine Katalogzeile trifft, lässt jedes Rezept
+#      abbrechen, und das soll nach einer Sekunde auffallen statt nach zwölf
+#      Modellläufen.
 #   2. Die Suite: vier Aufbauten, zwölf Erzeugungen in zwei Wellen à sechs,
 #      danach die Prüfer aus evals/pruefer/ gegen jedes erzeugte Rezept.
 #
@@ -44,11 +45,8 @@ pruefe() {
   fi
 }
 
-melde "1/2  Unit-Tests"
-pruefe "Vorrat gegen Katalog" node "$EVALS/pruefe-vorrat-gegen-katalog.mjs"
-pruefe "naehrwerte.test.mjs" node --test "$SKILL/scripts/naehrwerte.test.mjs"
-pruefe "rezept-lesen.test.mjs" node --test "$EVALS/rezept-lesen.test.mjs"
-pruefe "Prüfer" node --test "$EVALS"/pruefer/*.test.mjs
+melde "1/2  Ohne Modell"
+pruefe "Check-Befehl" "$WURZEL/check/check.sh"
 
 melde "2/2  Suite"
 pruefe "Suite" node "$EVALS/suite.mjs"

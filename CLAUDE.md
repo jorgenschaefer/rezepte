@@ -1,3 +1,9 @@
+# Check-Befehl
+
+Check: `./check/check.sh`
+
+Prüft ohne Modell: Vorrat gegen Katalog, alle Unit-Tests, den strukturellen Check. Die Suite mit Modellläufen bleibt bei `./test.sh`.
+
 # REWE Online als Nährwertquelle
 
 - REWE Online (shop.rewe.de) ist die Referenz für Packungsgrößen und Etikett-Nährwerte.
