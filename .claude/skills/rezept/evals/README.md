@@ -77,7 +77,7 @@ Dazu zwei, die eine Lage brauchen, und eines über alle Rezepte zusammen:
 
 | Kriterium | Gilt für |
 |---|---|
-| `kochnotiz-kommt-an` | den Lachs-Aufbau: Taut der Lachs länger als 30 Minuten auf, und nennt der Absatz „Aus den Kochnotizen:“ den Eintrag? |
+| `kochnotiz-kommt-an` | den Lachs-Aufbau: Taut der Lachs länger als 30 Minuten, aber höchstens 3 Stunden auf, und nennt der Absatz „Aus den Kochnotizen:“ den Eintrag? |
 | `bricht-bei-unbekannter-zutat-ab` | den Miso-Aufbau |
 | `vielfalt-der-proteinquellen` | alle Rezepte, deren Auftrag die Wahl offen lässt |
 

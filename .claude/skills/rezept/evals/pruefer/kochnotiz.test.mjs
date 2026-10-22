@@ -34,11 +34,20 @@ test('nimmt eine Minute mehr als 30 an', () => {
   assert.equal(befund.urteil, 'gruen')
 })
 
-test('liest Stunden und „über Nacht“ als länger als 30 Minuten', () => {
+test('liest Stunden als länger als 30 Minuten', () => {
   assert.equal(pruefeKochnotiz(rezept('125 g Lachsfilet 1 Stunde im Kühlschrank auftauen lassen.')).urteil, 'gruen')
   assert.equal(pruefeKochnotiz(rezept('125 g Lachsfilet 2 Std. im Kühlschrank auftauen.')).urteil, 'gruen')
-  assert.equal(pruefeKochnotiz(rezept('125 g Lachsfilet über Nacht im Kühlschrank auftauen.')).urteil, 'gruen')
   assert.equal(pruefeKochnotiz(rezept('125 g Lachsfilet ½ Stunde im Kühlschrank auftauen.')).urteil, 'rot')
+})
+
+// Der Skill macht ein Rezept, um es jetzt zu kochen. Wer den Lachs über Nacht
+// auftauen lässt, hat die Rückmeldung verwertet und das Rezept unkochbar
+// gemacht.
+test('meldet ein Rezept, das den Lachs länger als 3 Stunden auftauen lässt', () => {
+  assert.equal(pruefeKochnotiz(rezept('125 g Lachsfilet 3 Stunden im Kühlschrank auftauen lassen.')).urteil, 'gruen')
+  assert.equal(pruefeKochnotiz(rezept('125 g Lachsfilet 181 Minuten im Kühlschrank auftauen lassen.')).urteil, 'rot')
+  assert.equal(pruefeKochnotiz(rezept('125 g Lachsfilet 12 Stunden im Kühlschrank auftauen lassen.')).urteil, 'rot')
+  assert.equal(pruefeKochnotiz(rezept('125 g Lachsfilet über Nacht im Kühlschrank auftauen.')).urteil, 'rot')
 })
 
 // Eine Spanne verspricht nur ihre untere Zahl.
@@ -126,3 +135,4 @@ test('passt zum Eintrag in evals/kochnotizen.md', () => {
   assert.match(notizen, /30 Minuten im Kühlschrank auftauen/)
   assert.match(notizen, /^> Nach 30 Minuten war der Lachs innen noch gefroren\.$/m)
 })
+

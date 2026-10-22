@@ -3,8 +3,8 @@
 // Der Eintrag im eingefrorenen evals/kochnotizen.md ist ein Lachsrezept, das
 // den Lachs 30 Minuten auftauen lässt, mit der Rückmeldung „Nach 30 Minuten war
 // der Lachs innen noch gefroren.“ Angekommen ist sie, wenn ein Schritt den
-// Lachs länger als 30 Minuten auftauen lässt und der Absatz „Aus den
-// Kochnotizen:“ den Eintrag bei seinem Datum nennt.
+// Lachs länger als 30 Minuten, aber höchstens 3 Stunden auftauen lässt und der
+// Absatz „Aus den Kochnotizen:“ den Eintrag bei seinem Datum nennt.
 //
 // Was er nicht belegt: dass die Zeile im Skill das Lesen auslöst. Rotmessungen
 // am 2026-09-21 haben gezeigt, dass das Modell eine solche Datei im
@@ -20,6 +20,8 @@ export const NOTIZ_DATUM = '2026-10-14'
 const NOTIZ_DATUM_GESCHRIEBEN = /2026-10-14|14\.\s?10\.\s?2026|14\.\s?Oktober\s?2026/
 
 const REICHT_NICHT_MINUTEN = 30
+// Der Skill macht ein Rezept, um es jetzt zu kochen; länger wartet niemand.
+const HOECHSTENS_MINUTEN = 3 * 60
 
 export function pruefeKochnotiz(rezeptText) {
   const schritte = zubereitung(rezeptText)
@@ -30,6 +32,9 @@ export function pruefeKochnotiz(rezeptText) {
   const auftauen = schritte.filter((schritt) => /Lachs/i.test(schritt) && /auftau/i.test(schritt)).map(auftauMinuten)
   if (!auftauen.some((minuten) => minuten > REICHT_NICHT_MINUTEN)) {
     return { urteil: 'rot', grund: 'Kein Schritt lässt den Lachs länger als 30 Minuten auftauen' }
+  }
+  if (auftauen.some((minuten) => minuten > HOECHSTENS_MINUTEN)) {
+    return { urteil: 'rot', grund: 'Der Lachs taut länger als 3 Stunden auf, das Rezept ist nicht jetzt kochbar' }
   }
 
   const absatz = kochnotizenAbsatz(rezeptText)
@@ -42,7 +47,8 @@ export function pruefeKochnotiz(rezeptText) {
   return { urteil: 'gruen' }
 }
 
-// Eine Nacht ist hier nur „länger als jede Zahl, die ein Schritt sonst nennt“.
+// Eine Nacht ist hier nur „länger als die 3 Stunden, die ein Rezept, das man
+// jetzt kocht, höchstens warten lässt“.
 const NACHT_MINUTEN = 8 * 60
 
 // Eine Zahl („30“, „1,5“, „1½“, „½“, „eine“), wahlweise eine Spanne bis zu
