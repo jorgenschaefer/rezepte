@@ -28,6 +28,8 @@ Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der 
 
 Lehnst du eine Korrektur des Subagenten ab, begründe das nicht allein mit einer Kochnotiz.
 
+Nimmt eine Korrektur, die du übernimmst, eine Änderung aus den Kochnotizen zurück oder ersetzt sie, passe den Absatz „Aus den Kochnotizen:“ an: Er nennt nur Änderungen, die im ausgegebenen Rezept stehen.
+
 # Kochnotizen
 
 `kochnotizen.md` hält Erfahrungen fest, keine Regeln: je Eintrag ein Rezept, so wie du es ausgegeben hast, und was der Nutzer danach dazu gesagt hat. Schlüsse daraus ziehst du bei jedem Rezept neu.
@@ -51,7 +53,7 @@ Ein Eintrag sieht so aus und steht am Ende der Datei:
 ```
 
 - Das Datum ist der Tag, an dem du das Rezept ausgegeben hast.
-- Unter `### Rezept` steht das vollständige Rezept wörtlich aus dem Gespräch, in der letzten Fassung, die du vor der Rückmeldung ausgegeben hast, mit dem Absatz „Aus den Kochnotizen:“, wenn es einen hatte. Überschriften darin stufst du auf `####` herab.
+- Unter `### Rezept` steht das vollständige Rezept wörtlich aus dem Gespräch, in der letzten Fassung, die du vor der Rückmeldung ausgegeben hast, mit dem Absatz „Aus den Kochnotizen:“, wenn es einen hatte. Das Rezept sind die Teile aus „Format der Antwort“, vom Titel bis zur Zubereitung und zu diesem Absatz; was du sonst dazu geschrieben hast, etwa Anmerkungen oder warum du eine Korrektur übernommen hast, gehört nicht dazu. Überschriften darin stufst du auf `####` herab.
 - Unter `### Rückmeldung` steht die Rückmeldung wörtlich als Zitat, auch was der Nutzer selbst anders gemacht hat. Bemerkungen nebenher, die nicht das Gericht betreffen, lässt du weg: Die Datei liegt in einem öffentlichen Repository.
 - Sonst nichts: keine vermutete Ursache, keine Regel, keine Empfehlung.
 
