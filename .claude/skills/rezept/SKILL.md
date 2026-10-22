@@ -28,7 +28,7 @@ Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der 
 
 Lehnst du eine Korrektur des Subagenten ab, begründe das nicht allein mit einer Kochnotiz.
 
-Nimmt eine Korrektur, die du übernimmst, eine Änderung aus den Kochnotizen zurück oder ersetzt sie, passe den Absatz „Aus den Kochnotizen:“ an: Er nennt nur Änderungen, die im ausgegebenen Rezept stehen.
+Nimmt eine Korrektur, die du übernimmst, oder eine spätere Fassung im Gespräch eine Änderung aus den Kochnotizen zurück oder ersetzt sie, passe den Absatz „Aus den Kochnotizen:“ an: Er nennt nur Änderungen, die in der Fassung stehen, die du ausgibst.
 
 # Kochnotizen
 
