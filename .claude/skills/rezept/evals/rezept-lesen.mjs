@@ -103,9 +103,10 @@ export function zubereitung(text) {
 }
 
 // Der Absatz unter dem Rezept, in dem der Skill offenlegt, was er aus
-// kochnotizen.md abgeleitet hat. Er beginnt mit „Aus den Kochnotizen:“, auch
-// fett gesetzt, und reicht bis zum Ende der Antwort.
-const KOCHNOTIZEN = /^[*_\s]*Aus den Kochnotizen:/m
+// kochnotizen.md abgeleitet hat. Er beginnt mit „Aus den Kochnotizen:“ – auch
+// fett gesetzt, als Listenpunkt oder als Überschrift, die keinen Doppelpunkt
+// braucht – und reicht bis zum Ende der Antwort.
+const KOCHNOTIZEN = /^[ \t]*(?:#{1,4}[ \t]+[*_]*Aus den Kochnotizen\b|(?:[-*][ \t]+)?[*_]*Aus den Kochnotizen[*_]*:)/m
 
 // Die Antwort ohne diesen Absatz – das Rezept, wie es ohne Kochnotizen
 // aussähe. Der Absatz nennt Gerichte und Zutaten früherer Rezepte.

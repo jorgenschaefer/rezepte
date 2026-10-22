@@ -8,6 +8,7 @@ import {
   aufloesen,
   energiedichte,
   istPlausibleDichte,
+  kochnotizenAbsatz,
   ohneGrammangabe,
   traegtNaehrwerte,
   zubereitung,
@@ -345,6 +346,29 @@ test('endet vor dem Absatz unter der Zubereitung, auch wenn er eingerückt weite
   )
 
   assert.deepEqual(schritte, ['125 g Lachsfilet 45 Minuten im Kühlschrank auftauen.'])
+})
+
+// Seine Anmerkungen setzt das Modell hinter dem Rezept oft als Liste oder unter
+// eine Überschrift, und den Doppelpunkt mal in, mal hinter das Fett. Jede dieser
+// Formen ist der Absatz; übersehen, meldete kochnotiz-kommt-an ihn als fehlend.
+for (const anfang of [
+  'Aus den Kochnotizen:',
+  '**Aus den Kochnotizen:**',
+  '**Aus den Kochnotizen**:',
+  '- **Aus den Kochnotizen:**',
+  '* Aus den Kochnotizen:',
+  '## Aus den Kochnotizen',
+  '### Aus den Kochnotizen:',
+]) {
+  test(`erkennt den Absatz, der mit „${anfang}“ beginnt`, () => {
+    const absatz = kochnotizenAbsatz(['1. Lachs 45 Minuten auftauen.', '', '---', '', `${anfang} 2026-10-14, Lachs`].join('\n'))
+
+    assert.equal(absatz, `${anfang} 2026-10-14, Lachs`)
+  })
+}
+
+test('nimmt eine Erwähnung der Kochnotizen im Fließtext nicht als Absatz', () => {
+  assert.equal(kochnotizenAbsatz('1. Lachs auftauen, wie Aus den Kochnotizen: bekannt.'), null)
 })
 
 // „30 g Naturjoghurt 1,5 %" trägt ein Komma mitten in der Zahl. Es am Komma
