@@ -64,7 +64,6 @@ Kommt zum selben Rezept noch eine Rückmeldung, hänge sie im selben Eintrag als
 Welche Einträge zum Gericht passen, entscheidest du. Was mehrere Einträge berichten, wiegt mehr als ein einzelner.
 
 - Die Notizen dürfen Mengen und Zubereitung ändern und Zutaten aus dem Vorrat hinzufügen, etwa Essig oder Gewürze. Proteinquelle und Art des Gerichts ändern sie nicht.
-- Auch mit einer Änderung aus den Notizen lässt sich das Rezept jetzt kochen: keine Wartezeit über 3 Stunden, nicht über Nacht.
 - Ändern sie Mengen oder Zutaten, rechne die Tabelle neu.
 - Hat ein Eintrag selbst einen Absatz „Aus den Kochnotizen:“ und meldet seine Rückmeldung trotzdem dasselbe Problem, hat die damals abgeleitete Änderung nicht gereicht. Leite nicht dieselbe Änderung noch einmal ab, und sag im Absatz, dass sie nicht gereicht hat.
 - Die Notizen sind nicht bindend.

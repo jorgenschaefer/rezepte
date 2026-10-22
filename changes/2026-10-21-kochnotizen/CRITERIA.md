@@ -22,7 +22,7 @@ Die Fälle:
 - **AC-12** Hat ein herangezogener Eintrag einen Absatz aus AC-7 und meldet seine Rückmeldung trotzdem dasselbe Problem, sagt der neue Absatz, dass die damals abgeleitete Änderung nicht gereicht hat, und leitet nicht dieselbe Änderung noch einmal ab.
 - **AC-9** Die Notizen sind nicht bindend. Lehnt der Skill im Verlauf einen Vorschlag des Prüf-Kochs ab, begründet er das nicht allein mit einer Notiz.
 - **AC-10** Abgesehen vom Absatz aus AC-7 bleibt das Rezeptformat unverändert, und die Unit-Tests aus `./test.sh` laufen grün.
-- **AC-11** Im Eval-Aufbau `lachs` enthält `kochnotizen.md` einen Eintrag mit einem Lachsrezept, das den Lachs 30 Minuten auftauen lässt, und der Rückmeldung „Nach 30 Minuten war der Lachs innen noch gefroren.“ Jedes erzeugte Rezept dieses Aufbaus lässt den Lachs länger als 30 Minuten auftauen und hat einen Absatz aus AC-7, der diesen Eintrag nennt.
+- **AC-11** Im Eval-Aufbau `lachs` enthält `kochnotizen.md` einen Eintrag mit einem Lachsrezept, das den Lachs 30 Minuten auftauen lässt, und der Rückmeldung „Nach 30 Minuten war der Lachs innen noch gefroren.“ Jedes erzeugte Rezept dieses Aufbaus hat einen Absatz aus AC-7, der diesen Eintrag nennt. Wie lange der Lachs dann auftaut, beurteilt der Nutzer im Gespräch.
 
 ## Agreed design
 Die Datei hält nur noch Beobachtungen fest: das gekochte Rezept und die Rückmeldung des Nutzers in seinen Worten. Der Skill zieht seine Schlüsse bei jedem Rezept neu, nachdem er das Gericht gewählt hat, und legt sie in einem Absatz unter dem Rezept offen, damit der Nutzer ihnen widersprechen kann. Was sich wiederholt, wiegt mehr, weil es in mehreren Einträgen steht.
