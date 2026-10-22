@@ -33,12 +33,12 @@ export const AUFBAUTEN = [
   {
     name: 'lachs',
     // Zwei Fragen an einem Rezept: dass die Zielzahl aus dem Auftrag die
-    // unbedingte 600 im Skill schlägt, und dass ein Tipp aus kochtipps.md
-    // ankommt. Nur dieser Aufbau findet die Datei im Arbeitsverzeichnis - die
-    // übrigen belegen damit den leeren Pfad.
+    // unbedingte 600 im Skill schlägt, und dass die Rückmeldung aus
+    // kochnotizen.md ankommt. Nur dieser Aufbau findet die Datei im
+    // Arbeitsverzeichnis - die übrigen belegen damit den leeren Pfad.
     auftrag: '/rezept 450 kcal mit Lachs',
     vorrat: 'vorratskammer.md',
-    kochtipps: true,
+    kochnotizen: true,
     laeufe: 3,
     welle: 2,
   },

@@ -329,6 +329,24 @@ test('hält einen Schritt zusammen, der über zwei Zeilen geht', () => {
   assert.deepEqual(schritte, ['Erst dies, dann das.', 'Fertig.'])
 })
 
+// Unter dem Rezept steht der Absatz „Aus den Kochnotizen:“, oft als Liste. Die
+// Zubereitung endet vor ihm: Seine Zeilen nennen Dauern und Mengen aus alten
+// Rezepten, und als Schritte gelesen verfälschten sie Zeit- und Mengenprüfung.
+test('endet vor dem Absatz unter der Zubereitung, auch wenn er eingerückt weitergeht', () => {
+  const schritte = zubereitung(
+    [
+      '**Zubereitung:**',
+      '1. 125 g Lachsfilet 45 Minuten im Kühlschrank auftauen.',
+      '',
+      'Aus den Kochnotizen:',
+      '  - 2026-10-14, Lachs: „Nach 30 Minuten war der Lachs innen noch gefroren.“',
+      '1. Noch eine nummerierte Zeile im Absatz.',
+    ].join('\n'),
+  )
+
+  assert.deepEqual(schritte, ['125 g Lachsfilet 45 Minuten im Kühlschrank auftauen.'])
+})
+
 // „30 g Naturjoghurt 1,5 %" trägt ein Komma mitten in der Zahl. Es am Komma
 // abzuschneiden macht daraus „Naturjoghurt 1", und das trifft keine
 // Katalogzeile – im Lauf sah das aus wie eine Zutat, die nicht im Vorrat steht.

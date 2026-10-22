@@ -13,6 +13,20 @@ test('erkennt die Proteinquelle eines Rezepts', () => {
   assert.equal(familieAus(mit('Lachsfilet')), 'Fisch')
 })
 
+// Der Absatz „Aus den Kochnotizen:“ nennt Gerichte aus früheren Rezepten. Ihre
+// Proteinquelle ist nicht die des Rezepts darüber.
+test('liest die Proteinquelle nicht aus dem Absatz der Kochnotizen', () => {
+  const rezept = `${mit('Lachsfilet')}\nAus den Kochnotizen:\n- 2026-10-14, Räuchertofu-Pfanne: „Zu salzig.“`
+
+  assert.equal(familieAus(rezept), 'Fisch')
+})
+
+test('liest die Proteinquelle auch nicht aus dem fett gesetzten Absatz', () => {
+  const rezept = `${mit('Lachsfilet')}\n**Aus den Kochnotizen:** 2026-10-14, Räuchertofu-Pfanne: „Zu salzig.“`
+
+  assert.equal(familieAus(rezept), 'Fisch')
+})
+
 test('nimmt eine gestreute Auswahl an', () => {
   const befund = pruefeVielfalt([
     mit('Räuchertofu'),

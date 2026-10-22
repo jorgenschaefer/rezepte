@@ -69,12 +69,12 @@ async function erzeuge(aufbau, nummer) {
 }
 
 // Ins Arbeitsverzeichnis kommt nur, was der Skill liest: der Vorrat, der
-// Katalog, für einen Aufbau die Kochtipps - und der Skill selbst, damit
+// Katalog, für einen Aufbau die Kochnotizen - und der Skill selbst, damit
 // /rezept ihn findet. Was sonst dort läge, läsen die Modelle mit.
 async function baueAuf(ordner, aufbau) {
   await cp(join(hier, aufbau.vorrat), join(ordner, 'vorratskammer.md'))
   await cp(join(projekt, 'zutaten.md'), join(ordner, 'zutaten.md'))
-  if (aufbau.kochtipps) await cp(join(hier, 'kochtipps.md'), join(ordner, 'kochtipps.md'))
+  if (aufbau.kochnotizen) await cp(join(hier, 'kochnotizen.md'), join(ordner, 'kochnotizen.md'))
 
   const ziel = join(ordner, '.claude/skills/rezept')
   await mkdir(dirname(ziel), { recursive: true })

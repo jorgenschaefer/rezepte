@@ -79,8 +79,11 @@ export function ohneGrammangabe(text) {
 }
 
 // Die Schritte der Zubereitung, in ihrer Reihenfolge und ohne ihre Nummer.
-// Ein Schritt endet erst, wo der nächste anfängt: Fortsetzungszeilen gehören
-// dazu, der Nachsatz hinter der Liste nicht.
+// Ein Schritt endet erst, wo der nächste anfängt: eingerückte
+// Fortsetzungszeilen gehören dazu. Die erste Zeile ohne Einrückung und ohne
+// Nummer beendet die Liste; was danach kommt – ein Nachsatz, der Absatz „Aus
+// den Kochnotizen:“ –, ist keine Zubereitung mehr, auch wenn es eingerückt
+// oder nummeriert weitergeht.
 export function zubereitung(text) {
   const anfang = /^[#*\s]*Zubereitung\b/im.exec(text)
   const teil = anfang ? text.slice(anfang.index + anfang[0].length) : text
@@ -92,13 +95,29 @@ export function zubereitung(text) {
       schritte.push(nummer[1].trim())
       continue
     }
-    // Eine Fortsetzung ist eingerückt oder folgt unmittelbar; eine Leerzeile
-    // beendet den Schritt, damit der Nachsatz hinter der Liste draußen bleibt.
-    if (schritte.length > 0 && zeile.trim() !== '' && /^\s/.test(zeile)) {
-      schritte[schritte.length - 1] += ` ${zeile.trim()}`
-    }
+    if (schritte.length === 0 || zeile.trim() === '') continue
+    if (!/^\s/.test(zeile)) break
+    schritte[schritte.length - 1] += ` ${zeile.trim()}`
   }
   return schritte
+}
+
+// Der Absatz unter dem Rezept, in dem der Skill offenlegt, was er aus
+// kochnotizen.md abgeleitet hat. Er beginnt mit „Aus den Kochnotizen:“, auch
+// fett gesetzt, und reicht bis zum Ende der Antwort.
+const KOCHNOTIZEN = /^[*_\s]*Aus den Kochnotizen:/m
+
+// Die Antwort ohne diesen Absatz – das Rezept, wie es ohne Kochnotizen
+// aussähe. Der Absatz nennt Gerichte und Zutaten früherer Rezepte.
+export function ohneKochnotizen(text) {
+  const absatz = KOCHNOTIZEN.exec(text)
+  return absatz ? text.slice(0, absatz.index) : text
+}
+
+// Der Absatz selbst, oder null, wenn die Antwort keinen hat.
+export function kochnotizenAbsatz(text) {
+  const absatz = KOCHNOTIZEN.exec(text)
+  return absatz ? text.slice(absatz.index) : null
 }
 
 // Länger als das ist kein Zutatenname, sondern ein Satz über die Zutat.

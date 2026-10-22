@@ -11,6 +11,8 @@
 // Gewertet werden nur Rezepte, deren Auftrag die Wahl offen lässt. Ein Auftrag
 // mit Lachs oder Soja-Schnetzeln beantwortet die Frage vorweg.
 
+import { ohneKochnotizen } from '../rezept-lesen.mjs'
+
 // Die Familien stammen aus pruefe-zufall.mjs.
 const FAMILIEN = {
   Tofu: ['Räuchertofu', 'Tofu Natur', 'Tofu natur'],
@@ -26,7 +28,7 @@ const MINDESTENS_REZEPTE = 3
 const MINDESTENS_FAMILIEN = 3
 
 export function familieAus(rezeptText) {
-  const text = rezeptText.toLowerCase()
+  const text = ohneKochnotizen(rezeptText).toLowerCase()
   return (
     Object.keys(FAMILIEN).find((name) =>
       FAMILIEN[name].some((quelle) => text.includes(quelle.toLowerCase())),

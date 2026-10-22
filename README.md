@@ -15,7 +15,7 @@ Everything inside the project – the skill, the data, the evals – is in Germa
 | `.claude/skills/rezept/evals/` | The eval suite (see its [README](.claude/skills/rezept/evals/README.md)). |
 | `vorratskammer.md` | The pantry: what's at home, with notes on portions and what must be used up. |
 | `zutaten.md` | Ingredient catalogue: REWE products, short names and nutrition values per 100 g, mostly read off the product labels. |
-| `kochtipps.md` | Cooking tips learned from feedback. The skill reads them and appends to them. |
+| `kochnotizen.md` | Cooking notes: each recipe the skill gave out that got feedback, with the feedback word for word. The skill appends to it and draws its own conclusions from it for each new recipe. |
 | `dge-wochenbilanz.md` | Weekly food-group amounts according to the German Nutrition Society (DGE), with sources. |
 | `rechner/` | A small energy and BMI calculator in the browser. |
 | `check/` | The check command: everything testable without a model. |

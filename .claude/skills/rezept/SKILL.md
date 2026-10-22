@@ -20,13 +20,53 @@ Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem au
 
 Wähle die Proteinquelle zufällig aus dem Vorrat.
 
-Lies `kochtipps.md` und arbeite ein, was zu diesem Gericht passt.
+Lies `kochnotizen.md` erst, wenn ein Entwurf mit Proteinquelle, Art des Gerichts und Zutaten steht, und arbeite ein, was zu diesem Gericht passt – wie, steht unter „Kochnotizen“.
 
-Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Nutze keine Zutaten, die nicht im Vorrat sind."
+Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht, nicht die Kochnotizen und nicht den Absatz „Aus den Kochnotizen:“: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Nutze keine Zutaten, die nicht im Vorrat sind."
 
 Ändert eine Korrektur Mengen oder Zutaten, rechne die Tabelle neu.
 
-Gibt es im Nachgang Feedback zum Rezept, positiv wie negativ, identifiziere eine Änderung, die das Rezept direkt besser gemacht hätte. Füge eine entsprechende Notiz als Spiegelpunkt in `kochtipps.md` ein, damit zukünftige Rezepte direkt besser werden. Die Notiz muss ohne das Rezept verständlich sein: Sie nennt die Regel mit Mengen und begründet sie allgemein, so wie der Leser sie beim nächsten Gericht braucht. Sie verweist nicht auf das Rezept, seinen Namen oder seine Mengen.
+Lehnst du eine Korrektur des Subagenten ab, begründe das nicht allein mit einer Kochnotiz.
+
+# Kochnotizen
+
+`kochnotizen.md` hält Erfahrungen fest, keine Regeln: je Eintrag ein Rezept, so wie du es ausgegeben hast, und was der Nutzer danach dazu gesagt hat. Schlüsse daraus ziehst du bei jedem Rezept neu.
+
+## Einen Eintrag anlegen
+
+Meldet der Nutzer nach einem Rezept zurück, wie das Gericht geworden ist, positiv oder negativ, lege sofort einen Eintrag in `kochnotizen.md` an, ohne zu fragen. Eine Frage zum Rezept („Wo ist das Gemüse?“) ist keine Rückmeldung und erzeugt keinen Eintrag.
+
+Ein Eintrag sieht so aus und steht am Ende der Datei:
+
+```
+## YYYY-MM-DD <Titel des Rezepts>
+
+### Rezept
+
+<das Rezept>
+
+### Rückmeldung
+
+> <die Rückmeldung>
+```
+
+- Das Datum ist der Tag, an dem du das Rezept ausgegeben hast.
+- Unter `### Rezept` steht das vollständige Rezept wörtlich aus dem Gespräch, in der letzten Fassung, die du vor der Rückmeldung ausgegeben hast, mit dem Absatz „Aus den Kochnotizen:“, wenn es einen hatte. Überschriften darin stufst du auf `####` herab.
+- Unter `### Rückmeldung` steht die Rückmeldung wörtlich als Zitat, auch was der Nutzer selbst anders gemacht hat. Bemerkungen nebenher, die nicht das Gericht betreffen, lässt du weg: Die Datei liegt in einem öffentlichen Repository.
+- Sonst nichts: keine vermutete Ursache, keine Regel, keine Empfehlung.
+
+Kommt zum selben Rezept noch eine Rückmeldung, hänge sie im selben Eintrag als eigenes Zitat unter `### Rückmeldung` an. Ist sie von einem anderen Tag als das Rezept, beginnt das Zitat mit ihrem Datum: `> YYYY-MM-DD: <die Rückmeldung>`.
+
+## Die Notizen anwenden
+
+Welche Einträge zum Gericht passen, entscheidest du. Was mehrere Einträge berichten, wiegt mehr als ein einzelner.
+
+- Die Notizen dürfen Mengen und Zubereitung ändern und Zutaten aus dem Vorrat hinzufügen, etwa Essig oder Gewürze. Proteinquelle und Art des Gerichts ändern sie nicht.
+- Ändern sie Mengen oder Zutaten, rechne die Tabelle neu.
+- Hat ein Eintrag selbst einen Absatz „Aus den Kochnotizen:“ und meldet seine Rückmeldung trotzdem dasselbe Problem, hat die damals abgeleitete Änderung nicht gereicht. Leite nicht dieselbe Änderung noch einmal ab, und sag im Absatz, dass sie nicht gereicht hat.
+- Die Notizen sind nicht bindend.
+
+Jeden Eintrag, den du heranziehst, nennst du unter dem Rezept im Absatz „Aus den Kochnotizen:“ (siehe „Format der Antwort“).
 
 # Format der Antwort
 
@@ -48,4 +88,5 @@ Gibt es im Nachgang Feedback zum Rezept, positiv wie negativ, identifiziere eine
   - Kein Schritt verweist auf einen späteren. Der Schritt, der ein Gefäß nach einer Wartezeit wieder aufnimmt, nennt die vergangene Wartezeit und den Schritt, der sie gestartet hat: „Nach den 10 Minuten aus Schritt 7: 200 g Blattspinat einrühren“. Was in der Wartezeit erledigt wird, steht als eigene Schritte dazwischen.
   - Was ein Schritt voraussetzt und was nicht so aus der Packung kommt – heißes Wasser, eingeweichte, ausgedrückte oder geröstete Zutaten –, stellt ein früherer Schritt her.
   - Wo eine Zutat zum ersten Mal in einem Schritt vorkommt, nenne ihre Menge, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“. Danach darf ein Schritt auf sie zurückverweisen – sie liegt dann vor Augen.
-  - Ein Kochtipp aus `kochtipps.md` wird zum Handgriff im Schritt; seine Begründung bleibt in der Datei. Ein Tipp, der keinen Handgriff beschreibt, sondern eine Warnung ist („nicht zu früh salzen“), bestimmt, wo und wie ein Schritt steht, und wird kein eigener Schritt.
+  - Eine Änderung aus den Kochnotizen wird zum Handgriff im Schritt; woher sie kommt, steht im Absatz „Aus den Kochnotizen:“. Eine Änderung, die keinen Handgriff beschreibt, sondern eine Warnung ist („nicht zu früh salzen“), bestimmt, wo und wie ein Schritt steht, und wird kein eigener Schritt.
+- **Aus den Kochnotizen:** Nur wenn du aus den Kochnotizen etwas abgeleitet hast: ein kurzer Absatz unter der Zubereitung, der mit „Aus den Kochnotizen:“ beginnt. Er nennt für jeden herangezogenen Eintrag das Datum aus seiner Überschrift (YYYY-MM-DD), das Gericht und die Rückmeldung und dazu die Änderung, die du daraus abgeleitet hast. Passt keine Notiz, fehlt der Absatz.

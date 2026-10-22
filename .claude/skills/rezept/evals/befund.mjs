@@ -12,7 +12,7 @@ import { pruefeAbbruch } from './pruefer/abbruch.mjs'
 import { pruefeDichte } from './pruefer/dichte.mjs'
 import { pruefeKorridor, pruefeProtein } from './pruefer/energie.mjs'
 import { pruefeFormat } from './pruefer/format.mjs'
-import { pruefeKochtipp } from './pruefer/kochtipp.mjs'
+import { pruefeKochnotiz } from './pruefer/kochnotiz.mjs'
 import { pruefeSchritte } from './pruefer/schritte.mjs'
 import { pruefeTabelle } from './pruefer/tabelle.mjs'
 import { pruefeVielfalt } from './pruefer/vielfalt.mjs'
@@ -61,7 +61,7 @@ export async function werteAus(laeufe) {
 
     const vorrat = vorraete.get(lauf.aufbau.vorrat)
     for (const [name, pruefe] of JEDES_REZEPT) halteFest(name, lauf, pruefe(lauf, vorrat))
-    if (lauf.aufbau.kochtipps) halteFest('kochtipp-kommt-an', lauf, pruefeKochtipp(lauf.antwort))
+    if (lauf.aufbau.kochnotizen) halteFest('kochnotiz-kommt-an', lauf, pruefeKochnotiz(lauf.antwort))
   }
 
   const freie = laeufe.filter((l) => l.aufbau.freieWahl && !l.fehler).map((l) => l.antwort)
@@ -70,7 +70,7 @@ export async function werteAus(laeufe) {
   return kriterien
 }
 
-// Der Prüf-Koch aus SKILL.md Zeile 23 muss starten. Das steht nicht in der
+// Der Prüf-Koch aus SKILL.md muss starten. Das steht nicht in der
 // Antwort, sondern im Verlauf - der Skill soll die Prüfung ja gerade nicht
 // mit ausgeben.
 function pruefeWerkzeug(lauf) {

@@ -8,7 +8,9 @@
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const RULES = []
+import { kochnotizenFormatRule, noKochtippsRule } from './kochnotizen.mjs'
+
+const RULES = [noKochtippsRule, kochnotizenFormatRule]
 
 export function findViolations(rules, root) {
   return rules.flatMap((rule) => rule.check(root).map((violation) => `${rule.name}: ${violation}`))

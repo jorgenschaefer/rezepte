@@ -31,15 +31,17 @@ dazuzulegen kostet Millisekunden, kein Rezept.
 |---|---|---|---|
 | `grundauftrag` | `/rezept 600 kcal` | – | 3 |
 | `ohne-zahl` | `/rezept` | Die fehlende Zahl ist die Lage | 3 |
-| `lachs` | `/rezept 450 kcal mit Lachs` | `kochtipps.md` liegt im Ordner | 3 |
+| `lachs` | `/rezept 450 kcal mit Lachs` | `kochnotizen.md` liegt im Ordner | 3 |
 | `miso` | `/rezept 600 kcal mit Miso-Paste` | Vorrat mit einer Zutat ohne Katalogzeile | 3 |
 
 Die drei Lagen sind nicht einsparbar. Die **fehlende Zahl** lässt sich an
 keinem Auftrag mit Zahl feststellen; sie belegt die Zeile „Das Rezept sollte
 ungefähr 600 kcal erreichen“. Der **Lachs** trägt zwei Fragen an einem Rezept:
-dass die Zahl aus dem Auftrag die unbedingte 600 im Skill schlägt, und dass ein
-Tipp aus `kochtipps.md` ankommt – nur dieser Aufbau findet die Datei im
-Arbeitsverzeichnis, die übrigen belegen damit den leeren Pfad. Die
+dass die Zahl aus dem Auftrag die unbedingte 600 im Skill schlägt, und dass die
+Rückmeldung aus `kochnotizen.md` ankommt – ein Lachsrezept, das den Lachs
+30 Minuten auftauen ließ, und „Nach 30 Minuten war der Lachs innen noch
+gefroren.“ Nur dieser Aufbau findet die Datei im Arbeitsverzeichnis, die
+übrigen belegen damit den leeren Pfad. Die
 **Miso-Paste** liegt im Vorrat und nicht im Katalog; ohne eine solche Zutat gibt
 es nichts abzubrechen. `vorratskammer-miso.md` ist der eingefrorene Vorrat plus
 genau diese eine Zeile.
@@ -75,7 +77,7 @@ Dazu zwei, die eine Lage brauchen, und eines über alle Rezepte zusammen:
 
 | Kriterium | Gilt für |
 |---|---|
-| `kochtipp-kommt-an` | den Lachs-Aufbau |
+| `kochnotiz-kommt-an` | den Lachs-Aufbau: Taut der Lachs länger als 30 Minuten auf, und nennt der Absatz „Aus den Kochnotizen:“ den Eintrag? |
 | `bricht-bei-unbekannter-zutat-ab` | den Miso-Aufbau |
 | `vielfalt-der-proteinquellen` | alle Rezepte, deren Auftrag die Wahl offen lässt |
 
