@@ -73,11 +73,12 @@ Fast alle gelten für jedes erzeugte Rezept:
 | `protein-je-100-kcal` | Mindestens 6 g je 100 kcal? |
 | `pruefer-gestartet` | Ist der Subagent gelaufen? (steht im Verlauf) |
 
-Dazu zwei, die eine Lage brauchen, und eines über alle Rezepte zusammen:
+Dazu drei, die von einer Lage abhängen, und eines über alle Rezepte zusammen:
 
 | Kriterium | Gilt für |
 |---|---|
 | `kochnotiz-kommt-an` | den Lachs-Aufbau: Taut der Lachs länger als 30 Minuten, aber höchstens 3 Stunden auf, und nennt der Absatz „Aus den Kochnotizen:“ den Eintrag? |
+| `kein-absatz-ohne-kochnotizen` | die Aufbauten ohne `kochnotizen.md`, außer Miso: Fehlt der Absatz „Aus den Kochnotizen:“? |
 | `bricht-bei-unbekannter-zutat-ab` | den Miso-Aufbau |
 | `vielfalt-der-proteinquellen` | alle Rezepte, deren Auftrag die Wahl offen lässt |
 

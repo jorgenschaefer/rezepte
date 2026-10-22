@@ -5,7 +5,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 
-import { NOTIZ_DATUM, pruefeKochnotiz } from './kochnotiz.mjs'
+import { NOTIZ_DATUM, pruefeKeinAbsatz, pruefeKochnotiz } from './kochnotiz.mjs'
 
 const rezept = (schritt, absatz = ABSATZ) => `**Zubereitung:**\n\n1. ${schritt}\n2. Den Lachs braten.\n\n${absatz}`
 
@@ -136,3 +136,15 @@ test('passt zum Eintrag in evals/kochnotizen.md', () => {
   assert.match(notizen, /^> Nach 30 Minuten war der Lachs innen noch gefroren\.$/m)
 })
 
+// Ohne kochnotizen.md gibt es nichts abzuleiten, also auch keinen Absatz.
+test('meldet einen Absatz, wo es keine Kochnotizen gibt', () => {
+  const befund = pruefeKeinAbsatz(rezept('125 g Lachsfilet 45 Minuten im Kühlschrank auftauen lassen.'))
+
+  assert.equal(befund.urteil, 'rot')
+})
+
+test('nimmt ein Rezept ohne Absatz an, wo es keine Kochnotizen gibt', () => {
+  const befund = pruefeKeinAbsatz(rezept('125 g Lachsfilet 45 Minuten im Kühlschrank auftauen lassen.', ''))
+
+  assert.equal(befund.urteil, 'gruen')
+})

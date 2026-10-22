@@ -47,6 +47,13 @@ export function pruefeKochnotiz(rezeptText) {
   return { urteil: 'gruen' }
 }
 
+// Für einen Aufbau ohne kochnotizen.md: Passt keine Notiz, fehlt der Absatz
+// „Aus den Kochnotizen:“.
+export function pruefeKeinAbsatz(rezeptText) {
+  if (kochnotizenAbsatz(rezeptText) === null) return { urteil: 'gruen' }
+  return { urteil: 'rot', grund: 'Ohne Kochnotizen steht trotzdem ein Absatz „Aus den Kochnotizen:“ unter dem Rezept' }
+}
+
 // Eine Nacht ist hier nur „länger als die 3 Stunden, die ein Rezept, das man
 // jetzt kocht, höchstens warten lässt“.
 const NACHT_MINUTEN = 8 * 60

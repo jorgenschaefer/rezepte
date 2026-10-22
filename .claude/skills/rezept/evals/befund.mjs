@@ -1,9 +1,10 @@
 // Hält die Prüfer gegen die erzeugten Rezepte und fasst zusammen.
 //
 // Ein Kriterium trägt seine Reichweite: Die meisten gelten für jedes Rezept,
-// eines nur für den Aufbau, der eine Lage herstellt, und eines für die Rezepte
-// eines Laufs zusammen. Die Zahl der Kriterien bestimmt die Zahl der
-// Erzeugungen nicht - deshalb kostet ein Kriterium mehr keine Zeit.
+// einige nur für die Aufbauten, die eine Lage herstellen, oder - beim Absatz
+// „Aus den Kochnotizen:“ - für die mit und die ohne kochnotizen.md, und eines
+// für die Rezepte eines Laufs zusammen. Die Zahl der Kriterien bestimmt die
+// Zahl der Erzeugungen nicht - deshalb kostet ein Kriterium mehr keine Zeit.
 import { readFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -12,7 +13,7 @@ import { pruefeAbbruch } from './pruefer/abbruch.mjs'
 import { pruefeDichte } from './pruefer/dichte.mjs'
 import { pruefeKorridor, pruefeProtein } from './pruefer/energie.mjs'
 import { pruefeFormat } from './pruefer/format.mjs'
-import { pruefeKochnotiz } from './pruefer/kochnotiz.mjs'
+import { pruefeKeinAbsatz, pruefeKochnotiz } from './pruefer/kochnotiz.mjs'
 import { pruefeSchritte } from './pruefer/schritte.mjs'
 import { pruefeTabelle } from './pruefer/tabelle.mjs'
 import { pruefeVielfalt } from './pruefer/vielfalt.mjs'
@@ -62,6 +63,7 @@ export async function werteAus(laeufe) {
     const vorrat = vorraete.get(lauf.aufbau.vorrat)
     for (const [name, pruefe] of JEDES_REZEPT) halteFest(name, lauf, pruefe(lauf, vorrat))
     if (lauf.aufbau.kochnotizen) halteFest('kochnotiz-kommt-an', lauf, pruefeKochnotiz(lauf.antwort))
+    else halteFest('kein-absatz-ohne-kochnotizen', lauf, pruefeKeinAbsatz(lauf.antwort))
   }
 
   const freie = laeufe.filter((l) => l.aufbau.freieWahl && !l.fehler).map((l) => l.antwort)
