@@ -1,8 +1,6 @@
 # Check-Befehl
 
-Check: `./check/check.sh`
-
-Prüft ohne Modell: Vorrat gegen Katalog, alle Unit-Tests, den strukturellen Check. Die Suite mit Modellläufen bleibt bei `./test.sh`.
+Check: `node --test .claude/skills/rezept/scripts/naehrwerte.test.mjs rechner/calculator.test.js`
 
 # REWE Online als Nährwertquelle
 

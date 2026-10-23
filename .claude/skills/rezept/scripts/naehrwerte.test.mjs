@@ -316,9 +316,7 @@ function runde(zahl, stellen = 0) {
   return Number(zahl.toFixed(stellen))
 }
 
-// Die drei Fallen aus evals/rezept-lesen.mjs. Jede stammt aus einem echten
-// Lauf; bis hierher waren sie nur im Auswerteskript abgewehrt, nicht in dem
-// Skript, das der Skill selbst aufruft.
+// Drei Fallen, jede aus einem echten Lauf.
 
 test('Wasser findet nicht die Wassermelone', () => {
   assert.throws(() => findeZutat(katalog, 'Wasser'), /keine Zutat/)
@@ -375,9 +373,9 @@ test('Singular und Plural finden dieselbe Zeile', () => {
   assert.equal(findeZutat(katalog, 'Möhre').zutat, 'REWE Bio Möhren 1kg')
 })
 
-// Die Zuordnung Vorrat -> Katalog, modellfrei. Geprüft wird gegen die
-// eingefrorene Kopie unter evals/, nicht gegen den echten Vorrat: Was heute im
-// Kühlschrank liegt, darf keinen Test rot machen.
+// Die Zuordnung Vorrat -> Katalog, modellfrei. Geprüft wird gegen eine feste
+// Liste, nicht gegen den echten Vorrat: Was heute im Kühlschrank liegt, darf
+// diesen Test nicht rot machen.
 const VORRAT_ZU_KATALOG = new Map([
   ['Eier', 'REWE Beste Wahl Respeggt Eier Freilandhaltung 10 Stück'],
   ['Räuchertofu', 'REWE Bio pflanzlich Räucher-Tofu 2x175g'],
@@ -498,12 +496,12 @@ const OHNE_KATALOGZEILE = new Set([
 ])
 
 test('jede Zeile aus vorratskammer.md findet genau eine Katalogzeile', () => {
-  const vorrat = readFileSync(new URL('../evals/vorratskammer.md', import.meta.url), 'utf8')
+  const vorrat = readFileSync(new URL('../../../../vorratskammer.md', import.meta.url), 'utf8')
     .split('\n')
     .filter((z) => z.startsWith('- '))
     .map((z) => vorratsname(z.slice(2)))
 
-  assert.ok(vorrat.length > 80, 'der eingefrorene Vorrat wurde nicht gelesen')
+  assert.ok(vorrat.length > 80, 'der Vorrat wurde nicht gelesen')
 
   const offen = []
   for (const name of vorrat) {
