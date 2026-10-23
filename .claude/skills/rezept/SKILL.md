@@ -6,71 +6,39 @@ disable-model-invocation: true
 
 Erstelle ein Rezept.
 
-Das Rezept sollte ungefähr 600 kcal erreichen.
+# Vorgaben und Richtwerte
 
-Das Rezept sollte mindestens 6 g Protein je 100 kcal erreichen – bei 600 kcal also 36 g.
+Vorrang vor den Richtwerten haben, in dieser Reihenfolge:
 
-Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
+1. Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
+2. Das Gericht stimmt kulinarisch und schmeckt.
+3. Eta 600 kcal, wenn der Benutzer nichts anderes sagt.
+
+Erst danach kommen die folgenden Richtwerte. Versuche, sie zu erreichen, die oberen vor den unteren. Lässt sich ein Richtwert nur erreichen, wenn dafür etwas Vorrangiges oder ein Richtwert weiter oben nachgeben muss, lass ihn aus.
+
+1. Salz höchstens 2,5 g.
+2. Protein 20–25 % der Energie.
+3. Fett etwa 30 % der Energie, davon gesättigte Fettsäuren unter 10 %.
+4. Mindestens 2 Portionen (je 110 g) Obst und Gemüse.
+5. Ballaststoffe mindestens 10 g.
+
+Verfehlt das Rezept einen Richtwert, nenne ihn unter dem Rezept in einem Satz und sag, was dagegen stand.
+
+# Nährwerte
 
 Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
 Rechne die Nährwerttabelle mit `scripts/naehrwerte.mjs` aus den Zutatenmengen. Der Pfad gilt relativ zum Ordner dieses Skills, nicht zum Projektordner: `node .claude/skills/rezept/scripts/naehrwerte.mjs`, die Zutaten als Zeilen „Zutat | Gramm" auf stdin.
 
-Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem auch `vorratskammer.md` sie führt. Aufgelöst wird wörtlich: Findet `zutaten.md` eine Zutat nicht, brich ab und gib die Zutat aus, die du nicht zuordnen konntest.
+# Adervsarial Review
 
-Wähle die Proteinquelle zufällig aus dem Vorrat.
+Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Nutze keine Zutaten, die nicht im Vorrat sind."
 
-Lies `kochnotizen.md` erst, wenn ein Entwurf mit Proteinquelle, Art des Gerichts und Zutaten steht, und arbeite ein, was zu diesem Gericht passt – wie, steht unter „Kochnotizen“.
-
-Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht, nicht die Kochnotizen und nicht den Absatz „Aus den Kochnotizen:“: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Nutze keine Zutaten, die nicht im Vorrat sind."
-
-Ändert eine Korrektur Mengen oder Zutaten, rechne die Tabelle neu.
-
-Lehnst du eine Korrektur des Subagenten ab, begründe das nicht allein mit einer Kochnotiz.
-
-Nimmt eine Korrektur, die du übernimmst, oder eine spätere Fassung im Gespräch eine Änderung aus den Kochnotizen zurück oder ersetzt sie, passe den Absatz „Aus den Kochnotizen:“ an: Er nennt nur Änderungen, die in der Fassung stehen, die du ausgibst.
-
-# Kochnotizen
-
-`kochnotizen.md` hält Erfahrungen fest, keine Regeln: je Eintrag ein Rezept, so wie du es ausgegeben hast, und was der Nutzer danach dazu gesagt hat. Schlüsse daraus ziehst du bei jedem Rezept neu.
-
-## Einen Eintrag anlegen
-
-Meldet der Nutzer nach einem Rezept zurück, wie das Gericht geworden ist, positiv oder negativ, lege sofort einen Eintrag in `kochnotizen.md` an, ohne zu fragen. Eine Frage zum Rezept („Wo ist das Gemüse?“) ist keine Rückmeldung und erzeugt keinen Eintrag.
-
-Ein Eintrag sieht so aus und steht am Ende der Datei:
-
-```
-## YYYY-MM-DD <Titel des Rezepts>
-
-### Rezept
-
-<das Rezept>
-
-### Rückmeldung
-
-> <die Rückmeldung>
-```
-
-- Das Datum ist der Tag, an dem du das Rezept ausgegeben hast.
-- Unter `### Rezept` steht das vollständige Rezept wörtlich aus dem Gespräch, in der letzten Fassung, die du vor der Rückmeldung ausgegeben hast, mit dem Absatz „Aus den Kochnotizen:“, wenn es einen hatte. Das Rezept sind die Teile aus „Format der Antwort“, vom Titel bis zur Zubereitung und zu diesem Absatz; was du sonst dazu geschrieben hast, etwa Anmerkungen oder warum du eine Korrektur übernommen hast, gehört nicht dazu. Überschriften darin stufst du auf `####` herab.
-- Unter `### Rückmeldung` steht die Rückmeldung wörtlich als Zitat, auch was der Nutzer selbst anders gemacht hat. Bemerkungen nebenher, die nicht das Gericht betreffen, lässt du weg: Die Datei liegt in einem öffentlichen Repository.
-- Sonst nichts: keine vermutete Ursache, keine Regel, keine Empfehlung.
-
-Kommt zum selben Rezept noch eine Rückmeldung, hänge sie im selben Eintrag als eigenes Zitat unter `### Rückmeldung` an. Ist sie von einem anderen Tag als das Rezept, beginnt das Zitat mit ihrem Datum: `> YYYY-MM-DD: <die Rückmeldung>`.
-
-## Die Notizen anwenden
-
-Welche Einträge zum Gericht passen, entscheidest du. Was mehrere Einträge berichten, wiegt mehr als ein einzelner.
-
-- Die Notizen dürfen Mengen und Zubereitung ändern und Zutaten aus dem Vorrat hinzufügen, etwa Essig oder Gewürze. Proteinquelle und Art des Gerichts ändern sie nicht.
-- Ändern sie Mengen oder Zutaten, rechne die Tabelle neu.
-- Hat ein Eintrag selbst einen Absatz „Aus den Kochnotizen:“ und meldet seine Rückmeldung trotzdem dasselbe Problem, hat die damals abgeleitete Änderung nicht gereicht. Leite nicht dieselbe Änderung noch einmal ab, und sag im Absatz, dass sie nicht gereicht hat.
-- Die Notizen sind nicht bindend.
-
-Jeden Eintrag, den du heranziehst, nennst du unter dem Rezept im Absatz „Aus den Kochnotizen:“ (siehe „Format der Antwort“).
+Ändert eine Korrektur Mengen oder Zutaten, rechne die Nährwert-Tabelle neu.
 
 # Format der Antwort
+
+Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem auch `vorratskammer.md` sie führt. Aufgelöst wird wörtlich: Findet `zutaten.md` eine Zutat nicht, brich ab und gib die Zutat aus, die du nicht zuordnen konntest.
 
 - **Titel:** Ein griffiger Name
 - **Portionen:** Anzahl (Standard: 1).
@@ -78,8 +46,9 @@ Jeden Eintrag, den du heranziehst, nennst du unter dem Rezept im Absatz „Aus d
 - **Kochgeschirr:**
   - Was davon gleichzeitig läuft (z. B. „1 Topf und 1 Pfanne, parallel“).
 - **Nährwerte pro Portion:**
-  - Eine Tabelle mit zwei Spalten – Nährwert und Portion.
+  - Eine Tabelle mit drei Spalten – Nährwert, Portion und Anteil.
   - Die Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse.
+  - Die Spalte Anteil ist nur bei Fett, gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffen und Protein gefüllt. Dort mit dem Prozentsatz an den Gesamtkalorien.
 - **Zutatenliste:**
   - Mengen in Gramm oder haushaltsüblichen Maßen.
   - Zu jeder Zutat der Zustand, in dem sie verarbeitet wird (z. B. „60 g Karotte, in dünnen Scheiben“).
@@ -90,5 +59,3 @@ Jeden Eintrag, den du heranziehst, nennst du unter dem Rezept im Absatz „Aus d
   - Kein Schritt verweist auf einen späteren. Der Schritt, der ein Gefäß nach einer Wartezeit wieder aufnimmt, nennt die vergangene Wartezeit und den Schritt, der sie gestartet hat: „Nach den 10 Minuten aus Schritt 7: 200 g Blattspinat einrühren“. Was in der Wartezeit erledigt wird, steht als eigene Schritte dazwischen.
   - Was ein Schritt voraussetzt und was nicht so aus der Packung kommt – heißes Wasser, eingeweichte, ausgedrückte oder geröstete Zutaten –, stellt ein früherer Schritt her.
   - Wo eine Zutat zum ersten Mal in einem Schritt vorkommt, nenne ihre Menge, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“. Danach darf ein Schritt auf sie zurückverweisen – sie liegt dann vor Augen.
-  - Eine Änderung aus den Kochnotizen wird zum Handgriff im Schritt; woher sie kommt, steht im Absatz „Aus den Kochnotizen:“. Eine Änderung, die keinen Handgriff beschreibt, sondern eine Warnung ist („nicht zu früh salzen“), bestimmt, wo und wie ein Schritt steht, und wird kein eigener Schritt.
-- **Aus den Kochnotizen:** Nur wenn du aus den Kochnotizen etwas abgeleitet hast: ein kurzer Absatz unter der Zubereitung, der mit „Aus den Kochnotizen:“ beginnt. Er nennt für jeden herangezogenen Eintrag das Datum aus seiner Überschrift (YYYY-MM-DD), das Gericht und die Rückmeldung und dazu die Änderung, die du daraus abgeleitet hast. Passt keine Notiz, fehlt der Absatz.
