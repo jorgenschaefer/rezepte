@@ -1,24 +1,21 @@
 # rezepte
 
 A toy project for playing with [Claude Code](https://claude.com/claude-code)
-skills and evals. The skill, `rezept`, writes a single recipe to cook right now
-from what is in my pantry, with a nutrition table computed from label values.
+skills. The skill, `rezept`, writes a single recipe to cook right now from what
+is in my pantry, with a nutrition table computed from label values.
 
-Everything inside the project – the skill, the data, the evals – is in German.
+Everything inside the project – the skill and the data – is in German.
 
 ## What's here
 
 | Path | What it is |
 |---|---|
-| `.claude/skills/rezept/SKILL.md` | The skill: about 600 kcal, at least 6 g protein per 100 kcal, only pantry ingredients, a strict output format, and a subagent that reviews the recipe as a cook before it goes out. |
+| `.claude/skills/rezept/SKILL.md` | The skill: only pantry ingredients, a dish that works, about 600 kcal unless asked otherwise, then nutrition targets (salt, protein, fat, fruit and vegetables, fibre), a strict output format, and a subagent that reviews the recipe as a cook before it goes out. |
 | `.claude/skills/rezept/scripts/naehrwerte.mjs` | Computes the nutrition table from ingredient amounts, so the model doesn't do arithmetic. |
-| `.claude/skills/rezept/evals/` | The eval suite (see its [README](.claude/skills/rezept/evals/README.md)). |
 | `vorratskammer.md` | The pantry: what's at home, with notes on portions and what must be used up. |
 | `zutaten.md` | Ingredient catalogue: REWE products, short names and nutrition values per 100 g, mostly read off the product labels. |
-| `kochnotizen.md` | Cooking notes: each recipe the skill gave out that got feedback, with the feedback word for word. The skill appends to it and draws its own conclusions from it for each new recipe. |
 | `dge-wochenbilanz.md` | Weekly food-group amounts according to the German Nutrition Society (DGE), with sources. |
 | `rechner/` | A small energy and BMI calculator in the browser. |
-| `check/` | The check command: everything testable without a model. |
 
 ## Using the skill
 
@@ -30,29 +27,13 @@ Open Claude Code in this directory and run:
 
 The skill is only invoked explicitly (`disable-model-invocation: true`).
 
-## Checks
+Requires Node.js (developed on 24) for the nutrition script.
+
+## Tests
 
 ```bash
-./check/check.sh
+node --test .claude/skills/rezept/scripts/naehrwerte.test.mjs rechner/calculator.test.js
 ```
-
-Everything that needs no model, in about a second: the pantry against the
-catalogue, all unit tests, and the structural check in `check/structure.mjs`.
-
-## Evals
-
-```bash
-./test.sh
-```
-
-This first runs `./check/check.sh` (no model, no cost), then the suite: four
-setups, twelve generated recipes in two waves of six, each checked by the
-graders in `evals/pruefer/` – format, table against ingredient list, energy
-density, protein, timing, pantry rules and more. The suite drives the `claude`
-CLI, so it needs Claude Code installed and logged in, and it costs real money.
-Results land in `.claude/skills/rezept/evals/results/`.
-
-Requires Node.js (developed on 24).
 
 ## The calculator
 
@@ -62,4 +43,4 @@ ES modules don't load over `file://`, so serve the repository root:
 python3 -m http.server
 ```
 
-and open <http://localhost:8000/rechner/>. Tests: `node --test rechner/calculator.test.js`.
+and open <http://localhost:8000/rechner/>.
