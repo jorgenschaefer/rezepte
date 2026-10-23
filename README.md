@@ -15,7 +15,6 @@ Everything inside the project – the skill and the data – is in German.
 | `vorratskammer.md` | The pantry: what's at home, with notes on portions and what must be used up. |
 | `zutaten.md` | Ingredient catalogue: REWE products, short names and nutrition values per 100 g, mostly read off the product labels. |
 | `dge-wochenbilanz.md` | Weekly food-group amounts according to the German Nutrition Society (DGE), with sources. |
-| `rechner/` | A small energy and BMI calculator in the browser. |
 
 ## Using the skill
 
@@ -32,15 +31,5 @@ Requires Node.js (developed on 24) for the nutrition script.
 ## Tests
 
 ```bash
-node --test .claude/skills/rezept/scripts/naehrwerte.test.mjs rechner/calculator.test.js
+node --test .claude/skills/rezept/scripts/naehrwerte.test.mjs
 ```
-
-## The calculator
-
-ES modules don't load over `file://`, so serve the repository root:
-
-```bash
-python3 -m http.server
-```
-
-and open <http://localhost:8000/rechner/>.
