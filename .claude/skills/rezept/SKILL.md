@@ -6,6 +6,10 @@ disable-model-invocation: true
 
 Erstelle ein Rezept.
 
+# Gericht wählen
+
+Schreib zuerst eine nummerierte Liste von 20 Hauptgerichten für Mittag- oder Abendessen, die sich mit dem Vorrat kochen lassen. Die Gerichte sollen sich deutlich unterscheiden – in Gerichtsart, Küche und Hauptzutat. Zieh dann zufällig eine Zahl und koche das Gericht mit dieser Nummer. Die Richtwerte bestimmen danach nur die Mengen, nicht die Wahl des Gerichts.
+
 # Vorgaben und Richtwerte
 
 Vorrang vor den Richtwerten haben, in dieser Reihenfolge:
