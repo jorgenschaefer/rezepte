@@ -8,7 +8,7 @@ Erstelle ein Rezept.
 
 # Gericht wählen
 
-Schreib zuerst eine nummerierte Liste von 20 Hauptgerichten für Mittag- oder Abendessen, die sich mit dem Vorrat kochen lassen. Die Gerichte sollen sich deutlich unterscheiden – in Gerichtsart, Küche und Hauptzutat. Zieh dann zufällig eine Zahl und koche das Gericht mit dieser Nummer. Die Richtwerte bestimmen danach nur die Mengen, nicht die Wahl des Gerichts.
+Schreib eine nummerierte Liste von 20 Hauptgerichten für Mittag- oder Abendessen, die sich mit dem Vorrat kochen lassen. Die Gerichte sollen sich deutlich unterscheiden – in Gerichtsart, Küche und Hauptzutat. Zieh dann zufällig eine Zahl und koche das Gericht mit dieser Nummer. Die Richtwerte bestimmen danach nur die Mengen, nicht die Wahl des Gerichts.
 
 # Vorgaben und Richtwerte
 
@@ -16,7 +16,7 @@ Vorrang vor den Richtwerten haben, in dieser Reihenfolge:
 
 1. Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
 2. Das Gericht stimmt kulinarisch und schmeckt. Würze so, wie ein guter Koch dieses Gericht würzen würde.
-3. Eta 600 kcal, wenn der Benutzer nichts anderes sagt.
+3. Etwa 600 kcal, wenn der Benutzer nichts anderes sagt.
 
 Erst danach kommen die folgenden Richtwerte. Versuche, sie zu erreichen, die oberen vor den unteren. Lässt sich ein Richtwert nur erreichen, wenn dafür etwas Vorrangiges oder ein Richtwert weiter oben nachgeben muss, lass ihn aus.
 
@@ -34,7 +34,7 @@ Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
 Rechne die Nährwerttabelle mit `scripts/naehrwerte.mjs` aus den Zutatenmengen. Der Pfad gilt relativ zum Ordner dieses Skills, nicht zum Projektordner: `node .claude/skills/rezept/scripts/naehrwerte.mjs`, die Zutaten als Zeilen „Zutat | Gramm" auf stdin.
 
-# Adervsarial Review
+# Adversarial Review
 
 Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Achte insbesondere auf eine gute Würzung, auch mit wenig Salz. Nutze keine Zutaten, die nicht im Vorrat sind."
 
