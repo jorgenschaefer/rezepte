@@ -11,7 +11,7 @@ Erstelle ein Rezept.
 Vorrang vor den Richtwerten haben, in dieser Reihenfolge:
 
 1. Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
-2. Das Gericht stimmt kulinarisch und schmeckt.
+2. Das Gericht stimmt kulinarisch und schmeckt. Würze so, wie ein guter Koch dieses Gericht würzen würde.
 3. Eta 600 kcal, wenn der Benutzer nichts anderes sagt.
 
 Erst danach kommen die folgenden Richtwerte. Versuche, sie zu erreichen, die oberen vor den unteren. Lässt sich ein Richtwert nur erreichen, wenn dafür etwas Vorrangiges oder ein Richtwert weiter oben nachgeben muss, lass ihn aus.
@@ -32,7 +32,7 @@ Rechne die Nährwerttabelle mit `scripts/naehrwerte.mjs` aus den Zutatenmengen. 
 
 # Adervsarial Review
 
-Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Nutze keine Zutaten, die nicht im Vorrat sind."
+Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Achte insbesondere auf eine gute Würzung, auch mit wenig Salz. Nutze keine Zutaten, die nicht im Vorrat sind."
 
 Ändert eine Korrektur Mengen oder Zutaten, rechne die Nährwert-Tabelle neu.
 
@@ -52,3 +52,4 @@ Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem au
   - Mengen in Gramm oder haushaltsüblichen Maßen.
 - **Zubereitung:** Eine nummerierte Liste, in der Reihenfolge, in der gehandelt wird.
   - Wo eine Zutat zum ersten Mal in einem Schritt vorkommt, nenne ihre Menge, genau so wie sie dort in den Topf kommt: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“. Danach darf ein Schritt auf sie zurückverweisen – sie liegt dann vor Augen.
+  - Auch Würzzutaten werden mit der haushaltsüblichen Menge genannt, nicht als „nach Geschmack“.
