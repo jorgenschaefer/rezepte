@@ -1,6 +1,6 @@
 # Zutatenkatalog – REWE-Produkte, Kurzformen, Nährwerte
 
-Dieser Katalog führt genau die Produkte, die in `vorratskammer.md` stehen. Dazu sechs Zeilen ohne Vorratsposten, die der Eval-Fall `zwei-listen-im-ordner` braucht; sie sind in der Hinweisspalte als solche markiert.
+Dieser Katalog führt genau die Produkte, die in `vorratskammer.md` stehen. Dazu fünf Zeilen ohne Vorratsposten, die der Eval-Fall `zwei-listen-im-ordner` braucht; sie sind in der Hinweisspalte als solche markiert.
 
 **Die Kurzform ist der Schlüssel.** Spalte 1 trägt den REWE-Produktnamen, Spalte 2 die Kurzform – den Namen, unter dem `vorratskammer.md` das Produkt führt und ein Rezept es nennt. Folgen weitere Namen durch Semikolon, sind das Zweitnamen: Ein Rezept darf sie verwenden, `vorratskammer.md` nicht, dort steht immer die Kurzform. Aufgelöst wird **wörtlich** – `scripts/naehrwerte.mjs` schlägt nach und schließt nichts. Was nicht wörtlich als Produktname, Kurzform oder Zweitname dasteht, bricht ab, statt auf der ähnlichsten Zeile zu landen.
 
@@ -56,7 +56,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | REWE Bio Gurke 1 Stück | Salatgurke; Gurke | 1 Stück ca. 400 g | 12 | 0,6 g | 0,5 g | 2 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte |
 | Aubergine | Aubergine | 1 Stück ca. 300 g | 20 | 1 g | 3 g | 2 g | 0,2 g | 0 | 0 | ja | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier |
-| Champignons | Champignons | 250 g; 400 g (weiß) | 20 | 3 g | 2 g | 0,6 g | 0,3 g | 0 | 0 | ja | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier; 3–5 Tage |
+| Champignons | Champignons | 250 g; 400 g (weiß) | 20 | 3 g | 2 g | 0,6 g | 0,3 g | 0 | 0 | ja | Katalog | 3–5 Tage; REWE nennt für Frischware keine Werte (Produktseiten geprüft 27.10.2026) |
 | REWE Bio Möhren 1kg | Möhren; Karotte; Karotten; Möhre | 1 kg; Snackmöhren 250 g | 35 | 1 g | 3 g | 6,5 g | 0,2 g | 0 | 0,1 g | ja | Katalog | Möhre ca. 80 g; REWE nennt für Frischware keine Werte |
 | REWE Bio Zwiebeln rot 500g | Rote Zwiebeln; Rote Zwiebel | 500 g im Netz | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte |
 | Rispentomaten 500g | Tomaten; Tomate | 500 g; Stück ca. 100 g | 18 | 1 g | 1,2 g | 2,6 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte |
