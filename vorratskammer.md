@@ -2,6 +2,15 @@
 
 Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
+## Mustgo
+
+Frisch und zu verbrauchen.
+
+- Zucchini
+- Champignons
+- Tomaten
+- Cherrytomaten
+
 ## Kühlschrank
 
 ### Tür
