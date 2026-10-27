@@ -59,6 +59,9 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | Champignons | Champignons | 250 g; 400 g (weiß) | 20 | 3 g | 2 g | 0,6 g | 0,3 g | 0 | 0 | ja | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier; 3–5 Tage |
 | REWE Bio Möhren 1kg | Möhren; Karotte; Karotten; Möhre | 1 kg; Snackmöhren 250 g | 35 | 1 g | 3 g | 6,5 g | 0,2 g | 0 | 0,1 g | ja | Katalog | Möhre ca. 80 g; REWE nennt für Frischware keine Werte |
 | REWE Bio Zwiebeln rot 500g | Rote Zwiebeln; Rote Zwiebel | 500 g im Netz | 30 | 1,2 g | 1,8 g | 5 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte |
+| Rispentomaten 500g | Tomaten; Tomate | 500 g; Stück ca. 100 g | 18 | 1 g | 1,2 g | 2,6 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte |
+| Cherry Romatomaten 250g | Cherrytomaten | 250 g (auch REWE Bio) | 22 | 0,9 g | 1,4 g | 3,5 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte (Produktseiten geprüft 27.10.2026) |
+| Zucchini grün ca. 350g | Zucchini | Stück ca. 350 g; REWE Bio 500 g | 19 | 1,6 g | 1,1 g | 2 g | 0,4 g | 0,1 g | 0 | ja | Katalog | REWE nennt für Frischware keine Werte (Produktseiten geprüft 27.10.2026) |
 | Knoblauch 200g im Netz | Knoblauch; Knoblauchzehe | 100–200 g im Netz | – | – | – | – | – | – | – | – | Katalog | Würzmenge |
 
 ## Gemüse, tiefgekühlt
