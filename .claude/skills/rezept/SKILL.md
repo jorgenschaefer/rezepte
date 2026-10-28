@@ -36,7 +36,7 @@ Rechne die Nährwerttabelle mit `scripts/naehrwerte.mjs` aus den Zutatenmengen. 
 
 # Adversarial Review
 
-Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen, der nur Zutatenliste, Zubereitung und `vorratskammer.md` sieht: „Du bist Koch. Nenne höchstens fünf kulinarische Fehler mit Korrektur. Achte insbesondere auf eine gute Würzung, auch mit wenig Salz. Nutze keine Zutaten, die nicht im Vorrat sind."
+Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen. Sein Auftrag steht in `REVIEW.md` in diesem Ordner. Gib ihm den Text dieser Datei, die Zutatenliste, die Zubereitung und den Pfad zu `vorratskammer.md`. Nährwerte und Richtwerte bekommt er nicht.
 
 Ändert eine Korrektur Mengen oder Zutaten, rechne die Nährwert-Tabelle neu.
 
