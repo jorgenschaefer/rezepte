@@ -183,8 +183,8 @@ function baueZeile(kopf, zellen) {
     zutat: zellen[0],
     kurzform,
     rewePackung: hole('REWE-Packung') ?? '',
-    // Die Hinweisspalte trägt die Haushaltsgrößen einer Zutat: „Portion 50–60 g",
-    // „Portion 125 g", „zwei Eier sind 104 g". Sie ist Prosa, aber die Zahlen
+    // Die Hinweisspalte trägt die Haushaltsgrößen einer Zutat: „Scheibe 50 g",
+    // „1 EL = 10 g", „zwei Eier sind 104 g". Sie ist Prosa, aber die Zahlen
     // darin sind die, mit denen eine Küche umgeht.
     hinweis: hole('Einheit / Hinweis') ?? '',
     namen: [zellen[0], ...kurzform.split(';')]
