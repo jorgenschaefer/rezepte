@@ -8,11 +8,23 @@ Koch wie ein guter Koch ein Gericht mit dem Kalorienziel: 600 kcal je Portion, w
 
 # Ablauf
 
-1. **Kandidaten:** Schreib 20 nummerierte Hauptgerichte, die sich mit dem Vorrat kochen lassen. Jedes ist ein ganzer Teller, zum Beispiel „Mercimek mit Roggenvollkornbrot und Hirtensalat“. Sie unterscheiden sich deutlich in Gerichtsart, Küche und Hauptzutat. Etwa die Hälfte hat Hülsenfrüchte als Eiweiß, zwei bis drei haben Fisch; schreib sie gemischt auf. Jedes muss beim Kalorienziel aufgehen. Was es nur als ganze Portion gibt, nimmt seinen Teil der Energie: Ein Lachsfilet hat 305 kcal, bei 400 kcal bleibt daneben kaum etwas.
-2. **Losen:** Zieh eine Zufallszahl mit `shuf -i 1-20 -n 1` und koch dieses Gericht.
-3. **Planen:** Plane den Teller von der Energie her: erst feste Portionen und Eiweiß, dann Stärke und Öl, mit dem Rest Gemüse. Rechne den Plan mit dem Skript und ändere die Mengen, bis die Energie passt.
-4. **Schreiben:** Schreib das Rezept und rechne es einmal nach.
-5. **Review:** Lass das Rezept von einem Subagenten prüfen. Gib ihm den Text von `REVIEW.md` aus diesem Ordner, die Zutatenliste, die Zubereitung und den Pfad zu `vorratskammer.md`, aber keine Nährwerte. Ändert er Mengen, rechne neu.
+1. **Kandidaten:**
+  - Schreib 20 nummerierte Hauptgerichte, die sich mit dem Vorrat kochen lassen.
+  - Jedes ist ein ganzer Teller, zum Beispiel „Mercimek mit Roggenvollkornbrot und Hirtensalat“.
+  - Sie unterscheiden sich deutlich in Gerichtsart, Küche und Hauptzutat.
+  - Etwa die Hälfte hat Hülsenfrüchte als Eiweiß, zwei bis drei haben Fisch; schreib sie gemischt auf.
+  - Jedes muss beim Kalorienziel aufgehen. Was es nur als ganze Portion gibt, nimmt seinen Teil der Energie: Ein Lachsfilet hat 305 kcal, bei 400 kcal bleibt daneben kaum etwas.
+2. **Losen:**
+  - Zieh eine Zufallszahl mit `shuf -i 1-20 -n 1` und koch dieses Gericht.
+3. **Planen:**
+  - Plane den Teller von der Energie her: erst feste Portionen und Eiweiß, dann Stärke und Öl, mit dem Rest Gemüse.
+  - Rechne den Plan mit dem Skript und ändere die Mengen, bis die Energie passt.
+4. **Schreiben:**
+  - Schreib das Rezept und rechne es einmal nach.
+5. **Review:**
+  - Lass das Rezept von einem Subagenten prüfen.
+  - Gib ihm den Text von `REVIEW.md` aus diesem Ordner, die Zutatenliste, die Zubereitung und den Pfad zu `vorratskammer.md`, aber keine Nährwerte.
+  - Ändert er Mengen, rechne neu.
 
 # Skript
 
