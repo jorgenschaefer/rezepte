@@ -4,14 +4,17 @@ export const meta = {
   whenToUse: 'Nur aus dem Skill /rezept-vergleich heraus, der die Argumente vorbereitet.',
   phases: [
     { title: 'Kochen', detail: 'ein Subagent je Lauf' },
+    { title: 'Review', detail: 'nur mit review: true – ein Prüfer und, wenn er Fehler findet, ein Koch, der sie übernimmt' },
     { title: 'Bewerten', detail: 'drei Bewerter, jeder in anderer Reihenfolge' },
   ],
 }
 
 // args.schritt === 'kochen':
 //   { ordner, staende: [{ name, pfad }], laeufe: 10, kcal: [600, 400], review: false }
-//   Mit review: true führt jeder Koch auch das Review des Skills aus. Das
-//   kostet einen Subagenten mehr je Lauf.
+//   Mit review: true läuft das Review des Skills als eigene Stufe: Workflow-
+//   Agenten können keine Subagenten starten. Ein Prüfer liest nur Zutatenliste
+//   und Zubereitung mit dem REVIEW.md seines Stands, ein Koch übernimmt die
+//   Korrekturen und rechnet neu. Das kostet bis zu zwei Agenten mehr je Lauf.
 // args.schritt === 'bewerten':
 //   { ordner, anzahl, vorrat, kcal: [600, 400], bewerter: 3 }
 
@@ -19,14 +22,14 @@ const STANDARD_KCAL = 600
 
 function kochPrompt(stand, i, nr, kcal, ordner, review) {
   const aufruf = kcal === STANDARD_KCAL ? '`/rezept`' : `\`/rezept mit ${kcal} kcal\``
-  const datei = `${ordner}/laeufe/${i}-${String(nr).padStart(2, '0')}-${kcal}.md`
+  const datei = laufDatei(ordner, i, nr, kcal)
   return `Führe einen Rezept-Skill aus, als hätte der Benutzer ${aufruf} aufgerufen.
 
 Projektordner: ${stand.pfad}
 Lies \`.claude/skills/rezept/SKILL.md\` in diesem Ordner und folge ihm genau – nicht mehr und nicht weniger, als dort steht. Alle Dateien, die der Skill nennt, liegen in diesem Ordner. Lies und benutze keine Dateien außerhalb dieses Ordners. Ändere im Projektordner keine Dateien. Skriptaufrufe, falls der Skill welche verlangt: \`cd <Projektordner> && node .claude/skills/rezept/scripts/naehrwerte.mjs …\`.
 
 Abweichungen vom Skill:
-${review ? '1. Verlangt der Skill ein Review durch einen Subagenten, führ es genau so aus, wie der Skill es sagt, mit dem Agent-Tool. Kannst du keinen Subagenten starten, schreib das in Abschnitt E und mach ohne Review weiter.' : '1. Verlangt der Skill ein Review durch einen Subagenten, überspring es. Starte keinen Subagenten.'}
+${review ? `1. Verlangt der Skill ein Review durch einen Subagenten, führ es nicht selbst aus; das übernimmt danach ein eigener Prüfer. Schreib stattdessen zusätzlich die Datei ${reviewDatei(datei)} mit nur der Zutatenliste und der Zubereitung aus Abschnitt C, ohne Nährwerte.` : '1. Verlangt der Skill ein Review durch einen Subagenten, überspring es. Starte keinen Subagenten.'}
 2. Verlangt der Skill eine zufällige Wahl, nimm dafür die Ausgabe von \`shuf -i 1-20 -n 1\`.
 
 Schreib das Ergebnis mit dem Write-Tool in die Datei ${datei}, mit genau diesen Abschnitten:
@@ -44,9 +47,50 @@ das fertige Rezept genau so, wie du es dem Benutzer ausgeben würdest, mit einer
 Erst nachdem das Rezept fertig ist, und ohne es zu ändern: jede Zutat des Rezepts als Zeile „Kurzform | Gramm“ für die Gesamtmenge des Rezepts. Nimm als Kurzform den Namen, unter dem \`vorratskammer.md\` die Zutat führt. Wasser lässt du weg. Darunter eine Zeile „Portionen: N“.
 
 ## E) Anmerkungen
-eine Zeile „Skriptläufe: N“ (0, wenn keiner)${review ? ', eine Zeile „Review-Korrekturen: N“ mit der Zahl der Korrekturen aus dem Review, die du übernommen hast, und darunter je Korrektur ein Satz' : ''}, dann alles, was beim Ausführen auffiel.
+eine Zeile „Skriptläufe: N“ (0, wenn keiner), dann alles, was beim Ausführen auffiel.
 
 Gib danach nur den Dateipfad und den Namen des Gerichts zurück.`
+}
+
+const laufDatei = (ordner, i, nr, kcal) => `${ordner}/laeufe/${i}-${String(nr).padStart(2, '0')}-${kcal}.md`
+const reviewDatei = (datei) => datei.replace(/\.md$/, '.review.md')
+const nachReviewDatei = (datei) => datei.replace('/laeufe/', '/nach-review/')
+
+function pruefPrompt(stand, datei) {
+  return `Lies ${stand.pfad}/.claude/skills/rezept/REVIEW.md. Das ist dein Auftrag, folge ihm.
+
+Das Rezept steht in ${reviewDatei(datei)}. Die Vorratskammer ist ${stand.pfad}/vorratskammer.md. Lies keine anderen Dateien und ändere keine.
+
+Gib die Fehler mit ihren Korrekturen zurück, so wie REVIEW.md es verlangt. Findest du keinen, gib eine leere Liste zurück.`
+}
+
+function uebernahmePrompt(stand, datei, fehler) {
+  const liste = fehler.map((f, k) => `${k + 1}. ${f.fehler} – Korrektur: ${f.korrektur}`).join('\n')
+  return `Du bist der Koch, der das Rezept in ${datei} geschrieben hat, und bist bei Schritt 5 (Review) des Skills ${stand.pfad}/.claude/skills/rezept/SKILL.md. Lies den Skill und die Datei. Alle Dateien, die der Skill nennt, liegen in ${stand.pfad}; lies keine Dateien außerhalb dieses Ordners außer ${datei}.
+
+Der Prüfer hat diese Fehler genannt:
+${liste}
+
+Mach mit dem Review weiter, wie der Skill es sagt: Übernimm die Korrekturen, die du als Koch für richtig hältst. Ändert das Mengen oder Zutaten, rechne mit dem Skript neu: \`cd ${stand.pfad} && node .claude/skills/rezept/scripts/naehrwerte.mjs …\`. Lies vorher, was SKILL.md zu Kalorienziel und Antwortformat sagt.
+
+Schreib danach das Ergebnis mit dem Write-Tool in die neue Datei ${nachReviewDatei(datei)}. ${datei} bleibt unverändert; sie ist die Fassung vor dem Review. A) und B) übernimmst du unverändert. C) ist das Rezept nach dem Review, genau so, wie du es dem Benutzer ausgeben würdest. D) sind die Mengen danach, in derselben Form wie bisher. In E) zählt „Skriptläufe: N“ alle Läufe, auch die vorigen; darunter kommt eine Zeile „Review-Korrekturen: N“ mit der Zahl der übernommenen Korrekturen, je Korrektur ein Satz, dann die bisherigen Anmerkungen.
+
+Gib danach nur den Dateipfad zurück.`
+}
+
+const FEHLER = {
+  type: 'object',
+  properties: {
+    fehler: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: { fehler: { type: 'string' }, korrektur: { type: 'string' } },
+        required: ['fehler', 'korrektur'],
+      },
+    },
+  },
+  required: ['fehler'],
 }
 
 // Jeder Bewerter liest in einer anderen Reihenfolge, damit Ermüdung und
@@ -104,16 +148,44 @@ if (args.schritt === 'kochen') {
       laeufe.push({ stand, i, nr, kcal: args.kcal[(nr - 1) % args.kcal.length] })
     }
   })
-  const ergebnisse = await parallel(
-    laeufe.map((l) => () =>
-      agent(kochPrompt(l.stand, l.i, l.nr, l.kcal, args.ordner, args.review === true), {
-        label: `${l.stand.name} ${l.nr} (${l.kcal} kcal)`,
+  const review = args.review === true
+  const label = (l) => `${l.stand.name} ${l.nr} (${l.kcal} kcal)`
+  // Die erste Stufe bekommt den Lauf selbst, die späteren das Ergebnis der
+  // vorigen und den Lauf als zweites Argument.
+  const stufen = [
+    (x, lauf) => {
+      const l = lauf ?? x
+      return agent(kochPrompt(l.stand, l.i, l.nr, l.kcal, args.ordner, review), {
+        label: label(l),
         phase: 'Kochen',
         schema: ANTWORT,
         agentType: 'general-purpose',
-      }),
-    ),
-  )
+      })
+    },
+  ]
+  if (review) {
+    stufen.push(
+      (gekocht, l) =>
+        gekocht &&
+        agent(pruefPrompt(l.stand, laufDatei(args.ordner, l.i, l.nr, l.kcal)), {
+          label: `Review ${label(l)}`,
+          phase: 'Review',
+          schema: FEHLER,
+          agentType: 'general-purpose',
+        }),
+      (pruefung, l) => {
+        if (!pruefung) return null
+        if (!pruefung.fehler.length) return { datei: laufDatei(args.ordner, l.i, l.nr, l.kcal) }
+        return agent(uebernahmePrompt(l.stand, laufDatei(args.ordner, l.i, l.nr, l.kcal), pruefung.fehler), {
+          label: `Übernahme ${label(l)}`,
+          phase: 'Review',
+          schema: ANTWORT,
+          agentType: 'general-purpose',
+        })
+      },
+    )
+  }
+  const ergebnisse = await pipeline(laeufe, ...stufen)
   const fertig = ergebnisse.filter(Boolean).length
   log(`${fertig} von ${laeufe.length} Läufen fertig`)
   return { fertig, gesamt: laeufe.length }

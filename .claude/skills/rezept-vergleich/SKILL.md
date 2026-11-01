@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 Vergleiche Stände des Skills `/rezept`. Mit jedem Stand kochen Subagenten Rezepte, drei Profiköche bewerten sie blind, ein Skript rechnet sie nach. Ein Vergleich von zwei Ständen kostet etwa 25 Subagenten.
 
-Mit `--review` unter den Argumenten führen die Köche auch das Review des Skills aus. Das misst `REVIEW.md` mit, kostet aber einen Subagenten mehr je Lauf, also etwa 45 statt 25.
+Mit `--review` unter den Argumenten läuft auch das Review des Skills, als eigene Stufe: Ein Prüfer liest Zutatenliste und Zubereitung mit dem `REVIEW.md` seines Stands, ein Koch übernimmt die Korrekturen. Das misst `REVIEW.md` mit und kostet bis zu zwei Subagenten mehr je Lauf, also etwa 45–65 statt 25.
 
 Die Argumente sind die Stände: Git-Refs wie `HEAD`, `HEAD^`, `main` oder ein Commit, und `working-tree` für den Ordner mit den uncommitteten Änderungen. Ohne Argumente: `HEAD working-tree`, wenn es uncommittete Änderungen gibt, sonst `HEAD^ HEAD`. Der erste Stand ist der Ausgangsstand, gegen den die anderen verglichen werden.
 

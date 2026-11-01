@@ -18,6 +18,8 @@
 //   laeufe/<i>-<nn>-<kcal>.md   ein Lauf des Skills, Abschnitte A) bis E)
 //   blind/rezept-<nn>.md    die Rezepte ohne Nährwerte, gemischt
 //   schluessel.json         welches blinde Rezept zu welchem Lauf gehört
+//   nach-review/<i>-<nn>-<kcal>.md   der Lauf nach dem Review, falls der
+//                           Prüfer etwas fand (nur mit --review)
 //   bewertung-<k>.json      die Bewertung von Bewerter k
 import { execFileSync, execSync } from 'node:child_process'
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -194,16 +196,20 @@ function prozent(wert) {
 
 export function baueBericht({ staende, schluessel, laeufe, bewertungen, datum }) {
   const kcalWerte = [...new Set(schluessel.map((s) => s.kcal))].sort((a, b) => b - a)
-  const proRezept = schluessel.map((s) => {
+  const alle = schluessel.map((s) => {
     const urteile = bewertungen.map((b) => b.je.get(s.nr))
     return {
       ...s,
+      review: s.review === true,
       punkte: mittel(urteile.map((u) => u.summe)),
       spanne: Math.max(...urteile.map((u) => u.summe)) - Math.min(...urteile.map((u) => u.summe)),
       kompromiss: urteile.filter((u) => u.kompromiss).length,
-      lauf: laeufe.get(s.datei),
+      lauf: laeufe.get(schluesselName(s)),
     }
   })
+  // Was der Skill am Ende ausgibt: die Fassung nach dem Review, wo es eine gibt.
+  const korrigiert = new Set(alle.filter((r) => r.review).map((r) => r.datei))
+  const proRezept = alle.filter((r) => r.review || !korrigiert.has(r.datei))
   const gruppe = (stand, kcal) =>
     proRezept.filter((r) => r.stand === stand && (kcal === undefined || r.kcal === kcal))
 
@@ -211,7 +217,7 @@ export function baueBericht({ staende, schluessel, laeufe, bewertungen, datum })
   z.push(`# Vergleich: ${staende.map((s) => s.name).join(' gegen ')}`, '')
   z.push(
     `${datum}. ${staende.map((s) => `\`${s.name}\` = ${s.commit}${s.name === WORKING_TREE ? ' mit uncommitteten Änderungen' : ''}`).join(', ')}. ` +
-      `${proRezept.length} Rezepte, je ${bewertungen.length} Bewerter. Ausgangsstand ist \`${staende[0].name}\`.`,
+      `${proRezept.length} Rezepte${korrigiert.size ? `, davon ${korrigiert.size} nach dem Review; ihre Fassungen davor sind mitbewertet` : ''}, je ${bewertungen.length} Bewerter. Ausgangsstand ist \`${staende[0].name}\`.`,
     '',
   )
 
@@ -241,6 +247,8 @@ export function baueBericht({ staende, schluessel, laeufe, bewertungen, datum })
       'Kompromiss-Spuren: Anteil der Rezepte, bei denen die Mehrheit der Bewerter Spuren von Nährwert-Optimierung sah.',
     '',
   )
+
+  if (korrigiert.size) z.push(...wirkungDesReviews(staende, alle, bewertungen.length))
 
   z.push('## Kennzahlen', '')
   z.push(
@@ -277,7 +285,7 @@ export function baueBericht({ staende, schluessel, laeufe, bewertungen, datum })
   for (const s of staende) {
     for (const r of gruppe(s.name).sort((a, b) => b.kcal - a.kcal || b.punkte - a.punkte)) {
       z.push(
-        `| \`${s.name}\` | ${r.kcal} | ${r.lauf.titel || r.datei} | ${zahl(r.punkte)} | ${r.kompromiss} von ${bewertungen.length} |`,
+        `| \`${s.name}\` | ${r.kcal} | ${r.lauf.titel || r.datei}${r.review ? ' (nach Review)' : ''} | ${zahl(r.punkte)} | ${r.kompromiss} von ${bewertungen.length} |`,
       )
     }
   }
@@ -292,6 +300,67 @@ export function baueBericht({ staende, schluessel, laeufe, bewertungen, datum })
   })
 
   return z.join('\n')
+}
+
+function schluesselName(s) {
+  return s.review ? `nach-review/${s.datei}` : s.datei
+}
+
+// Gepaart: Unterschied je Lauf, dann Mittel und Bereich dieser Unterschiede.
+export function gepaart(differenzen) {
+  const d = mittel(differenzen)
+  const bereich = differenzen.length > 1 ? 1.96 * Math.sqrt(varianz(differenzen) / differenzen.length) : 0
+  return { d, bereich, zufall: Math.abs(d) <= bereich }
+}
+
+function mitBereich(u) {
+  return `${u.d >= 0 ? '+' : ''}${zahl(u.d)} ± ${zahl(u.bereich)}${u.zufall ? ' (kann Zufall sein)' : ''}`
+}
+
+// Vergleicht jeden Lauf vor und nach dem Review. Läufe, bei denen der Prüfer
+// nichts fand, zählen mit einem Unterschied von null: Sie zeigen, was das
+// Review im Mittel über alle Läufe bringt.
+function wirkungDesReviews(staende, alle, anzahlBewerter) {
+  const vorher = new Map(alle.filter((r) => !r.review).map((r) => [r.datei, r]))
+  const nachher = new Map(alle.filter((r) => r.review).map((r) => [r.datei, r]))
+  const z = ['## Wirkung des Reviews', '']
+  z.push(
+    'Jeder Lauf vor und nach dem Review, beide blind bewertet. Punkte je korrigiertem Lauf: wie sich ein Rezept ändert, wenn der Prüfer etwas findet. ' +
+      'Je Lauf: dasselbe über alle Läufe, unveränderte zählen mit null. Kennzahlen nur für die korrigierten Läufe, vorher → nachher.',
+    '',
+  )
+  z.push(
+    '| Stand | korrigiert | Punkte je korrigiertem Lauf | Punkte je Lauf | Salz | Fett | Energie verfehlt | Kompromiss-Spuren |',
+    '|---|---|---|---|---|---|---|---|',
+  )
+  const jeLauf = new Map()
+  for (const s of staende) {
+    const laeufe = [...vorher.values()].filter((r) => r.stand === s.name)
+    if (!laeufe.length) continue
+    const paare = laeufe.filter((r) => nachher.has(r.datei)).map((r) => [r, nachher.get(r.datei)])
+    const diffs = paare.map(([a, b]) => b.punkte - a.punkte)
+    jeLauf.set(s.name, laeufe.map((r) => (nachher.has(r.datei) ? nachher.get(r.datei).punkte - r.punkte : 0)))
+    const ok = paare.filter(([a, b]) => !a.lauf.fehler && !b.lauf.fehler)
+    const m = (i, feld) => mittel(ok.map((p) => p[i].lauf[feld]))
+    const mehrheit = (r) => r.kompromiss * 2 > anzahlBewerter
+    z.push(
+      `| \`${s.name}\` | ${paare.length} von ${laeufe.length} | ${paare.length ? mitBereich(gepaart(diffs)) : '–'} | ${mitBereich(gepaart(jeLauf.get(s.name)))} | ` +
+        `${ok.length ? `${zahl(m(0, 'salz'))} → ${zahl(m(1, 'salz'))} g` : '–'} | ${ok.length ? `${prozent(m(0, 'fettAnteil'))} → ${prozent(m(1, 'fettAnteil'))}` : '–'} | ` +
+        `${ok.filter((p) => p[0].lauf.energieVerfehlt).length} → ${ok.filter((p) => p[1].lauf.energieVerfehlt).length} | ` +
+        `${paare.filter((p) => mehrheit(p[0])).length} → ${paare.filter((p) => mehrheit(p[1])).length} |`,
+    )
+  }
+  if (staende.length > 1 && jeLauf.has(staende[0].name)) {
+    z.push('')
+    for (const s of staende.slice(1)) {
+      if (!jeLauf.has(s.name)) continue
+      z.push(
+        `Review von \`${s.name}\` gegen das von \`${staende[0].name}\`, Punkte je Lauf: ${mitBereich(unterschied(jeLauf.get(staende[0].name), jeLauf.get(s.name)))}.`,
+      )
+    }
+  }
+  z.push('')
+  return z
 }
 
 function git(projekt, ...argumente) {
@@ -326,25 +395,29 @@ function vorbereiten(ordner, staendeNamen) {
   return staende
 }
 
-function laufDateien(ordner) {
-  return readdirSync(join(ordner, 'laeufe'))
+function laufDateien(ordner, review = false) {
+  const unter = join(ordner, review ? 'nach-review' : 'laeufe')
+  if (!existsSync(unter)) return []
+  return readdirSync(unter)
     .filter((f) => /^\d+-\d+-\d+\.md$/.test(f))
     .sort()
 }
 
 function blind(ordner) {
   const staende = JSON.parse(readFileSync(join(ordner, 'staende.json'), 'utf8'))
-  const saetze = laufDateien(ordner).map((datei) => {
-    const [i, , kcal] = datei.replace('.md', '').split('-')
-    const lauf = leseLauf(readFileSync(join(ordner, 'laeufe', datei), 'utf8'))
-    return { datei, stand: staende[Number(i)].name, kcal: Number(kcal), text: blindText(lauf.rezept) }
-  })
+  const saetze = [false, true].flatMap((review) =>
+    laufDateien(ordner, review).map((datei) => {
+      const [i, , kcal] = datei.replace('.md', '').split('-')
+      const lauf = leseLauf(readFileSync(join(ordner, review ? 'nach-review' : 'laeufe', datei), 'utf8'))
+      return { datei, review, stand: staende[Number(i)].name, kcal: Number(kcal), text: blindText(lauf.rezept) }
+    }),
+  )
   if (!saetze.length) throw new Error('Keine Läufe in laeufe/')
   mkdirSync(join(ordner, 'blind'), { recursive: true })
   const schluessel = mische(saetze).map((s, k) => {
     const nr = k + 1
     writeFileSync(join(ordner, 'blind', `rezept-${String(nr).padStart(2, '0')}.md`), `${s.text}\n`)
-    return { nr, datei: s.datei, stand: s.stand, kcal: s.kcal }
+    return { nr, datei: s.datei, ...(s.review ? { review: true } : {}), stand: s.stand, kcal: s.kcal }
   })
   writeFileSync(join(ordner, 'schluessel.json'), `${JSON.stringify(schluessel, null, 2)}\n`)
   return schluessel.length
@@ -356,8 +429,8 @@ function bericht(ordner, projekt) {
   const katalog = leseKatalog(readFileSync(join(projekt, 'zutaten.md'), 'utf8'))
   const laeufe = new Map(
     schluessel.map((s) => [
-      s.datei,
-      kennzahlenLauf(leseLauf(readFileSync(join(ordner, 'laeufe', s.datei), 'utf8')), katalog, s.kcal),
+      schluesselName(s),
+      kennzahlenLauf(leseLauf(readFileSync(join(ordner, s.review ? 'nach-review' : 'laeufe', s.datei), 'utf8')), katalog, s.kcal),
     ]),
   )
   const dateien = readdirSync(ordner).filter((f) => /^bewertung-\d+\.json$/.test(f)).sort()

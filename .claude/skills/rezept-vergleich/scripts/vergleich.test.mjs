@@ -10,6 +10,7 @@ import {
   kennzahlenLauf,
   leseBewertung,
   leseLauf,
+  gepaart,
   mische,
   standardStaende,
   unterschied,
@@ -154,4 +155,38 @@ test('der Bericht nennt Bewertung, Kennzahlen, Rezepte und Beobachtungen je Stan
   assert.match(text, /Review-Korrekturen \|/)
   assert.match(text, /\| `HEAD` \| 600 \| Mercimek mit Zitrone \| 30 \| 0 von 2 \|/)
   assert.match(text, /### Bewerter 2\n\n- Salz fehlt oft/)
+})
+
+test('der gepaarte Unterschied mittelt die Unterschiede je Lauf', () => {
+  const u = gepaart([2, 3, 2, 3, 2])
+  assert.equal(u.d, 2.4)
+  assert.equal(u.zufall, false)
+  assert.equal(gepaart([1, -1, 2, -2]).zufall, true)
+})
+
+test('mit Review zählt die Fassung danach, und der Bericht zeigt die Wirkung des Reviews', () => {
+  const staende = [
+    { name: 'HEAD', commit: 'abc1234' },
+    { name: WORKING_TREE, commit: 'abc1234' },
+  ]
+  const schluessel = [
+    { nr: 1, datei: '0-01-600.md', stand: 'HEAD', kcal: 600 },
+    { nr: 2, datei: '0-01-600.md', review: true, stand: 'HEAD', kcal: 600 },
+    { nr: 3, datei: '1-01-600.md', stand: WORKING_TREE, kcal: 600 },
+  ]
+  const lauf = kennzahlenLauf(leseLauf(LAUF), katalog, 600)
+  const laeufe = new Map([
+    ['0-01-600.md', lauf],
+    ['nach-review/0-01-600.md', lauf],
+    ['1-01-600.md', lauf],
+  ])
+  const urteil = (punkte) => ({ geschmack: punkte, stimmigkeit: punkte, handwerk: punkte, lust: punkte, kompromiss: false })
+  const b = { bewertungen: [{ nr: 1, ...urteil(5) }, { nr: 2, ...urteil(7) }, { nr: 3, ...urteil(6) }], beobachtungen: [] }
+  const text = baueBericht({ staende, schluessel, laeufe, bewertungen: [leseBewertung(b, 3)], datum: '2026-11-01' })
+
+  assert.match(text, /\| `HEAD` \| 600 kcal \| 1 \| 28 \|/)
+  assert.match(text, /## Wirkung des Reviews/)
+  assert.match(text, /\| `HEAD` \| 1 von 1 \| \+8 ± 0/)
+  assert.match(text, /\| `working-tree` \| 0 von 1 \| – \| \+0 ± 0/)
+  assert.match(text, /Mercimek mit Zitrone \(nach Review\)/)
 })
