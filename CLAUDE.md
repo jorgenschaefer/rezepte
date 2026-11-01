@@ -1,6 +1,6 @@
 # Check-Befehl
 
-Check: `node --test .claude/skills/rezept/scripts/naehrwerte.test.mjs`
+Check: `node --test .claude/skills/*/scripts/*.test.mjs`
 
 # REWE Online als Nährwertquelle
 

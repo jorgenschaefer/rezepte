@@ -12,7 +12,10 @@ Everything inside the project – the skill and the data – is in German.
 |---|---|
 | `.claude/skills/rezept/SKILL.md` | The skill: a calorie target per portion (600 kcal unless asked otherwise, e.g. `/rezept mit 400 kcal`), a dish drawn at random from 20 candidate plates, planned from the energy budget before the recipe is written, a strict output format, and a subagent that reviews the recipe as a cook before it goes out. |
 | `.claude/skills/rezept/scripts/naehrwerte.mjs` | Computes the nutrition table from ingredient amounts and says whether the energy fits the calorie target (`--kcal`). The model doesn't do arithmetic. |
-| `ernaehrungsrahmen.md` | Overview of the dietary guidelines the limits come from: DGE, Canada, Australia, Spain, Italy, EFSA, WHO, and the US for comparison, with sources. |
+| `.claude/skills/rezept-vergleich/` | `/rezept-vergleich [ref …]` compares versions of the skill: subagents cook with each version, three judges score the recipes blind, a script recomputes the nutrition and writes a report to `vergleiche/`. Without arguments it compares `HEAD` with the working tree, or `HEAD^` with `HEAD` when the tree is clean. About 25 subagents per comparison of two versions. |
+| `.claude/workflows/rezept-vergleich-laeufe.js` | The workflow behind `/rezept-vergleich` that runs the cooks and the judges. |
+| `vergleiche/` | Reports of past comparisons: what each change to the skill did to the recipes. |
+| `ernaehrungsrahmen.md` | Overview of the dietary guidelines behind the skill: DGE, Canada, Australia, Spain, Italy, EFSA, WHO, and the US for comparison, with sources. |
 | `vorratskammer.md` | The pantry: what's at home, with notes on portions and what must be used up. |
 | `zutaten.md` | Ingredient catalogue: REWE products, short names and nutrition values per 100 g, mostly read off the product labels. |
 | `dge-wochenbilanz.md` | Weekly food-group amounts according to the German Nutrition Society (DGE), with sources. |
@@ -32,5 +35,5 @@ Requires Node.js (developed on 24) for the nutrition script.
 ## Tests
 
 ```bash
-node --test .claude/skills/rezept/scripts/naehrwerte.test.mjs
+node --test .claude/skills/*/scripts/*.test.mjs
 ```
