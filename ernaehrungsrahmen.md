@@ -107,6 +107,76 @@ Keine der Leitlinien ist eine Diät. Was sie und die deutsche Adipositas-Leitlin
 - **EFSA:** Erythrit hat seit 2023 eine zulässige Tagesdosis von 0,5 g je kg Körpergewicht (abführende Wirkung; nicht an der Primärquelle geprüft). Bei Sucralose sieht die EFSA (2026) Unsicherheit beim Erhitzen – nicht zum Kochen oder Backen verwenden.
 - **Hoch verarbeitete Lebensmittel:** Kanada „limit highly processed foods“, S3-Leitlinie 4.4 „hochverarbeitete Lebensmittel mit hoher Energiedichte begrenzen“. Eine einheitliche Definition gibt es nicht (DGE-Ernährungsbericht 2023); eine WHO-Leitlinie dazu ist in Arbeit.
 
+## USA – zum Vergleich, nicht als Grundlage der Regeln
+
+Die US-Leitlinien gehen nicht in `kochregeln.md` ein. Die aktuelle Fassung weicht in mehreren Punkten von allen anderen Quellen ab und auch vom eigenen wissenschaftlichen Bericht. Diese Abweichungen sind nicht systematisch belegt. Die vorherige Fassung stimmt mit den anderen Quellen überein und würde keine Regel ändern. Beide stehen hier, damit klar ist, warum.
+
+### Dietary Guidelines for Americans 2025–2030 (Januar 2026)
+
+Leitsatz: „The message is simple: eat real food.“ Die Grafik zeigt oben „Protein, Dairy & Healthy Fats“ und „Vegetables & Fruits“, unten „Whole Grains“. In den Medien heißt sie „umgedrehte Pyramide“.
+
+Mengen bei 2000 kcal pro Tag:
+
+| Gruppe | Portionen | Eine Portion |
+|---|---|---|
+| Eiweiß | 3–4 | 85 g gegartes Fleisch oder Fisch, 1 Ei, ½ Cup Bohnen, 28 g Nüsse |
+| Milchprodukte | 3 | Vollfett ausdrücklich eingeschlossen |
+| Gemüse | 3 | 1 Cup, Blattgemüse 2 Cups |
+| Obst | 2 | 1 Cup roh, ½ Cup getrocknet |
+| Vollkorn | 2–4 | ½ Cup gegartes Getreide, 1 Scheibe Brot |
+| Fett | 4½ | 1 TL Olivenöl oder Butter |
+
+Stimmt mit den anderen Quellen überein:
+
+- Vollkorn, wenig Weißmehl: „Significantly reduce the consumption of highly processed, refined carbohydrates“.
+- Gesättigte Fettsäuren höchstens 10 % der Energie.
+- Hoch verarbeitete Lebensmittel meiden, selbst kochen.
+- Natrium unter 2300 mg am Tag (≈ 5,8 g Salz), wie in Kanada.
+- Zucker: „no amount of added sugars or non-nutritive sweeteners is recommended“. **Höchstens 10 g zugesetzter Zucker pro Mahlzeit** – der einzige Wert für eine einzelne Mahlzeit in allen hier geprüften Leitlinien. Süßstoffe sollen begrenzt werden, zuckergesüßte Getränke gemieden.
+- Garmethoden: Backen, Grillen, Rösten und Pfannenrühren statt Frittieren.
+
+Weicht von allen anderen Quellen ab:
+
+- **Protein 1,2–1,6 g je kg Körpergewicht am Tag, „at every meal“.** Das ist etwa das Doppelte der Werte von DGE, EFSA und Italien. Bei 70 kg und drei Mahlzeiten sind es 28–37 g pro Mahlzeit (eigene Rechnung) – das liegt im Bereich von Regel 3 in `kochregeln.md`.
+- **Tierisches Eiweiß zuerst genannt, rotes Fleisch ohne Obergrenze.** Hülsenfrüchte werden nicht bevorzugt.
+- **Butter und Rindertalg als Kochfett:** „prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow.“ Rapsöl wird nicht genannt. Der wissenschaftliche Begleitband argumentiert gegen linolsäurereiche Öle.
+- **Vollfett-Milchprodukte:** „include full-fat dairy with no added sugars“.
+- **Fleisch mit Salz würzen:** „If preferred, flavor with salt, spices, and herbs.“
+- Kein Zahlenwert für Ballaststoffe und keine Zahlengrenze für Alkohol mehr („Consume less alcohol“).
+
+Quellen: https://cdn.realfood.gov/DGA.pdf, Portionstabelle https://cdn.realfood.gov/Daily%20Serving%20Sizes.pdf, Begleitband https://cdn.realfood.gov/Scientific%20Report_508.pdf
+
+### Der eigene wissenschaftliche Bericht (DGAC, Dezember 2024)
+
+Das Dietary Guidelines Advisory Committee beschreibt eine gesunde Ernährung als reich an Gemüse, Obst, Hülsenfrüchten, Nüssen, Vollkorn, Fisch und ungesättigten Pflanzenölen und arm an rotem und verarbeitetem Fleisch, Zucker, Weißmehl und gesättigtem Fett. Es schlug vor, Hülsenfrüchte an die erste Stelle der Eiweißquellen zu setzen und Fleisch, Geflügel und Eier zu verringern. Es empfahl, Butter durch Pflanzenöl zu ersetzen.
+
+Die Regierung hat diese Punkte ausdrücklich nicht übernommen. Dazu gehören: mehr Hülsenfrüchte und weniger rotes Fleisch, Eiweiß stärker aus Pflanzen, Pflanzenöl statt Butter, Kokos- und Palmfett ersetzen, fettarme Milchprodukte. Der Begleitband begründet das so: „The central concern with the DGAC Report was that all scientific questions were evaluated through a health equity lens.“ Die 1,2–1,6 g/kg Protein, Butter und Talg als Kochfett und die 10 g Zucker pro Mahlzeit stehen im Bericht nicht.
+
+Quelle: https://www.dietaryguidelines.gov/2025-advisory-committee-report
+
+### Kritik und Zustimmung
+
+- *JAMA Health Forum* (Bleich, Tagtow, Woteki, Februar 2026): Die Leitlinien „largely disregard the 2025 DGAC Scientific Report“. Die Ersatz-Auswertung folge nicht den Methoden, die die National Academies empfehlen, und vermeide Interessenkonflikte nicht ausreichend. Die 10-%-Grenze für gesättigtes Fett sei bei der Betonung tierischer Lebensmittel schwer einzuhalten. https://jamanetwork.com/journals/jama-health-forum/fullarticle/2845870
+- *Nutrition, Metabolism & Cardiovascular Diseases* (Giosuè, Vitale, Riccardi 2026): „more weaknesses than gains compared with those from Scientific Societies and WHO“; die Proteinerhöhung „appears unjustified“. Gelobt wird die Haltung zu hoch verarbeiteten Lebensmitteln und Zuckergetränken. https://pubmed.ncbi.nlm.nih.gov/41714215/
+- American Heart Association: begrüßt Gemüse, Obst und Vollkorn, warnt aber, die Aussagen zu Salz und rotem Fleisch könnten zu viel Natrium und gesättigtes Fett bewirken. Empfiehlt weiter fettarme Milchprodukte und rät, „high-fat animal products including red meat, butter, lard and tallow“ zu begrenzen. https://www.eurekalert.org/news-releases/1111842
+- Harvard (Frank Hu): richtig beim Zucker, aber „mixed messages“ bei Lebensmitteln mit viel gesättigtem Fett. https://nutritionsource.hsph.harvard.edu/2026/01/09/dietary-guidelines-for-americans-2025-2030/
+- Stanford: Aussagen zum gesättigten Fett „internally inconsistent“, Ballaststoffe zu wenig beachtet. Sachlicher Fehler: Olivenöl, Butter und Talg sind keine nennenswerten Quellen essenzieller Fettsäuren. https://med.stanford.edu/nutrition/news/press/2025_2030_Dietary_Guidelines.html
+- Zustimmung kam von den Milchverbänden und einzelnen Ärzten. Eine große Fachgesellschaft, die die Protein- oder Talg-Empfehlung unterstützt, ließ sich nicht finden.
+
+### Dietary Guidelines for Americans 2020–2025 (vorherige Fassung)
+
+Vier Leitsätze: ein gesundes Ernährungsmuster in jeder Lebensphase; nährstoffreiche Lebensmittel nach Vorliebe, Kultur und Budget; die Lebensmittelgruppen decken und im Kalorienrahmen bleiben; Zucker, gesättigtes Fett, Natrium und Alkohol begrenzen.
+
+- Grenzen: zugesetzter Zucker unter 10 % der Energie, gesättigte Fettsäuren unter 10 %, Natrium unter 2300 mg, Alkohol höchstens 2 Getränke (Männer) bzw. 1 (Frauen) am Tag.
+- Fett: gesättigtes durch ungesättigtes ersetzen, „particularly polyunsaturated fats“. Kochen mit Raps-, Mais-, Oliven-, Erdnuss-, Distel-, Soja- oder Sonnenblumenöl „rather than butter, shortening, or coconut or palm oils“. Fettarme Milchprodukte, mageres Fleisch.
+- Süßstoffe: senken kurzfristig vielleicht die Kalorien, die langfristige Wirkung beim Abnehmen sei offen.
+- Muster bei 2000 kcal: 2½ Cups Gemüse und 2 Cups Obst am Tag; 6 Unzen Getreide, davon die Hälfte Vollkorn; 3 Cups fettarme Milchprodukte; 5½ Unzen Eiweiß; 27 g Öl. Pro Woche 1½ Cups Hülsenfrüchte (≈ 260 g gegart), 8 Unzen Fisch (≈ 225 g), 26 Unzen Fleisch, Geflügel und Eier.
+- Bild: MyPlate.
+
+Diese Fassung stimmt mit den anderen Quellen überein und stützt die Regeln 5, 6 und 11 in `kochregeln.md`.
+
+Quellen: https://www.dietaryguidelines.gov/sites/default/files/2020-12/Dietary_Guidelines_for_Americans_2020-2025.pdf, Zusammenfassung https://www.dietaryguidelines.gov/sites/default/files/2021-03/DGA_2020-2025_ExecutiveSummary_English.pdf
+
 ## Umgerechnet auf ein Gericht mit 600 kcal
 
 Eigene Ableitung: Tageswerte mal 30 % (600 von 2000 kcal), Prozentwerte unverändert. Zum Vergleich der einzige veröffentlichte Wert für eine einzelne Mahlzeit: Der DGE-Qualitätsstandard von 2014 (4. Auflage, inzwischen ersetzt) rechnete für ein Mittagessen mit einem Drittel des Tagesbedarfs, bei 700 kcal also 34 g Protein, 24 g Fett und 10 g Ballaststoffe – 20 % Protein, 30 % Fett, 50 % Kohlenhydrate.
@@ -172,4 +242,4 @@ WHO:
 - Healthy diet, Fact Sheet, Stand 26. Januar 2026: https://www.who.int/news-room/fact-sheets/detail/healthy-diet
 - Leitlinien Zucker 2015, Natrium und Kalium 2012, Gesamtfett 2023, gesättigte Fettsäuren und Transfette 2023, Kohlenhydrate 2023, Süßstoffe 2023 (ISBN 9789241549028, 9789241504836, 9789241504829, 9789240073654, 9789240073630, 9789240073593, 9789240073616), über https://www.who.int/publications
 
-Nicht an der Primärquelle geprüft: die EFSA-Werte zu Erythrit, Saccharin und Acesulfam-K, die SENC-Leitlinie von 2016 (oft zitiert mit 3–6 Portionen Olivenöl am Tag) und die Portionsgrößen der italienischen LARN in der 5. Revision.
+Nicht an der Primärquelle geprüft: die EFSA-Werte zu Erythrit, Saccharin und Acesulfam-K, die SENC-Leitlinie von 2016 (oft zitiert mit 3–6 Portionen Olivenöl am Tag) und die Portionsgrößen der italienischen LARN in der 5. Revision. Von den Fachartikeln zu den US-Leitlinien waren meist nur die Zusammenfassungen lesbar.
