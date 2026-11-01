@@ -7,7 +7,7 @@ Geprüft am 1. November 2026. Wo eine Angabe nicht an der Primärquelle geprüft
 ## Drei Dinge vorweg
 
 1. **Leitlinien sprechen über Lebensmittel, nicht über Nährstoffe.** Alle fünf lebensmittelbezogenen Leitlinien (DGE, Kanada, Australien, Spanien, Italien) sagen: viel Gemüse, Hülsenfrüchte, Vollkorn, pflanzliche Öle, wenig Salz, Zucker und gesättigtes Fett. Die Nährstoffzahlen (EFSA, WHO, DGE-Referenzwerte) sind die Rechengrundlage dahinter.
-2. **Nährstoffzahlen gelten für den Tag oder die Woche, nie für eine Mahlzeit.** Keine der Quellen teilt einen Tageswert auf Mahlzeiten auf. Wer einen Wert für ein einzelnes Gericht braucht, muss ihn selbst ableiten. Hier geschieht das über den Energieanteil: 600 kcal sind 30 % von 2000 kcal.
+2. **Nährstoffzahlen gelten für den Tag oder die Woche, nie für eine Mahlzeit.** Keine der Quellen teilt einen Tageswert auf Mahlzeiten auf. Wer einen Wert für ein einzelnes Gericht braucht, muss ihn selbst ableiten. Hier geschieht das über den Energieanteil am Tagesziel von 1800 kcal, als Wert je 100 kcal. Ein Gericht mit 600 kcal ist ein Drittel davon und bekommt ein Drittel des Tagesbudgets, eines mit 400 kcal entsprechend weniger.
 3. **Prozentwerte sind Bereiche oder Obergrenzen, keine Zielpunkte.** „Fett 30 %“ heißt bei der DGE „etwa 30 %“, bei der WHO „höchstens 30 %“, bei der EFSA „20 bis 35 %“. Ein Gericht mit 22 % Fett ist nach allen Quellen in Ordnung.
 
 ## Worin sich alle Quellen einig sind
@@ -177,21 +177,23 @@ Diese Fassung stimmt mit den anderen Quellen überein und stützt die Regeln 5, 
 
 Quellen: https://www.dietaryguidelines.gov/sites/default/files/2020-12/Dietary_Guidelines_for_Americans_2020-2025.pdf, Zusammenfassung https://www.dietaryguidelines.gov/sites/default/files/2021-03/DGA_2020-2025_ExecutiveSummary_English.pdf
 
-## Umgerechnet auf ein Gericht mit 600 kcal
+## Umgerechnet auf ein einzelnes Gericht
 
-Eigene Ableitung: Tageswerte mal 30 % (600 von 2000 kcal), Prozentwerte unverändert. Zum Vergleich der einzige veröffentlichte Wert für eine einzelne Mahlzeit: Der DGE-Qualitätsstandard von 2014 (4. Auflage, inzwischen ersetzt) rechnete für ein Mittagessen mit einem Drittel des Tagesbedarfs, bei 700 kcal also 34 g Protein, 24 g Fett und 10 g Ballaststoffe – 20 % Protein, 30 % Fett, 50 % Kohlenhydrate.
+Eigene Ableitung: Tageswerte geteilt durch das Tagesziel von 1800 kcal, als Wert je 100 kcal. Prozentwerte der Energie gelten unverändert. Damit passt dieselbe Zahl für ein kleines Gericht mit 400 kcal wie für ein normales mit 600 kcal.
 
-| Größe | Aus den Quellen abgeleitet für 600 kcal |
-|---|---|
-| Gemüse | ≥ 120 g (WHO), ~165 g (DGE), ~200 g (Italien pro Hauptmahlzeit), die Hälfte des Tellers (Kanada) |
-| Getreide trocken | 60–80 g pro Portion (Spanien, Italien) |
-| Protein | 10–15 E% reichen (WHO) = 15–22 g; bis 25 E% im australischen Bereich und bei der EFSA sicher = 37 g |
-| Fett | ≤ 20 g (≤ 30 E%), EFSA-Bereich 13–23 g |
-| Gesättigte FS | ≤ 6,5 g (≤ 10 E%) |
-| Freie Zucker | < 15 g (< 10 E%), besser < 7,5 g |
-| Ballaststoffe | ≥ 7,5 g (EFSA, WHO), ≥ 9 g (DGE) |
-| Salz | ≤ 1,5 g (WHO, EFSA), ≤ 1,8 g (DGE); die DGE-Speisepläne geben 1 g Salz pro Gericht zu |
-| Kalium | ≥ 1050 mg |
+Zum Vergleich der einzige veröffentlichte Wert für eine einzelne Mahlzeit: Der DGE-Qualitätsstandard von 2014 (4. Auflage, inzwischen ersetzt) rechnete für ein Mittagessen mit einem Drittel des Tagesbedarfs, bei 700 kcal also 34 g Protein, 24 g Fett und 10 g Ballaststoffe – 20 % Protein, 30 % Fett, 50 % Kohlenhydrate.
+
+| Größe | je 100 kcal | bei 600 kcal | Herleitung |
+|---|---|---|---|
+| Gemüse | ≥ 22 g (WHO), ≥ 31 g (DGE, mit Obst) | ≥ 133 g, ≥ 183 g | 400 g bzw. 550 g am Tag; Italien: 200 g pro Hauptmahlzeit; Kanada: die Hälfte des Tellers |
+| Getreide trocken | – | 60–80 g | Portion in Spanien und Italien |
+| Protein | 2,5–3,75 g reichen (WHO, 10–15 E%); bis 6,25 g (25 E%) im australischen Bereich und bei der EFSA sicher | 15–22 g; bis 37 g | Prozent der Energie |
+| Fett | ≤ 3,3 g (≤ 30 E%), EFSA-Bereich 2,2–3,9 g | ≤ 20 g, 13–23 g | Prozent der Energie |
+| Gesättigte FS | ≤ 1,1 g (≤ 10 E%) | ≤ 6,7 g | Prozent der Energie |
+| Freie Zucker | < 2,5 g (< 10 E%), besser < 1,25 g | < 15 g, besser < 7,5 g | Prozent der Energie |
+| Ballaststoffe | ≥ 1,4 g (EFSA, WHO, 25 g), ≥ 1,7 g (DGE, 30 g) | ≥ 8,3 g, ≥ 10 g | Tageswert ÷ 1800 kcal; die DGE-Dichte von 14,6 g je 1000 kcal gilt für 2000 kcal |
+| Salz | ≤ 0,28 g (WHO, EFSA, 5 g), ≤ 0,33 g (DGE, 6 g) | ≤ 1,7 g, ≤ 2 g | Tageswert ÷ 1800 kcal; die DGE-Speisepläne geben 1 g Salz pro Gericht zu |
+| Kalium | ≥ 194 mg (EFSA, 3500 mg) | ≥ 1170 mg | Tageswert ÷ 1800 kcal |
 
 ## Quellen
 
