@@ -82,7 +82,7 @@ Frisch und zu verbrauchen.
 - Gemüsebrühe, Pulver
 - Rote Linsen
 - Naturreis (REWE Bio Naturreis Spitzen-Langkorn 1kg)
-- Vollkornnudeln
+- Vollkorn-Fusilli
 
 ## Gewürzregal
 
