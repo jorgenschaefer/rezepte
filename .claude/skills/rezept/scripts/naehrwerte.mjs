@@ -189,90 +189,93 @@ export function formatiereTabelle(summe, portionen = 1) {
   ].join('\n')
 }
 
-// Die Grenzen aus kochregeln.md, je 100 kcal des Kalorienziels. Ein Gericht
-// mit 400 kcal hat einen kleineren Anteil am Tag als eines mit 600 kcal und
-// damit auch ein kleineres Budget für Salz und Fett. Die Zahlen müssen mit
-// Teil D von kochregeln.md übereinstimmen.
+// Die Zahlen aus Teil D von kochregeln.md, je 100 kcal des Kalorienziels. Ein
+// Gericht mit 400 kcal hat einen kleineren Anteil am Tag als eines mit
+// 600 kcal und damit auch ein kleineres Budget für Salz. Die Zahlen müssen mit
+// kochregeln.md übereinstimmen.
+//
+// Grenzen müssen halten. Richtwerte sind Orientierung: Wer sie bis an den Rand
+// ausrechnet, verbiegt das Gericht – in den Testläufen fielen dafür Pilze aus
+// dem Mustgo weg und das Öl auf ein Maß, mit dem nichts mehr anbrät.
 export const GRENZEN_JE_100_KCAL = {
   obstGemueseMin: 40,
-  proteinMin: 4,
-  proteinMax: 6.5,
-  fettMax: 3.3,
   gesaettigtMax: 1.1,
+  salzMax: 0.5,
+}
+
+export const RICHTWERTE_JE_100_KCAL = {
+  proteinMin: 4,
+  fettMax: 3.9,
   ballaststoffeMin: 1.7,
-  salzMax: 0.33,
 }
 
 export const ENERGIE_TOLERANZ = 0.05
 
 export const STANDARD_KCAL = 600
 
-// Vergleicht die Portion mit den Grenzen für das Kalorienziel. Die Grenzen
-// rechnen vom Ziel aus, nicht von der tatsächlichen Energie: Sie sind das
-// Budget, das ein Gericht dieser Größe hat.
+// Vergleicht die Portion mit den Grenzen und Richtwerten für das
+// Kalorienziel. Sie rechnen vom Ziel aus, nicht von der tatsächlichen Energie:
+// Sie sind das Budget, das ein Gericht dieser Größe hat.
 export function pruefe(summe, zielKcal = STANDARD_KCAL, portionen = 1) {
   const je = (wert) => wert / portionen
   const g = GRENZEN_JE_100_KCAL
+  const r = RICHTWERTE_JE_100_KCAL
   const skaliere = (wert) => (wert * zielKcal) / 100
   const kcal = je(summe.kcal)
+  const mindestens = (regel, art, ist, grenze) => ({
+    regel,
+    art,
+    grenze: `mindestens ${gramm(grenze)}`,
+    portion: gramm(ist),
+    erfuellt: ist >= grenze,
+  })
+  const hoechstens = (regel, art, ist, grenze) => ({
+    regel,
+    art,
+    grenze: `höchstens ${gramm(grenze)}`,
+    portion: gramm(ist),
+    erfuellt: ist <= grenze,
+  })
 
   return [
     {
       regel: 'Energie',
+      art: 'Grenze',
       grenze: `${Math.round(zielKcal * (1 - ENERGIE_TOLERANZ))}–${Math.round(zielKcal * (1 + ENERGIE_TOLERANZ))} kcal`,
       portion: `${Math.round(kcal)} kcal`,
       erfuellt: Math.abs(kcal - zielKcal) <= zielKcal * ENERGIE_TOLERANZ,
     },
-    {
-      regel: 'Obst und Gemüse',
-      grenze: `mindestens ${gramm(skaliere(g.obstGemueseMin))}`,
-      portion: gramm(je(summe.obstGemuese)),
-      erfuellt: je(summe.obstGemuese) >= skaliere(g.obstGemueseMin),
-    },
-    {
-      regel: 'Protein',
-      grenze: `${zahl(skaliere(g.proteinMin))}–${gramm(skaliere(g.proteinMax))}`,
-      portion: gramm(je(summe.protein)),
-      erfuellt:
-        je(summe.protein) >= skaliere(g.proteinMin) && je(summe.protein) <= skaliere(g.proteinMax),
-    },
-    {
-      regel: 'Fett',
-      grenze: `höchstens ${gramm(skaliere(g.fettMax))}`,
-      portion: gramm(je(summe.fett)),
-      erfuellt: je(summe.fett) <= skaliere(g.fettMax),
-    },
-    {
-      regel: 'davon gesättigte Fettsäuren',
-      grenze: `höchstens ${gramm(skaliere(g.gesaettigtMax))}`,
-      portion: gramm(je(summe.gesaettigt)),
-      erfuellt: je(summe.gesaettigt) <= skaliere(g.gesaettigtMax),
-    },
-    {
-      regel: 'Ballaststoffe',
-      grenze: `mindestens ${gramm(skaliere(g.ballaststoffeMin))}`,
-      portion: gramm(je(summe.ballaststoffe)),
-      erfuellt: je(summe.ballaststoffe) >= skaliere(g.ballaststoffeMin),
-    },
-    {
-      regel: 'Salz',
-      grenze: `höchstens ${gramm(skaliere(g.salzMax))}`,
-      portion: gramm(je(summe.salz)),
-      erfuellt: je(summe.salz) <= skaliere(g.salzMax),
-    },
+    mindestens('Obst und Gemüse', 'Grenze', je(summe.obstGemuese), skaliere(g.obstGemueseMin)),
+    hoechstens('davon gesättigte Fettsäuren', 'Grenze', je(summe.gesaettigt), skaliere(g.gesaettigtMax)),
+    hoechstens('Salz', 'Grenze', je(summe.salz), skaliere(g.salzMax)),
+    mindestens('Protein', 'Richtwert', je(summe.protein), skaliere(r.proteinMin)),
+    hoechstens('Fett', 'Richtwert', je(summe.fett), skaliere(r.fettMax)),
+    mindestens('Ballaststoffe', 'Richtwert', je(summe.ballaststoffe), skaliere(r.ballaststoffeMin)),
   ]
 }
 
 export function formatierePruefung(pruefung, zielKcal = STANDARD_KCAL) {
-  return [
-    `Prüfung gegen kochregeln.md für ${zielKcal} kcal:`,
-    '',
-    '| Regel | Grenze | Portion | Ergebnis |',
+  const tabelle = (art, ja, nein) => [
+    '| Regel | Wert | Portion | Ergebnis |',
     '|---|---|---|---|',
-    ...pruefung.map(
-      ({ regel, grenze, portion, erfuellt }) =>
-        `| ${regel} | ${grenze} | ${portion} | ${erfuellt ? 'erfüllt' : 'verfehlt'} |`,
-    ),
+    ...pruefung
+      .filter((p) => p.art === art)
+      .map(
+        ({ regel, grenze, portion, erfuellt }) =>
+          `| ${regel} | ${grenze} | ${portion} | ${erfuellt ? ja : nein} |`,
+      ),
+  ]
+
+  return [
+    `Prüfung gegen kochregeln.md für ${zielKcal} kcal.`,
+    '',
+    'Grenzen – sie müssen halten:',
+    '',
+    ...tabelle('Grenze', 'erfüllt', 'verfehlt'),
+    '',
+    'Richtwerte – zur Orientierung, nicht bis an den Rand ausrechnen:',
+    '',
+    ...tabelle('Richtwert', 'passt', 'weicht ab'),
   ].join('\n')
 }
 
