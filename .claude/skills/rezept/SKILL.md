@@ -6,19 +6,19 @@ disable-model-invocation: true
 
 Erstelle ein Rezept.
 
-# Kalorienziel
+Koch wie ein guter Koch ein Gericht mit dem Kalorienziel. Verwende nur Zutaten aus `vorratskammer.md` und beachte die Hinweise dort. Die Nährwerte der Zutaten stehen in `zutaten.md`.
 
 Das Kalorienziel gilt je Portion. Es ist 600 kcal, wenn der Benutzer nichts anderes sagt, zum Beispiel „/rezept mit 400 kcal“.
 
 # Ablauf
 
-Die Regeln für Auswahl, Teller, Zubereitung und Grenzen stehen in `kochregeln.md` im Projektordner. Ihre Zahlen gelten je 100 kcal; das Skript rechnet sie auf das Kalorienziel um. Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen, und beachte die Hinweise dort. Die Nährwerte der Zutaten stehen in `zutaten.md`.
-
 Das Gericht wird in der richtigen Größe gedacht, nicht nachträglich an Zahlen angepasst. Darum kommt die Planung vor dem Rezept.
 
 ## 1. Kandidaten
 
-Schreib eine nummerierte Liste von 20 Hauptgerichten für Mittag- oder Abendessen, die sich mit dem Vorrat kochen lassen. Jeder Eintrag ist ein ganzer Teller: Hauptkomponente, Gemüse und Beilage, zum Beispiel „Mercimek mit Roggenvollkornbrot und Hirtensalat“. Die Gerichte unterscheiden sich deutlich in Gerichtsart, Küche und Hauptzutat. Ihre Mischung folgt Regel 6, und jedes muss beim Kalorienziel aufgehen (Regel 1).
+Schreib eine nummerierte Liste von 20 Hauptgerichten für Mittag- oder Abendessen, die sich mit dem Vorrat kochen lassen. Jeder Eintrag ist ein ganzer Teller: Hauptkomponente, Gemüse und Beilage, zum Beispiel „Mercimek mit Roggenvollkornbrot und Hirtensalat“. Die Gerichte unterscheiden sich deutlich in Gerichtsart, Küche und Hauptzutat. Etwa die Hälfte setzt auf Hülsenfrüchte als Eiweiß, zwei bis drei auf Fisch. Schreib die Liste gemischt auf, nicht nach Gruppen sortiert.
+
+Jedes Gericht muss beim Kalorienziel aufgehen. Was der Vorrat nur als ganze Portion hergibt, nimmt seinen Teil der Energie: Ein Lachsfilet hat 305 kcal, bei 400 kcal bleibt daneben kaum etwas.
 
 ## 2. Losen
 
@@ -26,15 +26,15 @@ Zieh zufällig eine Zahl und koche das Gericht mit dieser Nummer.
 
 ## 3. Teller planen
 
-Plane den Teller von der Energie her, wie Regel 1 es beschreibt: erst die festen Portionen und die Eiweißquelle, dann Stärke und Öl in der Menge, die das Gericht braucht, und mit dem Rest der Energie das Gemüse. Rechne den Plan mit dem Skript (siehe unten). Passt er nicht, ändere die Mengen im Plan – noch ist kein Rezept geschrieben.
+Plane den Teller von der Energie her: erst die festen Portionen und die Eiweißquelle, dann Stärke und Öl in der Menge, die das Gericht braucht, und mit dem Rest der Energie das Gemüse. Rechne den Plan mit dem Skript (siehe unten). Passt er nicht, ändere die Mengen im Plan – noch ist kein Rezept geschrieben.
 
 ## 4. Rezept schreiben
 
-Schreib das Rezept so, wie ein guter Koch es in dieser Größe kochen würde (Teil C von `kochregeln.md`). Rechne es zum Schluss einmal mit dem Skript nach.
+Schreib das Rezept so, wie ein guter Koch es in dieser Größe kochen würde. Rechne es zum Schluss einmal mit dem Skript nach.
 
 ## 5. Review
 
-Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen. Sein Auftrag steht in `REVIEW.md` in diesem Ordner. Gib ihm den Text dieser Datei, die Zutatenliste, die Zubereitung und den Pfad zu `vorratskammer.md`. Nährwerte und Kochregeln bekommt er nicht.
+Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen. Sein Auftrag steht in `REVIEW.md` in diesem Ordner. Gib ihm den Text dieser Datei, die Zutatenliste, die Zubereitung und den Pfad zu `vorratskammer.md`. Nährwerte bekommt er nicht.
 
 Ändert eine Korrektur Mengen oder Zutaten, rechne neu.
 
@@ -42,10 +42,7 @@ Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen. Sein
 
 `node .claude/skills/rezept/scripts/naehrwerte.mjs --kcal <Kalorienziel>`, bei mehreren Portionen dazu `--portionen <Anzahl>`, die Zutaten als Zeilen „Zutat | Gramm" auf stdin. Der Pfad gilt relativ zum Projektordner.
 
-Es gibt zwei Tabellen aus. Die erste ist die Nährwerttabelle für das Rezept. Die zweite prüft gegen `kochregeln.md` und gehört nicht in die Antwort.
-
-- Steht bei einer **Grenze** „verfehlt“, ändere Mengen: meist Gemüse, Stärke oder Öl. Streich keine Zutat, die zum Gericht gehört, und füg keine hinzu, die nur auffüllt. Lässt sich die Grenze nur halten, wenn etwas Wichtigeres nachgibt, lass sie verfehlt und sag es unter dem Rezept.
-- Ein **Richtwert**, der „abweicht“, ist kein Grund, das Gericht umzubauen.
+Es gibt die Nährwerttabelle aus und darunter eine Zeile, ob die Energie zum Kalorienziel passt. Die Zeile gehört nicht in die Antwort.
 
 # Format der Antwort
 

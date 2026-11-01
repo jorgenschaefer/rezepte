@@ -1,6 +1,6 @@
 # Ernährungsrahmen – was die Leitlinien vorgeben
 
-Diese Datei fasst zusammen, was die großen Ernährungsleitlinien und Referenzwerte für gesunde Erwachsene sagen. Daraus sind die Regeln in `kochregeln.md` abgeleitet. Die DGE-Empfehlungen stehen ausführlicher in `dge-wochenbilanz.md`; hier steht von der DGE nur, was zum Vergleich nötig ist oder dort fehlt.
+Diese Datei fasst zusammen, was die großen Ernährungsleitlinien und Referenzwerte für gesunde Erwachsene sagen. Sie ist Hintergrund für den Skill `/rezept`. Der Skill selbst prüft nur das Kalorienziel: Grenzen für Gemüse, gesättigte Fettsäuren und Salz änderten in 90 Testläufen fast nie ein Gericht, weil der Vorrat sie schon hält. Die DGE-Empfehlungen stehen ausführlicher in `dge-wochenbilanz.md`; hier steht von der DGE nur, was zum Vergleich nötig ist oder dort fehlt.
 
 Geprüft am 1. November 2026. Wo eine Angabe nicht an der Primärquelle geprüft werden konnte, steht „nicht geprüft“ dabei.
 
@@ -109,7 +109,7 @@ Keine der Leitlinien ist eine Diät. Was sie und die deutsche Adipositas-Leitlin
 
 ## USA – zum Vergleich, nicht als Grundlage der Regeln
 
-Die US-Leitlinien gehen nicht in `kochregeln.md` ein. Die aktuelle Fassung weicht in mehreren Punkten von allen anderen Quellen ab und auch vom eigenen wissenschaftlichen Bericht. Diese Abweichungen sind nicht systematisch belegt. Die vorherige Fassung stimmt mit den anderen Quellen überein und würde keine Regel ändern. Beide stehen hier, damit klar ist, warum.
+Die US-Leitlinien gehen nicht in den Skill ein. Die aktuelle Fassung weicht in mehreren Punkten von allen anderen Quellen ab und auch vom eigenen wissenschaftlichen Bericht. Diese Abweichungen sind nicht systematisch belegt. Die vorherige Fassung stimmt mit den anderen Quellen überein und würde keine Regel ändern. Beide stehen hier, damit klar ist, warum.
 
 ### Dietary Guidelines for Americans 2025–2030 (Januar 2026)
 
@@ -137,7 +137,7 @@ Stimmt mit den anderen Quellen überein:
 
 Weicht von allen anderen Quellen ab:
 
-- **Protein 1,2–1,6 g je kg Körpergewicht am Tag, „at every meal“.** Das ist etwa das Doppelte der Werte von DGE, EFSA und Italien. Bei 70 kg und drei Mahlzeiten sind es 28–37 g pro Mahlzeit (eigene Rechnung) – das liegt im Bereich von Regel 3 in `kochregeln.md`.
+- **Protein 1,2–1,6 g je kg Körpergewicht am Tag, „at every meal“.** Das ist etwa das Doppelte der Werte von DGE, EFSA und Italien. Bei 70 kg und drei Mahlzeiten sind es 28–37 g pro Mahlzeit (eigene Rechnung) – mehr als die 15–22 g bei 600 kcal in der Tabelle unten.
 - **Tierisches Eiweiß zuerst genannt, rotes Fleisch ohne Obergrenze.** Hülsenfrüchte werden nicht bevorzugt.
 - **Butter und Rindertalg als Kochfett:** „prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow.“ Rapsöl wird nicht genannt. Der wissenschaftliche Begleitband argumentiert gegen linolsäurereiche Öle.
 - **Vollfett-Milchprodukte:** „include full-fat dairy with no added sugars“.
@@ -173,7 +173,7 @@ Vier Leitsätze: ein gesundes Ernährungsmuster in jeder Lebensphase; nährstoff
 - Muster bei 2000 kcal: 2½ Cups Gemüse und 2 Cups Obst am Tag; 6 Unzen Getreide, davon die Hälfte Vollkorn; 3 Cups fettarme Milchprodukte; 5½ Unzen Eiweiß; 27 g Öl. Pro Woche 1½ Cups Hülsenfrüchte (≈ 260 g gegart), 8 Unzen Fisch (≈ 225 g), 26 Unzen Fleisch, Geflügel und Eier.
 - Bild: MyPlate.
 
-Diese Fassung stimmt mit den anderen Quellen überein und stützt die Regeln 5, 6 und 11 in `kochregeln.md`.
+Diese Fassung stimmt mit den anderen Quellen überein und stützt Pflanzenöl statt Butter und Hülsenfrüchte in der Kandidatenliste.
 
 Quellen: https://www.dietaryguidelines.gov/sites/default/files/2020-12/Dietary_Guidelines_for_Americans_2020-2025.pdf, Zusammenfassung https://www.dietaryguidelines.gov/sites/default/files/2021-03/DGA_2020-2025_ExecutiveSummary_English.pdf
 
@@ -195,7 +195,7 @@ Zum Vergleich der einzige veröffentlichte Wert für eine einzelne Mahlzeit: Der
 | Salz | ≤ 0,28 g (WHO, EFSA, 5 g), ≤ 0,33 g (DGE, 6 g) | ≤ 1,7 g, ≤ 2 g | Tageswert ÷ 1800 kcal; die DGE-Speisepläne geben 1 g Salz pro Gericht zu |
 | Kalium | ≥ 194 mg (EFSA, 3500 mg) | ≥ 1170 mg | Tageswert ÷ 1800 kcal |
 
-Die Kochregeln weichen beim Salz bewusst von dieser Rechnung ab: Sie erlauben 3 g pro Hauptgericht, unabhängig von seiner Größe. Frühstück und Zwischenmahlzeiten bringen kaum Salz mit, deshalb kann ein Hauptgericht von einem Tagesbudget von 5–6 g 2–3 g tragen. Und wie salzig ein Gericht schmeckt, hängt an der Menge Essen, nicht an den Kalorien.
+Beim Salz passt diese Rechnung schlecht: Ein Hauptgericht kann 2–3 g tragen, unabhängig von seiner Größe. Frühstück und Zwischenmahlzeiten bringen kaum Salz mit, deshalb kann ein Hauptgericht von einem Tagesbudget von 5–6 g 2–3 g tragen. Und wie salzig ein Gericht schmeckt, hängt an der Menge Essen, nicht an den Kalorien.
 
 ## Quellen
 

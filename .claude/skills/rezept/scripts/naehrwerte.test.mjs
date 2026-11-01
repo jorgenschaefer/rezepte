@@ -7,8 +7,7 @@ import {
   findeZutat,
   berechne,
   formatiereTabelle,
-  pruefe,
-  formatierePruefung,
+  pruefeEnergie,
 } from './naehrwerte.mjs'
 
 const katalog = leseKatalog(
@@ -190,93 +189,23 @@ function gericht(werte) {
   }
 }
 
-const regel = (pruefung, name) => pruefung.find((p) => p.regel === name)
-
-test('ohne Kalorienziel prüft die Rechnung gegen 600 kcal', () => {
-  const pruefung = pruefe(gericht({ kcal: 600, salz: 2.9 }))
-
-  assert.equal(regel(pruefung, 'Energie').grenze, '570–630 kcal')
-  assert.equal(regel(pruefung, 'Salz').grenze, 'höchstens 3 g')
-  assert.equal(regel(pruefung, 'Salz').erfuellt, true)
-})
-
-test('die Grenzen schrumpfen mit dem Kalorienziel', () => {
-  const pruefung = pruefe(gericht({ kcal: 400, gesaettigt: 5 }), 400)
-
-  assert.equal(regel(pruefung, 'Obst und Gemüse').grenze, 'mindestens 160 g')
-  assert.equal(regel(pruefung, 'Protein').grenze, 'mindestens 16 g')
-  assert.equal(regel(pruefung, 'davon gesättigte Fettsäuren').grenze, 'höchstens 4,4 g')
-  assert.equal(regel(pruefung, 'davon gesättigte Fettsäuren').erfuellt, false)
-})
-
-// Ein kleines Gericht mit viel Gemüse braucht fast so viel Salz wie ein großes.
-test('Salz gilt je Portion, unabhängig vom Kalorienziel', () => {
-  const salz = gericht({ kcal: 400, salz: 2.5 })
-
-  assert.equal(regel(pruefe(salz, 400), 'Salz').grenze, 'höchstens 3 g')
-  assert.equal(regel(pruefe(salz, 400), 'Salz').erfuellt, true)
-  assert.equal(regel(pruefe(gericht({ kcal: 800, salz: 3.1 }), 800), 'Salz').erfuellt, false)
+test('ohne Kalorienziel prüft das Skript gegen 600 kcal', () => {
+  assert.equal(pruefeEnergie(gericht({ kcal: 600 })), 'Kalorienziel 600 kcal (570–630 kcal): passt.')
 })
 
 test('die Energie darf um 5 % vom Ziel abweichen, nicht mehr', () => {
-  assert.equal(regel(pruefe(gericht({ kcal: 420 }), 400), 'Energie').erfuellt, true)
-  assert.equal(regel(pruefe(gericht({ kcal: 421 }), 400), 'Energie').erfuellt, false)
-  assert.equal(regel(pruefe(gericht({ kcal: 379 }), 400), 'Energie').erfuellt, false)
+  assert.match(pruefeEnergie(gericht({ kcal: 420 }), 400), /passt/)
+  assert.match(pruefeEnergie(gericht({ kcal: 421 }), 400), /1 kcal zu viel/)
+  assert.match(pruefeEnergie(gericht({ kcal: 379 }), 400), /1 kcal zu wenig/)
 })
 
-test('Untergrenzen und Obergrenzen werden in ihre Richtung geprüft', () => {
-  const pruefung = pruefe(
-    gericht({ kcal: 600, obstGemuese: 300, protein: 20, fett: 24, gesaettigt: 7, ballaststoffe: 9 }),
-  )
-
-  assert.equal(regel(pruefung, 'Obst und Gemüse').erfuellt, true)
-  assert.equal(regel(pruefung, 'Protein').erfuellt, false)
-  assert.equal(regel(pruefung, 'Fett').erfuellt, false)
-  assert.equal(regel(pruefung, 'davon gesättigte Fettsäuren').erfuellt, false)
-  assert.equal(regel(pruefung, 'Ballaststoffe').erfuellt, false)
-})
-
-// In den Testläufen strichen die Köche Pilze und Spinat, um unter einer
-// Protein-Obergrenze zu bleiben. Die gibt es nicht mehr.
-test('viel Protein ist kein Fehler', () => {
-  assert.equal(regel(pruefe(gericht({ kcal: 600, protein: 50 })), 'Protein').erfuellt, true)
-})
-
-test('Fett darf bis 35 % der Energie gehen', () => {
-  assert.equal(regel(pruefe(gericht({ kcal: 600, fett: 23 })), 'Fett').erfuellt, true)
-  assert.equal(regel(pruefe(gericht({ kcal: 600, fett: 24 })), 'Fett').erfuellt, false)
-})
-
-test('nur Energie, Gemüse, gesättigte Fettsäuren und Salz sind harte Grenzen', () => {
-  const arten = Object.fromEntries(pruefe(gericht({ kcal: 600 })).map((p) => [p.regel, p.art]))
-
-  assert.deepEqual(arten, {
-    Energie: 'Grenze',
-    'Obst und Gemüse': 'Grenze',
-    'davon gesättigte Fettsäuren': 'Grenze',
-    Salz: 'Grenze',
-    Protein: 'Richtwert',
-    Fett: 'Richtwert',
-    Ballaststoffe: 'Richtwert',
-  })
+// Die Tabelle zeigt gerundete Kalorien. Was dort 420 kcal heißt, passt.
+test('die Prüfung vergleicht den Wert, den die Tabelle zeigt', () => {
+  assert.match(pruefeEnergie(gericht({ kcal: 420.4 }), 400), /passt/)
 })
 
 test('die Prüfung rechnet je Portion', () => {
-  const zwei = gericht({ kcal: 1200, salz: 3.8 })
-
-  assert.equal(regel(pruefe(zwei, 600, 2), 'Energie').erfuellt, true)
-  assert.equal(regel(pruefe(zwei, 600, 2), 'Salz').portion, '1,9 g')
-})
-
-test('die Prüfung trennt Grenzen und Richtwerte', () => {
-  const text = formatierePruefung(pruefe(gericht({ kcal: 400 }), 400), 400)
-
-  assert.match(text, /für 400 kcal/)
-  assert.match(text, /Grenzen – sie müssen halten/)
-  assert.match(text, /\| Energie \| 380–420 kcal \| 400 kcal \| erfüllt \|/)
-  assert.match(text, /Richtwerte – zur Orientierung/)
-  assert.match(text, /\| Ballaststoffe \| mindestens 6,8 g \| 0 g \| weicht ab \|/)
-  assert.ok(text.indexOf('Salz') < text.indexOf('Richtwerte'))
+  assert.match(pruefeEnergie(gericht({ kcal: 1200 }), 600, 2), /passt/)
 })
 
 test('eine Klammer in einer Nährwertspalte nennt nur ein Produkt ihrer Zeile', () => {

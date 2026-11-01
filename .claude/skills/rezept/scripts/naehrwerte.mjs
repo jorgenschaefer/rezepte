@@ -4,8 +4,8 @@
 //
 // Aufruf:   node naehrwerte.mjs [--kcal ZIEL] [--portionen N] [--katalog pfad/zu/zutaten.md]
 // Eingabe:  je Zeile „Zutat | Gramm", Leerzeilen und #-Kommentare werden übergangen.
-// Ausgabe:  die Nährwerttabelle je Portion und darunter die Prüfung gegen die
-//           Grenzen aus kochregeln.md für das Kalorienziel (Standard 600 kcal).
+// Ausgabe:  die Nährwerttabelle je Portion und darunter eine Zeile, ob die
+//           Energie zum Kalorienziel passt (Standard 600 kcal).
 import { readFileSync, existsSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -189,99 +189,25 @@ export function formatiereTabelle(summe, portionen = 1) {
   ].join('\n')
 }
 
-// Die Zahlen aus Teil D von kochregeln.md, je 100 kcal des Kalorienziels. Ein
-// Gericht mit 400 kcal hat einen kleineren Anteil am Tag als eines mit
-// 600 kcal und damit auch ein kleineres Budget. Die Zahlen müssen mit
-// kochregeln.md übereinstimmen.
-//
-// Grenzen müssen halten. Richtwerte sind Orientierung: Wer sie bis an den Rand
-// ausrechnet, verbiegt das Gericht – in den Testläufen fielen dafür Pilze aus
-// dem Mustgo weg und das Öl auf ein Maß, mit dem nichts mehr anbrät.
-export const GRENZEN_JE_100_KCAL = {
-  obstGemueseMin: 40,
-  gesaettigtMax: 1.1,
-}
-
-// Salz ist die Ausnahme: Es gilt je Portion, nicht je 100 kcal. Wie salzig ein
-// Gericht schmeckt, hängt an der Menge Essen auf dem Teller, nicht an seinen
-// Kalorien. Mit einer Grenze je 100 kcal blieben einem kleinen Gericht mit
-// viel Gemüse in den Testläufen 0,3 g zum Salzen, und es schmeckte fad.
-export const SALZ_JE_PORTION_MAX = 3
-
-export const RICHTWERTE_JE_100_KCAL = {
-  proteinMin: 4,
-  fettMax: 3.9,
-  ballaststoffeMin: 1.7,
-}
-
+// Das Skript prüft nur die Energie. Grenzen für Gemüse, gesättigte
+// Fettsäuren und Salz und Richtwerte für Protein, Fett und Ballaststoffe gab es
+// bis November 2026. In 90 Testläufen änderten sie fast nie ein Gericht, und
+// Läufe ganz ohne Skript hielten sie von selbst – das leistet der Vorrat. Wo
+// sie griffen, salzten die Köche zu wenig und sparten am Öl.
 export const ENERGIE_TOLERANZ = 0.05
 
 export const STANDARD_KCAL = 600
 
-// Vergleicht die Portion mit den Grenzen und Richtwerten für das
-// Kalorienziel. Sie rechnen vom Ziel aus, nicht von der tatsächlichen Energie:
-// Sie sind das Budget, das ein Gericht dieser Größe hat.
-export function pruefe(summe, zielKcal = STANDARD_KCAL, portionen = 1) {
-  const je = (wert) => wert / portionen
-  const g = GRENZEN_JE_100_KCAL
-  const r = RICHTWERTE_JE_100_KCAL
-  const skaliere = (wert) => (wert * zielKcal) / 100
-  const kcal = je(summe.kcal)
-  const mindestens = (regel, art, ist, grenze) => ({
-    regel,
-    art,
-    grenze: `mindestens ${gramm(grenze)}`,
-    portion: gramm(ist),
-    erfuellt: ist >= grenze,
-  })
-  const hoechstens = (regel, art, ist, grenze) => ({
-    regel,
-    art,
-    grenze: `höchstens ${gramm(grenze)}`,
-    portion: gramm(ist),
-    erfuellt: ist <= grenze,
-  })
+// Verglichen wird der gerundete Wert, den auch die Tabelle zeigt. Sonst stand
+// „420 kcal" in der Tabelle und daneben, 420 kcal liege über dem Rahmen.
+export function pruefeEnergie(summe, zielKcal = STANDARD_KCAL, portionen = 1) {
+  const kcal = Math.round(summe.kcal / portionen)
+  const unten = Math.round(zielKcal * (1 - ENERGIE_TOLERANZ))
+  const oben = Math.round(zielKcal * (1 + ENERGIE_TOLERANZ))
+  const ergebnis =
+    kcal > oben ? `${kcal - oben} kcal zu viel` : kcal < unten ? `${unten - kcal} kcal zu wenig` : 'passt'
 
-  return [
-    {
-      regel: 'Energie',
-      art: 'Grenze',
-      grenze: `${Math.round(zielKcal * (1 - ENERGIE_TOLERANZ))}–${Math.round(zielKcal * (1 + ENERGIE_TOLERANZ))} kcal`,
-      portion: `${Math.round(kcal)} kcal`,
-      erfuellt: Math.abs(kcal - zielKcal) <= zielKcal * ENERGIE_TOLERANZ,
-    },
-    mindestens('Obst und Gemüse', 'Grenze', je(summe.obstGemuese), skaliere(g.obstGemueseMin)),
-    hoechstens('davon gesättigte Fettsäuren', 'Grenze', je(summe.gesaettigt), skaliere(g.gesaettigtMax)),
-    hoechstens('Salz', 'Grenze', je(summe.salz), SALZ_JE_PORTION_MAX),
-    mindestens('Protein', 'Richtwert', je(summe.protein), skaliere(r.proteinMin)),
-    hoechstens('Fett', 'Richtwert', je(summe.fett), skaliere(r.fettMax)),
-    mindestens('Ballaststoffe', 'Richtwert', je(summe.ballaststoffe), skaliere(r.ballaststoffeMin)),
-  ]
-}
-
-export function formatierePruefung(pruefung, zielKcal = STANDARD_KCAL) {
-  const tabelle = (art, ja, nein) => [
-    '| Regel | Wert | Portion | Ergebnis |',
-    '|---|---|---|---|',
-    ...pruefung
-      .filter((p) => p.art === art)
-      .map(
-        ({ regel, grenze, portion, erfuellt }) =>
-          `| ${regel} | ${grenze} | ${portion} | ${erfuellt ? ja : nein} |`,
-      ),
-  ]
-
-  return [
-    `Prüfung gegen kochregeln.md für ${zielKcal} kcal.`,
-    '',
-    'Grenzen – sie müssen halten:',
-    '',
-    ...tabelle('Grenze', 'erfüllt', 'verfehlt'),
-    '',
-    'Richtwerte – zur Orientierung, nicht bis an den Rand ausrechnen:',
-    '',
-    ...tabelle('Richtwert', 'passt', 'weicht ab'),
-  ].join('\n')
+  return `Kalorienziel ${zielKcal} kcal (${unten}–${oben} kcal): ${ergebnis}.`
 }
 
 function baueZeile(kopf, zellen) {
@@ -395,7 +321,7 @@ function main() {
   const summe = berechne(katalog, posten)
 
   process.stdout.write(
-    `${formatiereTabelle(summe, portionen)}\n\n${formatierePruefung(pruefe(summe, zielKcal, portionen), zielKcal)}\n`,
+    `${formatiereTabelle(summe, portionen)}\n\n${pruefeEnergie(summe, zielKcal, portionen)}\n`,
   )
 }
 
