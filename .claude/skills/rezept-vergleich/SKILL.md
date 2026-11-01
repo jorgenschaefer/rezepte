@@ -15,7 +15,7 @@ Die Argumente sind die Stände: Git-Refs wie `HEAD`, `HEAD^`, `main` oder ein Co
 # Ablauf
 
 1. **Vorbereiten:** `vergleich.mjs vorbereiten <ordner> [stand …]`. Es legt für jeden Stand eine Kopie des Projekts an und gibt die Stände als JSON aus.
-2. **Kochen:** Starte den Workflow `rezept-vergleich-laeufe` mit `{"schritt": "kochen", "ordner": <ordner>, "staende": <JSON aus Schritt 1>, "laeufe": 10, "kcal": [600, 400], "review": <true bei `--review`, sonst false>}`. Die Läufe verteilen sich gleichmäßig auf die Kalorienziele.
+2. **Kochen:** Starte den Workflow mit `scriptPath` `<projektordner>/.claude/workflows/rezept-vergleich-laeufe.js`, nicht über seinen Namen: Der Name kann auf eine ältere Fassung zeigen. Argumente: `{"schritt": "kochen", "ordner": <ordner>, "staende": <JSON aus Schritt 1>, "laeufe": 10, "kcal": [600, 400], "review": <true bei `--review`, sonst false>}`. Die Läufe verteilen sich gleichmäßig auf die Kalorienziele.
 3. **Blind machen:** `vergleich.mjs blind <ordner>`. Es gibt die Zahl der Rezepte aus.
 4. **Bewerten:** Starte den Workflow mit `{"schritt": "bewerten", "ordner": <ordner>, "anzahl": <Zahl aus Schritt 3>, "vorrat": "<Pfad des ersten Stands>/vorratskammer.md", "kcal": [600, 400]}`.
 5. **Bericht:** `vergleich.mjs bericht <ordner> <projektordner>`. Es schreibt `vergleiche/<datum>-<stände>.md` ins Projekt und gibt den Pfad aus.
