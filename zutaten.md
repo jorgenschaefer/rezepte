@@ -144,7 +144,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | Heinz Tomato Ketchup Zero 220ml | Ketchup Zero; Ketchup ohne Zuckerzusatz; Ketchup | 400 ml (Heinz Zero) | 44 | 1,6 g | 1 g | 5,4 g | 0,1 g | 0 | 0,05 g | – | Etikett 20.9.2026 | 1 EL = 15 g; Ballaststoffe Tabellenwert |
 | REWE Bio Limettensaft 250ml | Limettensaft | 250 ml | 28 | 0 | 0 | 1,7 g | 0 | 0 | 0,08 g | – | Etikett 20.9.2026 | 1 EL = 10 g; Etikettwerte je 100 ml |
 | REWE Bio Zitronensaft 0,25l | Zitronensaft | 250 ml | 27 | 0,4 g | 0 | 1,7 g | 0,1 g | 0 | 0 | – | Etikett 20.9.2026 | 1 EL = 10 g; Etikettwerte je 100 ml |
-| Bad Reichenhaller Marken-Jodsalz 500g | Salz, jodiert; Salz | 500 g | 0 | 0 | 0 | 0 | 0 | 0 | 100 g | – | Etikett 20.9.2026 | 1 TL = 5 g; in der Rechnung 1 g je warmem Gericht |
+| Bad Reichenhaller Marken-Jodsalz 500g | Salz, jodiert; Salz | 500 g | 0 | 0 | 0 | 0 | 0 | 0 | 100 g | – | Etikett 20.9.2026 | 1 TL = 5 g |
 | REWE Beste Wahl Chiliflocken geschrotet 26g | Chiliflocken | 26 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Basilikum gerebelt 14g | Basilikum | 14 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | Ostmann Curry 30g | Curry | 30 g | 377 | 12,9 g | 17,6 g | 43,9 g | 12,7 g | 1,4 g | 0,28 g | – | Etikett 20.9.2026 | Würzmenge; 1 TL = 2 g |
