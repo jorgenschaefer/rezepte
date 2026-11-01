@@ -83,7 +83,6 @@ Frisch und zu verbrauchen.
 - Rote Linsen
 - Naturreis (REWE Bio Naturreis Spitzen-Langkorn 1kg)
 - Vollkornnudeln
-- Erdnussmus (als Brotbelag, nicht als Soßengrundlage)
 
 ## Gewürzregal
 
