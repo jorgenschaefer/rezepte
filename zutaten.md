@@ -1,6 +1,6 @@
 # Zutatenkatalog – REWE-Produkte, Kurzformen, Nährwerte
 
-Dieser Katalog führt genau die Produkte, die in `vorratskammer.md` stehen. Dazu fünf Zeilen ohne Vorratsposten, die der Eval-Fall `zwei-listen-im-ordner` braucht; sie sind in der Hinweisspalte als solche markiert.
+Dieser Katalog führt die Produkte, die in `vorratskammer.md` stehen. Dazu kommen Zeilen ohne Vorratsposten: fünf für den Eval-Fall `zwei-listen-im-ordner` und weitere für Gerichte, die noch Zutaten brauchen. Sie sind in der Hinweisspalte mit „nicht im Vorrat“ markiert.
 
 **Die Kurzform ist der Schlüssel.** Spalte 1 trägt den REWE-Produktnamen, Spalte 2 die Kurzform – den Namen, unter dem `vorratskammer.md` das Produkt führt und ein Rezept es nennt. Folgen weitere Namen durch Semikolon, sind das Zweitnamen: Ein Rezept darf sie verwenden, `vorratskammer.md` nicht, dort steht immer die Kurzform. Aufgelöst wird **wörtlich** – `scripts/naehrwerte.mjs` schlägt nach und schließt nichts. Was nicht wörtlich als Produktname, Kurzform oder Zweitname dasteht, bricht ab, statt auf der ähnlichsten Zeile zu landen.
 
@@ -26,6 +26,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Harry Vollkorn Urtyp 500g | Roggenvollkornbrot; Roggenvollkornbrot, ballaststoffreich; Vollkornbrot | 500 g (Harry Vollkorn Urtyp) | 194 | 5,4 g | 9,3 g | 36 g | 1,1 g | 0,2 g | 1,0 g | Etikett 20.9.2026 | Scheibe 50 g |
+| ja! Vollkorn Tortillas 496g | Vollkorn-Tortillas; Tortillas; Tortilla | 496 g, 8 Stück (ja!) | 299 | 8,8 g | 6,1 g | 46 g | 7,5 g | 1,5 g | 1,0 g | Etikett 1.11.2026 | nicht im Vorrat; kcal, Protein und Ballaststoffe vom Etikett; Stück 62 g |
 
 ## Getreide, Kartoffeln
 
@@ -35,12 +36,14 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | Barilla Integrale Vollkorn Fusilli 500g | Vollkornnudeln; Vollkorn-Fusilli; Vollkornfusilli | 500 g (Barilla Integrale, REWE Bio) | 347 | 13 g | 8 g | 64 g | 2,5 g | 0,5 g | 0,013 g | Etikett 20.9.2026 | |
 | ja! Parboiled Spitzenreis Langkornreis 1kg | Langkornreis; Reis; Parboiled-Reis | 1 kg | 351 | 8 g | 1,8 g | 75,5 g | 1,5 g | 0,5 g | 0,01 g | Etikett 20.9.2026 | |
 | REWE Bio Naturreis Spitzen-Langkorn 1kg | Naturreis | 1 kg | 363 | 7,8 g | 2,2 g | 75,8 g | 2,3 g | 0,7 g | 0,03 g | Etikett 2.10.2026 | kcal und Protein vom Etikett, Ballaststoffe Tabellenwert (REWE gibt keine an) |
+| Kartoffel vorwiegend festkochend 2kg | Kartoffeln; Kartoffel | 2 kg | 70 | 2 g | 2 g | 15 g | 0,1 g | 0 | 0 | Katalog | nicht im Vorrat; REWE nennt für Frischware keine Werte (Produktseite geprüft 1.11.2026); zählt nicht als Gemüse; Kartoffel ca. 100 g |
 
 ## Hülsenfrüchte, Tofu
 
 | Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | REWE Bio Rote Linsen 500g | Rote Linsen | 500 g (REWE Bio, Müller's Mühle) | 341 | 25,5 g | 12,5 g | 50 g | 1,5 g | 0,3 g | 0,01 g | Etikett 20.9.2026 | |
+| REWE Beste Wahl Braune Linsen 265g | Braune Linsen | Dose, abgetropft 265 g (REWE Beste Wahl) | 82 | 5,8 g | 4,9 g | 11 g | 0,5 g | 0 | 0,4 g | Etikett 1.11.2026 | nicht im Vorrat; gegart aus der Dose, Werte abgetropft; kcal, Protein und Ballaststoffe vom Etikett |
 | Kichererbsen, Dose | Kichererbsen, Dose | 400 g, abgetropft 265 g (Bonduelle, REWE Bio 215 g) | 120 | 7 g | 5,5 g | 15 g | 2,2 g | 0,2 g | 0,6 g | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier |
 | ja! Kidney-Bohnen rot 255g | Kidneybohnen | 400 g, abgetropft 255–265 g (ja!, REWE Bio, Bonduelle) | 95 | 6,9 g | 6,5 g | 12 g | 0,7 g | 0 | 0,27 g | Etikett 20.9.2026 | Abtropfgewicht 255 g |
 | REWE Beste Wahl Schwarze Bohnen 400g | Schwarze Bohnen | 400 g, abgetropft ca. 240 g (REWE Beste Wahl) | 100 | 7 g | 7 g | 9,5 g | 1,2 g | 0,2 g | 0,3 g | Katalog | im Lieferservice nicht gelistet |
@@ -62,6 +65,9 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | Rispentomaten 500g | Tomaten; Tomate | 500 g; Stück ca. 100 g | 18 | 1 g | 1,2 g | 2,6 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte |
 | Cherry Romatomaten 250g | Cherrytomaten | 250 g (auch REWE Bio) | 22 | 0,9 g | 1,4 g | 3,5 g | 0,2 g | 0 | 0 | ja | Katalog | REWE nennt für Frischware keine Werte (Produktseiten geprüft 27.10.2026) |
 | Zucchini grün ca. 350g | Zucchini | Stück ca. 350 g; REWE Bio 500 g | 19 | 1,6 g | 1,1 g | 2 g | 0,4 g | 0,1 g | 0 | ja | Katalog | REWE nennt für Frischware keine Werte (Produktseiten geprüft 27.10.2026) |
+| Staudensellerie 1 Stück | Staudensellerie; Stangensellerie | 1 Stück ca. 500 g | 15 | 0,7 g | 1,6 g | 1,4 g | 0,2 g | 0 | 0,2 g | ja | Katalog | nicht im Vorrat; REWE nennt für Frischware keine Werte (Produktseite geprüft 1.11.2026); Stange ca. 40 g |
+| Porree 1 Stück | Lauch; Porree | 1 Stange ca. 250 g | 25 | 2,2 g | 2,3 g | 3,3 g | 0,3 g | 0 | 0 | ja | Katalog | nicht im Vorrat; REWE nennt für Frischware keine Werte (Produktseite geprüft 1.11.2026) |
+| Eisbergsalat 1 Stück | Eisbergsalat; Eisberg-Salat | 1 Kopf ca. 500 g | 14 | 0,9 g | 1,2 g | 1,8 g | 0,1 g | 0 | 0 | ja | Katalog | nicht im Vorrat; REWE nennt für Frischware keine Werte (Produktseite geprüft 1.11.2026) |
 | Knoblauch 200g im Netz | Knoblauch; Knoblauchzehe | 100–200 g im Netz | – | – | – | – | – | – | – | – | Katalog | Würzmenge |
 
 ## Gemüse, tiefgekühlt
@@ -98,6 +104,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | ja! Speisequark Magerstufe 500g | Magerquark | 500 g | 67 | 12,3 g | 0 | 4,1 g | 0,2 g | 0,1 g | 0,1 g | Etikett 20.9.2026 | |
 | REWE Beste Wahl High Protein Quarkcreme 200g | Quarkcreme; High Protein Quarkcreme | 200 g (REWE Beste Wahl) | 68 | 12,3 g | 0,2 g | 3,5 g | 0,5 g | 0,4 g | 0,14 g | Etikett 20.9.2026 | Etikett; alle vier Sorten 67–70 kcal |
 | Grünländer Leicht Scheiben 140g | Grünländer Leicht; Schnittkäse leicht in Scheiben; Schnittkäse | 140 g (Grünländer Leicht) | 280 | 31 g | 0 | 0,5 g | 17 g | 11 g | 0,8 g | Etikett 20.9.2026 | Scheibe 25–30 g; Calcium 1000 mg je 100 g deklariert |
+| REWE Feine Welt Parmigiano Reggiano 150g | Parmesan; Parmigiano Reggiano | 150 g am Stück (REWE Feine Welt), 60 g gerieben (Marca Italia, gleiche Werte) | 402 | 32 g | 0 | 0 | 30 g | 20 g | 1,6 g | Etikett 1.11.2026 | nicht im Vorrat; kcal und Protein vom Etikett; 1 EL gerieben ca. 5 g |
 | Feta, Schafskäse | Feta, Schafskäse | 180–200 g (REWE Bio, Salakis) | 270 | 15 g | 0 | 0,7 g | 23 g | 17 g | 2,8 g | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier |
 
 ## Eier
@@ -156,6 +163,9 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | REWE Beste Wahl Oregano gerebelt 11g | Oregano | 11 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Paprika edelsüß gemahlen 39g | Paprika Edelsüß | 39 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | Ostmann Paprika rosenscharf 35g | Paprika Rosenscharf | 35 g | 358 | 14,8 g | 20,9 g | 34,9 g | 13 g | 2,1 g | 0,08 g | – | Etikett 20.9.2026 | Würzmenge; 1 TL = 2 g |
+| Ostmann Lorbeerblätter 5g | Lorbeerblätter; Lorbeerblatt; Lorbeer | 5 g | 353 | 7,6 g | 26,3 g | 48,6 g | 8,4 g | 2,3 g | 0 | – | Etikett 1.11.2026 | nicht im Vorrat; Würzmenge; 1 Blatt ca. 0,2 g, wird vor dem Essen entfernt |
+| Ostmann Majoran gerebelt 7,5g | Majoran | 7,5 g | 322 | 13 g | 18 g | 42,5 g | 7 g | 1,2 g | 0,25 g | – | Etikett 1.11.2026 | nicht im Vorrat; Würzmenge; 1 TL = 1 g; REWE Beste Wahl Majoran nennt keine Werte |
+| REWE Beste Wahl Paprika geräuchert gemahlen 39g | Paprika geräuchert; Paprika, geräuchert; Pimentón | 39 g | – | – | – | – | – | – | – | – | Katalog | nicht im Vorrat; Würzmenge; Produktseite am 1.11.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Pfeffer schwarz gemahlen 41g | Pfeffer, schwarz; Pfeffer | 41 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Pfeffer weiß gemahlen 45g | Pfeffer, weiß | 45 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |
 | REWE Beste Wahl Kräuter der Provence Gewürzmischung 16g | Kräuter der Provence | 16 g | – | – | – | – | – | – | – | – | Katalog | Würzmenge; Produktseite am 20.9.2026 geprüft, REWE nennt für dieses Gewürz keine Nährwerte |

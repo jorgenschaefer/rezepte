@@ -111,6 +111,7 @@ test('nur diese Zeilen haben keine Energie', () => {
     'REWE Beste Wahl Natron 50g',
     'REWE Beste Wahl Oregano gerebelt 11g',
     'REWE Beste Wahl Paprika edelsüß gemahlen 39g',
+    'REWE Beste Wahl Paprika geräuchert gemahlen 39g',
     'REWE Beste Wahl Pfeffer schwarz gemahlen 41g',
     'REWE Beste Wahl Pfeffer weiß gemahlen 45g',
     'REWE Beste Wahl Rosmarin geschnitten 24g',
