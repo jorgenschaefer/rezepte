@@ -2,8 +2,10 @@
 // zutaten.md. Reine Arithmetik – die Auswahl der Zutaten trifft der Skill, das
 // Addieren erledigt diese Datei, damit es nicht jedes Mal neu von Hand passiert.
 //
-// Aufruf:   node naehrwerte.mjs [--portionen N] [--katalog pfad/zu/zutaten.md]
+// Aufruf:   node naehrwerte.mjs [--kcal ZIEL] [--portionen N] [--katalog pfad/zu/zutaten.md]
 // Eingabe:  je Zeile „Zutat | Gramm", Leerzeilen und #-Kommentare werden übergangen.
+// Ausgabe:  die Nährwerttabelle je Portion und darunter die Prüfung gegen die
+//           Grenzen aus kochregeln.md für das Kalorienziel (Standard 600 kcal).
 import { readFileSync, existsSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -151,26 +153,126 @@ export function berechne(katalog, posten) {
   return summe
 }
 
+// Energie je Gramm für die Spalte „Anteil": der Prozentsatz an den
+// Gesamtkalorien. Ballaststoffe zählen mit 2 kcal (zutaten.md).
+const KCAL_JE_GRAMM = {
+  fett: 9,
+  gesaettigt: 9,
+  kohlenhydrate: 4,
+  ballaststoffe: 2,
+  protein: 4,
+}
+
 export function formatiereTabelle(summe, portionen = 1) {
   const je = (wert) => wert / portionen
+  const anteil = (schluessel) =>
+    summe.kcal > 0 ? `${Math.round((summe[schluessel] * KCAL_JE_GRAMM[schluessel] * 100) / summe.kcal)} %` : ''
   const zeilen = [
-    ['Energie', `${Math.round(je(summe.kcal))} kcal`],
-    ['Fett', gramm(je(summe.fett))],
-    ['davon gesättigte Fettsäuren', gramm(je(summe.gesaettigt))],
-    ['Kohlenhydrate', gramm(je(summe.kohlenhydrate))],
-    ['Ballaststoffe', gramm(je(summe.ballaststoffe))],
-    ['Protein', gramm(je(summe.protein))],
-    ['Salz', gramm(je(summe.salz))],
+    ['Energie', `${Math.round(je(summe.kcal))} kcal`, ''],
+    ['Fett', gramm(je(summe.fett)), anteil('fett')],
+    ['davon gesättigte Fettsäuren', gramm(je(summe.gesaettigt)), anteil('gesaettigt')],
+    ['Kohlenhydrate', gramm(je(summe.kohlenhydrate)), anteil('kohlenhydrate')],
+    ['Ballaststoffe', gramm(je(summe.ballaststoffe)), anteil('ballaststoffe')],
+    ['Protein', gramm(je(summe.protein)), anteil('protein')],
+    ['Salz', gramm(je(summe.salz)), ''],
     [
       'Obst und Gemüse',
       `${gramm(je(summe.obstGemuese))} (${zahl(je(summe.obstGemueseportionen))} Portionen)`,
+      '',
     ],
   ]
 
   return [
-    '| Nährwert | Portion |',
-    '|---|---|',
-    ...zeilen.map(([name, wert]) => `| ${name} | ${wert} |`),
+    '| Nährwert | Portion | Anteil |',
+    '|---|---|---|',
+    ...zeilen.map(([name, wert, prozent]) => `| ${name} | ${wert} | ${prozent} |`),
+  ].join('\n')
+}
+
+// Die Grenzen aus kochregeln.md, je 100 kcal des Kalorienziels. Ein Gericht
+// mit 400 kcal hat einen kleineren Anteil am Tag als eines mit 600 kcal und
+// damit auch ein kleineres Budget für Salz und Fett. Die Zahlen müssen mit
+// Teil D von kochregeln.md übereinstimmen.
+export const GRENZEN_JE_100_KCAL = {
+  obstGemueseMin: 40,
+  proteinMin: 4,
+  proteinMax: 6.5,
+  fettMax: 3.3,
+  gesaettigtMax: 1.1,
+  ballaststoffeMin: 1.7,
+  salzMax: 0.33,
+}
+
+export const ENERGIE_TOLERANZ = 0.05
+
+export const STANDARD_KCAL = 600
+
+// Vergleicht die Portion mit den Grenzen für das Kalorienziel. Die Grenzen
+// rechnen vom Ziel aus, nicht von der tatsächlichen Energie: Sie sind das
+// Budget, das ein Gericht dieser Größe hat.
+export function pruefe(summe, zielKcal = STANDARD_KCAL, portionen = 1) {
+  const je = (wert) => wert / portionen
+  const g = GRENZEN_JE_100_KCAL
+  const skaliere = (wert) => (wert * zielKcal) / 100
+  const kcal = je(summe.kcal)
+
+  return [
+    {
+      regel: 'Energie',
+      grenze: `${Math.round(zielKcal * (1 - ENERGIE_TOLERANZ))}–${Math.round(zielKcal * (1 + ENERGIE_TOLERANZ))} kcal`,
+      portion: `${Math.round(kcal)} kcal`,
+      erfuellt: Math.abs(kcal - zielKcal) <= zielKcal * ENERGIE_TOLERANZ,
+    },
+    {
+      regel: 'Obst und Gemüse',
+      grenze: `mindestens ${gramm(skaliere(g.obstGemueseMin))}`,
+      portion: gramm(je(summe.obstGemuese)),
+      erfuellt: je(summe.obstGemuese) >= skaliere(g.obstGemueseMin),
+    },
+    {
+      regel: 'Protein',
+      grenze: `${zahl(skaliere(g.proteinMin))}–${gramm(skaliere(g.proteinMax))}`,
+      portion: gramm(je(summe.protein)),
+      erfuellt:
+        je(summe.protein) >= skaliere(g.proteinMin) && je(summe.protein) <= skaliere(g.proteinMax),
+    },
+    {
+      regel: 'Fett',
+      grenze: `höchstens ${gramm(skaliere(g.fettMax))}`,
+      portion: gramm(je(summe.fett)),
+      erfuellt: je(summe.fett) <= skaliere(g.fettMax),
+    },
+    {
+      regel: 'davon gesättigte Fettsäuren',
+      grenze: `höchstens ${gramm(skaliere(g.gesaettigtMax))}`,
+      portion: gramm(je(summe.gesaettigt)),
+      erfuellt: je(summe.gesaettigt) <= skaliere(g.gesaettigtMax),
+    },
+    {
+      regel: 'Ballaststoffe',
+      grenze: `mindestens ${gramm(skaliere(g.ballaststoffeMin))}`,
+      portion: gramm(je(summe.ballaststoffe)),
+      erfuellt: je(summe.ballaststoffe) >= skaliere(g.ballaststoffeMin),
+    },
+    {
+      regel: 'Salz',
+      grenze: `höchstens ${gramm(skaliere(g.salzMax))}`,
+      portion: gramm(je(summe.salz)),
+      erfuellt: je(summe.salz) <= skaliere(g.salzMax),
+    },
+  ]
+}
+
+export function formatierePruefung(pruefung, zielKcal = STANDARD_KCAL) {
+  return [
+    `Prüfung gegen kochregeln.md für ${zielKcal} kcal:`,
+    '',
+    '| Regel | Grenze | Portion | Ergebnis |',
+    '|---|---|---|---|',
+    ...pruefung.map(
+      ({ regel, grenze, portion, erfuellt }) =>
+        `| ${regel} | ${grenze} | ${portion} | ${erfuellt ? 'erfüllt' : 'verfehlt'} |`,
+    ),
   ].join('\n')
 }
 
@@ -276,10 +378,17 @@ function main() {
   }
 
   const portionen = Number(wert('--portionen') ?? 1)
+  const zielKcal = Number(wert('--kcal') ?? STANDARD_KCAL)
+  if (!(zielKcal > 0)) {
+    throw new Error('--kcal braucht eine positive Zahl, zum Beispiel --kcal 400')
+  }
   const katalog = leseKatalog(readFileSync(findeKatalog(wert('--katalog')), 'utf8'))
   const posten = lesePosten(readFileSync(0, 'utf8'))
+  const summe = berechne(katalog, posten)
 
-  process.stdout.write(`${formatiereTabelle(berechne(katalog, posten), portionen)}\n`)
+  process.stdout.write(
+    `${formatiereTabelle(summe, portionen)}\n\n${formatierePruefung(pruefe(summe, zielKcal, portionen), zielKcal)}\n`,
+  )
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url))) {

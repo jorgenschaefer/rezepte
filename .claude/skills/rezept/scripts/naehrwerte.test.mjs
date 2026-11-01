@@ -7,6 +7,8 @@ import {
   findeZutat,
   berechne,
   formatiereTabelle,
+  pruefe,
+  formatierePruefung,
 } from './naehrwerte.mjs'
 
 const katalog = leseKatalog(
@@ -159,6 +161,86 @@ test('die Tabelle nennt die Zeilen, die das Antwortformat verlangt', () => {
   ]) {
     assert.match(tabelle, new RegExp(`\\| ${zeile} \\|`))
   }
+})
+
+test('die Spalte Anteil nennt den Prozentsatz an den Gesamtkalorien', () => {
+  // 100 g Rote Linsen: 341 kcal, 25,5 g Protein = 102 kcal = 30 %,
+  // 12,5 g Ballaststoffe zu 2 kcal = 25 kcal = 7 %.
+  const tabelle = formatiereTabelle(berechne(katalog, [{ zutat: 'Rote Linsen', gramm: 100 }]))
+
+  assert.match(tabelle, /\| Nährwert \| Portion \| Anteil \|/)
+  assert.match(tabelle, /\| Protein \| 25,5 g \| 30 % \|/)
+  assert.match(tabelle, /\| Ballaststoffe \| 12,5 g \| 7 % \|/)
+  assert.match(tabelle, /\| Salz \| [\d,]+ g \|  \|/)
+})
+
+// Ein Gericht von Hand gebaut, damit die Grenzen nicht vom Katalog abhängen.
+function gericht(werte) {
+  return {
+    kcal: 0,
+    protein: 0,
+    ballaststoffe: 0,
+    kohlenhydrate: 0,
+    fett: 0,
+    gesaettigt: 0,
+    salz: 0,
+    obstGemuese: 0,
+    obstGemueseportionen: 0,
+    ...werte,
+  }
+}
+
+const regel = (pruefung, name) => pruefung.find((p) => p.regel === name)
+
+test('ohne Kalorienziel prüft die Rechnung gegen 600 kcal', () => {
+  const pruefung = pruefe(gericht({ kcal: 600, salz: 1.9 }))
+
+  assert.equal(regel(pruefung, 'Energie').grenze, '570–630 kcal')
+  assert.equal(regel(pruefung, 'Salz').grenze, 'höchstens 2 g')
+  assert.equal(regel(pruefung, 'Salz').erfuellt, true)
+})
+
+test('die Grenzen schrumpfen mit dem Kalorienziel', () => {
+  const salz = gericht({ kcal: 400, salz: 1.9 })
+
+  assert.equal(regel(pruefe(salz, 600), 'Salz').erfuellt, true)
+  assert.equal(regel(pruefe(salz, 400), 'Salz').grenze, 'höchstens 1,3 g')
+  assert.equal(regel(pruefe(salz, 400), 'Salz').erfuellt, false)
+  assert.equal(regel(pruefe(salz, 400), 'Obst und Gemüse').grenze, 'mindestens 160 g')
+  assert.equal(regel(pruefe(salz, 400), 'Protein').grenze, '16–26 g')
+})
+
+test('die Energie darf um 5 % vom Ziel abweichen, nicht mehr', () => {
+  assert.equal(regel(pruefe(gericht({ kcal: 420 }), 400), 'Energie').erfuellt, true)
+  assert.equal(regel(pruefe(gericht({ kcal: 421 }), 400), 'Energie').erfuellt, false)
+  assert.equal(regel(pruefe(gericht({ kcal: 379 }), 400), 'Energie').erfuellt, false)
+})
+
+test('Untergrenzen und Obergrenzen werden in ihre Richtung geprüft', () => {
+  const pruefung = pruefe(
+    gericht({ kcal: 600, obstGemuese: 300, protein: 45, fett: 12, gesaettigt: 7, ballaststoffe: 9 }),
+  )
+
+  assert.equal(regel(pruefung, 'Obst und Gemüse').erfuellt, true)
+  assert.equal(regel(pruefung, 'Protein').erfuellt, false)
+  assert.equal(regel(pruefung, 'Fett').erfuellt, true)
+  assert.equal(regel(pruefung, 'davon gesättigte Fettsäuren').erfuellt, false)
+  assert.equal(regel(pruefung, 'Ballaststoffe').erfuellt, false)
+})
+
+test('die Prüfung rechnet je Portion', () => {
+  const zwei = gericht({ kcal: 1200, salz: 3.8 })
+
+  assert.equal(regel(pruefe(zwei, 600, 2), 'Energie').erfuellt, true)
+  assert.equal(regel(pruefe(zwei, 600, 2), 'Salz').portion, '1,9 g')
+})
+
+test('die Prüfung nennt das Ziel und jedes Ergebnis', () => {
+  const text = formatierePruefung(pruefe(gericht({ kcal: 400 }), 400), 400)
+
+  assert.match(text, /für 400 kcal/)
+  assert.match(text, /\| Energie \| 380–420 kcal \| 400 kcal \| erfüllt \|/)
+  assert.match(text, /\| Ballaststoffe \| mindestens 6,8 g \| 0 g \| verfehlt \|/)
 })
 
 test('eine Klammer in einer Nährwertspalte nennt nur ein Produkt ihrer Zeile', () => {
