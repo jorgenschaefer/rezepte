@@ -13,7 +13,7 @@ Woher die Zahlen kommen, steht in `ernaehrungsrahmen.md`.
 - **Erst den Teller bauen, dann nachrechnen.** Die Leitlinien beschreiben Lebensmittel, nicht Nährstoffe. Ein Gericht, das die Regeln 2 bis 6 befolgt, erfüllt die Grenzen in Teil D fast immer von selbst. Teil D ist eine Kontrolle, kein Optimierungsziel.
 - **Grenzen sind Obergrenzen, keine Ziele.** Weniger Fett, Salz oder Zucker als die Grenze ist kein Fehler.
 - **Was nicht geregelt ist, entscheidet der Koch.** Küche, Technik, Gewürze, Garnitur und Aufbau des Gerichts sind seine Sache.
-- **Die Zahlen gelten je 100 kcal des Kalorienziels.** Ein Gericht ist ein Teil des Tages, und sein Anteil am Tagesbudget für Salz, Fett oder Ballaststoffe wächst mit seiner Größe. Ein kleines Gericht mit 400 kcal hat also weniger Salz zur Verfügung als ein normales mit 600 kcal. Grundlage ist ein Tagesziel von 1800 kcal; 600 kcal sind ein Drittel davon. In Klammern steht jeweils der Wert für 600 kcal, damit man ein Bild vor Augen hat. `scripts/naehrwerte.mjs --kcal <Ziel>` rechnet die Grenzen für das jeweilige Ziel aus.
+- **Die Zahlen gelten je 100 kcal des Kalorienziels.** Ein Gericht ist ein Teil des Tages, und sein Anteil am Tagesbudget für Fett oder Ballaststoffe wächst mit seiner Größe. Nur Salz gilt je Portion (Regel 10). Grundlage ist ein Tagesziel von 1800 kcal; 600 kcal sind ein Drittel davon. In Klammern steht jeweils der Wert für 600 kcal, damit man ein Bild vor Augen hat. `scripts/naehrwerte.mjs --kcal <Ziel>` rechnet die Grenzen für das jeweilige Ziel aus.
 - **Fest bleibt, was Würze ist.** Ein Teelöffel Zucker zum Abrunden oder ein Spritzer Zitrone hängen am Geschmack, nicht an der Größe des Gerichts.
 
 ## A. Energie
@@ -49,6 +49,7 @@ Woher die Zahlen kommen, steht in `ernaehrungsrahmen.md`.
 - Vollkorn: Naturreis, Vollkornnudeln, Roggenvollkornbrot, Haferflocken.
 - Etwa 8–12 g trocken je 100 kcal (bei 600 kcal 50–70 g). Weniger, wenn schon Hülsenfrüchte im Gericht sind.
 - Eine Beilage ist eine echte Portion oder sie fehlt. Bleiben für Reis nur noch 25 g, ist der Teller falsch geplant.
+- Ein kleines Gericht ist ein anderes Gericht, kein verkleinertes großes. Bei wenig Energie passen Suppen, Eintöpfe und Currys ohne Beilage, ein Salat mit Bohnen, ein Omelett mit Gemüse oder eine Scheibe Brot mit einem warmen Belag. 40 g Nudeln unter einer großen Pfanne Gemüse sind keine Pasta mehr.
 - Weißmehl und Speisestärke nur zum Binden.
 
 *Warum:* Vollkorn ist überall die erste Wahl. Spanien begrenzt Getreide ausdrücklich, wenn Kalorien gespart werden. Eine italienische Portion Nudeln hat 80 g, eine spanische 60–80 g.
@@ -76,6 +77,7 @@ Woher die Zahlen kommen, steht in `ernaehrungsrahmen.md`.
 **7. Geschmack entsteht durch Technik, nicht durch Fett und Salz.** Die Werkzeuge:
 - **Röstaromen:** Gemüse, Pilze und Tofu scharf anbraten oder im Ofen rösten, Tomatenmark und Gewürze kurz im Öl anrösten.
 - **Aromaten:** Zwiebel und Knoblauch als Grundlage, wie im Sofrito.
+- **Flüssigkeit mit Geschmack:** Soja-Granulat und Soja-Schnetzel quellen in Brühe, nicht in Wasser. Suppen, Currys, Schmorgerichte und Soßen bekommen Brühe statt Wasser. Die Brühe zählt zum Salz – sie ist meist der beste Ort dafür.
 - **Umami:** Pilze, Tomate, Tomatenmark, Sojasauce in kleinen Mengen.
 - **Säure:** Zitrone, Limette, Essig, meist erst zum Schluss.
 - **Schärfe, Kräuter und Gewürze:** großzügig.
@@ -97,7 +99,7 @@ Die Würzung ist kräftig und rund. Ein Gericht mit wenig Salz darf nicht fad sc
 
 ## D. Grenzen – nachrechnen, wenn der Teller steht
 
-`scripts/naehrwerte.mjs` prüft diese Zahlen für das Kalorienziel. Die Zahlen hier und im Skript (`GRENZEN_JE_100_KCAL`, `RICHTWERTE_JE_100_KCAL`) müssen übereinstimmen.
+`scripts/naehrwerte.mjs` prüft diese Zahlen für das Kalorienziel. Die Zahlen hier und im Skript (`GRENZEN_JE_100_KCAL`, `SALZ_JE_PORTION_MAX`, `RICHTWERTE_JE_100_KCAL`) müssen übereinstimmen.
 
 Es gibt zwei Sorten:
 
@@ -106,13 +108,13 @@ Es gibt zwei Sorten:
 
 Rechne ein Gericht nicht bis an den Rand einer Zahl. Lieber einen Richtwert knapp verfehlen als das Gericht verbiegen, eine Zutat streichen, die hineingehört, oder eine Menge krumm machen.
 
-**10. Salz höchstens 0,5 g je 100 kcal (bei 600 kcal 3 g).**
+**10. Salz höchstens 3 g pro Portion, egal wie groß das Gericht ist.**
 - Alles Salzige zählt mit: Sojasauce, Brühpulver, Räuchertofu, Senf, Currypaste, Ketchup, Brot.
 - Salz ist Würze. Gib das Budget dorthin, wo man es schmeckt – ins Gericht, nicht in eine Scheibe Brot, die nur daneben liegt.
-- Suppen, Currys und Schmorgerichte bekommen Brühe statt Wasser, wenn es dem Gericht guttut. Die Brühe zählt zum Salz.
+- Brühe ist meist der beste Ort für das Salz (Regel 7).
 - Jodsalz verwenden. Am Ende abschmecken.
 
-*Warum:* Bei 5–6 g am Tag dürfen 2–3 g in ein Hauptgericht, denn Frühstück und Zwischenmahlzeiten (Haferflocken, Joghurt, Obst) bringen kaum Salz mit. Ein Hauptgericht mit 600 kcal trägt also mehr als ein Drittel des Salzes, obwohl es nur ein Drittel der Energie hat. Weniger Salz schmeckte im Test fad: Der Gutachter nannte zu wenig Salz die häufigste Schwäche.
+*Warum:* Bei 5–6 g am Tag dürfen 2–3 g in ein Hauptgericht, denn Frühstück und Zwischenmahlzeiten (Haferflocken, Joghurt, Obst) bringen kaum Salz mit. Die Grenze gilt je Portion und nicht je 100 kcal, weil der Geschmack an der Menge Essen hängt, nicht an den Kalorien: Ein kleines Gericht mit viel Gemüse braucht fast so viel Salz wie ein großes. Mit einer Grenze je 100 kcal blieben einem kleinen Gericht im Test 0,3 g zum Salzen. Zwei Hauptgerichte mit je 3 g und ein salzarmes Frühstück ergeben gut 6 g am Tag. Der Gutachter nannte zu wenig Salz in beiden Testrunden die häufigste Schwäche.
 
 **11. Gesättigte Fettsäuren höchstens 1,1 g je 100 kcal (bei 600 kcal 6,6 g, das sind 10 % der Energie). Gesamtfett als Richtwert höchstens 3,9 g je 100 kcal (bei 600 kcal 23 g, das sind 35 %).**
 *Warum:* Gesättigte Fettsäuren: WHO, Kanada, Italien – eine echte Grenze. Gesamtfett: 35 % ist die Obergrenze der EFSA. Wie viel Fett insgesamt drin ist, ist weniger wichtig als welches. Ein Gericht mit Lachs darf darüber liegen.

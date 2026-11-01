@@ -195,7 +195,7 @@ Zum Vergleich der einzige veröffentlichte Wert für eine einzelne Mahlzeit: Der
 | Salz | ≤ 0,28 g (WHO, EFSA, 5 g), ≤ 0,33 g (DGE, 6 g) | ≤ 1,7 g, ≤ 2 g | Tageswert ÷ 1800 kcal; die DGE-Speisepläne geben 1 g Salz pro Gericht zu |
 | Kalium | ≥ 194 mg (EFSA, 3500 mg) | ≥ 1170 mg | Tageswert ÷ 1800 kcal |
 
-Die Kochregeln weichen beim Salz bewusst von dieser Rechnung ab: Sie erlauben 0,5 g je 100 kcal (3 g bei 600 kcal). Frühstück und Zwischenmahlzeiten bringen kaum Salz mit, deshalb kann ein Hauptgericht von einem Tagesbudget von 5–6 g 2–3 g tragen.
+Die Kochregeln weichen beim Salz bewusst von dieser Rechnung ab: Sie erlauben 3 g pro Hauptgericht, unabhängig von seiner Größe. Frühstück und Zwischenmahlzeiten bringen kaum Salz mit, deshalb kann ein Hauptgericht von einem Tagesbudget von 5–6 g 2–3 g tragen. Und wie salzig ein Gericht schmeckt, hängt an der Menge Essen, nicht an den Kalorien.
 
 ## Quellen
 
