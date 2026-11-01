@@ -6,37 +6,31 @@ disable-model-invocation: true
 
 Erstelle ein Rezept.
 
+# Kalorienziel
+
+Das Kalorienziel gilt je Portion. Es ist 600 kcal, wenn der Benutzer nichts anderes sagt, zum Beispiel „/rezept mit 400 kcal“.
+
 # Gericht wählen
 
-Schreib eine nummerierte Liste von 20 Hauptgerichten für Mittag- oder Abendessen, die sich mit dem Vorrat kochen lassen. Die Gerichte sollen sich deutlich unterscheiden – in Gerichtsart, Küche und Hauptzutat. Zieh dann zufällig eine Zahl und koche das Gericht mit dieser Nummer. Die Richtwerte bestimmen danach nur die Mengen, nicht die Wahl des Gerichts.
+Schreib eine nummerierte Liste von 20 Hauptgerichten für Mittag- oder Abendessen, die sich mit dem Vorrat kochen lassen. Die Gerichte sollen sich deutlich unterscheiden – in Gerichtsart, Küche und Hauptzutat. Die Mischung der Liste folgt Regel 6 in `kochregeln.md`. Zieh dann zufällig eine Zahl und koche das Gericht mit dieser Nummer.
 
-# Vorgaben und Richtwerte
+# Kochregeln
 
-Vorrang vor den Richtwerten haben, in dieser Reihenfolge:
+Koch nach `kochregeln.md` im Projektordner. Dort stehen die Regeln, ihre Rangfolge und was zu tun ist, wenn ein Rezept eine Regel verfehlt. Die Zahlen dort gelten je 100 kcal; das Skript rechnet sie auf das Kalorienziel um.
 
-1. Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen.
-2. Das Gericht stimmt kulinarisch und schmeckt. Würze so, wie ein guter Koch dieses Gericht würzen würde.
-3. Etwa 600 kcal, wenn der Benutzer nichts anderes sagt.
-
-Erst danach kommen die folgenden Richtwerte. Versuche, sie zu erreichen, die oberen vor den unteren. Lässt sich ein Richtwert nur erreichen, wenn dafür etwas Vorrangiges oder ein Richtwert weiter oben nachgeben muss, lass ihn aus.
-
-1. Salz höchstens 2,5 g.
-2. Protein 20–25 % der Energie.
-3. Fett etwa 30 % der Energie, davon gesättigte Fettsäuren unter 10 %.
-4. Mindestens 2 Portionen (je 110 g) Obst und Gemüse.
-5. Ballaststoffe mindestens 10 g.
-
-Verfehlt das Rezept einen Richtwert, nenne ihn unter dem Rezept in einem Satz und sag, was dagegen stand.
+Verwende ausschließlich Zutaten, die in `vorratskammer.md` stehen, und beachte die Hinweise dort.
 
 # Nährwerte
 
 Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
-Rechne die Nährwerttabelle mit `scripts/naehrwerte.mjs` aus den Zutatenmengen. Der Pfad gilt relativ zum Ordner dieses Skills, nicht zum Projektordner: `node .claude/skills/rezept/scripts/naehrwerte.mjs`, die Zutaten als Zeilen „Zutat | Gramm" auf stdin.
+Rechne die Nährwerte mit `scripts/naehrwerte.mjs` aus den Zutatenmengen. Der Pfad gilt relativ zum Ordner dieses Skills, nicht zum Projektordner: `node .claude/skills/rezept/scripts/naehrwerte.mjs --kcal <Kalorienziel>`, bei mehreren Portionen dazu `--portionen <Anzahl>`, die Zutaten als Zeilen „Zutat | Gramm" auf stdin.
+
+Das Skript gibt zwei Tabellen aus. Die erste ist die Nährwerttabelle für das Rezept. Die zweite prüft das Rezept gegen die Grenzen aus `kochregeln.md` und gehört nicht in die Antwort. Steht dort „verfehlt“, ändere die Mengen und rechne neu. Lässt sich eine Regel nur einhalten, wenn etwas Wichtigeres nachgibt, lass sie verfehlt und sag es unter dem Rezept, wie `kochregeln.md` es verlangt.
 
 # Adversarial Review
 
-Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen. Sein Auftrag steht in `REVIEW.md` in diesem Ordner. Gib ihm den Text dieser Datei, die Zutatenliste, die Zubereitung und den Pfad zu `vorratskammer.md`. Nährwerte und Richtwerte bekommt er nicht.
+Bevor du es ausgibst, lass das fertige Rezept von einem Subagenten prüfen. Sein Auftrag steht in `REVIEW.md` in diesem Ordner. Gib ihm den Text dieser Datei, die Zutatenliste, die Zubereitung und den Pfad zu `vorratskammer.md`. Nährwerte und Kochregeln bekommt er nicht.
 
 Ändert eine Korrektur Mengen oder Zutaten, rechne die Nährwert-Tabelle neu.
 
@@ -48,10 +42,7 @@ Nenne jede Zutat bei ihrer Kurzform aus `zutaten.md` – dem Namen, unter dem au
 - **Portionen:** Anzahl (Standard: 1).
 - **Zeit:** Aktive Arbeitszeit und Gesamtzeit
 - **Kochgeschirr:**
-- **Nährwerte pro Portion:**
-  - Eine Tabelle mit drei Spalten – Nährwert, Portion und Anteil.
-  - Die Zeilen Energie, Fett, davon gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffe, Protein, Salz, Obst und Gemüse.
-  - Die Spalte Anteil ist nur bei Fett, gesättigte Fettsäuren, Kohlenhydrate, Ballaststoffen und Protein gefüllt. Dort mit dem Prozentsatz an den Gesamtkalorien.
+- **Nährwerte pro Portion:** die erste Tabelle aus dem Skript, unverändert.
 - **Zutatenliste:**
   - Mengen in Gramm oder haushaltsüblichen Maßen.
 - **Zubereitung:** Eine nummerierte Liste, in der Reihenfolge, in der gehandelt wird.
