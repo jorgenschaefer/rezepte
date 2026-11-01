@@ -19,8 +19,10 @@ Koch wie ein guter Koch ein Gericht mit dem Kalorienziel: 600 kcal je Portion, w
 3. **Planen:**
   - Plane den Teller von der Energie her: erst feste Portionen und Eiweiß, dann Stärke und Öl, mit dem Rest Gemüse.
   - Rechne den Plan mit dem Skript und ändere die Mengen, bis die Energie passt.
+  - Änderst du eine Menge, pass an, was daran hängt: Kochwasser, Öl, Gewürze.
 4. **Schreiben:**
   - Schreib das Rezept und rechne es einmal nach.
+  - Geh die Schritte durch, wie lange und wie heiß jede Zutat gart, auch in späteren Schritten in derselben Pfanne.
 5. **Review:**
   - Lass das Rezept von einem Subagenten prüfen.
   - Gib ihm den Text von `REVIEW.md` aus diesem Ordner, die Zutatenliste, die Zubereitung und den Pfad zu `vorratskammer.md`, aber keine Nährwerte.
