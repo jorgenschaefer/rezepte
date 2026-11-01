@@ -18,8 +18,13 @@ Woher die Zahlen kommen, steht in `ernaehrungsrahmen.md`.
 
 ## A. Energie
 
-**1. Das Kalorienziel ist fest, auf ±5 %.** Die energiereichen Zutaten bestimmen die Energie: Öl, Nüsse und Samen, Getreide, Käse, Lachs, Tofu. Sie werden in Gramm abgewogen. Gemüse füllt den Teller und darf großzügig sein.
-*Warum:* Für das Gewicht zählt die Gesamtenergie mehr als die Verteilung auf Fett, Kohlenhydrate und Protein (S3-Leitlinie Adipositas).
+**1. Das Kalorienziel ist fest, auf ±5 %. Plane den Teller von der Energie her.**
+- Zuerst die festen Portionen: Was der Vorrat nur als ganze Portion hergibt – Tofu, Räuchertofu, Lachs, Dosen –, steht fest und nimmt seinen Teil der Energie.
+- Dann die Eiweißquelle, die Stärke und das Öl, jeweils in der Menge, die das Gericht braucht. Diese energiereichen Zutaten werden in Gramm abgewogen.
+- Mit dem Rest der Energie füllt das Gemüse den Teller. Es darf großzügig sein.
+- Ein Gericht, das so nicht aufgeht, passt nicht zu diesem Kalorienziel und gehört nicht auf die Kandidatenliste. Ein Beispiel: Ein Lachsfilet hat 305 kcal; bei einem Ziel von 400 kcal bleibt daneben kaum etwas.
+
+*Warum:* Für das Gewicht zählt die Gesamtenergie mehr als die Verteilung auf Fett, Kohlenhydrate und Protein (S3-Leitlinie Adipositas). Wer ein fertiges Gericht nachträglich auf ein Ziel drückt, landet bei Alibi-Beilagen, Füllzutaten und Braten ohne Öl – das zeigten die Testläufe.
 
 ## B. Der Teller
 
@@ -43,6 +48,7 @@ Woher die Zahlen kommen, steht in `ernaehrungsrahmen.md`.
 **4. Stärke ist Beilage, nicht Hauptmasse.**
 - Vollkorn: Naturreis, Vollkornnudeln, Roggenvollkornbrot, Haferflocken.
 - Etwa 8–12 g trocken je 100 kcal (bei 600 kcal 50–70 g). Weniger, wenn schon Hülsenfrüchte im Gericht sind.
+- Eine Beilage ist eine echte Portion oder sie fehlt. Bleiben für Reis nur noch 25 g, ist der Teller falsch geplant.
 - Weißmehl und Speisestärke nur zum Binden.
 
 *Warum:* Vollkorn ist überall die erste Wahl. Spanien begrenzt Getreide ausdrücklich, wenn Kalorien gespart werden. Eine italienische Portion Nudeln hat 80 g, eine spanische 60–80 g.
@@ -56,7 +62,7 @@ Woher die Zahlen kommen, steht in `ernaehrungsrahmen.md`.
 
 *Warum:* Alle Quellen wollen ungesättigtes statt gesättigtes Fett. Fett ist am energiedichtesten und sättigt pro Kalorie am wenigsten (WHO). Spanien: die Ölmenge an das Kalorienziel anpassen.
 
-**6. Über die Woche Hülsenfrüchte oft, Fisch regelmäßig.** Diese Regel gilt für die Liste der 20 Kandidaten, aus der gelost wird. Weil gelost wird, bestimmt die Liste, wie oft etwas im Durchschnitt drankommt.
+**6. Über die Woche Hülsenfrüchte oft, Fisch regelmäßig.** Diese Regel gilt für die Liste der 20 Kandidaten, aus der gelost wird. Weil gelost wird, bestimmt die Liste, wie oft etwas im Durchschnitt drankommt. Jeder Kandidat ist ein ganzer Teller mit Hauptkomponente, Gemüse und Beilage, und jeder muss beim Kalorienziel aufgehen (Regel 1).
 - Etwa die Hälfte der Gerichte setzt auf Hülsenfrüchte als Eiweiß.
 - 2–3 Gerichte setzen auf Fisch, wenn der Vorrat es hergibt.
 - Die übrigen setzen auf Tofu, Ei oder Milchprodukte.

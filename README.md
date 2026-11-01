@@ -10,7 +10,7 @@ Everything inside the project – the skill and the data – is in German.
 
 | Path | What it is |
 |---|---|
-| `.claude/skills/rezept/SKILL.md` | The skill: a calorie target per portion (600 kcal unless asked otherwise, e.g. `/rezept mit 400 kcal`), a dish drawn at random from 20 candidates, cooked by the rules in `kochregeln.md`, a strict output format, and a subagent that reviews the recipe as a cook before it goes out. |
+| `.claude/skills/rezept/SKILL.md` | The skill: a calorie target per portion (600 kcal unless asked otherwise, e.g. `/rezept mit 400 kcal`), a dish drawn at random from 20 candidate plates, planned from the energy budget before the recipe is written and cooked by the rules in `kochregeln.md`, a strict output format, and a subagent that reviews the recipe as a cook before it goes out. |
 | `.claude/skills/rezept/scripts/naehrwerte.mjs` | Computes the nutrition table from ingredient amounts and checks it against the limits in `kochregeln.md` for the calorie target (`--kcal`), so the model doesn't do arithmetic. |
 | `kochregeln.md` | The cooking rules: build the plate first (vegetables, a protein source, whole-grain starch, measured oil), then check a few limits. Numbers are per 100 kcal, so they fit small and normal dishes alike. |
 | `ernaehrungsrahmen.md` | Overview of the dietary guidelines the rules come from: DGE, Canada, Australia, Spain, Italy, EFSA, WHO, and the US for comparison, with sources. |
