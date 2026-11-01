@@ -89,6 +89,7 @@ export function leseLauf(text) {
   }
 
   const anmerkungen = teil('E')
+  const review = anmerkungen.match(/Review-Korrekturen:?\s*(\d+)/i)
   const skript = anmerkungen.match(/Skriptl[äa]uf\w*:?\s*(\d+)|(\d+)\s+Skriptl[äa]uf/i)
   const titel = teil('C').match(/\*\*Titel:\*\*\s*(.+)/)
 
@@ -101,6 +102,7 @@ export function leseLauf(text) {
     posten,
     portionen,
     skriptlaeufe: skript ? Number(skript[1] ?? skript[2]) : null,
+    reviewKorrekturen: review ? Number(review[1]) : null,
   }
 }
 
@@ -118,6 +120,7 @@ export function kennzahlenLauf(lauf, katalog, zielKcal) {
   const ergebnis = {
     titel: lauf.titel,
     skriptlaeufe: lauf.skriptlaeufe,
+    reviewKorrekturen: lauf.reviewKorrekturen,
     huelsenfruechte: lauf.kandidaten.filter((k) => HUELSENFRUECHTE.test(k)).length / kandidaten,
     fisch: lauf.kandidaten.filter((k) => FISCH.test(k)).length / kandidaten,
   }
@@ -245,9 +248,10 @@ export function baueBericht({ staende, schluessel, laeufe, bewertungen, datum })
       'Hülsenfrüchte und Fisch: Anteil in den Kandidatenlisten, grob nach Wörtern gezählt.',
     '',
   )
+  const mitReview = proRezept.some((r) => r.lauf.reviewKorrekturen !== null && r.lauf.reviewKorrekturen !== undefined)
   z.push(
-    '| Stand | Ziel | Energie verfehlt | Salz | Fett | Gemüse | Ballaststoffe | Protein | Skriptläufe | Hülsenfrüchte | Fisch |',
-    '|---|---|---|---|---|---|---|---|---|---|---|',
+    `| Stand | Ziel | Energie verfehlt | Salz | Fett | Gemüse | Ballaststoffe | Protein | Skriptläufe |${mitReview ? ' Review-Korrekturen |' : ''} Hülsenfrüchte | Fisch |`,
+    `|---|---|---|---|---|---|---|---|---|${mitReview ? '---|' : ''}---|---|`,
   )
   for (const ziel of kcalWerte) {
     for (const s of staende) {
@@ -257,7 +261,7 @@ export function baueBericht({ staende, schluessel, laeufe, bewertungen, datum })
       const m = (feld) => mittel(ok.map((x) => x[feld]))
       const laeufeMitZahl = k.filter((x) => x.skriptlaeufe !== null)
       z.push(
-        `| \`${s.name}\` | ${ziel} kcal | ${k.filter((x) => x.energieVerfehlt).length} von ${ok.length}${k.length > ok.length ? ` (${k.length - ok.length} nicht nachrechenbar)` : ''} | ${zahl(m('salz'))} g | ${prozent(m('fettAnteil'))} | ${zahl(m('gemuese'), 0)} g | ${zahl(m('ballaststoffe'))} g | ${zahl(m('protein'))} g | ${laeufeMitZahl.length ? zahl(mittel(laeufeMitZahl.map((x) => x.skriptlaeufe))) : '–'} | ${prozent(mittel(k.map((x) => x.huelsenfruechte)))} | ${prozent(mittel(k.map((x) => x.fisch)))} |`,
+        `| \`${s.name}\` | ${ziel} kcal | ${k.filter((x) => x.energieVerfehlt).length} von ${ok.length}${k.length > ok.length ? ` (${k.length - ok.length} nicht nachrechenbar)` : ''} | ${zahl(m('salz'))} g | ${prozent(m('fettAnteil'))} | ${zahl(m('gemuese'), 0)} g | ${zahl(m('ballaststoffe'))} g | ${zahl(m('protein'))} g | ${laeufeMitZahl.length ? zahl(mittel(laeufeMitZahl.map((x) => x.skriptlaeufe))) : '–'} |${mitReview ? ` ${zahl(mittel(k.filter((x) => x.reviewKorrekturen !== null).map((x) => x.reviewKorrekturen)))} |` : ''} ${prozent(mittel(k.map((x) => x.huelsenfruechte)))} | ${prozent(mittel(k.map((x) => x.fisch)))} |`,
       )
     }
   }

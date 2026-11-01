@@ -51,6 +51,7 @@ Portionen: 2
 
 ## E) Anmerkungen
 - Skriptläufe: 3 (Plan zu groß).
+- Review-Korrekturen: 2
 `
 
 test('ohne uncommittete Änderungen vergleicht es den letzten Commit mit dem davor', () => {
@@ -79,6 +80,7 @@ test('ein Lauf liefert Kandidaten, Titel, Mengen, Portionen und Skriptläufe', (
   ])
   assert.equal(lauf.portionen, 2)
   assert.equal(lauf.skriptlaeufe, 3)
+  assert.equal(lauf.reviewKorrekturen, 2)
 })
 
 test('der blinde Text verrät weder Nährwerte noch das Kalorienziel', () => {
@@ -149,6 +151,7 @@ test('der Bericht nennt Bewertung, Kennzahlen, Rezepte und Beobachtungen je Stan
   assert.match(text, /# Vergleich: HEAD gegen working-tree/)
   assert.match(text, /\| `working-tree` \| 600 kcal \| 1 \| 30 \| \+0 ± 0/)
   assert.match(text, /## Kennzahlen/)
+  assert.match(text, /Review-Korrekturen \|/)
   assert.match(text, /\| `HEAD` \| 600 \| Mercimek mit Zitrone \| 30 \| 0 von 2 \|/)
   assert.match(text, /### Bewerter 2\n\n- Salz fehlt oft/)
 })

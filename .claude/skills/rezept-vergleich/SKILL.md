@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 Vergleiche Stände des Skills `/rezept`. Mit jedem Stand kochen Subagenten Rezepte, drei Profiköche bewerten sie blind, ein Skript rechnet sie nach. Ein Vergleich von zwei Ständen kostet etwa 25 Subagenten.
 
+Mit `--review` unter den Argumenten führen die Köche auch das Review des Skills aus. Das misst `REVIEW.md` mit, kostet aber einen Subagenten mehr je Lauf, also etwa 45 statt 25.
+
 Die Argumente sind die Stände: Git-Refs wie `HEAD`, `HEAD^`, `main` oder ein Commit, und `working-tree` für den Ordner mit den uncommitteten Änderungen. Ohne Argumente: `HEAD working-tree`, wenn es uncommittete Änderungen gibt, sonst `HEAD^ HEAD`. Der erste Stand ist der Ausgangsstand, gegen den die anderen verglichen werden.
 
 `<ordner>` ist ein neuer Ordner im Scratchpad, zum Beispiel `<scratchpad>/vergleich-1`. Das Werkzeug ist `node .claude/skills/rezept-vergleich/scripts/vergleich.mjs`, aufgerufen im Projektordner.
@@ -13,7 +15,7 @@ Die Argumente sind die Stände: Git-Refs wie `HEAD`, `HEAD^`, `main` oder ein Co
 # Ablauf
 
 1. **Vorbereiten:** `vergleich.mjs vorbereiten <ordner> [stand …]`. Es legt für jeden Stand eine Kopie des Projekts an und gibt die Stände als JSON aus.
-2. **Kochen:** Starte den Workflow `rezept-vergleich-laeufe` mit `{"schritt": "kochen", "ordner": <ordner>, "staende": <JSON aus Schritt 1>, "laeufe": 10, "kcal": [600, 400]}`. Die Läufe verteilen sich gleichmäßig auf die Kalorienziele.
+2. **Kochen:** Starte den Workflow `rezept-vergleich-laeufe` mit `{"schritt": "kochen", "ordner": <ordner>, "staende": <JSON aus Schritt 1>, "laeufe": 10, "kcal": [600, 400], "review": <true bei `--review`, sonst false>}`. Die Läufe verteilen sich gleichmäßig auf die Kalorienziele.
 3. **Blind machen:** `vergleich.mjs blind <ordner>`. Es gibt die Zahl der Rezepte aus.
 4. **Bewerten:** Starte den Workflow mit `{"schritt": "bewerten", "ordner": <ordner>, "anzahl": <Zahl aus Schritt 3>, "vorrat": "<Pfad des ersten Stands>/vorratskammer.md", "kcal": [600, 400]}`.
 5. **Bericht:** `vergleich.mjs bericht <ordner> <projektordner>`. Es schreibt `vergleiche/<datum>-<stände>.md` ins Projekt und gibt den Pfad aus.

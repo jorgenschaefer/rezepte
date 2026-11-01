@@ -9,13 +9,15 @@ export const meta = {
 }
 
 // args.schritt === 'kochen':
-//   { ordner, staende: [{ name, pfad }], laeufe: 10, kcal: [600, 400] }
+//   { ordner, staende: [{ name, pfad }], laeufe: 10, kcal: [600, 400], review: false }
+//   Mit review: true führt jeder Koch auch das Review des Skills aus. Das
+//   kostet einen Subagenten mehr je Lauf.
 // args.schritt === 'bewerten':
 //   { ordner, anzahl, vorrat, kcal: [600, 400], bewerter: 3 }
 
 const STANDARD_KCAL = 600
 
-function kochPrompt(stand, i, nr, kcal, ordner) {
+function kochPrompt(stand, i, nr, kcal, ordner, review) {
   const aufruf = kcal === STANDARD_KCAL ? '`/rezept`' : `\`/rezept mit ${kcal} kcal\``
   const datei = `${ordner}/laeufe/${i}-${String(nr).padStart(2, '0')}-${kcal}.md`
   return `Führe einen Rezept-Skill aus, als hätte der Benutzer ${aufruf} aufgerufen.
@@ -24,7 +26,7 @@ Projektordner: ${stand.pfad}
 Lies \`.claude/skills/rezept/SKILL.md\` in diesem Ordner und folge ihm genau – nicht mehr und nicht weniger, als dort steht. Alle Dateien, die der Skill nennt, liegen in diesem Ordner. Lies und benutze keine Dateien außerhalb dieses Ordners. Ändere im Projektordner keine Dateien. Skriptaufrufe, falls der Skill welche verlangt: \`cd <Projektordner> && node .claude/skills/rezept/scripts/naehrwerte.mjs …\`.
 
 Abweichungen vom Skill:
-1. Verlangt der Skill ein Review durch einen Subagenten, überspring es. Starte keinen Subagenten.
+${review ? '1. Verlangt der Skill ein Review durch einen Subagenten, führ es genau so aus, wie der Skill es sagt, mit dem Agent-Tool. Kannst du keinen Subagenten starten, schreib das in Abschnitt E und mach ohne Review weiter.' : '1. Verlangt der Skill ein Review durch einen Subagenten, überspring es. Starte keinen Subagenten.'}
 2. Verlangt der Skill eine zufällige Wahl, nimm dafür die Ausgabe von \`shuf -i 1-20 -n 1\`.
 
 Schreib das Ergebnis mit dem Write-Tool in die Datei ${datei}, mit genau diesen Abschnitten:
@@ -42,7 +44,7 @@ das fertige Rezept genau so, wie du es dem Benutzer ausgeben würdest, mit einer
 Erst nachdem das Rezept fertig ist, und ohne es zu ändern: jede Zutat des Rezepts als Zeile „Kurzform | Gramm“ für die Gesamtmenge des Rezepts. Nimm als Kurzform den Namen, unter dem \`vorratskammer.md\` die Zutat führt. Wasser lässt du weg. Darunter eine Zeile „Portionen: N“.
 
 ## E) Anmerkungen
-eine Zeile „Skriptläufe: N“ (0, wenn keiner), dann alles, was beim Ausführen auffiel.
+eine Zeile „Skriptläufe: N“ (0, wenn keiner)${review ? ', eine Zeile „Review-Korrekturen: N“ mit der Zahl der Korrekturen aus dem Review, die du übernommen hast, und darunter je Korrektur ein Satz' : ''}, dann alles, was beim Ausführen auffiel.
 
 Gib danach nur den Dateipfad und den Namen des Gerichts zurück.`
 }
@@ -104,7 +106,7 @@ if (args.schritt === 'kochen') {
   })
   const ergebnisse = await parallel(
     laeufe.map((l) => () =>
-      agent(kochPrompt(l.stand, l.i, l.nr, l.kcal, args.ordner), {
+      agent(kochPrompt(l.stand, l.i, l.nr, l.kcal, args.ordner, args.review === true), {
         label: `${l.stand.name} ${l.nr} (${l.kcal} kcal)`,
         phase: 'Kochen',
         schema: ANTWORT,
