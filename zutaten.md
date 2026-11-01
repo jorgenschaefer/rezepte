@@ -124,6 +124,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | Quelle | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Hähnchenbrustfilet | Hähnchenbrustfilet | ca. 320–400 g, 2 Stück (REWE Bio, Einfach Bio) | 105 | 23 g | 0 | 0,5 g | 1,5 g | 0,3 g | 0,1 g | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier |
+| Einfach Bio Hackfleisch gemischt 400g | Hackfleisch; Hackfleisch gemischt; Hack; Gemischtes Hack | 400 g (Einfach Bio) | 234 | 18 g | 0 | 0 | 18 g | 6,8 g | 0,13 g | Etikett 1.11.2026 | Rind und Schwein; Werte roh; die anderen gemischten Packungen bei REWE nennen keine Nährwerte |
 
 ## Öle und Fette
 
