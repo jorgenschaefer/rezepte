@@ -10,8 +10,7 @@ Koch wie ein guter Koch ein Gericht mit dem Kalorienziel: 600 kcal je Portion, w
 
 1. **Kandidaten:**
   - Schreib 20 nummerierte Hauptgerichte, die sich mit dem Vorrat kochen lassen.
-  - Jedes ist ein ganzer Teller, zum Beispiel „Mercimek mit Roggenvollkornbrot und Hirtensalat“.
-  - Sie unterscheiden sich deutlich in Gerichtsart, Küche und Hauptzutat.
+  - Sie unterscheiden sich deutlich in Gerichtsart und Hauptzutat.
   - Etwa die Hälfte hat Hülsenfrüchte als Eiweiß, zwei bis drei haben Fisch; schreib sie gemischt auf.
   - Jedes muss beim Kalorienziel aufgehen. Was es nur als ganze Portion gibt, nimmt seinen Teil der Energie: Ein Lachsfilet hat 305 kcal, bei 400 kcal bleibt daneben kaum etwas.
 2. **Losen:**
