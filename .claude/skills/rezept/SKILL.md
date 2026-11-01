@@ -26,7 +26,7 @@ Die Nährwerte der Zutaten findest du in `zutaten.md`.
 
 Rechne die Nährwerte mit `scripts/naehrwerte.mjs` aus den Zutatenmengen. Der Pfad gilt relativ zum Ordner dieses Skills, nicht zum Projektordner: `node .claude/skills/rezept/scripts/naehrwerte.mjs --kcal <Kalorienziel>`, bei mehreren Portionen dazu `--portionen <Anzahl>`, die Zutaten als Zeilen „Zutat | Gramm" auf stdin.
 
-Das Skript gibt zwei Tabellen aus. Die erste ist die Nährwerttabelle für das Rezept. Die zweite prüft das Rezept gegen die Grenzen aus `kochregeln.md` und gehört nicht in die Antwort. Steht dort „verfehlt“, ändere die Mengen und rechne neu. Lässt sich eine Regel nur einhalten, wenn etwas Wichtigeres nachgibt, lass sie verfehlt und sag es unter dem Rezept, wie `kochregeln.md` es verlangt.
+Das Skript gibt zwei Tabellen aus. Die erste ist die Nährwerttabelle für das Rezept. Die zweite prüft das Rezept gegen `kochregeln.md` und gehört nicht in die Antwort. Steht bei einer Grenze „verfehlt“, ändere die Mengen und rechne neu. Lässt sich eine Grenze nur einhalten, wenn etwas Wichtigeres nachgibt, lass sie verfehlt und sag es unter dem Rezept. Ein Richtwert, der „abweicht“, ist kein Grund, das Gericht umzubauen.
 
 # Adversarial Review
 
