@@ -191,7 +191,7 @@ export function formatiereTabelle(summe, portionen = 1) {
 
 // Die Zahlen aus Teil D von kochregeln.md, je 100 kcal des Kalorienziels. Ein
 // Gericht mit 400 kcal hat einen kleineren Anteil am Tag als eines mit
-// 600 kcal und damit auch ein kleineres Budget für Salz. Die Zahlen müssen mit
+// 600 kcal und damit auch ein kleineres Budget. Die Zahlen müssen mit
 // kochregeln.md übereinstimmen.
 //
 // Grenzen müssen halten. Richtwerte sind Orientierung: Wer sie bis an den Rand
@@ -200,8 +200,13 @@ export function formatiereTabelle(summe, portionen = 1) {
 export const GRENZEN_JE_100_KCAL = {
   obstGemueseMin: 40,
   gesaettigtMax: 1.1,
-  salzMax: 0.5,
 }
+
+// Salz ist die Ausnahme: Es gilt je Portion, nicht je 100 kcal. Wie salzig ein
+// Gericht schmeckt, hängt an der Menge Essen auf dem Teller, nicht an seinen
+// Kalorien. Mit einer Grenze je 100 kcal blieben einem kleinen Gericht mit
+// viel Gemüse in den Testläufen 0,3 g zum Salzen, und es schmeckte fad.
+export const SALZ_JE_PORTION_MAX = 3
 
 export const RICHTWERTE_JE_100_KCAL = {
   proteinMin: 4,
@@ -247,7 +252,7 @@ export function pruefe(summe, zielKcal = STANDARD_KCAL, portionen = 1) {
     },
     mindestens('Obst und Gemüse', 'Grenze', je(summe.obstGemuese), skaliere(g.obstGemueseMin)),
     hoechstens('davon gesättigte Fettsäuren', 'Grenze', je(summe.gesaettigt), skaliere(g.gesaettigtMax)),
-    hoechstens('Salz', 'Grenze', je(summe.salz), skaliere(g.salzMax)),
+    hoechstens('Salz', 'Grenze', je(summe.salz), SALZ_JE_PORTION_MAX),
     mindestens('Protein', 'Richtwert', je(summe.protein), skaliere(r.proteinMin)),
     hoechstens('Fett', 'Richtwert', je(summe.fett), skaliere(r.fettMax)),
     mindestens('Ballaststoffe', 'Richtwert', je(summe.ballaststoffe), skaliere(r.ballaststoffeMin)),

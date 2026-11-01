@@ -201,13 +201,21 @@ test('ohne Kalorienziel prüft die Rechnung gegen 600 kcal', () => {
 })
 
 test('die Grenzen schrumpfen mit dem Kalorienziel', () => {
+  const pruefung = pruefe(gericht({ kcal: 400, gesaettigt: 5 }), 400)
+
+  assert.equal(regel(pruefung, 'Obst und Gemüse').grenze, 'mindestens 160 g')
+  assert.equal(regel(pruefung, 'Protein').grenze, 'mindestens 16 g')
+  assert.equal(regel(pruefung, 'davon gesättigte Fettsäuren').grenze, 'höchstens 4,4 g')
+  assert.equal(regel(pruefung, 'davon gesättigte Fettsäuren').erfuellt, false)
+})
+
+// Ein kleines Gericht mit viel Gemüse braucht fast so viel Salz wie ein großes.
+test('Salz gilt je Portion, unabhängig vom Kalorienziel', () => {
   const salz = gericht({ kcal: 400, salz: 2.5 })
 
-  assert.equal(regel(pruefe(salz, 600), 'Salz').erfuellt, true)
-  assert.equal(regel(pruefe(salz, 400), 'Salz').grenze, 'höchstens 2 g')
-  assert.equal(regel(pruefe(salz, 400), 'Salz').erfuellt, false)
-  assert.equal(regel(pruefe(salz, 400), 'Obst und Gemüse').grenze, 'mindestens 160 g')
-  assert.equal(regel(pruefe(salz, 400), 'Protein').grenze, 'mindestens 16 g')
+  assert.equal(regel(pruefe(salz, 400), 'Salz').grenze, 'höchstens 3 g')
+  assert.equal(regel(pruefe(salz, 400), 'Salz').erfuellt, true)
+  assert.equal(regel(pruefe(gericht({ kcal: 800, salz: 3.1 }), 800), 'Salz').erfuellt, false)
 })
 
 test('die Energie darf um 5 % vom Ziel abweichen, nicht mehr', () => {
