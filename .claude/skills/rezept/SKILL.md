@@ -37,3 +37,6 @@ Koch wie ein guter Koch ein Gericht mit dem Kalorienziel: 600 kcal je Portion, w
 - **Nährwerte pro Portion:** die Tabelle aus dem Skript, unverändert, ohne die Zeile zum Kalorienziel.
 - **Zutatenliste:** Mengen in Gramm oder haushaltsüblichen Maßen.
 - **Zubereitung:** nummerierte Schritte in der Reihenfolge, in der gehandelt wird. Wo eine Zutat zum ersten Mal vorkommt, steht ihre Menge dabei: „1 TL Rapsöl in der Pfanne erhitzen“, nicht „Rapsöl in der Pfanne erhitzen“. Das gilt auch für Gewürze und Salz; nie „nach Geschmack“.
+  - Ein Handgriff pro Schritt, damit man beim Kochen sieht, wo man ist.
+  - Jeder Schritt nennt seine Zeit selbst: „Den Tofu 7½ Minuten braten“, nicht „in den letzten 30 Sekunden“, wenn sich das auf einen früheren Schritt bezieht.
+  - Laufen zwei Gefäße gleichzeitig, beginnt jeder Schritt mit seinem Gefäß: „**Topf:** 40 g Fusilli ins kochende Wasser geben“, „**Pfanne:** die Zwiebel dazugeben“. Die Schritte bleiben in einer Liste, in der Reihenfolge, in der gehandelt wird.
