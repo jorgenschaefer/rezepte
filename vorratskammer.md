@@ -63,9 +63,9 @@ Frisch und zu verbrauchen.
 
 ## Küchenschrank
 
-- Mais, Dose (140 g; nur als ganze Dose verwenden)
-- Kidneybohnen (400 g; nur als ganze Dose verwenden)
-- Schwarze Bohnen (400 g; nur als ganze Dose verwenden)
+- Mais, Dose (abgetropft 140 g; nur als ganze Dose verwenden)
+- Kidneybohnen (abgetropft 255 g; nur als ganze Dose verwenden)
+- Schwarze Bohnen (abgetropft 265 g; nur als ganze Dose verwenden)
 - Braune Linsen (abgetropft 265 g; nur als ganze Dose verwenden)
 - Passierte Tomaten (500 g; nur als ganze oder halbe Packung verwenden; wenn du die halbe Packung nutzt, sollten es entweder zwei Portionen werden oder der nächste Tag muss den Rest aufbrauchen)
 

@@ -46,7 +46,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 | REWE Beste Wahl Braune Linsen 265g | Braune Linsen | Dose, abgetropft 265 g (REWE Beste Wahl) | 82 | 5,8 g | 4,9 g | 11 g | 0,5 g | 0 | 0,4 g | Etikett 1.11.2026 | gegart aus der Dose, Werte abgetropft; kcal, Protein und Ballaststoffe vom Etikett |
 | Kichererbsen, Dose | Kichererbsen, Dose | 400 g, abgetropft 265 g (Bonduelle, REWE Bio 215 g) | 120 | 7 g | 5,5 g | 15 g | 2,2 g | 0,2 g | 0,6 g | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier |
 | ja! Kidney-Bohnen rot 255g | Kidneybohnen | 400 g, abgetropft 255–265 g (ja!, REWE Bio, Bonduelle) | 95 | 6,9 g | 6,5 g | 12 g | 0,7 g | 0 | 0,27 g | Etikett 20.9.2026 | Abtropfgewicht 255 g |
-| REWE Beste Wahl Schwarze Bohnen 400g | Schwarze Bohnen | 400 g, abgetropft ca. 240 g (REWE Beste Wahl) | 100 | 7 g | 7 g | 9,5 g | 1,2 g | 0,2 g | 0,3 g | Katalog | im Lieferservice nicht gelistet |
+| REWE Beste Wahl Schwarze Bohnen 400g | Schwarze Bohnen | 400 g, abgetropft 265 g (REWE Beste Wahl) | 89 | 7,3 g | 5,7 g | 9,5 g | 1,2 g | 0,2 g | 0,3 g | Etikett 9.11.2026 | kcal, Protein und Ballaststoffe vom Etikett; Abtropfgewicht 265 g |
 | REWE Bio pflanzlich Tofu Natur 2x200g | Tofu natur | 2 × 200 g (REWE Bio, Berief), 200 g (Taifun) | 146 | 15 g | 1 g | 1,8 g | 8,5 g | 1,3 g | 0,03 g | Etikett 20.9.2026 | |
 | REWE Bio pflanzlich Räucher-Tofu 2x175g | Räuchertofu | 200 g (Taifun), 2 × 175 g (REWE Bio) | 188 | 20,7 g | 2,5 g | 1,3 g | 10,6 g | 1,8 g | 0,85 g | Etikett 20.9.2026 | |
 | Tempeh | Tempeh | 200 g (REWE Bio) | 170 | 19 g | 6 g | 3,2 g | 9 g | 1,3 g | 0 | Katalog | nicht im Vorrat; steht für den Eval-Fall zwei-listen-im-ordner hier |
