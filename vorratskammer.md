@@ -2,7 +2,7 @@
 
 Folgende Zutaten habe ich daheim. Beachte die Kommentare.
 
-## Mustgo
+## Neu
 
 Frisch und zu verbrauchen.
 
@@ -10,6 +10,12 @@ Frisch und zu verbrauchen.
 - Champignons
 - Tomaten
 - Cherrytomaten
+- Staudensellerie
+- Porree
+- Eisbergsalat
+
+- Vollkorn-Tortillas
+- Grana Padano
 
 ## Kühlschrank
 
@@ -60,6 +66,7 @@ Frisch und zu verbrauchen.
 - Mais, Dose (140 g; nur als ganze Dose verwenden)
 - Kidneybohnen (400 g; nur als ganze Dose verwenden)
 - Schwarze Bohnen (400 g; nur als ganze Dose verwenden)
+- Braune Linsen (abgetropft 265 g; nur als ganze Dose verwenden)
 - Passierte Tomaten (500 g; nur als ganze oder halbe Packung verwenden; wenn du die halbe Packung nutzt, sollten es entweder zwei Portionen werden oder der nächste Tag muss den Rest aufbrauchen)
 
 - Soja-Granulat
@@ -95,14 +102,17 @@ Frisch und zu verbrauchen.
 - Italienische Kräuter
 - Knoblauch, granuliert
 - Koriander gemahlen
+- Kräuter der Provence
 - Kreuzkümmel
 - Kurkuma
+- Lorbeerblätter
+- Majoran
 - Oregano
-- Paprika Rosenscharf
-- Paprika Edelsüß
+- Paprika edelsüß
+- Paprika geräuchert
+- Paprika rosenscharf
 - Pfeffer, schwarz
 - Pfeffer, weiß
-- Kräuter der Provence
 - Rosmarin
 - Thymian
 - Zimt
