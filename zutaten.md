@@ -74,7 +74,7 @@ Die Spalte „O/G" steht in den Abschnitten, die Obst und Gemüse führen, und *
 
 | Zutat | Kurzform | REWE-Packung | kcal | Protein | Ballaststoffe | Kohlenhydrate | Fett | ges. FS | Salz | O/G | Quelle | Einheit / Hinweis |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ja! Kaisergemüse 1kg | Kaisergemüse | 1 kg (ja!) | 38 | 2,4 g | 2,1 g | 5 g | 0,5 g | 0,1 g | 0,04 g | ja | Etikett 20.9.2026 | |
+| ja! Kaisergemüse 1kg | Kaisergemüse | 1 kg (ja!) | 38 | 2,4 g | 2,1 g | 5 g | 0,5 g | 0,1 g | 0,04 g | ja | Etikett 20.9.2026 | 3 Sorten: Karottenscheiben, Blumenkohl, Broccoli; REWE nennt keine Anteile |
 | REWE Bio Blattspinat 600g | Blattspinat, TK; Blattspinat | 600 g (REWE Bio), 500 g (Iglo) | 17 | 2,5 g | 2 g | 0,6 g | 0,1 g | 0 | 0,05 g | ja | Etikett 20.9.2026 | Werte von REWE Bio |
 | REWE Beste Wahl Wok-Mix 750g | Wok-Mix | 750 g (REWE Beste Wahl) | 45 | 3 g | 2,5 g | 5,8 g | 0,5 g | 0 | 0,03 g | ja | Etikett 20.9.2026 | 10 Sorten: Mungobohnenkeime 26 %, Kaiserschoten, Porree, Möhren, Erbsen, Bambus, Black Fungus, Wirsing, Pastinake, Paprika; ohne Öl und Sauce |
 | Frosta Gemüse-Mix Italienische Küche 600g | Gemüse-Mix Italienisch; Gemüse-Mix Italienische Küche | 600 g (Frosta) | 30 | 1,5 g | 2,3 g | 4,1 g | 0,3 g | 0,1 g | 0,04 g | ja | Etikett 20.9.2026 | ungewürzt |
