@@ -40,7 +40,7 @@ Frisch und zu verbrauchen.
 
 - Räuchertofu (2×175 g; nur als ganze 175-g-Portion verwenden)
 - Tofu natur (2×200 g; nur als ganze 200-g-Portion verwenden)
-- Naturjoghurt 1,5 %
+- Naturjoghurt 1,5 % (nur wenn unbedingt nötig, wird eigentlich für das Frühstück genutzt)
 - Magerquark (nicht als zufällige Proteinquelle für ein Rezept wählen)
 - Grünländer Leicht
 - Butter-Rapsöl-Mischung
