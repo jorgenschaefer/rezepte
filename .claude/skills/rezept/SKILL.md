@@ -18,7 +18,7 @@ Koch wie ein guter Koch ein Gericht mit dem Kalorienziel: 600 kcal je Portion, w
 2. **Losen:**
   - Zieh eine Zufallszahl mit `shuf -i 1-21 -n 1` und koch dieses Gericht.
 3. **Planen:**
-  - Plane den Teller von der Energie her: erst feste Portionen und Eiweiß, dann Stärke und Öl, mit dem Rest Gemüse.
+  - Plane den Teller von der Energie her: erst feste Portionen, dann reichlich Obst und Gemüse, dann Öl. Den Rest füllst du mit Getreide auf.
   - Rechne den Plan mit dem Skript und ändere die Mengen, bis die Energie passt.
   - Änderst du eine Menge, pass an, was daran hängt: Kochwasser, Öl, Gewürze.
 4. **Schreiben:**
